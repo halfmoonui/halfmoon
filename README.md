@@ -10,7 +10,7 @@ Halfmoon is a front-end framework with a built-in dark mode, designed for rapidl
 
 ## License
 
-Licensed under MIT
+Licensed under MIT  
 [https://www.gethalfmoon.com/license](https://www.gethalfmoon.com/license)
 
 ---
