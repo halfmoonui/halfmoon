@@ -6,12 +6,12 @@ Halfmoon is a front-end framework with a built-in dark mode, designed for rapidl
 
 ## Documentation
 
-[https://www.gethalfmoon/docs/](https://www.gethalfmoon/docs/)
+[https://www.gethalfmoon.com/docs](https://www.gethalfmoon.com/docs)
 
 ## License
 
 Licensed under MIT
-[https://www.gethalfmoon/license/](https://www.gethalfmoon/license/)
+[https://www.gethalfmoon.com/license](https://www.gethalfmoon.com/license)
 
 ---
 Copyright 2020, Halfmoon UI
