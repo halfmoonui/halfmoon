@@ -1,4 +1,6 @@
-# Halfmoon - Front-end framework with a built-in dark mode, designed for rapidly building beautiful dashboards and product pages
+# Halfmoon
+
+## Front-end framework with a built-in dark mode, designed for rapidly building beautiful dashboards and product pages
 
 ![Halfmoon Banner](https://res.cloudinary.com/halfmoon-ui/image/upload/v1593528979/halfmoon-og-image_zl1bob.png)
 
