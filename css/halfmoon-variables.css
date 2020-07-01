@@ -1,7 +1,7 @@
 /*
 * -----------------------------------------------------------------------------
 * Halfmoon CSS (Variables file)
-* Version: 1.0.0
+* Version: 1.0.1
 * https://www.gethalfmoon.com
 * Copyright, Halfmoon UI
 * Licensed under MIT (https://www.gethalfmoon.com/license)
@@ -5436,6 +5436,7 @@ textarea.form-control {
     max-width: 100%;
     min-height: 10rem;
     padding: 0.8rem;
+    line-height: 1.5;
 }
 textarea.form-control-sm {
     min-height: 8rem;
