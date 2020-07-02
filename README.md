@@ -24,7 +24,7 @@ The quickest way to get started with Halfmoon is by using the CDN to include the
 
 ## Where to next
 
-we recommend checking out the [page building](https://www.gethalfmoon.com/docs/page-building/) section of the docs, which breaks down the basics of building pages. Otherwise, you can jump right into the [starter template generator](https://www.gethalfmoon.com/docs/page-building/#starter-template-generator), which lets you generate boilerplates for your project.
+We recommend checking out the [page building](https://www.gethalfmoon.com/docs/page-building/) section of the docs, which breaks down the basics of building pages. Otherwise, you can jump right into the [starter template generator](https://www.gethalfmoon.com/docs/page-building/#starter-template-generator), which lets you generate boilerplates for your project.
 
 ## License
 
