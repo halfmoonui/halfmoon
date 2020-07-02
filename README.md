@@ -7,6 +7,7 @@
 - **Optional JS library**—Many of the components found in Halfmoon are built to work without JavaScript. However, the framework still comes with a powerful JavaScript library  with no extra dependencies, such as jQuery.
 - **Bootstrap like classes**—The class names should be instantly familiar to anyone who has used Bootstrap.
 - **Cross-browser compatibility**—Fully supports almost all the browsers under the sun, including really old ones like Internet Explorer 11.
+- **Easily customizable**—The repo also contains a variables file (`halfmoon-variables.css`) where custom CSS properties (variables) are used in the code for things like colors, layout properties, etc. This makes it extremely easy to customize Halfmoon to your liking, as the use of modern CSS variables means that things like pre-processors are not needed.
 
 To learn more, go to [the documentation](https://www.gethalfmoon.com/docs/introduction/).
 
