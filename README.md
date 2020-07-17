@@ -17,10 +17,10 @@ The quickest way to get started with Halfmoon is by using the CDN to include the
 
 ```html
 <!-- Halfmoon CSS -->
-<link href="https://cdn.jsdelivr.net/gh/halfmoonui/halfmoon@1.0.1/css/halfmoon.min.css" rel="stylesheet" />
+<link href="https://cdn.jsdelivr.net/gh/halfmoonui/halfmoon@1.0.2/css/halfmoon.min.css" rel="stylesheet" />
 
 <!-- Halfmoon JS -->
-<script src="https://cdn.jsdelivr.net/gh/halfmoonui/halfmoon@1.0.1/js/halfmoon.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/halfmoonui/halfmoon@1.0.2/js/halfmoon.min.js"></script>
 ```
 
 ## Starter template generator
