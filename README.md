@@ -39,7 +39,7 @@ require("halfmoon/css/halfmoon.min.css");
 var halfmoon = require("halfmoon");
 ```
 
-Please note that this method requires manual initialization, that is, after the DOM is loaded, the following method needs to be called:
+Please note that manual initialization is required for some components, that is, after the DOM is loaded, the following method needs to be called:
 
 ```javascript
 // Call this method after the DOM has been loaded
