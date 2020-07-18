@@ -17,11 +17,38 @@ The quickest way to get started with Halfmoon is by using the CDN to include the
 
 ```html
 <!-- Halfmoon CSS -->
-<link href="https://cdn.jsdelivr.net/gh/halfmoonui/halfmoon@1.0.2/css/halfmoon.min.css" rel="stylesheet" />
+<link href="https://cdn.jsdelivr.net/gh/halfmoonui/halfmoon@1.0.3/css/halfmoon.min.css" rel="stylesheet" />
 
 <!-- Halfmoon JS -->
-<script src="https://cdn.jsdelivr.net/gh/halfmoonui/halfmoon@1.0.2/js/halfmoon.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/halfmoonui/halfmoon@1.0.3/js/halfmoon.min.js"></script>
 ```
+
+## Using npm
+
+```
+npm install halfmoon
+```
+
+After installation, the required CSS and JS file can be imported in the following way:
+
+```javascript
+// Include CSS file
+require("halfmoon/css/halfmoon.min.css");
+
+// Import JS library
+var halfmoon = require("halfmoon");
+```
+
+Please note that this method requires manual initialization, that is, after the DOM is loaded, the following method needs to be called:
+
+```javascript
+// Call this method after the DOM has been loaded
+halfmoon.onDOMContentLoaded();
+```
+
+This initializes all of the components that require JavaScript, such as dropdowns,, custom file inputs, shortcuts, etc. 
+
+In this way, Halfmoon can be used with frameworks that use the virtual DOM, such as React and Vue. For instance, in the case of Vue, the `halfmoon.onDOMContentLoaded()` method would be called inside the `mounted()` hook of your component.
 
 ## Starter template generator
 
