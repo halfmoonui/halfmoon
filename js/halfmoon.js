@@ -1,7 +1,7 @@
 /*
 * -----------------------------------------------------------------------------
 * Halfmoon JS
-* Version: 1.0.2
+* Version: 1.0.3
 * https://www.gethalfmoon.com
 * Copyright, Halfmoon UI
 * Licensed under MIT (https://www.gethalfmoon.com/license)
@@ -228,7 +228,7 @@ var halfmoon = {
 
 /* Things done once the DOM is loaded */
 
-document.addEventListener("DOMContentLoaded", function() {
+function halfmoonOnDOMContentLoaded() {
     // Handle the cookie and variable for dark mode
     // 1. First preference is given to the cookie if it exists
     if (halfmoon.readCookie("darkModeOn")) {
@@ -245,7 +245,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 halfmoon.darkModeOn = "no";
             }
         }
-        // 4. Set the cookie where the variable being the value
+        // 4. Set the cookie where the variable is the value
         halfmoon.createCookie("darkModeOn", halfmoon.darkModeOn, 365);
     }
 
@@ -483,4 +483,7 @@ document.addEventListener("DOMContentLoaded", function() {
     if (halfmoon.pageWrapper) {
         halfmoon.pageWrapper.classList.add("with-transitions");
     }
-});
+}
+
+// Call the function when the DOM is loaded
+document.addEventListener("DOMContentLoaded", halfmoonOnDOMContentLoaded);
