@@ -46,7 +46,7 @@ Please note that this method requires manual initialization, that is, after the 
 halfmoon.onDOMContentLoaded();
 ```
 
-This initializes all of the components that require JavaScript, such as dropdowns,, custom file inputs, shortcuts, etc. 
+This initializes all of the components that require JavaScript, such as dropdowns, custom file inputs, shortcuts, etc. 
 
 In this way, Halfmoon can be used with frameworks that use the virtual DOM, such as React and Vue. For instance, in the case of Vue, the `halfmoon.onDOMContentLoaded()` method would be called inside the `mounted()` hook of your component.
 
