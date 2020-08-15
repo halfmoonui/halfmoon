@@ -48,37 +48,145 @@
           1. https://www.gethalfmoon.com/docs/content-and-cards/#building-a-page
           2. https://www.gethalfmoon.com/docs/grid-system/#building-a-dashboard
         -->
-        <div class="w-full h-full d-flex align-items-center justify-content-center">
-          <div class="content">
-            <h1 class="content-title">Halfmoon starter template</h1>
-            <div>
-              <a href="https://www.gethalfmoon.com" class="btn btn-link px-0">Halfmoon website</a>
-            </div>
-            <div>
-              <a href="https://www.gethalfmoon.com/docs" class="btn btn-link px-0">Halfmoon docs</a>
-            </div>
-            <div>  
-              <a href="https://www.gethalfmoon.com/docs/page-building/#starter-template-generator" class="btn btn-link px-0">Starter template generator</a>
-            </div>
-            <div class="mt-20">
-              Toggles:
-              <button class="btn btn-sm" type="button" onclick="halfmoon.toggleDarkMode()">Dark mode</button>
-              <button class="btn btn-sm" type="button" onclick="halfmoon.toggleSidebar()">Sidebar</button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- Content wrapper end -->
+			<div class="container-fluid">
 
-      <!-- Navbar fixed bottom start -->
-      <nav class="navbar navbar-fixed-bottom">
-        <!-- Reference: https://www.gethalfmoon.com/docs/navbar#navbar-fixed-bottom -->
-      </nav>
-      <!-- Navbar fixed bottom end -->
-    </div>
-    <!-- Page wrapper end -->
+				<div class="content">
+					<h1 class="content-title">Halfmoon starter template</h1>
+					<div>
+						<a href="https://www.gethalfmoon.com" class="btn btn-link px-0">Halfmoon website</a>
+					</div>
+					<div>
+						<a href="https://www.gethalfmoon.com/docs" class="btn btn-link px-0">Halfmoon docs</a>
+					</div>
+					<div>
+						<a href="https://www.gethalfmoon.com/docs/page-building/#starter-template-generator" class="btn btn-link px-0">Starter template generator</a>
+					</div>
+					<div class="mt-20">
+						Toggles:
+						<button class="btn btn-sm" type="button" onclick="halfmoon.toggleDarkMode()">Dark mode</button>
+						<button class="btn btn-sm" type="button" onclick="halfmoon.toggleSidebar()">Sidebar</button>
+					</div>
 
-    <!-- Halfmoon JS -->
-    <script src="js/halfmoon.min.js"></script>
-  </body>
-</html>
+					<!-- Content -->
+					<div class="row">
+
+
+						<div class="card">
+							<h2 class="card-title">
+								Progress Bars
+							</h2>
+							<div>
+								<p>Progress bars are implemented almost identically to Bootstrap. The primary difference being a dynamic Dark Mode background for the progress element</p>
+								Percentage Complete
+								<div class="progress">
+									<div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+								</div>
+								<br>
+								<div class="progress">
+									<div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+								</div>
+								<br>
+								<div class="progress">
+									<div class="progress-bar" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+								</div>
+								<br>
+								<div class="progress">
+									<div class="progress-bar" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+								</div>
+								<br>
+								<div class="progress">
+									<div class="progress-bar" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+								</div>
+
+								<hr class="mb-20">
+								Labels
+								<div class="progress">
+									<div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
+								</div>
+
+								<hr class="mb-20">
+								Height
+								<div class="progress" style="height: 1px;">
+									<div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+								</div>
+								<br>
+								<div class="progress" style="height: 20px;">
+									<div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+								</div>
+
+								<hr class="mb-20">
+								Colors
+								<div class="progress">
+									<div class="progress-bar bg-success" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+								</div>
+								<br>
+								<div class="progress">
+									<div class="progress-bar bg-info" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+								</div>
+								<br>
+								<div class="progress">
+									<div class="progress-bar bg-secondary" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+								</div>
+								<br>
+								<div class="progress">
+									<div class="progress-bar bg-danger" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+								</div>
+
+								<hr class="mb-20">
+								Multiple Stacked Bars
+								<div class="progress">
+									<div class="progress-bar" role="progressbar" style="width: 15%" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100"></div>
+									<div class="progress-bar bg-success" role="progressbar" style="width: 30%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
+									<div class="progress-bar bg-info" role="progressbar" style="width: 20%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
+								</div>
+
+
+
+								<hr class="mb-20">
+								Striped
+
+								<div class="progress">
+									<div class="progress-bar progress-bar-striped bg-success" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+								</div>
+								<br>
+								<div class="progress">
+									<div class="progress-bar progress-bar-striped bg-info" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+								</div>
+								<br>
+								<div class="progress">
+									<div class="progress-bar progress-bar-striped bg-secondary" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+								</div>
+								<br>
+								<div class="progress">
+									<div class="progress-bar progress-bar-striped bg-danger" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+								</div>
+
+
+
+								<hr class="mb-20">
+								Animated Stripes
+								<div class="progress">
+									<div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%"></div>
+								</div>
+
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Content wrapper end -->
+
+		<!-- Navbar fixed bottom start -->
+		<nav class="navbar navbar-fixed-bottom">
+			<!-- Reference: https://www.gethalfmoon.com/docs/navbar#navbar-fixed-bottom -->
+		</nav>
+		<!-- Navbar fixed bottom end -->
+	</div>
+	<!-- Page wrapper end -->
+
+	<!-- Halfmoon JS -->
+	<!-- <script src="js/halfmoon.min.js"></script> -->
+	<script src="js/halfmoon.js"></script>
+</body></html>
