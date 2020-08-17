@@ -1,7 +1,7 @@
 /*
 * -----------------------------------------------------------------------------
 * Halfmoon JS
-* Version: 1.0.3
+* Version: 1.0.4
 * https://www.gethalfmoon.com
 * Copyright, Halfmoon UI
 * Licensed under MIT (https://www.gethalfmoon.com/license)
@@ -38,9 +38,11 @@ if (!Element.prototype.closest) {
 
 var halfmoon = {
     // Getting the required elements
+    // Re-initialized once the DOM is loaded (to avoid issues with virtual DOM)
     pageWrapper: document.getElementsByClassName("page-wrapper")[0],
     stickyAlerts: document.getElementsByClassName("sticky-alerts")[0],
-    darkModeOn: "no", // Re-initialized once the DOM is loaded (see below)
+
+    darkModeOn: "no", // Also re-initialized once the DOM is loaded (see below)
 
     // Create cookie
     createCookie: function(name, value, days) {
@@ -229,6 +231,14 @@ var halfmoon = {
 /* Things done once the DOM is loaded */
 
 function halfmoonOnDOMContentLoaded() {
+    // Re-initializing the required elements (to avoid issues with virtual DOM)
+    if (!halfmoon.pageWrapper) {
+        halfmoon.pageWrapper = document.getElementsByClassName("page-wrapper")[0];
+    }
+    if (!halfmoon.stickyAlerts) {
+        halfmoon.stickyAlerts = document.getElementsByClassName("sticky-alerts")[0];
+    }
+
     // Handle the cookie and variable for dark mode
     // 1. First preference is given to the cookie if it exists
     if (halfmoon.readCookie("darkModeOn")) {
