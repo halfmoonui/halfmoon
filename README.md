@@ -50,6 +50,24 @@ This initializes all of the components that require JavaScript, such as dropdown
 
 In this way, Halfmoon can be used with frameworks that use the virtual DOM, such as React and Vue. For instance, in the case of Vue, the `halfmoon.onDOMContentLoaded()` method would be called inside the `mounted()` hook of your component.
 
+## Using React
+
+When using React, calling the halfmoon methods like `toggleSidebar`, we need to call them using a way that binds the correct context. There are two ways to do this:
+
+1.  Using an anonymous method: 
+
+    ```html
+    <button className="btn btn-action" type="button" onClick={() => halfmoon.toggleSidebar()}>
+    ```
+
+2.  Using `bind`:
+
+    ```html
+    <button className="btn btn-action" type="button" onClick={halfmoon.toggleSidebar.bind(halfmoon)}>
+    ```
+
+You can find more details in the [React documentation](https://reactjs.org/docs/faq-functions.html#why-is-binding-necessary-at-all)
+
 ## Starter template generator
 
 You can use the [starter template generator](https://www.gethalfmoon.com/docs/page-building/#starter-template-generator) to generate boilerplates for your project. The generator takes your settings and adds the appropriate classes and defines the required containers and elements.
