@@ -52,21 +52,21 @@ In this way, Halfmoon can be used with frameworks that use the virtual DOM, such
 
 ## Using React
 
-When using React, calling the halfmoon methods like `toggleSidebar`, we need to call them using a way that binds the correct context. There are two ways to do this:
+If you are using React to call the built-in methods, such as `halfmoon.toggleSidebar()`, please make sure the call is made in a way that binds the correct context. There are two ways to do this:
 
 1.  Using an anonymous method: 
 
     ```html
-    <button className="btn btn-action" type="button" onClick={() => halfmoon.toggleSidebar()}>
+    <button className="btn" type="button" onClick={() => halfmoon.toggleSidebar()}>
     ```
 
 2.  Using `bind`:
 
     ```html
-    <button className="btn btn-action" type="button" onClick={halfmoon.toggleSidebar.bind(halfmoon)}>
+    <button className="btn" type="button" onClick={halfmoon.toggleSidebar.bind(halfmoon)}>
     ```
 
-You can find more details in the [React documentation](https://reactjs.org/docs/faq-functions.html#why-is-binding-necessary-at-all)
+You can find more details in the [React documentation](https://reactjs.org/docs/faq-functions.html#why-is-binding-necessary-at-all).
 
 ## Starter template generator
 
