@@ -1,7 +1,7 @@
 /*
 * -----------------------------------------------------------------------------
 * Halfmoon CSS
-* Version: 1.0.4
+* Version: 1.0.5
 * https://www.gethalfmoon.com
 * Copyright, Halfmoon UI
 * Licensed under MIT (https://www.gethalfmoon.com/license)
@@ -983,13 +983,13 @@ body {
 .page-wrapper.with-transitions.with-sidebar[data-sidebar-type~="full-height"] > .navbar:not(.navbar-fixed-bottom),
 .page-wrapper.with-transitions.with-sidebar[data-sidebar-type~="full-height"] > .navbar.navbar-fixed-bottom,
 .page-wrapper.with-transitions.with-sidebar[data-sidebar-type~="overlayed-all"] > .sidebar {
-    -webkit-transition: all .4s cubic-bezier(.25, .8, .25, 1);
-    transition: all .4s cubic-bezier(.25, .8, .25, 1);
+    -webkit-transition: all .4s cubic-bezier(.25, .8, .25, 1), background-color 0s, color 0s;
+    transition: all .4s cubic-bezier(.25, .8, .25, 1), background-color 0s, color 0s;
 }
 @media (max-width: 768px) {
     .page-wrapper.with-transitions.with-sidebar[data-sidebar-type~="overlayed-sm-and-down"] > .sidebar {
-        -webkit-transition: all .4s cubic-bezier(.25, .8, .25, 1);
-        transition: all .4s cubic-bezier(.25, .8, .25, 1);
+        -webkit-transition: all .4s cubic-bezier(.25, .8, .25, 1), background-color 0s, color 0s;
+        transition: all .4s cubic-bezier(.25, .8, .25, 1), background-color 0s, color 0s;
     }
 }
 
@@ -7538,8 +7538,8 @@ select.form-control[multiple] > option:disabled {
     height: 100%;
     overflow: auto;
     background-color: rgba(0, 0, 0, 0.8);
-    -webkit-transition: all .4s cubic-bezier(.25, .8, .25, 1);
-    transition: all .4s cubic-bezier(.25, .8, .25, 1);
+    -webkit-transition: all .4s cubic-bezier(.25, .8, .25, 1), background-color 0s, color 0s;
+    transition: all .4s cubic-bezier(.25, .8, .25, 1), background-color 0s, color 0s;
     z-index: 99;
     outline: none;
 }
@@ -7625,8 +7625,8 @@ select.form-control[multiple] > option:disabled {
     left: 1rem;
     z-index: 10;
     padding: 0;
-    -webkit-transition: all .4s cubic-bezier(.25, .8, .25, 1);
-    transition: all .4s cubic-bezier(.25, .8, .25, 1);
+    -webkit-transition: all .4s cubic-bezier(.25, .8, .25, 1), background-color 0s, color 0s;
+    transition: all .4s cubic-bezier(.25, .8, .25, 1), background-color 0s, color 0s;
     font-size: 2rem;
     width: 4rem;
     height: 4rem;
@@ -7758,8 +7758,8 @@ select.form-control[multiple] > option:disabled {
 }
 .sticky-alerts .alert.show {
     right: 0;
-    -webkit-transition: all .4s cubic-bezier(.25, .8, .25, 1);
-    transition: all .4s cubic-bezier(.25, .8, .25, 1);
+    -webkit-transition: all .4s cubic-bezier(.25, .8, .25, 1), background-color 0s, color 0s;
+    transition: all .4s cubic-bezier(.25, .8, .25, 1), background-color 0s, color 0s;
 }
 .sticky-alerts .alert.fade {
     visibility: hidden;
