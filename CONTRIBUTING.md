@@ -6,12 +6,12 @@ Please read this short document if you want to contribute to Halfmoon.
 
 Before getting to the issues and pull requests, it is important to understand what the framework is trying to do.
 
-Halfmoon's stated goal is really simple - create a frontend framework that is customizable, has a built-in dark mode, and is great for building dashboards and tools. However, there are other goals that are more implicit:
+Halfmoon's stated goal is really simple - create a customizable frontend framework, has a built-in dark mode, and is great for building dashboards and tools. However, other goals are more implicit:
 
-- Every thing has to be **super functional and snappy**. Ideally that means no performance issues, and just consistently good execution. 
-- Every thing has to **look good** as well, and have a **single consistent style**.
+- Everything has to be **super functional and snappy**. Ideally, that means no performance issues and just consistently good execution. 
+- Everything has to **look good** as well, and have a **single consistent style**.
 
-The most important thing here is building a **really good (looking) framework that works really well**, and that should always be the top priority.
+The most important thing here is building a **really good (looking) framework that works very well**, and that should always be the top priority.
 
 ## Issues
 
@@ -25,7 +25,7 @@ Please keep the following things in mind when raising issues:
 
 **Please ask first** before you put in work for a pull request. Things are constantly being worked on, and it is very difficult to share everything publicly in a meaningful way. So asking lets us avoid working on the same thing, or worse, someone putting in a lot of work for a PR that does not fit into the scope of the project. Please do not take this the wrong way; at this stage, the project needs strong leadership to become something special.
 
-The best way to ask is through email: [hey.halfmoon@gmail.com](mailto:hey.halfmoon@gmail.com). I am always open to have proper discussions about the framework, especially when it comes to contributions and pull requests. 
+The best way to ask is through email: [hey.halfmoon@gmail.com](mailto:hey.halfmoon@gmail.com). I am always open to proper discussions about the framework, especially when it comes to contributions and pull requests. 
 
 ## License
 
