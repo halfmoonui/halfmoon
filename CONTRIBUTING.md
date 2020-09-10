@@ -6,7 +6,7 @@ Please read this short document if you want to contribute to Halfmoon.
 
 Before getting to the issues and pull requests, it is important to understand what the framework is trying to do.
 
-Halfmoon's stated goal is really simple - create a customizable frontend framework, has a built-in dark mode, and is great for building dashboards and tools. However, other goals are more implicit:
+Halfmoon's stated goal is really simple - create a customizable frontend framework, with a built-in dark mode, that is brilliant for building dashboards and tools. However, our other goals are more implicit:
 
 - Everything has to be **super functional and snappy**. Ideally, that means no performance issues and just consistently good execution. 
 - Everything has to **look good** as well, and have a **single consistent style**.
