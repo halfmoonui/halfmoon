@@ -1,69 +1,70 @@
 /*
-* -----------------------------------------------------------------------------
-* Halfmoon CSS
-* Version: 1.0.4
-* https://www.gethalfmoon.com
-* Copyright, Halfmoon UI
-* Licensed under MIT (https://www.gethalfmoon.com/license)
-* -----------------------------------------------------------------------------
-* The above notice must be included in its entirety when this file is used.
-*
-* Table of contents:
-*   1.  Base styles --------------------------------------------------- [hm-01]
-*   2.  Typography ---------------------------------------------------- [hm-02]
-*   3.  Scrollbars ---------------------------------------------------- [hm-03]
-*   4.  Layout -------------------------------------------------------- [hm-04]
-*   5.  Page building (containers, columns, content and card) --------- [hm-05]
-*   6.  Links --------------------------------------------------------- [hm-06]
-*   7.  Buttons ------------------------------------------------------- [hm-07]
-*   8.  List ---------------------------------------------------------- [hm-08]
-*   9.  Code ---------------------------------------------------------- [hm-09]
-*   10. Tables -------------------------------------------------------- [hm-10]
-*   11. Form elements ------------------------------------------------- [hm-11]
-*   12. Dropdown ------------------------------------------------------ [hm-12]
-*   13. Modal --------------------------------------------------------- [hm-13]
-*   14. Alerts -------------------------------------------------------- [hm-14]
-*   15. Navbar content ------------------------------------------------ [hm-15]
-*   16. Sidebar content ----------------------------------------------- [hm-16]
-*   17. Pagination ---------------------------------------------------- [hm-17]
-*   18. Breadcrumb ---------------------------------------------------- [hm-18]
-*   19. Tooltips ------------------------------------------------------ [hm-19]
-*   20. Badges -------------------------------------------------------- [hm-20]
-*   21. Image --------------------------------------------------------- [hm-21]
-*   22. Spacing utilities --------------------------------------------- [hm-22]
-*   23. Display utilities --------------------------------------------- [hm-23]
-*   24. Sizing utilities ---------------------------------------------- [hm-24]
-*   25. Flex utilities ------------------------------------------------ [hm-25]
-*   26. Other utilities ----------------------------------------------- [hm-26]
-*/
+-------------------------------------------------------------------------------
+Halfmoon CSS
+Version: 1.1.0
+https://www.gethalfmoon.com
+Copyright, Halfmoon UI
+Licensed under MIT (https://www.gethalfmoon.com/license)
+-------------------------------------------------------------------------------
+The above notice must be included in its entirety when this file is used.
 
-/*
-* Credits:
-*   Bootstrap and its contributors for class names and inspiration. Moreover, 
-*   the containers, grid system and the flex utilities found in Halfmoon CSS 
-*   are almost direct copies of the ones found in Bootstrap. Therefore, the 
-*   following copyright notice is provided:
-*   ---------------------------------------------------------------------------
-*   Bootstrap v4.5.0 (https://getbootstrap.com/)
-*   Copyright 2011-2020 The Bootstrap Authors
-*   Copyright 2011-2020 Twitter, Inc.
-*   Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
-*   ---------------------------------------------------------------------------
-*/
+Table of contents:
+    1.  Base styles --------------------------------------------------- [hm-01]
+    2.  Typography ---------------------------------------------------- [hm-02]
+    3.  Scrollbars ---------------------------------------------------- [hm-03]
+    4.  Layout -------------------------------------------------------- [hm-04]
+    5.  Page building (containers, columns, content and card) --------- [hm-05]
+    6.  Links --------------------------------------------------------- [hm-06]
+    7.  Buttons ------------------------------------------------------- [hm-07]
+    8.  List ---------------------------------------------------------- [hm-08]
+    9.  Code ---------------------------------------------------------- [hm-09]
+    10. Tables -------------------------------------------------------- [hm-10]
+    11. Form elements ------------------------------------------------- [hm-11]
+    12. Dropdown ------------------------------------------------------ [hm-12]
+    13. Modal --------------------------------------------------------- [hm-13]
+    14. Alerts -------------------------------------------------------- [hm-14]
+    15. Navbar content ------------------------------------------------ [hm-15]
+    16. Sidebar content ----------------------------------------------- [hm-16]
+    17. Pagination ---------------------------------------------------- [hm-17]
+    18. Breadcrumb ---------------------------------------------------- [hm-18]
+    19. Tooltips ------------------------------------------------------ [hm-19]
+    20. Badges -------------------------------------------------------- [hm-20]
+    21. Image --------------------------------------------------------- [hm-21]
+    22. Button group -------------------------------------------------- [hm-22]
+    23. Collapse ------------------------------------------------------ [hm-23]
+    24. Progress ------------------------------------------------------ [hm-24]
+    25. Spacing utilities --------------------------------------------- [hm-25]
+    26. Display utilities --------------------------------------------- [hm-26]
+    27. Sizing utilities ---------------------------------------------- [hm-27]
+    28. Flex utilities ------------------------------------------------ [hm-28]
+    29. Position utilities -------------------------------------------- [hm-29]
+    30. Other utilities ----------------------------------------------- [hm-30]
 
+Credits:
+    Bootstrap and its contributors for class names and inspiration. Moreover, 
+    the containers, grid system and the flex utilities found in Halfmoon CSS 
+    are almost direct copies of the ones found in Bootstrap. Therefore, the 
+    following copyright notice is provided:
+    ---------------------------------------------------------------------------
+    Bootstrap (https://getbootstrap.com/)
+    Copyright 2011-2020 The Bootstrap Authors
+    Copyright 2011-2020 Twitter, Inc.
+    Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+    ---------------------------------------------------------------------------
+*/
 
 /*
 -------------------------------------------------------------------------------
 0.  Normalize CSS
 
 Notes:
-    - Normalize.css makes browsers render all elements more consistently and 
+    ~ Normalize.css makes browsers render all elements more consistently and 
     in line with modern standards. It precisely targets only the styles that 
     need normalizing.
-    - normalize.css | MIT License | github.com/necolas/normalize.css
-    - This is a slighly customized version of normalize.css 8.0.1, 
+    ~ normalize.css | MIT License | github.com/necolas/normalize.css
+    ~ This is a slighly customized version of normalize.css 8.0.1, 
     specifically for dealing with Halfmoon CSS.
-    - Comments have been removed for the sake of compactness.
+    ~ Comments have been removed for the sake of compactness.
 -------------------------------------------------------------------------------
 */
 
@@ -240,7 +241,7 @@ html {
     box-sizing: inherit;
 }
 
-/* Font related things */
+/* HTML font size and scaling */
 
 html {
     font-size: 62.5%;
@@ -255,31 +256,45 @@ html {
         font-size: 87.5%;
     }
 }
+
+/* Auto-scaling disabled */
+
+@media (min-width: 1600px) {
+    html.auto-scaling-disabled {
+        font-size: 62.5%;
+    }
+}
+@media (min-width: 1920px) {
+    html.auto-scaling-disabled {
+        font-size: 62.5%;
+    }
+}
+
+/* DOM body */
+
 body {
     background-color: #ffffff;
+    background-image: none;
     color: rgba(0, 0, 0, 0.85);
     font-size: 1.4rem;
     line-height: 1.5;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
     font-weight: 400;
 }
-
-/* 
-* body.dark-mode is not styled directly so that parts of the page can be 
-* dynamically changed to dark mode if needed. However, it should be noted that 
-* some things will not work without adding the .dark-mode class to the body. 
-*/
-
 .dark-mode {
     background-color: #25282c;
+    background-image: none;
     color: rgba(255, 255, 255, 0.8);
-    /* 
-    * Anti-aliasing works best on light fonts on dark backgrounds. Otherwise, 
-    * there is a loss of readability. 
+    /*
+    Anti-aliasing works best on light fonts on dark backgrounds. Otherwise, 
+    there is a loss of readability. 
     */
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
+
+/* Horizontal rule */
+
 hr {
     height: 1px;
     color: rgba(0, 0, 0, 0.05);
@@ -301,55 +316,36 @@ h1 {
     margin-top: 1rem;
     margin-bottom: 2rem;
     font-weight: 400;
-    color: rgba(0, 0, 0, 0.85);
 }
+
 h2 {
     margin-top: 1rem;
     margin-bottom: 2rem;
     font-weight: 400;
-    color: rgba(0, 0, 0, 0.85);
 }
+
 h3 {
     margin-top: 1rem;
     margin-bottom: 2rem;
     font-weight: 400;
-    color: rgba(0, 0, 0, 0.85);
 }
+
 h4 {
     margin-top: 1rem;
     margin-bottom: 2rem;
     font-weight: 400;
-    color: rgba(0, 0, 0, 0.85);
 }
+
 h5 {
     margin-top: 1rem;
     margin-bottom: 2rem;
     font-weight: 400;
-    color: rgba(0, 0, 0, 0.85);
 }
+
 h6 {
     margin-top: 1rem;
     margin-bottom: 2rem;
     font-weight: 400;
-    color: rgba(0, 0, 0, 0.85);
-}
-.dark-mode h1 {
-    color: rgba(255, 255, 255, 0.8);
-}
-.dark-mode h2 {
-    color: rgba(255, 255, 255, 0.8);
-}
-.dark-mode h3 {
-    color: rgba(255, 255, 255, 0.8);
-}
-.dark-mode h4 {
-    color: rgba(255, 255, 255, 0.8);
-}
-.dark-mode h5 {
-    color: rgba(255, 255, 255, 0.8);
-}
-.dark-mode h6 {
-    color: rgba(255, 255, 255, 0.8);
 }
 h1 {
     font-size: 4rem;
@@ -380,14 +376,14 @@ h6 {
 3.  Scrollbars [hm-03]
 
 Notes:
-    - Any scrollbars on the body itself is not affected. This is because the 
+    ~ Any scrollbars on the body itself is not affected. This is because the 
     page-wrapper is always expected, as the entire framework is built around 
     it.
-    - Only styled on screens larger than 768px, because mobiles and tablets 
+    ~ Only styled on screens larger than 768px, because mobiles and tablets 
     have disappearing scrollbars, which look great most of the time.
-    - The webkit scrollbars work on webkit based browsers, such as Chrome, 
+    ~ The webkit scrollbars work on webkit based browsers, such as Chrome, 
     Safari, Brave, and the new Microsoft Edge.
-    - The custom CSS scrollbars work only on Firefox as of 2020. It is a very 
+    ~ The custom CSS scrollbars work only on Firefox as of 2020. It is a very 
     new specification.
 -------------------------------------------------------------------------------
 */
@@ -663,6 +659,16 @@ Notes:
     .dark-mode.with-custom-css-scrollbars .card {
         scrollbar-color: rgba(255, 255, 255, 0.25) #191c20;
     }
+
+    /* CSS scrollbar with transparent track (utility class) */
+
+    .with-custom-css-scrollbars .css-scrollbar-transparent-track {
+        scrollbar-width: thin !important;
+        scrollbar-color: rgba(0, 0, 0, 0.25) transparent !important;
+    }
+    .dark-mode.with-custom-css-scrollbars .css-scrollbar-transparent-track {
+        scrollbar-color: rgba(255, 255, 255, 0.25) transparent !important;
+    }
 }
 
 
@@ -671,16 +677,16 @@ Notes:
 4.  Layout [hm-04]
 
 Notes:
-    - The following section contains the position, width, height, and bg color 
+    ~ The following section contains the position, width, height, and bg color 
     related styles of the page-wrapper, sticky-alerts, navbars, sidebar, and 
     content-wrapper. These are grouped together because reading them all at 
     once in serial makes it quite easy to understand how pages are structured.
-    - The styles of the children of the above elements can be found in their 
+    ~ The styles of the children of the above elements can be found in their 
     own sections of this stylesheet. These sections are:
-        - 14. Alerts
-        - 15. Navbar content
-        - 16. Sidebar content
-    - The page-wrapper can have additional helper classes which automatically 
+        ~ 14. Alerts
+        ~ 15. Navbar content
+        ~ 16. Sidebar content
+    ~ The page-wrapper can have additional helper classes which automatically 
     fixes the positions and the sizes of the children elements. For example, 
     .page-wrapper.with-navbar will automatically push the content-wrapper down 
     by an amount which is equal to the height of the navbar, in order to make 
@@ -736,6 +742,7 @@ body {
     padding-left: 1rem;
     padding-right: 1rem;
     background-color: #ffffff;
+    background-image: none;
     border-bottom: 1px solid rgba(0, 0, 0, 0.2);
     -moz-box-shadow: none;
     -webkit-box-shadow: none;
@@ -743,6 +750,7 @@ body {
 }
 .dark-mode .navbar {
     background-color: #111417;
+    background-image: none;
     border-color: rgba(0, 0, 0, 0.2);
     -moz-box-shadow: none;
     -webkit-box-shadow: none;
@@ -810,6 +818,7 @@ body {
     overflow-y: auto;
     z-index: 20;
     background-color: #ffffff;
+    background-image: none;
     border-right: 1px solid rgba(0, 0, 0, 0.2);
     -moz-box-shadow: none;
     -webkit-box-shadow: none;
@@ -817,6 +826,7 @@ body {
 }
 .dark-mode .sidebar {
     background-color: #191c20;
+    background-image: none;
     border-color: rgba(0, 0, 0, 0.2);
     -moz-box-shadow: none;
     -webkit-box-shadow: none;
@@ -885,6 +895,7 @@ body {
     bottom: 5rem;
     height: calc(100% - 5rem);
 }
+
 .page-wrapper.with-navbar-fixed-bottom > .sidebar {
     bottom: 5rem;
     height: calc(100% - 5rem);
@@ -897,6 +908,7 @@ body {
     bottom: 5rem;
     height: calc(100% - 5rem - 5rem);
 }
+
 .page-wrapper.with-navbar.with-navbar-fixed-bottom > .sidebar {
     top: 5rem;
     bottom: 5rem;
@@ -976,21 +988,17 @@ body {
     }
 }
 
-/* With transitions */
+/* With transitions (for sidebar toggles) */
 
-.page-wrapper.with-transitions.with-sidebar > .sidebar,
+.page-wrapper.with-transitions.with-sidebar > .sidebar {
+    -webkit-transition: left .4s cubic-bezier(.25, .8, .25, 1);
+    transition: left .4s cubic-bezier(.25, .8, .25, 1);
+}
 .page-wrapper.with-transitions.with-sidebar .content-wrapper,
 .page-wrapper.with-transitions.with-sidebar[data-sidebar-type~="full-height"] > .navbar:not(.navbar-fixed-bottom),
-.page-wrapper.with-transitions.with-sidebar[data-sidebar-type~="full-height"] > .navbar.navbar-fixed-bottom,
-.page-wrapper.with-transitions.with-sidebar[data-sidebar-type~="overlayed-all"] > .sidebar {
-    -webkit-transition: all .4s cubic-bezier(.25, .8, .25, 1);
-    transition: all .4s cubic-bezier(.25, .8, .25, 1);
-}
-@media (max-width: 768px) {
-    .page-wrapper.with-transitions.with-sidebar[data-sidebar-type~="overlayed-sm-and-down"] > .sidebar {
-        -webkit-transition: all .4s cubic-bezier(.25, .8, .25, 1);
-        transition: all .4s cubic-bezier(.25, .8, .25, 1);
-    }
+.page-wrapper.with-transitions.with-sidebar[data-sidebar-type~="full-height"] > .navbar.navbar-fixed-bottom {
+    -webkit-transition: width .4s cubic-bezier(.25, .8, .25, 1), left .4s cubic-bezier(.25, .8, .25, 1);
+    transition: width .4s cubic-bezier(.25, .8, .25, 1), left .4s cubic-bezier(.25, .8, .25, 1);
 }
 
 /* Janky scroll fix (for Safari) */
@@ -1010,6 +1018,10 @@ body {
 /* Containers */
 
 .container,
+.container-sm,
+.container-md,
+.container-lg,
+.container-xl,
 .container-fluid {
     margin-left: auto;
     margin-right: auto;
@@ -2707,6 +2719,7 @@ body {
     padding: 3rem;
     color: rgba(0, 0, 0, 0.85);
     background-color: #ffffff;
+    background-image: none;
     border-radius: 0.4rem;
     border: 1px solid rgba(0, 0, 0, 0.2);
     -moz-box-shadow: none;
@@ -2716,6 +2729,7 @@ body {
 .dark-mode .card {
     color: rgba(255, 255, 255, 0.8);
     background-color: #191c20;
+    background-image: none;
     border-color: rgba(0, 0, 0, 0.2);
     -moz-box-shadow: none;
     -webkit-box-shadow: none;
@@ -2731,6 +2745,33 @@ body {
     font-size: 2rem;
     font-weight: 500;
     margin-top: 0;
+}
+
+/* Card padding */
+
+.p-card {
+    padding: 3rem;
+}
+.px-card {
+    padding-left: 3rem;
+    padding-right: 3rem;
+}
+.py-card {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+}
+@media (max-width: 576px) {
+    .p-card {
+        padding: 2rem;
+    }
+    .px-card {
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+    .py-card {
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+    }
 }
 
 /* Vertical spacer */
@@ -2768,13 +2809,29 @@ a:hover {
     color: #45a3fb;
 }
 
+/* Hyperlink (anti-aliasing removed in dark mode) */
+
+.dark-mode .hyperlink {
+    -webkit-font-smoothing: auto;
+    -moz-osx-font-smoothing: auto;
+}
+
+/* Underlined hyperlink */
+
+.hyperlink-underline {
+    text-decoration: underline;
+}
+.dark-mode .hyperlink-underline {
+    -webkit-font-smoothing: auto;
+    -moz-osx-font-smoothing: auto;
+}
 
 /*
 -------------------------------------------------------------------------------
 7.  Buttons [hm-07]
 
 Notes:
-    - When a focused button is hovered over, only the text color and the 
+    ~ When a focused button is hovered over, only the text color and the 
     background color is overridden. This is because most button focus effects 
     tend to be based on border, box shadow, and outline. On the other hand, 
     when a focused input is hovered over, nothing is overridden, and all the 
@@ -2794,106 +2851,118 @@ Notes:
     cursor: pointer;
     color: rgba(0, 0, 0, 0.7);
     background-color: #ffffff;
+    background-image: none;
     border: 1px solid rgba(0, 0, 0, 0.2);
     border-radius: 0.4rem;
-    -moz-box-shadow: 0 2px 0 rgba(0, 0, 0, 0.05);
-    -webkit-box-shadow: 0 2px 0 rgba(0, 0, 0, 0.05);
-    box-shadow: 0 2px 0 rgba(0, 0, 0, 0.05);
+    -moz-box-shadow: 0 0.2rem 0 rgba(0, 0, 0, 0.05);
+    -webkit-box-shadow: 0 0.2rem 0 rgba(0, 0, 0, 0.05);
+    box-shadow: 0 0.2rem 0 rgba(0, 0, 0, 0.05);
 }
 .btn:hover {
     text-decoration: none;
     color: rgba(0, 0, 0, 0.7);
     background-color: #f7f7f7;
+    background-image: none;
     border-color: rgba(0, 0, 0, 0.2);
-    -moz-box-shadow: 0 2px 0 rgba(0, 0, 0, 0.05);
-    -webkit-box-shadow: 0 2px 0 rgba(0, 0, 0, 0.05);
-    box-shadow: 0 2px 0 rgba(0, 0, 0, 0.05);
+    -moz-box-shadow: 0 0.2rem 0 rgba(0, 0, 0, 0.05);
+    -webkit-box-shadow: 0 0.2rem 0 rgba(0, 0, 0, 0.05);
+    box-shadow: 0 0.2rem 0 rgba(0, 0, 0, 0.05);
 }
 .btn:focus {
     color: rgba(0, 0, 0, 0.7);
     background-color: #ffffff;
+    background-image: none;
     border-color: rgba(0, 0, 0, 0.2);
-    -moz-box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.6);
-    -webkit-box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.6);
-    box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.6);
+    -moz-box-shadow: 0 0 0 0.2rem rgba(24, 144, 255, 0.6);
+    -webkit-box-shadow: 0 0 0 0.2rem rgba(24, 144, 255, 0.6);
+    box-shadow: 0 0 0 0.2rem rgba(24, 144, 255, 0.6);
     outline: 1px dotted transparent;
-    outline-offset: 2px;
+    outline-offset: 0.2rem;
 }
 .btn.active {
     color: rgba(0, 0, 0, 0.7);
     background-color: #ffffff;
+    background-image: none;
     border-color: rgba(0, 0, 0, 0.2);
-    -moz-box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.6);
-    -webkit-box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.6);
-    box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.6);
+    -moz-box-shadow: 0 0 0 0.2rem rgba(24, 144, 255, 0.6);
+    -webkit-box-shadow: 0 0 0 0.2rem rgba(24, 144, 255, 0.6);
+    box-shadow: 0 0 0 0.2rem rgba(24, 144, 255, 0.6);
     outline: 1px dotted transparent;
-    outline-offset: 2px;
+    outline-offset: 0.2rem;
 }
 .btn:focus:hover {
-    /* 
-    * Only text color and background color is overridden, while the border 
-    * color, box shadow, and the outline of the focus selector is kept.
+    /*
+    Only text color and background properties are overridden, while the border 
+    color, box shadow, and the outline of the focus selector is kept.
     */
     color: rgba(0, 0, 0, 0.7);
     background-color: #f7f7f7;
+    background-image: none;
 }
 .btn.active:hover {
-    /* 
-    * Only text color and background color is overridden, while the border 
-    * color, box shadow, and the outline of the focus selector is kept.
+    /*
+    Only text color and background properties are overridden, while the border 
+    color, box shadow, and the outline of the focus selector is kept.
     */
     color: rgba(0, 0, 0, 0.7);
     background-color: #f7f7f7;
+    background-image: none;
 }
 .dark-mode .btn {
     color: rgba(255, 255, 255, 0.8);
     background-color: rgba(255, 255, 255, 0.05);
-    border-color: transparent;
-    -moz-box-shadow: 0 2px 0 rgba(0, 0, 0, 0.1);
-    -webkit-box-shadow: 0 2px 0 rgba(0, 0, 0, 0.1);
-    box-shadow: 0 2px 0 rgba(0, 0, 0, 0.1);
+    background-image: none;
+    border-color: rgba(255, 255, 255, 0.025) transparent transparent transparent;
+    -moz-box-shadow: 0 0.2rem 0 rgba(0, 0, 0, 0.1);
+    -webkit-box-shadow: 0 0.2rem 0 rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0.2rem 0 rgba(0, 0, 0, 0.1);
 }
 .dark-mode .btn:hover {
     color: rgba(255, 255, 255, 0.8);
     background-color: rgba(255, 255, 255, 0.1);
-    border-color: transparent;
-    -moz-box-shadow: 0 2px 0 rgba(0, 0, 0, 0.1);
-    -webkit-box-shadow: 0 2px 0 rgba(0, 0, 0, 0.1);
-    box-shadow: 0 2px 0 rgba(0, 0, 0, 0.1);
+    background-image: none;
+    border-color: rgba(255, 255, 255, 0.025) transparent transparent transparent;
+    -moz-box-shadow: 0 0.2rem 0 rgba(0, 0, 0, 0.1);
+    -webkit-box-shadow: 0 0.2rem 0 rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0.2rem 0 rgba(0, 0, 0, 0.1);
 }
 .dark-mode .btn:focus {
     color: rgba(255, 255, 255, 0.8);
     background-color: rgba(255, 255, 255, 0.05);
+    background-image: none;
     border-color: rgba(0, 0, 0, 0.4);
-    -moz-box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.3);
-    -webkit-box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.3);
-    box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.3);
+    -moz-box-shadow: 0 0 0 0.2rem rgba(24, 144, 255, 0.3);
+    -webkit-box-shadow: 0 0 0 0.2rem rgba(24, 144, 255, 0.3);
+    box-shadow: 0 0 0 0.2rem rgba(24, 144, 255, 0.3);
     outline-color: transparent;
 }
 .dark-mode .btn.active {
     color: rgba(255, 255, 255, 0.8);
     background-color: rgba(255, 255, 255, 0.05);
+    background-image: none;
     border-color: rgba(0, 0, 0, 0.4);
-    -moz-box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.3);
-    -webkit-box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.3);
-    box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.3);
+    -moz-box-shadow: 0 0 0 0.2rem rgba(24, 144, 255, 0.3);
+    -webkit-box-shadow: 0 0 0 0.2rem rgba(24, 144, 255, 0.3);
+    box-shadow: 0 0 0 0.2rem rgba(24, 144, 255, 0.3);
     outline-color: transparent;
 }
 .dark-mode .btn:focus:hover {
-    /* 
-    * Only text color and background color is overridden, while the border 
-    * color, box shadow, and the outline of the focus selector is kept.
+    /*
+    Only text color and background properties are overridden, while the border 
+    color, box shadow, and the outline of the focus selector is kept.
     */
     color: rgba(255, 255, 255, 0.8);
     background-color: rgba(255, 255, 255, 0.1);
+    background-image: none;
 }
 .dark-mode .btn.active:hover {
-    /* 
-    * Only text color and background color is overridden, while the border 
-    * color, box shadow, and the outline of the focus selector is kept.
+    /*
+    Only text color and background properties are overridden, while the border 
+    color, box shadow, and the outline of the focus selector is kept.
     */
     color: rgba(255, 255, 255, 0.8);
     background-color: rgba(255, 255, 255, 0.1);
+    background-image: none;
 }
 .btn.disabled,
 .btn:disabled {
@@ -2903,6 +2972,7 @@ Notes:
 .btn.disabled {
     color: rgba(0, 0, 0, 0.7);
     background-color: #ffffff;
+    background-image: none;
     border-color: rgba(0, 0, 0, 0.2);
     -moz-box-shadow: none;
     -webkit-box-shadow: none;
@@ -2912,6 +2982,7 @@ Notes:
 .btn:disabled {
     color: rgba(0, 0, 0, 0.7);
     background-color: #ffffff;
+    background-image: none;
     border-color: rgba(0, 0, 0, 0.2);
     -moz-box-shadow: none;
     -webkit-box-shadow: none;
@@ -2921,6 +2992,7 @@ Notes:
 .btn.disabled:hover {
     color: rgba(0, 0, 0, 0.7);
     background-color: #ffffff;
+    background-image: none;
     border-color: rgba(0, 0, 0, 0.2);
     -moz-box-shadow: none;
     -webkit-box-shadow: none;
@@ -2930,6 +3002,7 @@ Notes:
 .btn.disabled:focus {
     color: rgba(0, 0, 0, 0.7);
     background-color: #ffffff;
+    background-image: none;
     border-color: rgba(0, 0, 0, 0.2);
     -moz-box-shadow: none;
     -webkit-box-shadow: none;
@@ -2939,7 +3012,8 @@ Notes:
 .dark-mode .btn.disabled {
     color: rgba(255, 255, 255, 0.8);
     background-color: rgba(255, 255, 255, 0.05);
-    border-color: transparent;
+    background-image: none;
+    border-color: rgba(255, 255, 255, 0.025) transparent transparent transparent;
     -moz-box-shadow: none;
     -webkit-box-shadow: none;
     box-shadow: none;
@@ -2948,7 +3022,8 @@ Notes:
 .dark-mode .btn:disabled {
     color: rgba(255, 255, 255, 0.8);
     background-color: rgba(255, 255, 255, 0.05);
-    border-color: transparent;
+    background-image: none;
+    border-color: rgba(255, 255, 255, 0.025) transparent transparent transparent;
     -moz-box-shadow: none;
     -webkit-box-shadow: none;
     box-shadow: none;
@@ -2957,7 +3032,8 @@ Notes:
 .dark-mode .btn.disabled:hover {
     color: rgba(255, 255, 255, 0.8);
     background-color: rgba(255, 255, 255, 0.05);
-    border-color: transparent;
+    background-image: none;
+    border-color: rgba(255, 255, 255, 0.025) transparent transparent transparent;
     -moz-box-shadow: none;
     -webkit-box-shadow: none;
     box-shadow: none;
@@ -2966,7 +3042,8 @@ Notes:
 .dark-mode .btn.disabled:focus {
     color: rgba(255, 255, 255, 0.8);
     background-color: rgba(255, 255, 255, 0.05);
-    border-color: transparent;
+    background-image: none;
+    border-color: rgba(255, 255, 255, 0.025) transparent transparent transparent;
     -moz-box-shadow: none;
     -webkit-box-shadow: none;
     box-shadow: none;
@@ -2978,56 +3055,63 @@ Notes:
 .dark-mode .btn.alt-dm {
     color: inherit;
     background-color: rgba(0, 0, 0, 0.15);
+    background-image: none;
     border-color: rgba(0, 0, 0, 0.05);
-    -moz-box-shadow: 0 2px 0 rgba(0, 0, 0, 0.025);
-    -webkit-box-shadow: 0 2px 0 rgba(0, 0, 0, 0.025);
-    box-shadow: 0 2px 0 rgba(0, 0, 0, 0.025);
+    -moz-box-shadow: 0 0.2rem 0 rgba(0, 0, 0, 0.025);
+    -webkit-box-shadow: 0 0.2rem 0 rgba(0, 0, 0, 0.025);
+    box-shadow: 0 0.2rem 0 rgba(0, 0, 0, 0.025);
 }
 .dark-mode .btn.alt-dm:hover {
     color: inherit;
     background-color: rgba(0, 0, 0, 0.2);
+    background-image: none;
     border-color: rgba(0, 0, 0, 0.05);
-    -moz-box-shadow: 0 2px 0 rgba(0, 0, 0, 0.025);
-    -webkit-box-shadow: 0 2px 0 rgba(0, 0, 0, 0.025);
-    box-shadow: 0 2px 0 rgba(0, 0, 0, 0.025);
+    -moz-box-shadow: 0 0.2rem 0 rgba(0, 0, 0, 0.025);
+    -webkit-box-shadow: 0 0.2rem 0 rgba(0, 0, 0, 0.025);
+    box-shadow: 0 0.2rem 0 rgba(0, 0, 0, 0.025);
 }
 .dark-mode .btn.alt-dm:focus {
     color: inherit;
     background-color: rgba(0, 0, 0, 0.15);
+    background-image: none;
     border-color: inherit;
-    -moz-box-shadow: 0 2px 0 rgba(0, 0, 0, 0.025);
-    -webkit-box-shadow: 0 2px 0 rgba(0, 0, 0, 0.025);
-    box-shadow: 0 2px 0 rgba(0, 0, 0, 0.025);
+    -moz-box-shadow: 0 0.2rem 0 rgba(0, 0, 0, 0.025);
+    -webkit-box-shadow: 0 0.2rem 0 rgba(0, 0, 0, 0.025);
+    box-shadow: 0 0.2rem 0 rgba(0, 0, 0, 0.025);
     outline-color: transparent;
 }
 .dark-mode .btn.alt-dm.active {
     color: inherit;
     background-color: rgba(0, 0, 0, 0.15);
+    background-image: none;
     border-color: inherit;
-    -moz-box-shadow: 0 2px 0 rgba(0, 0, 0, 0.025);
-    -webkit-box-shadow: 0 2px 0 rgba(0, 0, 0, 0.025);
-    box-shadow: 0 2px 0 rgba(0, 0, 0, 0.025);
+    -moz-box-shadow: 0 0.2rem 0 rgba(0, 0, 0, 0.025);
+    -webkit-box-shadow: 0 0.2rem 0 rgba(0, 0, 0, 0.025);
+    box-shadow: 0 0.2rem 0 rgba(0, 0, 0, 0.025);
     outline-color: transparent;
 }
 .dark-mode .btn.alt-dm:focus:hover {
-    /* 
-    * Only text color and background color is overridden, while the border 
-    * color, box shadow, and the outline of the focus selector is kept.
+    /*
+    Only text color and background properties are overridden, while the border 
+    color, box shadow, and the outline of the focus selector is kept.
     */
     color: inherit;
     background-color: rgba(0, 0, 0, 0.2);
+    background-image: none;
 }
 .dark-mode .btn.alt-dm.active:hover {
-    /* 
-    * Only text color and background color is overridden, while the border 
-    * color, box shadow, and the outline of the focus selector is kept.
+    /*
+    Only text color and background properties are overridden, while the border 
+    color, box shadow, and the outline of the focus selector is kept.
     */
     color: inherit;
     background-color: rgba(0, 0, 0, 0.2);
+    background-image: none;
 }
 .dark-mode .btn.alt-dm.disabled {
     color: inherit;
     background-color: rgba(0, 0, 0, 0.15);
+    background-image: none;
     border-color: rgba(0, 0, 0, 0.05);
     -moz-box-shadow: none;
     -webkit-box-shadow: none;
@@ -3037,6 +3121,7 @@ Notes:
 .dark-mode .btn.alt-dm:disabled {
     color: inherit;
     background-color: rgba(0, 0, 0, 0.15);
+    background-image: none;
     border-color: rgba(0, 0, 0, 0.05);
     -moz-box-shadow: none;
     -webkit-box-shadow: none;
@@ -3046,6 +3131,7 @@ Notes:
 .dark-mode .btn.alt-dm.disabled:hover {
     color: inherit;
     background-color: rgba(0, 0, 0, 0.15);
+    background-image: none;
     border-color: rgba(0, 0, 0, 0.05);
     -moz-box-shadow: none;
     -webkit-box-shadow: none;
@@ -3055,6 +3141,7 @@ Notes:
 .dark-mode .btn.alt-dm.disabled:focus {
     color: inherit;
     background-color: rgba(0, 0, 0, 0.15);
+    background-image: none;
     border-color: rgba(0, 0, 0, 0.05);
     -moz-box-shadow: none;
     -webkit-box-shadow: none;
@@ -3092,6 +3179,7 @@ Notes:
 .btn.btn-link {
     color: #1890ff;
     background-color: transparent;
+    background-image: none;
     border-color: transparent;
     -moz-box-shadow: none;
     -webkit-box-shadow: none;
@@ -3100,6 +3188,7 @@ Notes:
 .btn.btn-link:hover {
     color: #45a3fb;
     background-color: transparent;
+    background-image: none;
     border-color: transparent;
     -moz-box-shadow: none;
     -webkit-box-shadow: none;
@@ -3108,40 +3197,45 @@ Notes:
 .btn.btn-link:focus {
     color: #1890ff;
     background-color: transparent;
+    background-image: none;
     border-color: transparent;
-    -moz-box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.6);
-    -webkit-box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.6);
-    box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.6);
+    -moz-box-shadow: 0 0 0 0.2rem rgba(24, 144, 255, 0.6);
+    -webkit-box-shadow: 0 0 0 0.2rem rgba(24, 144, 255, 0.6);
+    box-shadow: 0 0 0 0.2rem rgba(24, 144, 255, 0.6);
     outline-color: transparent;
 }
 .btn.btn-link.active {
     color: #1890ff;
     background-color: transparent;
+    background-image: none;
     border-color: transparent;
-    -moz-box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.6);
-    -webkit-box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.6);
-    box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.6);
+    -moz-box-shadow: 0 0 0 0.2rem rgba(24, 144, 255, 0.6);
+    -webkit-box-shadow: 0 0 0 0.2rem rgba(24, 144, 255, 0.6);
+    box-shadow: 0 0 0 0.2rem rgba(24, 144, 255, 0.6);
     outline-color: transparent;
 }
 .btn.btn-link:focus:hover {
-    /* 
-    * Only text color and background color is overridden, while the border 
-    * color, box shadow, and the outline of the focus selector is kept.
+    /*
+    Only text color and background properties are overridden, while the border 
+    color, box shadow, and the outline of the focus selector is kept.
     */
     color: #45a3fb;
     background-color: transparent;
+    background-image: none;
 }
 .btn.btn-link.active:hover {
-    /* 
-    * Only text color and background color is overridden, while the border 
-    * color, box shadow, and the outline of the focus selector is kept.
+    /*
+    Only text color and background properties are overridden, while the border 
+    color, box shadow, and the outline of the focus selector is kept.
     */
     color: #45a3fb;
     background-color: transparent;
+    background-image: none;
 }
 .dark-mode .btn.btn-link {
     color: #1890ff;
     background-color: transparent;
+    background-image: none;
     border-color: transparent;
     -moz-box-shadow: none;
     -webkit-box-shadow: none;
@@ -3152,6 +3246,7 @@ Notes:
 .dark-mode .btn.btn-link:hover {
     color: #45a3fb;
     background-color: transparent;
+    background-image: none;
     border-color: transparent;
     -moz-box-shadow: none;
     -webkit-box-shadow: none;
@@ -3160,40 +3255,45 @@ Notes:
 .dark-mode .btn.btn-link:focus {
     color: #1890ff;
     background-color: transparent;
+    background-image: none;
     border-color: transparent;
-    -moz-box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.3);
-    -webkit-box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.3);
-    box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.3);
+    -moz-box-shadow: 0 0 0 0.2rem rgba(24, 144, 255, 0.3);
+    -webkit-box-shadow: 0 0 0 0.2rem rgba(24, 144, 255, 0.3);
+    box-shadow: 0 0 0 0.2rem rgba(24, 144, 255, 0.3);
     outline-color: transparent;
 }
 .dark-mode .btn.btn-link.active {
     color: #1890ff;
     background-color: transparent;
+    background-image: none;
     border-color: transparent;
-    -moz-box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.3);
-    -webkit-box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.3);
-    box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.3);
+    -moz-box-shadow: 0 0 0 0.2rem rgba(24, 144, 255, 0.3);
+    -webkit-box-shadow: 0 0 0 0.2rem rgba(24, 144, 255, 0.3);
+    box-shadow: 0 0 0 0.2rem rgba(24, 144, 255, 0.3);
     outline-color: transparent;
 }
 .dark-mode .btn.btn-link:focus:hover {
-    /* 
-    * Only text color and background color is overridden, while the border 
-    * color, box shadow, and the outline of the focus selector is kept.
+    /*
+    Only text color and background properties are overridden, while the border 
+    color, box shadow, and the outline of the focus selector is kept.
     */
     color: #45a3fb;
     background-color: transparent;
+    background-image: none;
 }
 .dark-mode .btn.btn-link.active:hover {
-    /* 
-    * Only text color and background color is overridden, while the border 
-    * color, box shadow, and the outline of the focus selector is kept.
+    /*
+    Only text color and background properties are overridden, while the border 
+    color, box shadow, and the outline of the focus selector is kept.
     */
     color: #45a3fb;
     background-color: transparent;
+    background-image: none;
 }
 .btn.btn-link.disabled {
     color: #1890ff;
     background-color: transparent;
+    background-image: none;
     border-color: transparent;
     -moz-box-shadow: none;
     -webkit-box-shadow: none;
@@ -3203,6 +3303,7 @@ Notes:
 .btn.btn-link:disabled {
     color: #1890ff;
     background-color: transparent;
+    background-image: none;
     border-color: transparent;
     -moz-box-shadow: none;
     -webkit-box-shadow: none;
@@ -3212,6 +3313,7 @@ Notes:
 .btn.btn-link.disabled:hover {
     color: #1890ff;
     background-color: transparent;
+    background-image: none;
     border-color: transparent;
     -moz-box-shadow: none;
     -webkit-box-shadow: none;
@@ -3221,6 +3323,7 @@ Notes:
 .btn.btn-link.disabled:focus {
     color: #1890ff;
     background-color: transparent;
+    background-image: none;
     border-color: transparent;
     -moz-box-shadow: none;
     -webkit-box-shadow: none;
@@ -3230,6 +3333,7 @@ Notes:
 .dark-mode .btn.btn-link.disabled {
     color: #1890ff;
     background-color: transparent;
+    background-image: none;
     border-color: transparent;
     -moz-box-shadow: none;
     -webkit-box-shadow: none;
@@ -3239,6 +3343,7 @@ Notes:
 .dark-mode .btn.btn-link:disabled {
     color: #1890ff;
     background-color: transparent;
+    background-image: none;
     border-color: transparent;
     -moz-box-shadow: none;
     -webkit-box-shadow: none;
@@ -3248,6 +3353,7 @@ Notes:
 .dark-mode .btn.btn-link.disabled:hover {
     color: #1890ff;
     background-color: transparent;
+    background-image: none;
     border-color: transparent;
     -moz-box-shadow: none;
     -webkit-box-shadow: none;
@@ -3257,6 +3363,7 @@ Notes:
 .dark-mode .btn.btn-link.disabled:focus {
     color: #1890ff;
     background-color: transparent;
+    background-image: none;
     border-color: transparent;
     -moz-box-shadow: none;
     -webkit-box-shadow: none;
@@ -3269,108 +3376,121 @@ Notes:
 .btn.btn-primary {
     color: #ffffff;
     background-color: #1890ff;
+    background-image: none;
     border-color: #1890ff;
-    -moz-box-shadow: 0 2px 0 rgba(0, 0, 0, 0.05);
-    -webkit-box-shadow: 0 2px 0 rgba(0, 0, 0, 0.05);
-    box-shadow: 0 2px 0 rgba(0, 0, 0, 0.05);
+    -moz-box-shadow: 0 0.2rem 0 rgba(0, 0, 0, 0.05);
+    -webkit-box-shadow: 0 0.2rem 0 rgba(0, 0, 0, 0.05);
+    box-shadow: 0 0.2rem 0 rgba(0, 0, 0, 0.05);
 }
 .btn.btn-primary:hover {
     color: #ffffff;
     background-color: #45a3fb;
+    background-image: none;
     border-color: #45a3fb;
-    -moz-box-shadow: 0 2px 0 rgba(0, 0, 0, 0.05);
-    -webkit-box-shadow: 0 2px 0 rgba(0, 0, 0, 0.05);
-    box-shadow: 0 2px 0 rgba(0, 0, 0, 0.05);
+    -moz-box-shadow: 0 0.2rem 0 rgba(0, 0, 0, 0.05);
+    -webkit-box-shadow: 0 0.2rem 0 rgba(0, 0, 0, 0.05);
+    box-shadow: 0 0.2rem 0 rgba(0, 0, 0, 0.05);
 }
 .btn.btn-primary:focus {
     color: #ffffff;
     background-color: #1890ff;
+    background-image: none;
     border-color: #1890ff;
-    -moz-box-shadow: 0 0 0 3px rgba(24, 144, 255, 0.3);
-    -webkit-box-shadow: 0 0 0 3px rgba(24, 144, 255, 0.3);
-    box-shadow: 0 0 0 3px rgba(24, 144, 255, 0.3);
+    -moz-box-shadow: 0 0 0 0.3rem rgba(24, 144, 255, 0.3);
+    -webkit-box-shadow: 0 0 0 0.3rem rgba(24, 144, 255, 0.3);
+    box-shadow: 0 0 0 0.3rem rgba(24, 144, 255, 0.3);
     outline-color: transparent;
 }
 .btn.btn-primary.active {
     color: #ffffff;
     background-color: #1890ff;
+    background-image: none;
     border-color: #1890ff;
-    -moz-box-shadow: 0 0 0 3px rgba(24, 144, 255, 0.3);
-    -webkit-box-shadow: 0 0 0 3px rgba(24, 144, 255, 0.3);
-    box-shadow: 0 0 0 3px rgba(24, 144, 255, 0.3);
+    -moz-box-shadow: 0 0 0 0.3rem rgba(24, 144, 255, 0.3);
+    -webkit-box-shadow: 0 0 0 0.3rem rgba(24, 144, 255, 0.3);
+    box-shadow: 0 0 0 0.3rem rgba(24, 144, 255, 0.3);
     outline-color: transparent;
 }
 .btn.btn-primary:focus:hover {
-    /* 
-    * Only text color and background color is overridden, while the border 
-    * color, box shadow, and the outline of the focus selector is kept.
+    /*
+    Only text color and background properties are overridden, while the border 
+    color, box shadow, and the outline of the focus selector is kept.
     */
     color: #ffffff;
     background-color: #45a3fb;
+    background-image: none;
 }
 .btn.btn-primary.active:hover {
-    /* 
-    * Only text color and background color is overridden, while the border 
-    * color, box shadow, and the outline of the focus selector is kept.
+    /*
+    Only text color and background properties are overridden, while the border 
+    color, box shadow, and the outline of the focus selector is kept.
     */
     color: #ffffff;
     background-color: #45a3fb;
+    background-image: none;
 }
 .dark-mode .btn.btn-primary {
     color: #ffffff;
     background-color: #1890ff;
+    background-image: none;
     border-color: #1890ff;
-    -moz-box-shadow: 0 2px 0 rgba(0, 0, 0, 0.1);
-    -webkit-box-shadow: 0 2px 0 rgba(0, 0, 0, 0.1);
-    box-shadow: 0 2px 0 rgba(0, 0, 0, 0.1);
+    -moz-box-shadow: 0 0.2rem 0 rgba(0, 0, 0, 0.1);
+    -webkit-box-shadow: 0 0.2rem 0 rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0.2rem 0 rgba(0, 0, 0, 0.1);
     -webkit-font-smoothing: auto;
     -moz-osx-font-smoothing: auto;
 }
 .dark-mode .btn.btn-primary:hover {
     color: #ffffff;
     background-color: #45a3fb;
+    background-image: none;
     border-color: #45a3fb;
-    -moz-box-shadow: 0 2px 0 rgba(0, 0, 0, 0.1);
-    -webkit-box-shadow: 0 2px 0 rgba(0, 0, 0, 0.1);
-    box-shadow: 0 2px 0 rgba(0, 0, 0, 0.1);
+    -moz-box-shadow: 0 0.2rem 0 rgba(0, 0, 0, 0.1);
+    -webkit-box-shadow: 0 0.2rem 0 rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0.2rem 0 rgba(0, 0, 0, 0.1);
 }
 .dark-mode .btn.btn-primary:focus {
     color: #ffffff;
     background-color: #1890ff;
+    background-image: none;
     border-color: #1890ff;
-    -moz-box-shadow: 0 0 0 3px rgba(24, 144, 255, 0.3);
-    -webkit-box-shadow: 0 0 0 3px rgba(24, 144, 255, 0.3);
-    box-shadow: 0 0 0 3px rgba(24, 144, 255, 0.3);
+    -moz-box-shadow: 0 0 0 0.3rem rgba(24, 144, 255, 0.3);
+    -webkit-box-shadow: 0 0 0 0.3rem rgba(24, 144, 255, 0.3);
+    box-shadow: 0 0 0 0.3rem rgba(24, 144, 255, 0.3);
     outline-color: transparent;
 }
 .dark-mode .btn.btn-primary.active {
     color: #ffffff;
     background-color: #1890ff;
+    background-image: none;
     border-color: #1890ff;
-    -moz-box-shadow: 0 0 0 3px rgba(24, 144, 255, 0.3);
-    -webkit-box-shadow: 0 0 0 3px rgba(24, 144, 255, 0.3);
-    box-shadow: 0 0 0 3px rgba(24, 144, 255, 0.3);
+    -moz-box-shadow: 0 0 0 0.3rem rgba(24, 144, 255, 0.3);
+    -webkit-box-shadow: 0 0 0 0.3rem rgba(24, 144, 255, 0.3);
+    box-shadow: 0 0 0 0.3rem rgba(24, 144, 255, 0.3);
     outline-color: transparent;
 }
 .dark-mode .btn.btn-primary:focus:hover {
-    /* 
-    * Only text color and background color is overridden, while the border 
-    * color, box shadow, and the outline of the focus selector is kept.
+    /*
+    Only text color and background properties are overridden, while the border 
+    color, box shadow, and the outline of the focus selector is kept.
     */
     color: #ffffff;
     background-color: #45a3fb;
+    background-image: none;
 }
 .dark-mode .btn.btn-primary.active:hover {
-    /* 
-    * Only text color and background color is overridden, while the border 
-    * color, box shadow, and the outline of the focus selector is kept.
+    /*
+    Only text color and background properties are overridden, while the border 
+    color, box shadow, and the outline of the focus selector is kept.
     */
     color: #ffffff;
     background-color: #45a3fb;
+    background-image: none;
 }
 .btn.btn-primary.disabled {
     color: #ffffff;
     background-color: #1890ff;
+    background-image: none;
     border-color: #1890ff;
     -moz-box-shadow: none;
     -webkit-box-shadow: none;
@@ -3380,6 +3500,7 @@ Notes:
 .btn.btn-primary:disabled {
     color: #ffffff;
     background-color: #1890ff;
+    background-image: none;
     border-color: #1890ff;
     -moz-box-shadow: none;
     -webkit-box-shadow: none;
@@ -3389,6 +3510,7 @@ Notes:
 .btn.btn-primary.disabled:hover {
     color: #ffffff;
     background-color: #1890ff;
+    background-image: none;
     border-color: #1890ff;
     -moz-box-shadow: none;
     -webkit-box-shadow: none;
@@ -3398,6 +3520,7 @@ Notes:
 .btn.btn-primary.disabled:focus {
     color: #ffffff;
     background-color: #1890ff;
+    background-image: none;
     border-color: #1890ff;
     -moz-box-shadow: none;
     -webkit-box-shadow: none;
@@ -3407,6 +3530,7 @@ Notes:
 .dark-mode .btn.btn-primary.disabled {
     color: #ffffff;
     background-color: #1890ff;
+    background-image: none;
     border-color: #1890ff;
     -moz-box-shadow: none;
     -webkit-box-shadow: none;
@@ -3416,6 +3540,7 @@ Notes:
 .dark-mode .btn.btn-primary:disabled {
     color: #ffffff;
     background-color: #1890ff;
+    background-image: none;
     border-color: #1890ff;
     -moz-box-shadow: none;
     -webkit-box-shadow: none;
@@ -3425,6 +3550,7 @@ Notes:
 .dark-mode .btn.btn-primary.disabled:hover {
     color: #ffffff;
     background-color: #1890ff;
+    background-image: none;
     border-color: #1890ff;
     -moz-box-shadow: none;
     -webkit-box-shadow: none;
@@ -3434,6 +3560,7 @@ Notes:
 .dark-mode .btn.btn-primary.disabled:focus {
     color: #ffffff;
     background-color: #1890ff;
+    background-image: none;
     border-color: #1890ff;
     -moz-box-shadow: none;
     -webkit-box-shadow: none;
@@ -3446,108 +3573,121 @@ Notes:
 .btn.btn-success {
     color: rgba(0, 0, 0, 0.85);
     background-color: #0be881;
+    background-image: none;
     border-color: #0be881;
-    -moz-box-shadow: 0 2px 0 rgba(0, 0, 0, 0.05);
-    -webkit-box-shadow: 0 2px 0 rgba(0, 0, 0, 0.05);
-    box-shadow: 0 2px 0 rgba(0, 0, 0, 0.05);
+    -moz-box-shadow: 0 0.2rem 0 rgba(0, 0, 0, 0.05);
+    -webkit-box-shadow: 0 0.2rem 0 rgba(0, 0, 0, 0.05);
+    box-shadow: 0 0.2rem 0 rgba(0, 0, 0, 0.05);
 }
 .btn.btn-success:hover {
     color: rgba(0, 0, 0, 0.85);
     background-color: #81eea8;
+    background-image: none;
     border-color: #81eea8;
-    -moz-box-shadow: 0 2px 0 rgba(0, 0, 0, 0.05);
-    -webkit-box-shadow: 0 2px 0 rgba(0, 0, 0, 0.05);
-    box-shadow: 0 2px 0 rgba(0, 0, 0, 0.05);
+    -moz-box-shadow: 0 0.2rem 0 rgba(0, 0, 0, 0.05);
+    -webkit-box-shadow: 0 0.2rem 0 rgba(0, 0, 0, 0.05);
+    box-shadow: 0 0.2rem 0 rgba(0, 0, 0, 0.05);
 }
 .btn.btn-success:focus {
     color: rgba(0, 0, 0, 0.85);
     background-color: #0be881;
+    background-image: none;
     border-color: #0be881;
-    -moz-box-shadow: 0 0 0 3px rgba(11, 232, 129, 0.3);
-    -webkit-box-shadow: 0 0 0 3px rgba(11, 232, 129, 0.3);
-    box-shadow: 0 0 0 3px rgba(11, 232, 129, 0.3);
+    -moz-box-shadow: 0 0 0 0.3rem rgba(11, 232, 129, 0.3);
+    -webkit-box-shadow: 0 0 0 0.3rem rgba(11, 232, 129, 0.3);
+    box-shadow: 0 0 0 0.3rem rgba(11, 232, 129, 0.3);
     outline-color: transparent;
 }
 .btn.btn-success.active {
     color: rgba(0, 0, 0, 0.85);
     background-color: #0be881;
+    background-image: none;
     border-color: #0be881;
-    -moz-box-shadow: 0 0 0 3px rgba(11, 232, 129, 0.3);
-    -webkit-box-shadow: 0 0 0 3px rgba(11, 232, 129, 0.3);
-    box-shadow: 0 0 0 3px rgba(11, 232, 129, 0.3);
+    -moz-box-shadow: 0 0 0 0.3rem rgba(11, 232, 129, 0.3);
+    -webkit-box-shadow: 0 0 0 0.3rem rgba(11, 232, 129, 0.3);
+    box-shadow: 0 0 0 0.3rem rgba(11, 232, 129, 0.3);
     outline-color: transparent;
 }
 .btn.btn-success:focus:hover {
-    /* 
-    * Only text color and background color is overridden, while the border 
-    * color, box shadow, and the outline of the focus selector is kept.
+    /*
+    Only text color and background properties are overridden, while the border 
+    color, box shadow, and the outline of the focus selector is kept.
     */
     color: rgba(0, 0, 0, 0.85);
     background-color: #81eea8;
+    background-image: none;
 }
 .btn.btn-success.active:hover {
-    /* 
-    * Only text color and background color is overridden, while the border 
-    * color, box shadow, and the outline of the focus selector is kept.
+    /*
+    Only text color and background properties are overridden, while the border 
+    color, box shadow, and the outline of the focus selector is kept.
     */
     color: rgba(0, 0, 0, 0.85);
     background-color: #81eea8;
+    background-image: none;
 }
 .dark-mode .btn.btn-success {
     color: rgba(0, 0, 0, 0.85);
     background-color: #0be881;
+    background-image: none;
     border-color: #0be881;
-    -moz-box-shadow: 0 2px 0 rgba(0, 0, 0, 0.1);
-    -webkit-box-shadow: 0 2px 0 rgba(0, 0, 0, 0.1);
-    box-shadow: 0 2px 0 rgba(0, 0, 0, 0.1);
+    -moz-box-shadow: 0 0.2rem 0 rgba(0, 0, 0, 0.1);
+    -webkit-box-shadow: 0 0.2rem 0 rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0.2rem 0 rgba(0, 0, 0, 0.1);
     -webkit-font-smoothing: auto;
     -moz-osx-font-smoothing: auto;
 }
 .dark-mode .btn.btn-success:hover {
     color: rgba(0, 0, 0, 0.85);
     background-color: #81eea8;
+    background-image: none;
     border-color: #81eea8;
-    -moz-box-shadow: 0 2px 0 rgba(0, 0, 0, 0.1);
-    -webkit-box-shadow: 0 2px 0 rgba(0, 0, 0, 0.1);
-    box-shadow: 0 2px 0 rgba(0, 0, 0, 0.1);
+    -moz-box-shadow: 0 0.2rem 0 rgba(0, 0, 0, 0.1);
+    -webkit-box-shadow: 0 0.2rem 0 rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0.2rem 0 rgba(0, 0, 0, 0.1);
 }
 .dark-mode .btn.btn-success:focus {
     color: rgba(0, 0, 0, 0.85);
     background-color: #0be881;
+    background-image: none;
     border-color: #0be881;
-    -moz-box-shadow: 0 0 0 3px rgba(11, 232, 129, 0.3);
-    -webkit-box-shadow: 0 0 0 3px rgba(11, 232, 129, 0.3);
-    box-shadow: 0 0 0 3px rgba(11, 232, 129, 0.3);
+    -moz-box-shadow: 0 0 0 0.3rem rgba(11, 232, 129, 0.3);
+    -webkit-box-shadow: 0 0 0 0.3rem rgba(11, 232, 129, 0.3);
+    box-shadow: 0 0 0 0.3rem rgba(11, 232, 129, 0.3);
     outline-color: transparent;
 }
 .dark-mode .btn.btn-success.active {
     color: rgba(0, 0, 0, 0.85);
     background-color: #0be881;
+    background-image: none;
     border-color: #0be881;
-    -moz-box-shadow: 0 0 0 3px rgba(11, 232, 129, 0.3);
-    -webkit-box-shadow: 0 0 0 3px rgba(11, 232, 129, 0.3);
-    box-shadow: 0 0 0 3px rgba(11, 232, 129, 0.3);
+    -moz-box-shadow: 0 0 0 0.3rem rgba(11, 232, 129, 0.3);
+    -webkit-box-shadow: 0 0 0 0.3rem rgba(11, 232, 129, 0.3);
+    box-shadow: 0 0 0 0.3rem rgba(11, 232, 129, 0.3);
     outline-color: transparent;
 }
 .dark-mode .btn.btn-success:focus:hover {
-    /* 
-    * Only text color and background color is overridden, while the border 
-    * color, box shadow, and the outline of the focus selector is kept.
+    /*
+    Only text color and background properties are overridden, while the border 
+    color, box shadow, and the outline of the focus selector is kept.
     */
     color: rgba(0, 0, 0, 0.85);
     background-color: #81eea8;
+    background-image: none;
 }
 .dark-mode .btn.btn-success.active:hover {
-    /* 
-    * Only text color and background color is overridden, while the border 
-    * color, box shadow, and the outline of the focus selector is kept.
+    /*
+    Only text color and background properties are overridden, while the border 
+    color, box shadow, and the outline of the focus selector is kept.
     */
     color: rgba(0, 0, 0, 0.85);
     background-color: #81eea8;
+    background-image: none;
 }
 .btn.btn-success.disabled {
     color: rgba(0, 0, 0, 0.85);
     background-color: #0be881;
+    background-image: none;
     border-color: #0be881;
     -moz-box-shadow: none;
     -webkit-box-shadow: none;
@@ -3557,6 +3697,7 @@ Notes:
 .btn.btn-success:disabled {
     color: rgba(0, 0, 0, 0.85);
     background-color: #0be881;
+    background-image: none;
     border-color: #0be881;
     -moz-box-shadow: none;
     -webkit-box-shadow: none;
@@ -3566,6 +3707,7 @@ Notes:
 .btn.btn-success.disabled:hover {
     color: rgba(0, 0, 0, 0.85);
     background-color: #0be881;
+    background-image: none;
     border-color: #0be881;
     -moz-box-shadow: none;
     -webkit-box-shadow: none;
@@ -3575,6 +3717,7 @@ Notes:
 .btn.btn-success.disabled:focus {
     color: rgba(0, 0, 0, 0.85);
     background-color: #0be881;
+    background-image: none;
     border-color: #0be881;
     -moz-box-shadow: none;
     -webkit-box-shadow: none;
@@ -3584,6 +3727,7 @@ Notes:
 .dark-mode .btn.btn-success.disabled {
     color: rgba(0, 0, 0, 0.85);
     background-color: #0be881;
+    background-image: none;
     border-color: #0be881;
     -moz-box-shadow: none;
     -webkit-box-shadow: none;
@@ -3593,6 +3737,7 @@ Notes:
 .dark-mode .btn.btn-success:disabled {
     color: rgba(0, 0, 0, 0.85);
     background-color: #0be881;
+    background-image: none;
     border-color: #0be881;
     -moz-box-shadow: none;
     -webkit-box-shadow: none;
@@ -3602,6 +3747,7 @@ Notes:
 .dark-mode .btn.btn-success.disabled:hover {
     color: rgba(0, 0, 0, 0.85);
     background-color: #0be881;
+    background-image: none;
     border-color: #0be881;
     -moz-box-shadow: none;
     -webkit-box-shadow: none;
@@ -3611,6 +3757,7 @@ Notes:
 .dark-mode .btn.btn-success.disabled:focus {
     color: rgba(0, 0, 0, 0.85);
     background-color: #0be881;
+    background-image: none;
     border-color: #0be881;
     -moz-box-shadow: none;
     -webkit-box-shadow: none;
@@ -3622,110 +3769,123 @@ Notes:
 
 .btn.btn-secondary {
     color: rgba(0, 0, 0, 0.85);
-    background-color: #ffc312;
-    border-color: #ffc312;
-    -moz-box-shadow: 0 2px 0 rgba(0, 0, 0, 0.05);
-    -webkit-box-shadow: 0 2px 0 rgba(0, 0, 0, 0.05);
-    box-shadow: 0 2px 0 rgba(0, 0, 0, 0.05);
+    background-color: #ffcf00;
+    background-image: none;
+    border-color: #ffcf00;
+    -moz-box-shadow: 0 0.2rem 0 rgba(0, 0, 0, 0.05);
+    -webkit-box-shadow: 0 0.2rem 0 rgba(0, 0, 0, 0.05);
+    box-shadow: 0 0.2rem 0 rgba(0, 0, 0, 0.05);
 }
 .btn.btn-secondary:hover {
     color: rgba(0, 0, 0, 0.85);
-    background-color: #fbd35b;
-    border-color: #fbd35b;
-    -moz-box-shadow: 0 2px 0 rgba(0, 0, 0, 0.05);
-    -webkit-box-shadow: 0 2px 0 rgba(0, 0, 0, 0.05);
-    box-shadow: 0 2px 0 rgba(0, 0, 0, 0.05);
+    background-color: #ffe04d;
+    background-image: none;
+    border-color: #ffe04d;
+    -moz-box-shadow: 0 0.2rem 0 rgba(0, 0, 0, 0.05);
+    -webkit-box-shadow: 0 0.2rem 0 rgba(0, 0, 0, 0.05);
+    box-shadow: 0 0.2rem 0 rgba(0, 0, 0, 0.05);
 }
 .btn.btn-secondary:focus {
     color: rgba(0, 0, 0, 0.85);
-    background-color: #ffc312;
-    border-color: #ffc312;
-    -moz-box-shadow: 0 0 0 3px rgba(255, 195, 18, 0.3);
-    -webkit-box-shadow: 0 0 0 3px rgba(255, 195, 18, 0.3);
-    box-shadow: 0 0 0 3px rgba(255, 195, 18, 0.3);
+    background-color: #ffcf00;
+    background-image: none;
+    border-color: #ffcf00;
+    -moz-box-shadow: 0 0 0 0.3rem rgba(255, 207, 0, 0.3);
+    -webkit-box-shadow: 0 0 0 0.3rem rgba(255, 207, 0, 0.3);
+    box-shadow: 0 0 0 0.3rem rgba(255, 207, 0, 0.3);
     outline-color: transparent;
 }
 .btn.btn-secondary.active {
     color: rgba(0, 0, 0, 0.85);
-    background-color: #ffc312;
-    border-color: #ffc312;
-    -moz-box-shadow: 0 0 0 3px rgba(255, 195, 18, 0.3);
-    -webkit-box-shadow: 0 0 0 3px rgba(255, 195, 18, 0.3);
-    box-shadow: 0 0 0 3px rgba(255, 195, 18, 0.3);
+    background-color: #ffcf00;
+    background-image: none;
+    border-color: #ffcf00;
+    -moz-box-shadow: 0 0 0 0.3rem rgba(255, 207, 0, 0.3);
+    -webkit-box-shadow: 0 0 0 0.3rem rgba(255, 207, 0, 0.3);
+    box-shadow: 0 0 0 0.3rem rgba(255, 207, 0, 0.3);
     outline-color: transparent;
 }
 .btn.btn-secondary:focus:hover {
-    /* 
-    * Only text color and background color is overridden, while the border 
-    * color, box shadow, and the outline of the focus selector is kept.
+    /*
+    Only text color and background properties are overridden, while the border 
+    color, box shadow, and the outline of the focus selector is kept.
     */
     color: rgba(0, 0, 0, 0.85);
-    background-color: #fbd35b;
+    background-color: #ffe04d;
+    background-image: none;
 }
 .btn.btn-secondary.active:hover {
-    /* 
-    * Only text color and background color is overridden, while the border 
-    * color, box shadow, and the outline of the focus selector is kept.
+    /*
+    Only text color and background properties are overridden, while the border 
+    color, box shadow, and the outline of the focus selector is kept.
     */
     color: rgba(0, 0, 0, 0.85);
-    background-color: #fbd35b;
+    background-color: #ffe04d;
+    background-image: none;
 }
 .dark-mode .btn.btn-secondary {
     color: rgba(0, 0, 0, 0.85);
-    background-color: #ffc312;
-    border-color: #ffc312;
-    -moz-box-shadow: 0 2px 0 rgba(0, 0, 0, 0.1);
-    -webkit-box-shadow: 0 2px 0 rgba(0, 0, 0, 0.1);
-    box-shadow: 0 2px 0 rgba(0, 0, 0, 0.1);
+    background-color: #ffcf00;
+    background-image: none;
+    border-color: #ffcf00;
+    -moz-box-shadow: 0 0.2rem 0 rgba(0, 0, 0, 0.1);
+    -webkit-box-shadow: 0 0.2rem 0 rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0.2rem 0 rgba(0, 0, 0, 0.1);
     -webkit-font-smoothing: auto;
     -moz-osx-font-smoothing: auto;
 }
 .dark-mode .btn.btn-secondary:hover {
     color: rgba(0, 0, 0, 0.85);
-    background-color: #fbd35b;
-    border-color: #fbd35b;
-    -moz-box-shadow: 0 2px 0 rgba(0, 0, 0, 0.1);
-    -webkit-box-shadow: 0 2px 0 rgba(0, 0, 0, 0.1);
-    box-shadow: 0 2px 0 rgba(0, 0, 0, 0.1);
+    background-color: #ffe04d;
+    background-image: none;
+    border-color: #ffe04d;
+    -moz-box-shadow: 0 0.2rem 0 rgba(0, 0, 0, 0.1);
+    -webkit-box-shadow: 0 0.2rem 0 rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0.2rem 0 rgba(0, 0, 0, 0.1);
 }
 .dark-mode .btn.btn-secondary:focus {
     color: rgba(0, 0, 0, 0.85);
-    background-color: #ffc312;
-    border-color: #ffc312;
-    -moz-box-shadow: 0 0 0 3px rgba(255, 195, 18, 0.3);
-    -webkit-box-shadow: 0 0 0 3px rgba(255, 195, 18, 0.3);
-    box-shadow: 0 0 0 3px rgba(255, 195, 18, 0.3);
+    background-color: #ffcf00;
+    background-image: none;
+    border-color: #ffcf00;
+    -moz-box-shadow: 0 0 0 0.3rem rgba(255, 207, 0, 0.3);
+    -webkit-box-shadow: 0 0 0 0.3rem rgba(255, 207, 0, 0.3);
+    box-shadow: 0 0 0 0.3rem rgba(255, 207, 0, 0.3);
     outline-color: transparent;
 }
 .dark-mode .btn.btn-secondary.active {
     color: rgba(0, 0, 0, 0.85);
-    background-color: #ffc312;
-    border-color: #ffc312;
-    -moz-box-shadow: 0 0 0 3px rgba(255, 195, 18, 0.3);
-    -webkit-box-shadow: 0 0 0 3px rgba(255, 195, 18, 0.3);
-    box-shadow: 0 0 0 3px rgba(255, 195, 18, 0.3);
+    background-color: #ffcf00;
+    background-image: none;
+    border-color: #ffcf00;
+    -moz-box-shadow: 0 0 0 0.3rem rgba(255, 207, 0, 0.3);
+    -webkit-box-shadow: 0 0 0 0.3rem rgba(255, 207, 0, 0.3);
+    box-shadow: 0 0 0 0.3rem rgba(255, 207, 0, 0.3);
     outline-color: transparent;
 }
 .dark-mode .btn.btn-secondary:focus:hover {
-    /* 
-    * Only text color and background color is overridden, while the border 
-    * color, box shadow, and the outline of the focus selector is kept.
+    /*
+    Only text color and background properties are overridden, while the border 
+    color, box shadow, and the outline of the focus selector is kept.
     */
     color: rgba(0, 0, 0, 0.85);
-    background-color: #fbd35b;
+    background-color: #ffe04d;
+    background-image: none;
 }
 .dark-mode .btn.btn-secondary.active:hover {
-    /* 
-    * Only text color and background color is overridden, while the border 
-    * color, box shadow, and the outline of the focus selector is kept.
+    /*
+    Only text color and background properties are overridden, while the border 
+    color, box shadow, and the outline of the focus selector is kept.
     */
     color: rgba(0, 0, 0, 0.85);
-    background-color: #fbd35b;
+    background-color: #ffe04d;
+    background-image: none;
 }
 .btn.btn-secondary.disabled {
     color: rgba(0, 0, 0, 0.85);
-    background-color: #ffc312;
-    border-color: #ffc312;
+    background-color: #ffcf00;
+    background-image: none;
+    border-color: #ffcf00;
     -moz-box-shadow: none;
     -webkit-box-shadow: none;
     box-shadow: none;
@@ -3733,8 +3893,9 @@ Notes:
 }
 .btn.btn-secondary:disabled {
     color: rgba(0, 0, 0, 0.85);
-    background-color: #ffc312;
-    border-color: #ffc312;
+    background-color: #ffcf00;
+    background-image: none;
+    border-color: #ffcf00;
     -moz-box-shadow: none;
     -webkit-box-shadow: none;
     box-shadow: none;
@@ -3742,8 +3903,9 @@ Notes:
 }
 .btn.btn-secondary.disabled:hover {
     color: rgba(0, 0, 0, 0.85);
-    background-color: #ffc312;
-    border-color: #ffc312;
+    background-color: #ffcf00;
+    background-image: none;
+    border-color: #ffcf00;
     -moz-box-shadow: none;
     -webkit-box-shadow: none;
     box-shadow: none;
@@ -3751,8 +3913,9 @@ Notes:
 }
 .btn.btn-secondary.disabled:focus {
     color: rgba(0, 0, 0, 0.85);
-    background-color: #ffc312;
-    border-color: #ffc312;
+    background-color: #ffcf00;
+    background-image: none;
+    border-color: #ffcf00;
     -moz-box-shadow: none;
     -webkit-box-shadow: none;
     box-shadow: none;
@@ -3760,8 +3923,9 @@ Notes:
 }
 .dark-mode .btn.btn-secondary.disabled {
     color: rgba(0, 0, 0, 0.85);
-    background-color: #ffc312;
-    border-color: #ffc312;
+    background-color: #ffcf00;
+    background-image: none;
+    border-color: #ffcf00;
     -moz-box-shadow: none;
     -webkit-box-shadow: none;
     box-shadow: none;
@@ -3769,8 +3933,9 @@ Notes:
 }
 .dark-mode .btn.btn-secondary:disabled {
     color: rgba(0, 0, 0, 0.85);
-    background-color: #ffc312;
-    border-color: #ffc312;
+    background-color: #ffcf00;
+    background-image: none;
+    border-color: #ffcf00;
     -moz-box-shadow: none;
     -webkit-box-shadow: none;
     box-shadow: none;
@@ -3778,8 +3943,9 @@ Notes:
 }
 .dark-mode .btn.btn-secondary.disabled:hover {
     color: rgba(0, 0, 0, 0.85);
-    background-color: #ffc312;
-    border-color: #ffc312;
+    background-color: #ffcf00;
+    background-image: none;
+    border-color: #ffcf00;
     -moz-box-shadow: none;
     -webkit-box-shadow: none;
     box-shadow: none;
@@ -3787,8 +3953,9 @@ Notes:
 }
 .dark-mode .btn.btn-secondary.disabled:focus {
     color: rgba(0, 0, 0, 0.85);
-    background-color: #ffc312;
-    border-color: #ffc312;
+    background-color: #ffcf00;
+    background-image: none;
+    border-color: #ffcf00;
     -moz-box-shadow: none;
     -webkit-box-shadow: none;
     box-shadow: none;
@@ -3800,108 +3967,121 @@ Notes:
 .btn.btn-danger {
     color: #ffffff;
     background-color: #ff4d4f;
+    background-image: none;
     border-color: #ff4d4f;
-    -moz-box-shadow: 0 2px 0 rgba(0, 0, 0, 0.05);
-    -webkit-box-shadow: 0 2px 0 rgba(0, 0, 0, 0.05);
-    box-shadow: 0 2px 0 rgba(0, 0, 0, 0.05);
+    -moz-box-shadow: 0 0.2rem 0 rgba(0, 0, 0, 0.05);
+    -webkit-box-shadow: 0 0.2rem 0 rgba(0, 0, 0, 0.05);
+    box-shadow: 0 0.2rem 0 rgba(0, 0, 0, 0.05);
 }
 .btn.btn-danger:hover {
     color: #ffffff;
     background-color: #ed586c;
+    background-image: none;
     border-color: #ed586c;
-    -moz-box-shadow: 0 2px 0 rgba(0, 0, 0, 0.05);
-    -webkit-box-shadow: 0 2px 0 rgba(0, 0, 0, 0.05);
-    box-shadow: 0 2px 0 rgba(0, 0, 0, 0.05);
+    -moz-box-shadow: 0 0.2rem 0 rgba(0, 0, 0, 0.05);
+    -webkit-box-shadow: 0 0.2rem 0 rgba(0, 0, 0, 0.05);
+    box-shadow: 0 0.2rem 0 rgba(0, 0, 0, 0.05);
 }
 .btn.btn-danger:focus {
     color: #ffffff;
     background-color: #ff4d4f;
+    background-image: none;
     border-color: #ff4d4f;
-    -moz-box-shadow: 0 0 0 3px rgba(245, 34, 45, 0.3);
-    -webkit-box-shadow: 0 0 0 3px rgba(245, 34, 45, 0.3);
-    box-shadow: 0 0 0 3px rgba(245, 34, 45, 0.3);
+    -moz-box-shadow: 0 0 0 0.3rem rgba(245, 34, 45, 0.3);
+    -webkit-box-shadow: 0 0 0 0.3rem rgba(245, 34, 45, 0.3);
+    box-shadow: 0 0 0 0.3rem rgba(245, 34, 45, 0.3);
     outline-color: transparent;
 }
 .btn.btn-danger.active {
     color: #ffffff;
     background-color: #ff4d4f;
+    background-image: none;
     border-color: #ff4d4f;
-    -moz-box-shadow: 0 0 0 3px rgba(245, 34, 45, 0.3);
-    -webkit-box-shadow: 0 0 0 3px rgba(245, 34, 45, 0.3);
-    box-shadow: 0 0 0 3px rgba(245, 34, 45, 0.3);
+    -moz-box-shadow: 0 0 0 0.3rem rgba(245, 34, 45, 0.3);
+    -webkit-box-shadow: 0 0 0 0.3rem rgba(245, 34, 45, 0.3);
+    box-shadow: 0 0 0 0.3rem rgba(245, 34, 45, 0.3);
     outline-color: transparent;
 }
 .btn.btn-danger:focus:hover {
-    /* 
-    * Only text color and background color is overridden, while the border 
-    * color, box shadow, and the outline of the focus selector is kept.
+    /*
+    Only text color and background properties are overridden, while the border 
+    color, box shadow, and the outline of the focus selector is kept.
     */
     color: #ffffff;
     background-color: #ed586c;
+    background-image: none;
 }
 .btn.btn-danger.active:hover {
-    /* 
-    * Only text color and background color is overridden, while the border 
-    * color, box shadow, and the outline of the focus selector is kept.
+    /*
+    Only text color and background properties are overridden, while the border 
+    color, box shadow, and the outline of the focus selector is kept.
     */
     color: #ffffff;
     background-color: #ed586c;
+    background-image: none;
 }
 .dark-mode .btn.btn-danger {
     color: #ffffff;
     background-color: #ff4d4f;
+    background-image: none;
     border-color: #ff4d4f;
-    -moz-box-shadow: 0 2px 0 rgba(0, 0, 0, 0.1);
-    -webkit-box-shadow: 0 2px 0 rgba(0, 0, 0, 0.1);
-    box-shadow: 0 2px 0 rgba(0, 0, 0, 0.1);
+    -moz-box-shadow: 0 0.2rem 0 rgba(0, 0, 0, 0.1);
+    -webkit-box-shadow: 0 0.2rem 0 rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0.2rem 0 rgba(0, 0, 0, 0.1);
     -webkit-font-smoothing: auto;
     -moz-osx-font-smoothing: auto;
 }
 .dark-mode .btn.btn-danger:hover {
     color: #ffffff;
     background-color: #ed586c;
+    background-image: none;
     border-color: #ed586c;
-    -moz-box-shadow: 0 2px 0 rgba(0, 0, 0, 0.1);
-    -webkit-box-shadow: 0 2px 0 rgba(0, 0, 0, 0.1);
-    box-shadow: 0 2px 0 rgba(0, 0, 0, 0.1);
+    -moz-box-shadow: 0 0.2rem 0 rgba(0, 0, 0, 0.1);
+    -webkit-box-shadow: 0 0.2rem 0 rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0.2rem 0 rgba(0, 0, 0, 0.1);
 }
 .dark-mode .btn.btn-danger:focus {
     color: #ffffff;
     background-color: #ff4d4f;
+    background-image: none;
     border-color: #ff4d4f;
-    -moz-box-shadow: 0 0 0 3px rgba(245, 34, 45, 0.3);
-    -webkit-box-shadow: 0 0 0 3px rgba(245, 34, 45, 0.3);
-    box-shadow: 0 0 0 3px rgba(245, 34, 45, 0.3);
+    -moz-box-shadow: 0 0 0 0.3rem rgba(245, 34, 45, 0.3);
+    -webkit-box-shadow: 0 0 0 0.3rem rgba(245, 34, 45, 0.3);
+    box-shadow: 0 0 0 0.3rem rgba(245, 34, 45, 0.3);
     outline-color: transparent;
 }
 .dark-mode .btn.btn-danger.active {
     color: #ffffff;
     background-color: #ff4d4f;
+    background-image: none;
     border-color: #ff4d4f;
-    -moz-box-shadow: 0 0 0 3px rgba(245, 34, 45, 0.3);
-    -webkit-box-shadow: 0 0 0 3px rgba(245, 34, 45, 0.3);
-    box-shadow: 0 0 0 3px rgba(245, 34, 45, 0.3);
+    -moz-box-shadow: 0 0 0 0.3rem rgba(245, 34, 45, 0.3);
+    -webkit-box-shadow: 0 0 0 0.3rem rgba(245, 34, 45, 0.3);
+    box-shadow: 0 0 0 0.3rem rgba(245, 34, 45, 0.3);
     outline-color: transparent;
 }
 .dark-mode .btn.btn-danger:focus:hover {
-    /* 
-    * Only text color and background color is overridden, while the border 
-    * color, box shadow, and the outline of the focus selector is kept.
+    /*
+    Only text color and background properties are overridden, while the border 
+    color, box shadow, and the outline of the focus selector is kept.
     */
     color: #ffffff;
     background-color: #ed586c;
+    background-image: none;
 }
 .dark-mode .btn.btn-danger.active:hover {
-    /* 
-    * Only text color and background color is overridden, while the border 
-    * color, box shadow, and the outline of the focus selector is kept.
+    /*
+    Only text color and background properties are overridden, while the border 
+    color, box shadow, and the outline of the focus selector is kept.
     */
     color: #ffffff;
     background-color: #ed586c;
+    background-image: none;
 }
 .btn.btn-danger.disabled {
     color: #ffffff;
     background-color: #ff4d4f;
+    background-image: none;
     border-color: #ff4d4f;
     -moz-box-shadow: none;
     -webkit-box-shadow: none;
@@ -3911,6 +4091,7 @@ Notes:
 .btn.btn-danger:disabled {
     color: #ffffff;
     background-color: #ff4d4f;
+    background-image: none;
     border-color: #ff4d4f;
     -moz-box-shadow: none;
     -webkit-box-shadow: none;
@@ -3920,6 +4101,7 @@ Notes:
 .btn.btn-danger.disabled:hover {
     color: #ffffff;
     background-color: #ff4d4f;
+    background-image: none;
     border-color: #ff4d4f;
     -moz-box-shadow: none;
     -webkit-box-shadow: none;
@@ -3929,6 +4111,7 @@ Notes:
 .btn.btn-danger.disabled:focus {
     color: #ffffff;
     background-color: #ff4d4f;
+    background-image: none;
     border-color: #ff4d4f;
     -moz-box-shadow: none;
     -webkit-box-shadow: none;
@@ -3938,6 +4121,7 @@ Notes:
 .dark-mode .btn.btn-danger.disabled {
     color: #ffffff;
     background-color: #ff4d4f;
+    background-image: none;
     border-color: #ff4d4f;
     -moz-box-shadow: none;
     -webkit-box-shadow: none;
@@ -3947,6 +4131,7 @@ Notes:
 .dark-mode .btn.btn-danger:disabled {
     color: #ffffff;
     background-color: #ff4d4f;
+    background-image: none;
     border-color: #ff4d4f;
     -moz-box-shadow: none;
     -webkit-box-shadow: none;
@@ -3956,6 +4141,7 @@ Notes:
 .dark-mode .btn.btn-danger.disabled:hover {
     color: #ffffff;
     background-color: #ff4d4f;
+    background-image: none;
     border-color: #ff4d4f;
     -moz-box-shadow: none;
     -webkit-box-shadow: none;
@@ -3965,11 +4151,30 @@ Notes:
 .dark-mode .btn.btn-danger.disabled:focus {
     color: #ffffff;
     background-color: #ff4d4f;
+    background-image: none;
     border-color: #ff4d4f;
     -moz-box-shadow: none;
     -webkit-box-shadow: none;
     box-shadow: none;
     outline: none;
+}
+
+/* Square button */
+
+.btn-square {
+    width: 3.2rem;
+    padding-left: 0;
+    padding-right: 0;
+}
+.btn-square.btn-sm {
+    width: 2.6rem;
+    padding-left: 0;
+    padding-right: 0;
+}
+.btn-square.btn-lg {
+    width: 4rem;
+    padding-left: 0;
+    padding-right: 0;
 }
 
 
@@ -4014,12 +4219,12 @@ code,
 .code {
     font-size: 1.2rem;
     line-height: 1.5;
-    padding: 1px .5rem;
-    margin: 0 1px;
+    padding: 0.1rem 0.5rem;
+    margin: 0 0.1rem;
     color: rgba(0, 0, 0, 0.85);
     background-color: #ecf0f1;
     border: 1px solid rgba(0, 0, 0, 0.05);
-    border-radius: 2px;
+    border-radius: 0.2rem;
 }
 .dark-mode .code {
     color: rgba(255, 255, 255, 0.8);
@@ -4033,12 +4238,12 @@ kbd {
     font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
     font-size: 1.2rem;
     line-height: 1.5;
-    padding: 1px .5rem;
-    margin: 0 1px;
+    padding: 0.1rem 0.5rem;
+    margin: 0 0.1rem;
     color: rgba(0, 0, 0, 0.85);
     background-color: #ffffff;
     border: 1px solid rgba(0, 0, 0, 0.2);
-    border-radius: 4px;
+    border-radius: 0.4rem;
     -webkit-user-select: none;  /* Chrome all / Safari all */
     -moz-user-select: none;     /* Firefox all */
     -ms-user-select: none;      /* IE 10+ */
@@ -4115,6 +4320,7 @@ kbd {
 .table-bordered {
     border: 1px solid #dadfe1;
 }
+
 .table-outer-bordered {
     border: 1px solid #dadfe1;
 }
@@ -4154,6 +4360,7 @@ kbd {
 .table-hover tbody tr:hover th {
     background-color: rgba(0, 0, 0, 0.05);
 }
+
 .table-hover tbody tr:hover td {
     background-color: rgba(0, 0, 0, 0.05);
 }
@@ -4169,6 +4376,7 @@ kbd {
 .table-striped tbody tr:nth-child(odd) {
     background-color: #ecf0f1;
 }
+
 .table-striped tbody tr:nth-child(odd) {
     background-color: #ecf0f1;
 }
@@ -4188,16 +4396,19 @@ kbd {
     background-color: #cfe7fd;
     border-color: #45a3fb;
 }
+
 .table-striped tbody tr.table-primary {
     color: rgba(0, 0, 0, 0.85);
     background-color: #cfe7fd;
     border-color: #45a3fb;
 }
+
 .table-bordered tbody tr.table-primary {
     color: rgba(0, 0, 0, 0.85);
     background-color: #cfe7fd;
     border-color: #45a3fb;
 }
+
 .table-inner-bordered tbody tr.table-primary {
     color: rgba(0, 0, 0, 0.85);
     background-color: #cfe7fd;
@@ -4261,23 +4472,23 @@ kbd {
 }
 .table tbody tr.table-secondary {
     color: rgba(0, 0, 0, 0.85);
-    background-color: #fef1ce;
-    border-color: #ffc312;
+    background-color: #fff6cc;
+    border-color: #ffcf00;
 }
 .table-striped tbody tr.table-secondary {
     color: rgba(0, 0, 0, 0.85);
-    background-color: #fef1ce;
-    border-color: #ffc312;
+    background-color: #fff6cc;
+    border-color: #ffcf00;
 }
 .table-bordered tbody tr.table-secondary {
     color: rgba(0, 0, 0, 0.85);
-    background-color: #fef1ce;
-    border-color: #ffc312;
+    background-color: #fff6cc;
+    border-color: #ffcf00;
 }
 .table-inner-bordered tbody tr.table-secondary {
     color: rgba(0, 0, 0, 0.85);
-    background-color: #fef1ce;
-    border-color: #ffc312;
+    background-color: #fff6cc;
+    border-color: #ffcf00;
 }
 .table tbody tr.table-secondary th {
     border-color: #bababc;
@@ -4343,16 +4554,19 @@ kbd {
     background-color: #172636;
     border-color: #0d518f;
 }
+
 .dark-mode .table-striped tbody tr.table-primary {
     color: #1890ff;
     background-color: #172636;
     border-color: #0d518f;
 }
+
 .dark-mode .table-bordered tbody tr.table-primary {
     color: #1890ff;
     background-color: #172636;
     border-color: #0d518f;
 }
+
 .dark-mode .table-inner-bordered tbody tr.table-primary {
     color: #1890ff;
     background-color: #172636;
@@ -4415,24 +4629,24 @@ kbd {
     border-color: #47494d;
 }
 .dark-mode .table tbody tr.table-secondary {
-    color: #ffc312;
+    color: #ffcf00;
     background-color: #302c1d;
-    border-color: #8c7010;
+    border-color: #8e7710;
 }
 .dark-mode .table-striped tbody tr.table-secondary {
-    color: #ffc312;
+    color: #ffcf00;
     background-color: #302c1d;
-    border-color: #8c7010;
+    border-color: #8e7710;
 }
 .dark-mode .table-bordered tbody tr.table-secondary {
-    color: #ffc312;
+    color: #ffcf00;
     background-color: #302c1d;
-    border-color: #8c7010;
+    border-color: #8e7710;
 }
 .dark-mode .table-inner-bordered tbody tr.table-secondary {
-    color: #ffc312;
+    color: #ffcf00;
     background-color: #302c1d;
-    border-color: #8c7010;
+    border-color: #8e7710;
 }
 .dark-mode .table tbody tr.table-secondary th {
     border-color: #47494d;
@@ -4498,7 +4712,10 @@ kbd {
 -------------------------------------------------------------------------------
 */
 
-/* Fieldsets, form-groups, form-rows and cols, labels, legends, form-text, invalid-feedback, inline-form */
+/*
+Fieldsets, form-groups, form-rows and cols, labels, legends, form-text, 
+invalid-feedback, inline-form
+*/
 
 fieldset {
     padding: 0;
@@ -5329,9 +5546,9 @@ textarea.form-control-lg {
     color: rgba(0, 0, 0, 0.85);
     background-color: #ffffff;
     border-color: rgba(0, 0, 0, 0.2);
-    -moz-box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.6);
-    -webkit-box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.6);
-    box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.6);
+    -moz-box-shadow: 0 0 0 0.2rem rgba(24, 144, 255, 0.6);
+    -webkit-box-shadow: 0 0 0 0.2rem rgba(24, 144, 255, 0.6);
+    box-shadow: 0 0 0 0.2rem rgba(24, 144, 255, 0.6);
     outline: none;
 }
 ::-webkit-input-placeholder {
@@ -5346,10 +5563,12 @@ textarea.form-control-lg {
     color: rgba(0, 0, 0, 0.35);
 }
 .form-control.disabled {
-    /* The :disabled selector must still be added to the input field for the 
+    /*
+    The :disabled selector must still be added to the input field for the 
     forms to work as intended. Moreover, since focusing on an input with the 
     :disabled selector is impossible, the :focus styles are not overridden 
-    (along with the :focus box shadows). */
+    (along with the :focus box shadows).
+    */
     cursor: not-allowed;
     opacity: 0.6;
     color: rgba(0, 0, 0, 0.85);
@@ -5357,10 +5576,12 @@ textarea.form-control-lg {
     border-color: rgba(0, 0, 0, 0.2);
 }
 .form-control:disabled {
-    /* The :disabled selector must still be added to the input field for the 
+    /*
+    The :disabled selector must still be added to the input field for the 
     forms to work as intended. Moreover, since focusing on an input with the 
     :disabled selector is impossible, the :focus styles are not overridden 
-    (along with the :focus box shadows). */
+    (along with the :focus box shadows).
+    */
     cursor: not-allowed;
     opacity: 0.6;
     color: rgba(0, 0, 0, 0.85);
@@ -5368,10 +5589,12 @@ textarea.form-control-lg {
     border-color: rgba(0, 0, 0, 0.2);
 }
 .form-control.disabled:hover {
-    /* The :disabled selector must still be added to the input field for the 
+    /*
+    The :disabled selector must still be added to the input field for the 
     forms to work as intended. Moreover, since focusing on an input with the 
     :disabled selector is impossible, the :focus styles are not overridden 
-    (along with the :focus box shadows). */
+    (along with the :focus box shadows).
+    */
     cursor: not-allowed;
     opacity: 0.6;
     color: rgba(0, 0, 0, 0.85);
@@ -5379,10 +5602,12 @@ textarea.form-control-lg {
     border-color: rgba(0, 0, 0, 0.2);
 }
 .form-control:disabled:hover {
-    /* The :disabled selector must still be added to the input field for the 
+    /*
+    The :disabled selector must still be added to the input field for the 
     forms to work as intended. Moreover, since focusing on an input with the 
     :disabled selector is impossible, the :focus styles are not overridden 
-    (along with the :focus box shadows). */
+    (along with the :focus box shadows).
+    */
     cursor: not-allowed;
     opacity: 0.6;
     color: rgba(0, 0, 0, 0.85);
@@ -5409,9 +5634,9 @@ textarea.form-control-lg {
     color: rgba(255, 255, 255, 0.8);
     background-color: rgba(255, 255, 255, 0.05);
     border-color: rgba(0, 0, 0, 0.4);
-    -moz-box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.3);
-    -webkit-box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.3);
-    box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.3);
+    -moz-box-shadow: 0 0 0 0.2rem rgba(24, 144, 255, 0.3);
+    -webkit-box-shadow: 0 0 0 0.2rem rgba(24, 144, 255, 0.3);
+    box-shadow: 0 0 0 0.2rem rgba(24, 144, 255, 0.3);
     outline: none;
 }
 .dark-mode ::-webkit-input-placeholder {
@@ -5515,6 +5740,7 @@ textarea.form-control-lg {
     -webkit-box-shadow: none;
     box-shadow: none;
 }
+
 .form-control.is-invalid {
     color: rgba(0, 0, 0, 0.85);
     background-color: #ffffff;
@@ -5543,18 +5769,18 @@ textarea.form-control-lg {
     color: rgba(0, 0, 0, 0.85);
     background-color: #ffffff;
     border-color: #f8d0d9;
-    -moz-box-shadow: 0 0 0 2px rgba(245, 34, 45, 0.6);
-    -webkit-box-shadow: 0 0 0 2px rgba(245, 34, 45, 0.6);
-    box-shadow: 0 0 0 2px rgba(245, 34, 45, 0.6);
+    -moz-box-shadow: 0 0 0 0.2rem rgba(245, 34, 45, 0.6);
+    -webkit-box-shadow: 0 0 0 0.2rem rgba(245, 34, 45, 0.6);
+    box-shadow: 0 0 0 0.2rem rgba(245, 34, 45, 0.6);
     outline: none;
 }
 .form-control.is-invalid:focus {
     color: rgba(0, 0, 0, 0.85);
     background-color: #ffffff;
     border-color: #f8d0d9;
-    -moz-box-shadow: 0 0 0 2px rgba(245, 34, 45, 0.6);
-    -webkit-box-shadow: 0 0 0 2px rgba(245, 34, 45, 0.6);
-    box-shadow: 0 0 0 2px rgba(245, 34, 45, 0.6);
+    -moz-box-shadow: 0 0 0 0.2rem rgba(245, 34, 45, 0.6);
+    -webkit-box-shadow: 0 0 0 0.2rem rgba(245, 34, 45, 0.6);
+    box-shadow: 0 0 0 0.2rem rgba(245, 34, 45, 0.6);
     outline: none;
 }
 .form-group.is-invalid .form-control::-webkit-input-placeholder {
@@ -5615,18 +5841,18 @@ textarea.form-control-lg {
     color: rgba(255, 255, 255, 0.8);
     background-color: rgba(255, 255, 255, 0.05);
     border-color: #ff4d4f;
-    -moz-box-shadow: 0 0 0 2px rgba(245, 34, 45, 0.3);
-    -webkit-box-shadow: 0 0 0 2px rgba(245, 34, 45, 0.3);
-    box-shadow: 0 0 0 2px rgba(245, 34, 45, 0.3);
+    -moz-box-shadow: 0 0 0 0.2rem rgba(245, 34, 45, 0.3);
+    -webkit-box-shadow: 0 0 0 0.2rem rgba(245, 34, 45, 0.3);
+    box-shadow: 0 0 0 0.2rem rgba(245, 34, 45, 0.3);
     outline: none;
 }
 .dark-mode .form-control.is-invalid:focus {
     color: rgba(255, 255, 255, 0.8);
     background-color: rgba(255, 255, 255, 0.05);
     border-color: #ff4d4f;
-    -moz-box-shadow: 0 0 0 2px rgba(245, 34, 45, 0.3);
-    -webkit-box-shadow: 0 0 0 2px rgba(245, 34, 45, 0.3);
-    box-shadow: 0 0 0 2px rgba(245, 34, 45, 0.3);
+    -moz-box-shadow: 0 0 0 0.2rem rgba(245, 34, 45, 0.3);
+    -webkit-box-shadow: 0 0 0 0.2rem rgba(245, 34, 45, 0.3);
+    box-shadow: 0 0 0 0.2rem rgba(245, 34, 45, 0.3);
     outline: none;
 }
 .dark-mode .form-group.is-invalid .form-control::-webkit-input-placeholder {
@@ -5687,18 +5913,18 @@ textarea.form-control-lg {
     color: inherit;
     background-color: rgba(0, 0, 0, 0.15);
     border-color: #ed586c;
-    -moz-box-shadow: 0 0 0 2px rgba(245, 34, 45, 0.3);
-    -webkit-box-shadow: 0 0 0 2px rgba(245, 34, 45, 0.3);
-    box-shadow: 0 0 0 2px rgba(245, 34, 45, 0.3);
+    -moz-box-shadow: 0 0 0 0.2rem rgba(245, 34, 45, 0.3);
+    -webkit-box-shadow: 0 0 0 0.2rem rgba(245, 34, 45, 0.3);
+    box-shadow: 0 0 0 0.2rem rgba(245, 34, 45, 0.3);
     outline: none;
 }
 .dark-mode .form-control.alt-dm.is-invalid:focus {
     color: inherit;
     background-color: rgba(0, 0, 0, 0.15);
     border-color: #ed586c;
-    -moz-box-shadow: 0 0 0 2px rgba(245, 34, 45, 0.3);
-    -webkit-box-shadow: 0 0 0 2px rgba(245, 34, 45, 0.3);
-    box-shadow: 0 0 0 2px rgba(245, 34, 45, 0.3);
+    -moz-box-shadow: 0 0 0 0.2rem rgba(245, 34, 45, 0.3);
+    -webkit-box-shadow: 0 0 0 0.2rem rgba(245, 34, 45, 0.3);
+    box-shadow: 0 0 0 0.2rem rgba(245, 34, 45, 0.3);
     outline: none;
 }
 .dark-mode .form-group.is-invalid .form-control.alt-dm.is-invalid::-webkit-input-placeholder {
@@ -5745,8 +5971,10 @@ select.form-control:not([multiple]) {
     background-color: #1890ff;
 }
 @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {  
-    /* This hack resets the select boxes to their defaults on IE, because it 
-    is not possible to remove the default dropdown arrow. */
+    /*
+    This hack resets the select boxes to their defaults on IE, because it is 
+    not possible to remove the default dropdown arrow.
+    */
     select.form-control:not([multiple]) {
         background-image: none;
         background-size: auto;
@@ -5824,9 +6052,9 @@ select.form-control[multiple] > option:disabled {
 }
 .custom-checkbox input[type="checkbox"]:focus~label:before {
     border-color: rgba(0, 0, 0, 0.2);
-    -moz-box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.6);
-    -webkit-box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.6);
-    box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.6);
+    -moz-box-shadow: 0 0 0 0.2rem rgba(24, 144, 255, 0.6);
+    -webkit-box-shadow: 0 0 0 0.2rem rgba(24, 144, 255, 0.6);
+    box-shadow: 0 0 0 0.2rem rgba(24, 144, 255, 0.6);
 }
 .custom-checkbox input[type="checkbox"]:checked~label:before {
     background-color: #1890ff;
@@ -5834,9 +6062,9 @@ select.form-control[multiple] > option:disabled {
 }
 .custom-checkbox input[type="checkbox"]:checked:focus~label:before {
     border-color: #1890ff;
-    -moz-box-shadow: 0 0 0 3px rgba(24, 144, 255, 0.3);
-    -webkit-box-shadow: 0 0 0 3px rgba(24, 144, 255, 0.3);
-    box-shadow: 0 0 0 3px rgba(24, 144, 255, 0.3);
+    -moz-box-shadow: 0 0 0 0.3rem rgba(24, 144, 255, 0.3);
+    -webkit-box-shadow: 0 0 0 0.3rem rgba(24, 144, 255, 0.3);
+    box-shadow: 0 0 0 0.3rem rgba(24, 144, 255, 0.3);
 }
 .dark-mode .custom-checkbox label:before {
     background-color: transparent;
@@ -5848,9 +6076,9 @@ select.form-control[multiple] > option:disabled {
 }
 .dark-mode .custom-checkbox input[type="checkbox"]:focus~label:before {
     border-color: rgba(0, 0, 0, 0.4);
-    -moz-box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.3);
-    -webkit-box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.3);
-    box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.3);
+    -moz-box-shadow: 0 0 0 0.2rem rgba(24, 144, 255, 0.3);
+    -webkit-box-shadow: 0 0 0 0.2rem rgba(24, 144, 255, 0.3);
+    box-shadow: 0 0 0 0.2rem rgba(24, 144, 255, 0.3);
 }
 .dark-mode .custom-checkbox input[type="checkbox"]:checked~label:before {
     background-color: #1890ff;
@@ -5858,9 +6086,9 @@ select.form-control[multiple] > option:disabled {
 }
 .dark-mode .custom-checkbox input[type="checkbox"]:checked:focus~label:before {
     border-color: #1890ff;
-    -moz-box-shadow: 0 0 0 3px rgba(24, 144, 255, 0.3);
-    -webkit-box-shadow: 0 0 0 3px rgba(24, 144, 255, 0.3);
-    box-shadow: 0 0 0 3px rgba(24, 144, 255, 0.3);
+    -moz-box-shadow: 0 0 0 0.3rem rgba(24, 144, 255, 0.3);
+    -webkit-box-shadow: 0 0 0 0.3rem rgba(24, 144, 255, 0.3);
+    box-shadow: 0 0 0 0.3rem rgba(24, 144, 255, 0.3);
 }
 .custom-checkbox label:after {
     content: "";
@@ -5967,9 +6195,9 @@ select.form-control[multiple] > option:disabled {
 }
 .custom-radio input[type="radio"]:focus~label:before {
     border-color: rgba(0, 0, 0, 0.2);
-    -moz-box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.6);
-    -webkit-box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.6);
-    box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.6);
+    -moz-box-shadow: 0 0 0 0.2rem rgba(24, 144, 255, 0.6);
+    -webkit-box-shadow: 0 0 0 0.2rem rgba(24, 144, 255, 0.6);
+    box-shadow: 0 0 0 0.2rem rgba(24, 144, 255, 0.6);
 }
 .custom-radio input[type="radio"]:checked~label:before {
     background-color: #1890ff;
@@ -5977,9 +6205,9 @@ select.form-control[multiple] > option:disabled {
 }
 .custom-radio input[type="radio"]:checked:focus~label:before {
     border-color: #1890ff;
-    -moz-box-shadow: 0 0 0 3px rgba(24, 144, 255, 0.3);
-    -webkit-box-shadow: 0 0 0 3px rgba(24, 144, 255, 0.3);
-    box-shadow: 0 0 0 3px rgba(24, 144, 255, 0.3);
+    -moz-box-shadow: 0 0 0 0.3rem rgba(24, 144, 255, 0.3);
+    -webkit-box-shadow: 0 0 0 0.3rem rgba(24, 144, 255, 0.3);
+    box-shadow: 0 0 0 0.3rem rgba(24, 144, 255, 0.3);
 }
 .dark-mode .custom-radio label:before {
     background-color: transparent;
@@ -5991,9 +6219,9 @@ select.form-control[multiple] > option:disabled {
 }
 .dark-mode .custom-radio input[type="radio"]:focus~label:before {
     border-color: rgba(0, 0, 0, 0.4);
-    -moz-box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.3);
-    -webkit-box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.3);
-    box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.3);
+    -moz-box-shadow: 0 0 0 0.2rem rgba(24, 144, 255, 0.3);
+    -webkit-box-shadow: 0 0 0 0.2rem rgba(24, 144, 255, 0.3);
+    box-shadow: 0 0 0 0.2rem rgba(24, 144, 255, 0.3);
 }
 .dark-mode .custom-radio input[type="radio"]:checked~label:before {
     background-color: #1890ff;
@@ -6001,9 +6229,9 @@ select.form-control[multiple] > option:disabled {
 }
 .dark-mode .custom-radio input[type="radio"]:checked:focus~label:before {
     border-color: #1890ff;
-    -moz-box-shadow: 0 0 0 3px rgba(24, 144, 255, 0.3);
-    -webkit-box-shadow: 0 0 0 3px rgba(24, 144, 255, 0.3);
-    box-shadow: 0 0 0 3px rgba(24, 144, 255, 0.3);
+    -moz-box-shadow: 0 0 0 0.3rem rgba(24, 144, 255, 0.3);
+    -webkit-box-shadow: 0 0 0 0.3rem rgba(24, 144, 255, 0.3);
+    box-shadow: 0 0 0 0.3rem rgba(24, 144, 255, 0.3);
 }
 .custom-radio label:after{
     content: "";
@@ -6104,9 +6332,9 @@ select.form-control[multiple] > option:disabled {
 }
 .custom-switch input[type="checkbox"]:focus~label:before {
     border-color: rgba(0, 0, 0, 0.2);
-    -moz-box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.6);
-    -webkit-box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.6);
-    box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.6);
+    -moz-box-shadow: 0 0 0 0.2rem rgba(24, 144, 255, 0.6);
+    -webkit-box-shadow: 0 0 0 0.2rem rgba(24, 144, 255, 0.6);
+    box-shadow: 0 0 0 0.2rem rgba(24, 144, 255, 0.6);
 }
 .custom-switch input[type="checkbox"]:checked~label:before {
     background-color: #1890ff;
@@ -6114,9 +6342,9 @@ select.form-control[multiple] > option:disabled {
 }
 .custom-switch input[type="checkbox"]:checked:focus~label:before {
     border-color: #1890ff;
-    -moz-box-shadow: 0 0 0 3px rgba(24, 144, 255, 0.3);
-    -webkit-box-shadow: 0 0 0 3px rgba(24, 144, 255, 0.3);
-    box-shadow: 0 0 0 3px rgba(24, 144, 255, 0.3);
+    -moz-box-shadow: 0 0 0 0.3rem rgba(24, 144, 255, 0.3);
+    -webkit-box-shadow: 0 0 0 0.3rem rgba(24, 144, 255, 0.3);
+    box-shadow: 0 0 0 0.3rem rgba(24, 144, 255, 0.3);
 }
 .dark-mode .custom-switch label:before {
     background-color: transparent;
@@ -6128,9 +6356,9 @@ select.form-control[multiple] > option:disabled {
 }
 .dark-mode .custom-switch input[type="checkbox"]:focus~label:before {
     border-color: rgba(0, 0, 0, 0.4);
-    -moz-box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.3);
-    -webkit-box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.3);
-    box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.3);
+    -moz-box-shadow: 0 0 0 0.2rem rgba(24, 144, 255, 0.3);
+    -webkit-box-shadow: 0 0 0 0.2rem rgba(24, 144, 255, 0.3);
+    box-shadow: 0 0 0 0.2rem rgba(24, 144, 255, 0.3);
 }
 .dark-mode .custom-switch input[type="checkbox"]:checked~label:before {
     background-color: #1890ff;
@@ -6138,9 +6366,9 @@ select.form-control[multiple] > option:disabled {
 }
 .dark-mode .custom-switch input[type="checkbox"]:checked:focus~label:before {
     border-color: #1890ff;
-    -moz-box-shadow: 0 0 0 3px rgba(24, 144, 255, 0.3);
-    -webkit-box-shadow: 0 0 0 3px rgba(24, 144, 255, 0.3);
-    box-shadow: 0 0 0 3px rgba(24, 144, 255, 0.3);
+    -moz-box-shadow: 0 0 0 0.3rem rgba(24, 144, 255, 0.3);
+    -webkit-box-shadow: 0 0 0 0.3rem rgba(24, 144, 255, 0.3);
+    box-shadow: 0 0 0 0.3rem rgba(24, 144, 255, 0.3);
 }
 .custom-switch label:after{
     content: "";
@@ -6230,73 +6458,82 @@ select.form-control[multiple] > option:disabled {
     padding: 0 1.5rem;
     color: rgba(0, 0, 0, 0.7);
     background-color: #ffffff;
+    background-image: none;
     border: 1px solid rgba(0, 0, 0, 0.2);
     border-radius: 0.4rem;
-    -moz-box-shadow: 0 2px 0 rgba(0, 0, 0, 0.05);
-    -webkit-box-shadow: 0 2px 0 rgba(0, 0, 0, 0.05);
-    box-shadow: 0 2px 0 rgba(0, 0, 0, 0.05);
+    -moz-box-shadow: 0 0.2rem 0 rgba(0, 0, 0, 0.05);
+    -webkit-box-shadow: 0 0.2rem 0 rgba(0, 0, 0, 0.05);
+    box-shadow: 0 0.2rem 0 rgba(0, 0, 0, 0.05);
 }
 .custom-file label:hover {
     color: rgba(0, 0, 0, 0.7);
     background-color: #f7f7f7;
+    background-image: none;
     border-color: rgba(0, 0, 0, 0.2);
-    -moz-box-shadow: 0 2px 0 rgba(0, 0, 0, 0.05);
-    -webkit-box-shadow: 0 2px 0 rgba(0, 0, 0, 0.05);
-    box-shadow: 0 2px 0 rgba(0, 0, 0, 0.05);
+    -moz-box-shadow: 0 0.2rem 0 rgba(0, 0, 0, 0.05);
+    -webkit-box-shadow: 0 0.2rem 0 rgba(0, 0, 0, 0.05);
+    box-shadow: 0 0.2rem 0 rgba(0, 0, 0, 0.05);
 }
 .custom-file input[type="file"]:focus~label {
     color: rgba(0, 0, 0, 0.7);
     background-color: #ffffff;
+    background-image: none;
     border-color: rgba(0, 0, 0, 0.2);
-    -moz-box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.6);
-    -webkit-box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.6);
-    box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.6);
+    -moz-box-shadow: 0 0 0 0.2rem rgba(24, 144, 255, 0.6);
+    -webkit-box-shadow: 0 0 0 0.2rem rgba(24, 144, 255, 0.6);
+    box-shadow: 0 0 0 0.2rem rgba(24, 144, 255, 0.6);
 }
 .custom-file input[type="file"]:focus:hover~label {
-    /* 
-    * Only text color and background color is overridden, while the border 
-    * color, box shadow, and the outline of the focus selector is kept.
+    /*
+    Only text color and background properties are overridden, while the border 
+    color, box shadow, and the outline of the focus selector is kept.
     */
     color: rgba(0, 0, 0, 0.7);
     background-color: #f7f7f7;
+    background-image: none;
 }
 .dark-mode .custom-file label {
     color: rgba(255, 255, 255, 0.8);
     background-color: rgba(255, 255, 255, 0.05);
-    border-color: transparent;
-    -moz-box-shadow: 0 2px 0 rgba(0, 0, 0, 0.1);
-    -webkit-box-shadow: 0 2px 0 rgba(0, 0, 0, 0.1);
-    box-shadow: 0 2px 0 rgba(0, 0, 0, 0.1);
+    background-image: none;
+    border-color: rgba(255, 255, 255, 0.025) transparent transparent transparent;
+    -moz-box-shadow: 0 0.2rem 0 rgba(0, 0, 0, 0.1);
+    -webkit-box-shadow: 0 0.2rem 0 rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0.2rem 0 rgba(0, 0, 0, 0.1);
 }
 .dark-mode .custom-file label:hover {
     color: rgba(255, 255, 255, 0.8);
     background-color: rgba(255, 255, 255, 0.1);
-    border-color: transparent;
-    -moz-box-shadow: 0 2px 0 rgba(0, 0, 0, 0.1);
-    -webkit-box-shadow: 0 2px 0 rgba(0, 0, 0, 0.1);
-    box-shadow: 0 2px 0 rgba(0, 0, 0, 0.1);
+    background-image: none;
+    border-color: rgba(255, 255, 255, 0.025) transparent transparent transparent;
+    -moz-box-shadow: 0 0.2rem 0 rgba(0, 0, 0, 0.1);
+    -webkit-box-shadow: 0 0.2rem 0 rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0.2rem 0 rgba(0, 0, 0, 0.1);
 }
 .dark-mode .custom-file input[type="file"]:focus~label {
     color: rgba(255, 255, 255, 0.8);
     background-color: rgba(255, 255, 255, 0.05);
+    background-image: none;
     border-color: rgba(0, 0, 0, 0.4);
-    -moz-box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.3);
-    -webkit-box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.3);
-    box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.3);
+    -moz-box-shadow: 0 0 0 0.2rem rgba(24, 144, 255, 0.3);
+    -webkit-box-shadow: 0 0 0 0.2rem rgba(24, 144, 255, 0.3);
+    box-shadow: 0 0 0 0.2rem rgba(24, 144, 255, 0.3);
 }
 .dark-mode .custom-file input[type="file"]:focus:hover~label {
-    /* 
-    * Only text color and background color is overridden, while the border 
-    * color, box shadow, and the outline of the focus selector is kept.
+    /*
+    Only text color and background properties are overridden, while the border 
+    color, box shadow, and the outline of the focus selector is kept.
     */
     color: rgba(255, 255, 255, 0.8);
     background-color: rgba(255, 255, 255, 0.1);
+    background-image: none;
 }
 .custom-file input[type="file"]:disabled~label {
     opacity: 0.6;
     cursor: not-allowed;
     color: rgba(0, 0, 0, 0.7);
     background-color: #ffffff;
+    background-image: none;
     border-color: rgba(0, 0, 0, 0.2);
     -moz-box-shadow: none;
     -webkit-box-shadow: none;
@@ -6307,6 +6544,7 @@ select.form-control[multiple] > option:disabled {
     cursor: not-allowed;
     color: rgba(0, 0, 0, 0.7);
     background-color: #ffffff;
+    background-image: none;
     border-color: rgba(0, 0, 0, 0.2);
     -moz-box-shadow: none;
     -webkit-box-shadow: none;
@@ -6315,7 +6553,8 @@ select.form-control[multiple] > option:disabled {
 .dark-mode .custom-file input[type="file"]:disabled~label {
     color: rgba(255, 255, 255, 0.8);
     background-color: rgba(255, 255, 255, 0.05);
-    border-color: transparent;
+    background-image: none;
+    border-color: rgba(255, 255, 255, 0.025) transparent transparent transparent;
     -moz-box-shadow: none;
     -webkit-box-shadow: none;
     box-shadow: none;
@@ -6323,7 +6562,8 @@ select.form-control[multiple] > option:disabled {
 .dark-mode .custom-file:hover input[type="file"]:disabled~label {
     color: rgba(255, 255, 255, 0.8);
     background-color: rgba(255, 255, 255, 0.05);
-    border-color: transparent;
+    background-image: none;
+    border-color: rgba(255, 255, 255, 0.025) transparent transparent transparent;
     -moz-box-shadow: none;
     -webkit-box-shadow: none;
     box-shadow: none;
@@ -6338,130 +6578,147 @@ select.form-control[multiple] > option:disabled {
 .form-group.is-invalid .custom-file label {
     color: rgba(0, 0, 0, 0.7);
     background-color: #ffffff;
+    background-image: none;
     border-color: #ff4d4f;
-    -moz-box-shadow: 0 2px 0 rgba(0, 0, 0, 0.05);
-    -webkit-box-shadow: 0 2px 0 rgba(0, 0, 0, 0.05);
-    box-shadow: 0 2px 0 rgba(0, 0, 0, 0.05);
+    -moz-box-shadow: 0 0.2rem 0 rgba(0, 0, 0, 0.05);
+    -webkit-box-shadow: 0 0.2rem 0 rgba(0, 0, 0, 0.05);
+    box-shadow: 0 0.2rem 0 rgba(0, 0, 0, 0.05);
 }
+
 .custom-file input[type="file"].is-invalid~label {
     color: rgba(0, 0, 0, 0.7);
     background-color: #ffffff;
+    background-image: none;
     border-color: #ff4d4f;
-    -moz-box-shadow: 0 2px 0 rgba(0, 0, 0, 0.05);
-    -webkit-box-shadow: 0 2px 0 rgba(0, 0, 0, 0.05);
-    box-shadow: 0 2px 0 rgba(0, 0, 0, 0.05);
+    -moz-box-shadow: 0 0.2rem 0 rgba(0, 0, 0, 0.05);
+    -webkit-box-shadow: 0 0.2rem 0 rgba(0, 0, 0, 0.05);
+    box-shadow: 0 0.2rem 0 rgba(0, 0, 0, 0.05);
 }
 .form-group.is-invalid .custom-file label:hover {
     color: rgba(0, 0, 0, 0.7);
     background-color: #f7f7f7;
+    background-image: none;
     border-color: #ff4d4f;
-    -moz-box-shadow: 0 2px 0 rgba(0, 0, 0, 0.05);
-    -webkit-box-shadow: 0 2px 0 rgba(0, 0, 0, 0.05);
-    box-shadow: 0 2px 0 rgba(0, 0, 0, 0.05);
+    -moz-box-shadow: 0 0.2rem 0 rgba(0, 0, 0, 0.05);
+    -webkit-box-shadow: 0 0.2rem 0 rgba(0, 0, 0, 0.05);
+    box-shadow: 0 0.2rem 0 rgba(0, 0, 0, 0.05);
 }
 .custom-file input[type="file"].is-invalid~label:hover {
     color: rgba(0, 0, 0, 0.7);
     background-color: #f7f7f7;
+    background-image: none;
     border-color: #ff4d4f;
-    -moz-box-shadow: 0 2px 0 rgba(0, 0, 0, 0.05);
-    -webkit-box-shadow: 0 2px 0 rgba(0, 0, 0, 0.05);
-    box-shadow: 0 2px 0 rgba(0, 0, 0, 0.05);
+    -moz-box-shadow: 0 0.2rem 0 rgba(0, 0, 0, 0.05);
+    -webkit-box-shadow: 0 0.2rem 0 rgba(0, 0, 0, 0.05);
+    box-shadow: 0 0.2rem 0 rgba(0, 0, 0, 0.05);
 }
 .form-group.is-invalid .custom-file input[type="file"]:focus~label {
     color: rgba(0, 0, 0, 0.7);
     background-color: #ffffff;
+    background-image: none;
     border-color: #f8d0d9;
-    -moz-box-shadow: 0 0 0 2px rgba(245, 34, 45, 0.6);
-    -webkit-box-shadow: 0 0 0 2px rgba(245, 34, 45, 0.6);
-    box-shadow: 0 0 0 2px rgba(245, 34, 45, 0.6);
+    -moz-box-shadow: 0 0 0 0.2rem rgba(245, 34, 45, 0.6);
+    -webkit-box-shadow: 0 0 0 0.2rem rgba(245, 34, 45, 0.6);
+    box-shadow: 0 0 0 0.2rem rgba(245, 34, 45, 0.6);
 }
 .custom-file input[type="file"].is-invalid:focus~label {
     color: rgba(0, 0, 0, 0.7);
     background-color: #ffffff;
+    background-image: none;
     border-color: #f8d0d9;
-    -moz-box-shadow: 0 0 0 2px rgba(245, 34, 45, 0.6);
-    -webkit-box-shadow: 0 0 0 2px rgba(245, 34, 45, 0.6);
-    box-shadow: 0 0 0 2px rgba(245, 34, 45, 0.6);
+    -moz-box-shadow: 0 0 0 0.2rem rgba(245, 34, 45, 0.6);
+    -webkit-box-shadow: 0 0 0 0.2rem rgba(245, 34, 45, 0.6);
+    box-shadow: 0 0 0 0.2rem rgba(245, 34, 45, 0.6);
 }
 .form-group.is-invalid .custom-file input[type="file"]:focus:hover~label {
-    /* 
-    * Only text color and background color is overridden, while the border 
-    * color, box shadow, and the outline of the focus selector is kept.
+    /*
+    Only text color and background properties are overridden, while the border 
+    color, box shadow, and the outline of the focus selector is kept.
     */
     color: rgba(0, 0, 0, 0.7);
     background-color: #f7f7f7;
+    background-image: none;
 }
 .custom-file input[type="file"].is-invalid:focus:hover~label {
-    /* 
-    * Only text color and background color is overridden, while the border 
-    * color, box shadow, and the outline of the focus selector is kept.
+    /*
+    Only text color and background properties are overridden, while the border 
+    color, box shadow, and the outline of the focus selector is kept.
     */
     color: rgba(0, 0, 0, 0.7);
     background-color: #f7f7f7;
+    background-image: none;
 }
 .dark-mode .form-group.is-invalid .custom-file label {
     color: rgba(255, 255, 255, 0.8);
     background-color: rgba(255, 255, 255, 0.05);
+    background-image: none;
     border-color: #ff4d4f;
-    -moz-box-shadow: 0 2px 0 rgba(0, 0, 0, 0.1);
-    -webkit-box-shadow: 0 2px 0 rgba(0, 0, 0, 0.1);
-    box-shadow: 0 2px 0 rgba(0, 0, 0, 0.1);
+    -moz-box-shadow: 0 0.2rem 0 rgba(0, 0, 0, 0.1);
+    -webkit-box-shadow: 0 0.2rem 0 rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0.2rem 0 rgba(0, 0, 0, 0.1);
 }
 .dark-mode .custom-file input[type="file"].is-invalid~label {
     color: rgba(255, 255, 255, 0.8);
     background-color: rgba(255, 255, 255, 0.05);
+    background-image: none;
     border-color: #ff4d4f;
-    -moz-box-shadow: 0 2px 0 rgba(0, 0, 0, 0.1);
-    -webkit-box-shadow: 0 2px 0 rgba(0, 0, 0, 0.1);
-    box-shadow: 0 2px 0 rgba(0, 0, 0, 0.1);
+    -moz-box-shadow: 0 0.2rem 0 rgba(0, 0, 0, 0.1);
+    -webkit-box-shadow: 0 0.2rem 0 rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0.2rem 0 rgba(0, 0, 0, 0.1);
 }
 .dark-mode .form-group.is-invalid .custom-file label:hover {
     color: rgba(255, 255, 255, 0.8);
     background-color: rgba(255, 255, 255, 0.1);
+    background-image: none;
     border-color: #ff4d4f;
-    -moz-box-shadow: 0 2px 0 rgba(0, 0, 0, 0.1);
-    -webkit-box-shadow: 0 2px 0 rgba(0, 0, 0, 0.1);
-    box-shadow: 0 2px 0 rgba(0, 0, 0, 0.1);
+    -moz-box-shadow: 0 0.2rem 0 rgba(0, 0, 0, 0.1);
+    -webkit-box-shadow: 0 0.2rem 0 rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0.2rem 0 rgba(0, 0, 0, 0.1);
 }
 .dark-mode .custom-file input[type="file"].is-invalid~label:hover {
     color: rgba(255, 255, 255, 0.8);
     background-color: rgba(255, 255, 255, 0.1);
+    background-image: none;
     border-color: #ff4d4f;
-    -moz-box-shadow: 0 2px 0 rgba(0, 0, 0, 0.1);
-    -webkit-box-shadow: 0 2px 0 rgba(0, 0, 0, 0.1);
-    box-shadow: 0 2px 0 rgba(0, 0, 0, 0.1);
+    -moz-box-shadow: 0 0.2rem 0 rgba(0, 0, 0, 0.1);
+    -webkit-box-shadow: 0 0.2rem 0 rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0.2rem 0 rgba(0, 0, 0, 0.1);
 }
 .dark-mode .form-group.is-invalid .custom-file input[type="file"]:focus~label {
     color: rgba(255, 255, 255, 0.8);
     background-color: rgba(255, 255, 255, 0.05);
+    background-image: none;
     border-color: #ff4d4f;
-    -moz-box-shadow: 0 0 0 2px rgba(245, 34, 45, 0.3);
-    -webkit-box-shadow: 0 0 0 2px rgba(245, 34, 45, 0.3);
-    box-shadow: 0 0 0 2px rgba(245, 34, 45, 0.3);
+    -moz-box-shadow: 0 0 0 0.2rem rgba(245, 34, 45, 0.3);
+    -webkit-box-shadow: 0 0 0 0.2rem rgba(245, 34, 45, 0.3);
+    box-shadow: 0 0 0 0.2rem rgba(245, 34, 45, 0.3);
 }
 .dark-mode .custom-file input[type="file"].is-invalid:focus~label {
     color: rgba(255, 255, 255, 0.8);
     background-color: rgba(255, 255, 255, 0.05);
+    background-image: none;
     border-color: #ff4d4f;
-    -moz-box-shadow: 0 0 0 2px rgba(245, 34, 45, 0.3);
-    -webkit-box-shadow: 0 0 0 2px rgba(245, 34, 45, 0.3);
-    box-shadow: 0 0 0 2px rgba(245, 34, 45, 0.3);
+    -moz-box-shadow: 0 0 0 0.2rem rgba(245, 34, 45, 0.3);
+    -webkit-box-shadow: 0 0 0 0.2rem rgba(245, 34, 45, 0.3);
+    box-shadow: 0 0 0 0.2rem rgba(245, 34, 45, 0.3);
 }
 .dark-mode .form-group.is-invalid .custom-file input[type="file"]:focus:hover~label {
     /* 
-    * Only text color and background color is overridden, while the border 
-    * color, box shadow, and the outline of the focus selector is kept.
+    Only text color and background properties are overridden, while the border 
+    color, box shadow, and the outline of the focus selector is kept.
     */
     color: rgba(255, 255, 255, 0.8);
     background-color: rgba(255, 255, 255, 0.1);
+    background-image: none;
 }
 .dark-mode .custom-file input[type="file"].is-invalid:focus:hover~label {
     /* 
-    * Only text color and background color is overridden, while the border 
-    * color, box shadow, and the outline of the focus selector is kept.
+    Only text color and background properties are overridden, while the border 
+    color, box shadow, and the outline of the focus selector is kept.
     */
     color: rgba(255, 255, 255, 0.8);
     background-color: rgba(255, 255, 255, 0.1);
+    background-image: none;
 }
 
 /* Input group */
@@ -6545,6 +6802,7 @@ select.form-control[multiple] > option:disabled {
     padding: 0 1rem;
     font-size: 1.2rem;
 }
+
 .input-group-sm > .input-group-append > .btn {
     height: 2.6rem;
     line-height: 2.6rem;
@@ -6562,6 +6820,26 @@ select.form-control[multiple] > option:disabled {
     line-height: 4rem;
     padding: 0 2rem;
     font-size: 1.8rem;
+}
+.input-group-sm > .input-group-prepend > .btn-square {
+    width: 2.6rem;
+    padding-left: 0;
+    padding-right: 0;
+}
+.input-group-sm > .input-group-append > .btn-square {
+    width: 2.6rem;
+    padding-left: 0;
+    padding-right: 0;
+}
+.input-group-lg > .input-group-prepend > .btn-square {
+    width: 4rem;
+    padding-left: 0;
+    padding-right: 0;
+}
+.input-group-lg > .input-group-append > .btn-square {
+    width: 4rem;
+    padding-left: 0;
+    padding-right: 0;
 }
 
 /* Input group borders */
@@ -6597,17 +6875,27 @@ select.form-control[multiple] > option:disabled {
     border-top-right-radius: 0.4rem;
     border-bottom-right-radius: 0.4rem;
 }
-.input-group > .form-control:nth-child(odd):not(:last-child),
-.input-group > .form-control:nth-child(even):not(:last-child),
-.input-group-prepend:nth-child(odd):not(:last-child) > .input-group-text,
-.input-group-prepend:nth-child(even):not(:last-child) > .input-group-text,
-.input-group-append:nth-child(odd):not(:last-child) > .input-group-text,
-.input-group-append:nth-child(even):not(:last-child) > .input-group-text,
-.input-group-prepend:nth-child(odd):not(:last-child) > .btn,
-.input-group-prepend:nth-child(even):not(:last-child) > .btn,
-.input-group-append:nth-child(odd):not(:last-child) > .btn,
-.input-group-append:nth-child(even):not(:last-child) > .btn {
-    border-right: none;
+.input-group > .form-control:focus,
+.input-group-prepend > .btn:focus,
+.input-group-prepend > .btn.active,
+.input-group-append > .btn:focus,
+.input-group-append > .btn.active {
+    z-index: 1;
+}
+.input-group > .form-control:not(:first-child) {
+    margin-left: calc((-1) * 1px);
+}
+.input-group-prepend:not(:first-child) > .input-group-text {
+    margin-left: calc((-1) * 1px);
+}
+.input-group-append:not(:first-child) > .input-group-text {
+    margin-left: calc((-1) * 1px);
+}
+.input-group-prepend:not(:first-child) > .btn {
+    margin-left: calc((-1) * 1px);
+}
+.input-group-append:not(:first-child) > .btn {
+    margin-left: calc((-1) * 1px);
 }
 
 /* Buttons (only border colors) */
@@ -6615,6 +6903,7 @@ select.form-control[multiple] > option:disabled {
 .input-group-prepend > .btn {
     border-color: rgba(0, 0, 0, 0.2);
 }
+
 .input-group-append > .btn {
     border-color: rgba(0, 0, 0, 0.2);
 }
@@ -6666,6 +6955,7 @@ select.form-control[multiple] > option:disabled {
 .input-group-prepend > .btn.btn-link {
     border-color: rgba(0, 0, 0, 0.2);
 }
+
 .input-group-append > .btn.btn-link {
     border-color: rgba(0, 0, 0, 0.2);
 }
@@ -6717,6 +7007,7 @@ select.form-control[multiple] > option:disabled {
 .input-group-prepend > .btn.btn-primary {
     border-color: #1890ff;
 }
+
 .input-group-append > .btn.btn-primary {
     border-color: #1890ff;
 }
@@ -6768,6 +7059,7 @@ select.form-control[multiple] > option:disabled {
 .input-group-prepend > .btn.btn-success {
     border-color: #0be881;
 }
+
 .input-group-append > .btn.btn-success {
     border-color: #0be881;
 }
@@ -6817,52 +7109,53 @@ select.form-control[multiple] > option:disabled {
 /* Secondary button */
 
 .input-group-prepend > .btn.btn-secondary {
-    border-color: #ffc312;
+    border-color: #ffcf00;
 }
+
 .input-group-append > .btn.btn-secondary {
-    border-color: #ffc312;
+    border-color: #ffcf00;
 }
 .input-group-prepend > .btn.btn-secondary:hover {
-    border-color: #fbd35b;
+    border-color: #ffe04d;
 }
 .input-group-append > .btn.btn-secondary:hover {
-    border-color: #fbd35b;
+    border-color: #ffe04d;
 }
 .input-group-prepend > .btn.btn-secondary:focus {
-    border-color: #ffc312;
+    border-color: #ffcf00;
 }
 .input-group-append > .btn.btn-secondary:focus {
-    border-color: #ffc312;
+    border-color: #ffcf00;
 }
 .input-group-prepend > .btn.btn-secondary.active {
-    border-color: #ffc312;
+    border-color: #ffcf00;
 }
 .input-group-append > .btn.btn-secondary.active {
-    border-color: #ffc312;
+    border-color: #ffcf00;
 }
 .dark-mode .input-group-prepend > .btn.btn-secondary {
-    border-color: #ffc312;
+    border-color: #ffcf00;
 }
 .dark-mode .input-group-append > .btn.btn-secondary {
-    border-color: #ffc312;
+    border-color: #ffcf00;
 }
 .dark-mode .input-group-prepend > .btn.btn-secondary:hover {
-    border-color: #fbd35b;
+    border-color: #ffe04d;
 }
 .dark-mode .input-group-append > .btn.btn-secondary:hover {
-    border-color: #fbd35b;
+    border-color: #ffe04d;
 }
 .dark-mode .input-group-prepend > .btn.btn-secondary:focus {
-    border-color: #ffc312;
+    border-color: #ffcf00;
 }
 .dark-mode .input-group-append > .btn.btn-secondary:focus {
-    border-color: #ffc312;
+    border-color: #ffcf00;
 }
 .dark-mode .input-group-prepend > .btn.btn-secondary.active {
-    border-color: #ffc312;
+    border-color: #ffcf00;
 }
 .dark-mode .input-group-append > .btn.btn-secondary.active {
-    border-color: #ffc312;
+    border-color: #ffcf00;
 }
 
 /* Danger button */
@@ -6870,6 +7163,7 @@ select.form-control[multiple] > option:disabled {
 .input-group-prepend > .btn.btn-danger {
     border-color: #ff4d4f;
 }
+
 .input-group-append > .btn.btn-danger {
     border-color: #ff4d4f;
 }
@@ -6940,19 +7234,21 @@ select.form-control[multiple] > option:disabled {
     padding: 0.4rem;
     color: rgba(0, 0, 0, 0.85);
     background-color: #ffffff;
+    background-image: none;
     border: 1px solid #bababc;
     border-radius: 0.4rem;
-    -moz-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
-    -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+    -moz-box-shadow: 0 0.2rem 0.4rem rgba(0, 0, 0, 0.15);
+    -webkit-box-shadow: 0 0.2rem 0.4rem rgba(0, 0, 0, 0.15);
+    box-shadow: 0 0.2rem 0.4rem rgba(0, 0, 0, 0.15);
 }
 .dark-mode .dropdown-menu {
     color: rgba(255, 255, 255, 0.8);
     background-color: #191c20;
+    background-image: none;
     border-color: #111417;
-    -moz-box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
-    -webkit-box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+    -moz-box-shadow: 0 0.2rem 0.8rem rgba(0, 0, 0, 0.4);
+    -webkit-box-shadow: 0 0.2rem 0.8rem rgba(0, 0, 0, 0.4);
+    box-shadow: 0 0.2rem 0.8rem rgba(0, 0, 0, 0.4);
 }
 
 /* Arrows (::before for border, ::after for background) */
@@ -6998,7 +7294,7 @@ select.form-control[multiple] > option:disabled {
     padding: 0.6rem 1.2rem;
     border-radius: 0.2rem;
     color: rgba(0, 0, 0, 0.85);
-    background-color: #ffffff;
+    background-color: transparent;
 }
 .dropdown-item:hover {
     text-decoration: none;
@@ -7007,7 +7303,7 @@ select.form-control[multiple] > option:disabled {
 }
 .dark-mode .dropdown-item {
     color: rgba(255, 255, 255, 0.8);
-    background-color: #191c20;
+    background-color: transparent;
 }
 .dark-mode .dropdown-item:hover {
     color: rgba(255, 255, 255, 0.8);
@@ -7048,8 +7344,8 @@ select.form-control[multiple] > option:disabled {
     bottom: 0;
     transform: translateY(100%);
     visibility: visible;
-    -webkit-transition: 0.1s;
-    transition: 0.1s;
+    -webkit-transition: bottom 0.1s, transform 0.1s, visibility 0.1s;
+    transition: bottom 0.1s, transform 0.1s, visibility 0.1s;
 }
 .dropdown:not(.dropup):not(.dropright):not(.dropleft).show .dropdown-menu.dropdown-menu-center,
 .dropdown:not(.dropup):not(.dropright):not(.dropleft).toggle-on-hover:hover .dropdown-menu.dropdown-menu-center {
@@ -7061,6 +7357,7 @@ select.form-control[multiple] > option:disabled {
 .dropdown:not(.dropup):not(.dropright):not(.dropleft).with-arrow.toggle-on-hover:hover .dropdown-menu {
     bottom: calc(0.8rem * -1);
 }
+
 .dropdown:not(.dropup):not(.dropright):not(.dropleft).with-arrow.show .dropdown-menu {
     bottom: calc(0.8rem * -1);
 }
@@ -7172,8 +7469,8 @@ select.form-control[multiple] > option:disabled {
     top: 0;
     transform: translateY(-100%);
     visibility: visible;
-    -webkit-transition: 0.1s;
-    transition: 0.1s;
+    -webkit-transition: top 0.1s, transform 0.1s, visibility 0.1s;
+    transition: top 0.1s, transform 0.1s, visibility 0.1s;
 }
 .dropdown.dropup.show .dropdown-menu.dropdown-menu-center,
 .dropdown.dropup.toggle-on-hover:hover .dropdown-menu.dropdown-menu-center {
@@ -7185,6 +7482,7 @@ select.form-control[multiple] > option:disabled {
 .dropdown.dropup.with-arrow.toggle-on-hover:hover .dropdown-menu {
     top: calc(0.8rem * -1);
 }
+
 .dropdown.dropup.with-arrow.show .dropdown-menu {
     top: calc(0.8rem * -1);
 }
@@ -7296,8 +7594,8 @@ select.form-control[multiple] > option:disabled {
     right: 0;
     transform: translateX(100%);
     visibility: visible;
-    -webkit-transition: 0.1s;
-    transition: 0.1s;
+    -webkit-transition: right 0.1s, transform 0.1s, visibility 0.1s;
+    transition: right 0.1s, transform 0.1s, visibility 0.1s;
 }
 .dropdown.dropright.show .dropdown-menu.dropdown-menu-center,
 .dropdown.dropright.toggle-on-hover:hover .dropdown-menu.dropdown-menu-center {
@@ -7309,6 +7607,7 @@ select.form-control[multiple] > option:disabled {
 .dropdown.dropright.with-arrow.toggle-on-hover:hover .dropdown-menu {
     right: calc(0.8rem * -1);
 }
+
 .dropdown.dropright.with-arrow.show .dropdown-menu {
     right: calc(0.8rem * -1);
 }
@@ -7420,8 +7719,8 @@ select.form-control[multiple] > option:disabled {
     left: 0;
     transform: translateX(-100%);
     visibility: visible;
-    -webkit-transition: 0.1s;
-    transition: 0.1s;
+    -webkit-transition: left 0.1s, transform 0.1s, visibility 0.1s;
+    transition: left 0.1s, transform 0.1s, visibility 0.1s;
 }
 .dropdown.dropleft.show .dropdown-menu.dropdown-menu-center,
 .dropdown.dropleft.toggle-on-hover:hover .dropdown-menu.dropdown-menu-center {
@@ -7433,6 +7732,7 @@ select.form-control[multiple] > option:disabled {
 .dropdown.dropleft.with-arrow.toggle-on-hover:hover .dropdown-menu {
     left: calc(0.8rem * -1);
 }
+
 .dropdown.dropleft.with-arrow.show .dropdown-menu {
     left: calc(0.8rem * -1);
 }
@@ -7570,6 +7870,7 @@ select.form-control[multiple] > option:disabled {
     padding: 3rem;
     color: rgba(0, 0, 0, 0.85);
     background-color: #ffffff;
+    background-image: none;
     border: 1px solid rgba(0, 0, 0, 0.2);
     border-radius: 0.4rem;
     -moz-box-shadow: none;
@@ -7579,6 +7880,7 @@ select.form-control[multiple] > option:disabled {
 .dark-mode .modal-content {
     color: rgba(255, 255, 255, 0.8);
     background-color: #191c20;
+    background-image: none;
     border-color: rgba(0, 0, 0, 0.2);
     -moz-box-shadow: none;
     -webkit-box-shadow: none;
@@ -7612,6 +7914,20 @@ select.form-control[multiple] > option:disabled {
     width: 100%;
     border: none;
     border-radius: 0;
+    padding: 3rem;
+    color: rgba(0, 0, 0, 0.85);
+    background-color: #ffffff;
+    background-image: none;
+}
+.dark-mode .modal-full .modal-content {
+    color: rgba(255, 255, 255, 0.8);
+    background-color: #191c20;
+    background-image: none;
+}
+@media (max-width: 576px) {
+    .modal-full .modal-content {
+        padding: 2rem;
+    }
 }
 .modal-content .close {
     display: -ms-flexbox;
@@ -7621,6 +7937,7 @@ select.form-control[multiple] > option:disabled {
     -ms-flex-pack: center;
     justify-content: center;
     position: fixed;
+    cursor: pointer;
     top: -100%;
     left: 1rem;
     z-index: 10;
@@ -7652,7 +7969,7 @@ select.form-control[multiple] > option:disabled {
     -webkit-transition: none;
     transition: none;
     outline: 2px solid rgba(24, 144, 255, 0.3);
-    outline-offset: 2px;
+    outline-offset: 0.2rem;
 }
 .dark-mode .modal-content .close:focus {
     outline-color: rgba(24, 144, 255, 0.3);
@@ -7691,12 +8008,14 @@ select.form-control[multiple] > option:disabled {
     padding: 1rem 2rem;
     color: rgba(0, 0, 0, 0.85);
     background-color: #ffffff;
+    background-image: none;
     border: 1px solid rgba(0, 0, 0, 0.2);
     border-radius: 0.4rem;
 }
 .dark-mode .alert {
     color: rgba(255, 255, 255, 0.8);
     background-color: #191c20;
+    background-image: none;
     border-color: rgba(255, 255, 255, 0.1);
 }
 .alert-heading {
@@ -7736,7 +8055,7 @@ select.form-control[multiple] > option:disabled {
 }
 .alert .close:focus {
     outline: 2px solid rgba(0, 0, 0, 0.5);
-    outline-offset: 2px;
+    outline-offset: 0.2rem;
 }
 .dark-mode .alert .close:focus {
     outline-color: rgba(255, 255, 255, 0.5);
@@ -7752,14 +8071,14 @@ select.form-control[multiple] > option:disabled {
     width: 27rem;
     margin-top: 1rem;
     right: -50rem; /* Hidden by default */
-    -moz-box-shadow: 0 2px 0 rgba(0, 0, 0, 0.045);
-    -webkit-box-shadow: 0 2px 0 rgba(0, 0, 0, 0.045);
-    box-shadow: 0 2px 0 rgba(0, 0, 0, 0.045);
+    -moz-box-shadow: 0 0.2rem 0 rgba(0, 0, 0, 0.045);
+    -webkit-box-shadow: 0 0.2rem 0 rgba(0, 0, 0, 0.045);
+    box-shadow: 0 0.2rem 0 rgba(0, 0, 0, 0.045);
 }
 .sticky-alerts .alert.show {
     right: 0;
-    -webkit-transition: all .4s cubic-bezier(.25, .8, .25, 1);
-    transition: all .4s cubic-bezier(.25, .8, .25, 1);
+    -webkit-transition: right .4s cubic-bezier(.25, .8, .25, 1);
+    transition: right .4s cubic-bezier(.25, .8, .25, 1);
 }
 .sticky-alerts .alert.fade {
     visibility: hidden;
@@ -7781,41 +8100,50 @@ select.form-control[multiple] > option:disabled {
 .alert.alert-primary.filled {
     color: #ffffff;
     background-color: #1890ff;
+    background-image: none;
     border-color: #1890ff;
 }
+
 .alert.alert-primary.filled-lm {
     color: #ffffff;
     background-color: #1890ff;
+    background-image: none;
     border-color: #1890ff;
 }
 .alert.alert-success.filled {
     color: rgba(0, 0, 0, 0.85);
     background-color: #0be881;
+    background-image: none;
     border-color: #0be881;
 }
 .alert.alert-success.filled-lm {
     color: rgba(0, 0, 0, 0.85);
     background-color: #0be881;
+    background-image: none;
     border-color: #0be881;
 }
 .alert.alert-secondary.filled {
     color: rgba(0, 0, 0, 0.85);
-    background-color: #ffc312;
-    border-color: #ffc312;
+    background-color: #ffcf00;
+    background-image: none;
+    border-color: #ffcf00;
 }
 .alert.alert-secondary.filled-lm {
     color: rgba(0, 0, 0, 0.85);
-    background-color: #ffc312;
-    border-color: #ffc312;
+    background-color: #ffcf00;
+    background-image: none;
+    border-color: #ffcf00;
 }
 .alert.alert-danger.filled {
     color: #ffffff;
     background-color: #ff4d4f;
+    background-image: none;
     border-color: #ff4d4f;
 }
 .alert.alert-danger.filled-lm {
     color: #ffffff;
     background-color: #ff4d4f;
+    background-image: none;
     border-color: #ff4d4f;
 }
 
@@ -7824,13 +8152,16 @@ select.form-control[multiple] > option:disabled {
 .dark-mode .alert.alert-primary.filled {
     color: #ffffff;
     background-color: #1890ff;
+    background-image: none;
     border-color: #1890ff;
     -webkit-font-smoothing: auto;
     -moz-osx-font-smoothing: auto;
 }
+
 .dark-mode .alert.alert-primary.filled-dm {
     color: #ffffff;
     background-color: #1890ff;
+    background-image: none;
     border-color: #1890ff;
     -webkit-font-smoothing: auto;
     -moz-osx-font-smoothing: auto;
@@ -7838,6 +8169,7 @@ select.form-control[multiple] > option:disabled {
 .dark-mode .alert.alert-success.filled {
     color: rgba(0, 0, 0, 0.85);
     background-color: #0be881;
+    background-image: none;
     border-color: #0be881;
     -webkit-font-smoothing: auto;
     -moz-osx-font-smoothing: auto;
@@ -7845,27 +8177,31 @@ select.form-control[multiple] > option:disabled {
 .dark-mode .alert.alert-success.filled-dm {
     color: rgba(0, 0, 0, 0.85);
     background-color: #0be881;
+    background-image: none;
     border-color: #0be881;
     -webkit-font-smoothing: auto;
     -moz-osx-font-smoothing: auto;
 }
 .dark-mode .alert.alert-secondary.filled {
     color: rgba(0, 0, 0, 0.85);
-    background-color: #ffc312;
-    border-color: #ffc312;
+    background-color: #ffcf00;
+    background-image: none;
+    border-color: #ffcf00;
     -webkit-font-smoothing: auto;
     -moz-osx-font-smoothing: auto;
 }
 .dark-mode .alert.alert-secondary.filled-dm {
     color: rgba(0, 0, 0, 0.85);
-    background-color: #ffc312;
-    border-color: #ffc312;
+    background-color: #ffcf00;
+    background-image: none;
+    border-color: #ffcf00;
     -webkit-font-smoothing: auto;
     -moz-osx-font-smoothing: auto;
 }
 .dark-mode .alert.alert-danger.filled {
     color: #ffffff;
     background-color: #ff4d4f;
+    background-image: none;
     border-color: #ff4d4f;
     -webkit-font-smoothing: auto;
     -moz-osx-font-smoothing: auto;
@@ -7873,6 +8209,7 @@ select.form-control[multiple] > option:disabled {
 .dark-mode .alert.alert-danger.filled-dm {
     color: #ffffff;
     background-color: #ff4d4f;
+    background-image: none;
     border-color: #ff4d4f;
     -webkit-font-smoothing: auto;
     -moz-osx-font-smoothing: auto;
@@ -7885,21 +8222,25 @@ select.form-control[multiple] > option:disabled {
 .alert.alert-primary {
     color: rgba(0, 0, 0, 0.85);
     background-color: #cfe7fd;
+    background-image: none;
     border-color: #1890ff;
 }
 .alert.alert-success {
     color: rgba(0, 0, 0, 0.85);
     background-color: #d5f9e5;
+    background-image: none;
     border-color: #0be881;
 }
 .alert.alert-secondary {
     color: rgba(0, 0, 0, 0.85);
-    background-color: #fef1ce;
-    border-color: #ffc312;
+    background-color: #fff6cc;
+    background-image: none;
+    border-color: #ffcf00;
 }
 .alert.alert-danger {
     color: rgba(0, 0, 0, 0.85);
     background-color: #f8d0d9;
+    background-image: none;
     border-color: #ff4d4f;
 }
 
@@ -7908,21 +8249,25 @@ select.form-control[multiple] > option:disabled {
 .dark-mode .alert.alert-primary {
     color: #1890ff;
     background-color: #172636;
+    background-image: none;
     border-color: #0d518f;
 }
 .dark-mode .alert.alert-success {
     color: #0be881;
     background-color: #17312a;
+    background-image: none;
     border-color: #0d8951;
 }
 .dark-mode .alert.alert-secondary {
-    color: #ffc312;
+    color: #ffcf00;
     background-color: #302c1d;
-    border-color: #8c7010;
+    background-image: none;
+    border-color: #8e7710;
 }
 .dark-mode .alert.alert-danger {
     color: #ff4d4f;
     background-color: #301923;
+    background-image: none;
     border-color: #8c0e2e;
 }
 
@@ -7949,6 +8294,7 @@ select.form-control[multiple] > option:disabled {
     padding-left: calc(3rem - 1rem);
     padding-right: calc(3rem - 1rem);
 }
+
 .navbar .container-sm {
     width: 100%;
     position: relative;
@@ -7965,6 +8311,7 @@ select.form-control[multiple] > option:disabled {
     padding-left: calc(3rem - 1rem);
     padding-right: calc(3rem - 1rem);
 }
+
 .navbar .container-md {
     width: 100%;
     position: relative;
@@ -7981,6 +8328,7 @@ select.form-control[multiple] > option:disabled {
     padding-left: calc(3rem - 1rem);
     padding-right: calc(3rem - 1rem);
 }
+
 .navbar .container-lg {
     width: 100%;
     position: relative;
@@ -7997,6 +8345,7 @@ select.form-control[multiple] > option:disabled {
     padding-left: calc(3rem - 1rem);
     padding-right: calc(3rem - 1rem);
 }
+
 .navbar .container-xl {
     width: 100%;
     position: relative;
@@ -8013,6 +8362,7 @@ select.form-control[multiple] > option:disabled {
     padding-left: calc(3rem - 1rem);
     padding-right: calc(3rem - 1rem);
 }
+
 .navbar .container-fluid {
     width: 100%;
     position: relative;
@@ -8205,6 +8555,7 @@ select.form-control[multiple] > option:disabled {
 .navbar > .form-inline > .form-control {
     min-width: 12rem;
 }
+
 .navbar > .form-inline > .form-group .form-control {
     min-width: 12rem;
 }
@@ -8439,6 +8790,7 @@ select.form-control[multiple] > option:disabled {
     text-align: center;
     color: rgba(0, 0, 0, 0.7);
     background-color: #ffffff;
+    background-image: none;
     border: 1px solid rgba(0, 0, 0, 0.2);
     border-radius: 0.4rem;
 }
@@ -8453,62 +8805,69 @@ select.form-control[multiple] > option:disabled {
     text-align: center;
     color: rgba(0, 0, 0, 0.7);
     background-color: #ffffff;
+    background-image: none;
     border: 1px solid rgba(0, 0, 0, 0.2);
     border-radius: 0.4rem;
 }
 .dark-mode .page-item.ellipsis {
     color: rgba(255, 255, 255, 0.8);
     background-color: rgba(255, 255, 255, 0.05);
-    border-color: transparent;
+    background-image: none;
+    border-color: rgba(255, 255, 255, 0.025) transparent transparent transparent;
 }
 .dark-mode .page-link {
     color: rgba(255, 255, 255, 0.8);
     background-color: rgba(255, 255, 255, 0.05);
-    border-color: transparent;
+    background-image: none;
+    border-color: rgba(255, 255, 255, 0.025) transparent transparent transparent;
 }
 .page-link {
-    -moz-box-shadow: 0 2px 0 rgba(0, 0, 0, 0.05);
-    -webkit-box-shadow: 0 2px 0 rgba(0, 0, 0, 0.05);
-    box-shadow: 0 2px 0 rgba(0, 0, 0, 0.05);
+    -moz-box-shadow: 0 0.2rem 0 rgba(0, 0, 0, 0.05);
+    -webkit-box-shadow: 0 0.2rem 0 rgba(0, 0, 0, 0.05);
+    box-shadow: 0 0.2rem 0 rgba(0, 0, 0, 0.05);
 }
 .dark-mode .page-link {
-    -moz-box-shadow: 0 2px 0 rgba(0, 0, 0, 0.1);
-    -webkit-box-shadow: 0 2px 0 rgba(0, 0, 0, 0.1);
-    box-shadow: 0 2px 0 rgba(0, 0, 0, 0.1);
+    -moz-box-shadow: 0 0.2rem 0 rgba(0, 0, 0, 0.1);
+    -webkit-box-shadow: 0 0.2rem 0 rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0.2rem 0 rgba(0, 0, 0, 0.1);
 }
 .page-link:hover {
     text-decoration: none;
     color: rgba(0, 0, 0, 0.7);
     background-color: #f7f7f7;
+    background-image: none;
     border-color: rgba(0, 0, 0, 0.2);
-    -moz-box-shadow: 0 2px 0 rgba(0, 0, 0, 0.05);
-    -webkit-box-shadow: 0 2px 0 rgba(0, 0, 0, 0.05);
-    box-shadow: 0 2px 0 rgba(0, 0, 0, 0.05);
+    -moz-box-shadow: 0 0.2rem 0 rgba(0, 0, 0, 0.05);
+    -webkit-box-shadow: 0 0.2rem 0 rgba(0, 0, 0, 0.05);
+    box-shadow: 0 0.2rem 0 rgba(0, 0, 0, 0.05);
 }
 .dark-mode .page-link:hover {
     color: rgba(255, 255, 255, 0.8);
     background-color: rgba(255, 255, 255, 0.1);
-    border-color: transparent;
-    -moz-box-shadow: 0 2px 0 rgba(0, 0, 0, 0.1);
-    -webkit-box-shadow: 0 2px 0 rgba(0, 0, 0, 0.1);
-    box-shadow: 0 2px 0 rgba(0, 0, 0, 0.1);
+    background-image: none;
+    border-color: rgba(255, 255, 255, 0.025) transparent transparent transparent;
+    -moz-box-shadow: 0 0.2rem 0 rgba(0, 0, 0, 0.1);
+    -webkit-box-shadow: 0 0.2rem 0 rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0.2rem 0 rgba(0, 0, 0, 0.1);
 }
 .page-item.active .page-link {
     color: #ffffff;
     background-color: #1890ff;
+    background-image: none;
     border-color: #1890ff;
-    -moz-box-shadow: 0 2px 0 rgba(0, 0, 0, 0.05);
-    -webkit-box-shadow: 0 2px 0 rgba(0, 0, 0, 0.05);
-    box-shadow: 0 2px 0 rgba(0, 0, 0, 0.05);
+    -moz-box-shadow: 0 0.2rem 0 rgba(0, 0, 0, 0.05);
+    -webkit-box-shadow: 0 0.2rem 0 rgba(0, 0, 0, 0.05);
+    box-shadow: 0 0.2rem 0 rgba(0, 0, 0, 0.05);
     pointer-events: none;
 }
 .dark-mode .page-item.active .page-link {
     color: #ffffff;
     background-color: #1890ff;
+    background-image: none;
     border-color: #1890ff;
-    -moz-box-shadow: 0 2px 0 rgba(0, 0, 0, 0.1);
-    -webkit-box-shadow: 0 2px 0 rgba(0, 0, 0, 0.1);
-    box-shadow: 0 2px 0 rgba(0, 0, 0, 0.1);
+    -moz-box-shadow: 0 0.2rem 0 rgba(0, 0, 0, 0.1);
+    -webkit-box-shadow: 0 0.2rem 0 rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0.2rem 0 rgba(0, 0, 0, 0.1);
     -webkit-font-smoothing: auto;
     -moz-osx-font-smoothing: auto;
 }
@@ -8527,6 +8886,7 @@ select.form-control[multiple] > option:disabled {
     height: 4.2rem;
     line-height: 4.2rem;
 }
+
 .pagination-lg .page-link {
     padding: 0 0.5rem;
     margin: 0 0.2rem 0.5rem 0;
@@ -8546,6 +8906,7 @@ select.form-control[multiple] > option:disabled {
     height: 2.8rem;
     line-height: 2.8rem;
 }
+
 .pagination-sm .page-link {
     padding: 0 0.5rem;
     margin: 0 0.2rem 0.5rem 0;
@@ -8601,14 +8962,14 @@ select.form-control[multiple] > option:disabled {
 }
 .dark-mode .breadcrumb-item a {
     /* 
-    * Links are NOT antialiased because they are NOT light text on a dark bg.
+    Links are NOT antialiased because they are NOT light text on a dark bg.
     */ 
     -webkit-font-smoothing: auto;
     -moz-osx-font-smoothing: auto;
 }
 .dark-mode .breadcrumb-item.active a {
-    /* 
-    * Active links ARE antialiased because they ARE light text on a dark bg.
+    /*
+    Active links ARE antialiased because they ARE light text on a dark bg.
     */ 
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -8618,10 +8979,6 @@ select.form-control[multiple] > option:disabled {
 /*
 -------------------------------------------------------------------------------
 19. Tooltips [hm-19]
-
-Notes:
-    - Tooltips are are not displayed on tablets or mobile phones, that is, 
-    devices with widths of 768px or less.
 -------------------------------------------------------------------------------
 */
 
@@ -8736,8 +9093,8 @@ Notes:
 [data-toggle="tooltip"]:not([data-target-breakpoint]):hover::after,
 [data-toggle="tooltip"]:not([data-target-breakpoint]):focus::after {
     visibility: visible;
-    -webkit-transition: 0.1s;
-    transition: 0.1s;
+    -webkit-transition: all 0.1s, color 0s, background-color 0s;
+    transition: all 0.1s, color 0s, background-color 0s;
 }
 
 /* Placement */
@@ -8783,8 +9140,8 @@ Notes:
     [data-toggle="tooltip"][data-target-breakpoint="md"]:hover::after,
     [data-toggle="tooltip"][data-target-breakpoint="md"]:focus::after {
         visibility: visible;
-        -webkit-transition: 0.1s;
-        transition: 0.1s;
+        -webkit-transition: all 0.1s, color 0s, background-color 0s;
+        transition: all 0.1s, color 0s, background-color 0s;
     }
 
     /* Placement */
@@ -8831,8 +9188,8 @@ Notes:
     [data-toggle="tooltip"][data-target-breakpoint="lg"]:hover::after,
     [data-toggle="tooltip"][data-target-breakpoint="lg"]:focus::after {
         visibility: visible;
-        -webkit-transition: 0.1s;
-        transition: 0.1s;
+        -webkit-transition: all 0.1s, color 0s, background-color 0s;
+        transition: all 0.1s, color 0s, background-color 0s;
     }
 
     /* Placement */
@@ -8904,8 +9261,8 @@ Notes:
 }
 .badge.badge-secondary {
     color: rgba(0, 0, 0, 0.85);
-    background-color: #ffc312;
-    border-color: #ffc312;
+    background-color: #ffcf00;
+    border-color: #ffcf00;
 }
 .badge.badge-danger {
     color: #ffffff;
@@ -8931,8 +9288,8 @@ Notes:
 }
 .dark-mode .badge.badge-secondary {
     color: rgba(0, 0, 0, 0.85);
-    background-color: #ffc312;
-    border-color: #ffc312;
+    background-color: #ffcf00;
+    border-color: #ffcf00;
     -webkit-font-smoothing: auto;
     -moz-osx-font-smoothing: auto;
 }
@@ -8944,12 +9301,36 @@ Notes:
     -moz-osx-font-smoothing: auto;
 }
 
+/* Badge group */
+
+.badge-group {
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+}
+.badge-group > .badge:not(:first-child) {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+.badge-group > .badge:not(:last-child) {
+    border-right: none;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
 /* Link badges */
 
 /* Light mode */
 
-a.badge:hover {
+a.badge:hover,
+a.badge-group:hover {
     text-decoration: none;
+}
+a.badge:hover {
+    color: rgba(0, 0, 0, 0.85);
+    background-color: #f7f7f7;
+    border-color: rgba(0, 0, 0, 0.2);
+}
+a.badge-group:hover > .badge {
     color: rgba(0, 0, 0, 0.85);
     background-color: #f7f7f7;
     border-color: rgba(0, 0, 0, 0.2);
@@ -8959,17 +9340,37 @@ a.badge.badge-primary:hover {
     background-color: #45a3fb;
     border-color: #45a3fb;
 }
+a.badge-group:hover > .badge.badge-primary {
+    color: #ffffff;
+    background-color: #45a3fb;
+    border-color: #45a3fb;
+}
 a.badge.badge-success:hover {
+    color: rgba(0, 0, 0, 0.85);
+    background-color: #81eea8;
+    border-color: #81eea8;
+}
+a.badge-group:hover > .badge.badge-success {
     color: rgba(0, 0, 0, 0.85);
     background-color: #81eea8;
     border-color: #81eea8;
 }
 a.badge.badge-secondary:hover {
     color: rgba(0, 0, 0, 0.85);
-    background-color: #fbd35b;
-    border-color: #fbd35b;
+    background-color: #ffe04d;
+    border-color: #ffe04d;
+}
+a.badge-group:hover > .badge.badge-secondary {
+    color: rgba(0, 0, 0, 0.85);
+    background-color: #ffe04d;
+    border-color: #ffe04d;
 }
 a.badge.badge-danger:hover {
+    color: #ffffff;
+    background-color: #ed586c;
+    border-color: #ed586c;
+}
+a.badge-group:hover > .badge.badge-danger {
     color: #ffffff;
     background-color: #ed586c;
     border-color: #ed586c;
@@ -8982,7 +9383,18 @@ a.badge.badge-danger:hover {
     background-color: rgba(255, 255, 255, 0.025);
     border-color: rgba(255, 255, 255, 0.2);
 }
+
+.dark-mode a.badge-group:hover > .badge {
+    color: rgba(255, 255, 255, 0.8);
+    background-color: rgba(255, 255, 255, 0.025);
+    border-color: rgba(255, 255, 255, 0.2);
+}
 .dark-mode a.badge.badge-primary:hover {
+    color: #ffffff;
+    background-color: #45a3fb;
+    border-color: #45a3fb;
+}
+.dark-mode a.badge-group:hover > .badge.badge-primary {
     color: #ffffff;
     background-color: #45a3fb;
     border-color: #45a3fb;
@@ -8992,12 +9404,27 @@ a.badge.badge-danger:hover {
     background-color: #81eea8;
     border-color: #81eea8;
 }
+.dark-mode a.badge-group:hover > .badge.badge-success {
+    color: rgba(0, 0, 0, 0.85);
+    background-color: #81eea8;
+    border-color: #81eea8;
+}
 .dark-mode a.badge.badge-secondary:hover {
     color: rgba(0, 0, 0, 0.85);
-    background-color: #fbd35b;
-    border-color: #fbd35b;
+    background-color: #ffe04d;
+    border-color: #ffe04d;
+}
+.dark-mode a.badge-group:hover > .badge.badge-secondary {
+    color: rgba(0, 0, 0, 0.85);
+    background-color: #ffe04d;
+    border-color: #ffe04d;
 }
 .dark-mode a.badge.badge-danger:hover {
+    color: #ffffff;
+    background-color: #ed586c;
+    border-color: #ed586c;
+}
+.dark-mode a.badge-group:hover > .badge.badge-danger {
     color: #ffffff;
     background-color: #ed586c;
     border-color: #ed586c;
@@ -9018,14 +9445,839 @@ a.badge.badge-danger:hover {
 
 /*
 -------------------------------------------------------------------------------
-22. Spacing utilities [hm-22]
+22. Button group [hm-22]
+-------------------------------------------------------------------------------
+*/
+
+.btn-group,
+.btn-group-vertical {
+    position: relative;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    vertical-align: middle;
+}
+.btn-group > .btn,
+.btn-group-vertical > .btn {
+    position: relative;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+}
+.btn-group > .btn:focus, .btn-group > .btn:active, .btn-group > .btn.active,
+.btn-group-vertical > .btn:focus,
+.btn-group-vertical > .btn:active,
+.btn-group-vertical > .btn.active {
+    z-index: 1;
+}
+.btn-group > .btn:not(:first-child) {
+    margin-left: calc((-1) * 1px);
+}
+.btn-group > .btn-group:not(:first-child) {
+    margin-left: calc((-1) * 1px);
+}
+.btn-group > .btn:not(:last-child):not([data-toggle="dropdown"]),
+.btn-group > .btn-group:not(:last-child) > .btn {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+.btn-group > .btn:not(:first-child),
+.btn-group > .btn-group:not(:first-child) > .btn {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+.btn-group-vertical {
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -ms-flex-align: start;
+    align-items: flex-start;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+.btn-group-vertical > .btn,
+.btn-group-vertical > .btn-group {
+    width: 100%;
+}
+.btn-group-vertical > .btn:not(:first-child) {
+    margin-top: calc((-1) * 1px);
+}
+.btn-group-vertical > .btn-group:not(:first-child) {
+    margin-top: calc((-1) * 1px);
+}
+.btn-group-vertical > .btn:not(:last-child):not([data-toggle="dropdown"]),
+.btn-group-vertical > .btn-group:not(:last-child) > .btn {
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+}
+.btn-group-vertical > .btn:not(:first-child),
+.btn-group-vertical > .btn-group:not(:first-child) > .btn {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+/* Remove box shadow for button group vertical (except last button) */
+
+.btn-group-vertical > .btn:not(:last-child):not([data-toggle="dropdown"]):not(:focus):not(.active),
+.btn-group-vertical > .btn-group:not(:last-child) > .btn:not(:focus):not(.active) {
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+/* Button group sizing */
+
+.btn-group-sm > .btn {
+    height: 2.6rem;
+    line-height: 2.6rem;
+    padding: 0 1rem;
+    font-size: 1.2rem;
+}
+.btn-group-lg > .btn {
+    height: 4rem;
+    line-height: 4rem;
+    padding: 0 2rem;
+    font-size: 1.8rem;
+}
+.btn-group-sm > .btn-square {
+    width: 2.6rem;
+    padding-left: 0;
+    padding-right: 0;
+}
+.btn-group-lg > .btn-square {
+    width: 4rem;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+/* Button toolbar */
+
+.btn-toolbar {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+}
+.btn-toolbar .input-group {
+    width: auto;
+}
+
+/* Button toolbar minimum width for input groups (Required for IE) */
+
+.btn-toolbar .input-group {
+    min-width: 20rem;
+}
+@media (max-width: 576px) {
+    .btn-toolbar .input-group {
+        min-width: 18rem;
+    }
+}
+
+/* Buttons (only border colors) */
+
+.btn-group > .btn {
+    border-color: rgba(0, 0, 0, 0.2);
+}
+
+.btn-group-vertical > .btn {
+    border-color: rgba(0, 0, 0, 0.2);
+}
+.btn-group > .btn:hover {
+    border-color: rgba(0, 0, 0, 0.2);
+}
+.btn-group-vertical > .btn:hover {
+    border-color: rgba(0, 0, 0, 0.2);
+}
+.btn-group > .btn:focus {
+    border-color: rgba(0, 0, 0, 0.2);
+}
+.btn-group-vertical > .btn:focus {
+    border-color: rgba(0, 0, 0, 0.2);
+}
+.btn-group > .btn.active {
+    border-color: rgba(0, 0, 0, 0.2);
+}
+.btn-group-vertical > .btn.active {
+    border-color: rgba(0, 0, 0, 0.2);
+}
+.dark-mode .btn-group > .btn {
+    border-color: rgba(0, 0, 0, 0.3);
+}
+.dark-mode .btn-group-vertical > .btn {
+    border-color: rgba(0, 0, 0, 0.3);
+}
+.dark-mode .btn-group > .btn:hover {
+    border-color: rgba(0, 0, 0, 0.3);
+}
+.dark-mode .btn-group-vertical > .btn:hover {
+    border-color: rgba(0, 0, 0, 0.3);
+}
+.dark-mode .btn-group > .btn:focus {
+    border-color: rgba(0, 0, 0, 0.3);
+}
+.dark-mode .btn-group-vertical > .btn:focus {
+    border-color: rgba(0, 0, 0, 0.3);
+}
+.dark-mode .btn-group > .btn.active {
+    border-color: rgba(0, 0, 0, 0.3);
+}
+.dark-mode .btn-group-vertical > .btn.active {
+    border-color: rgba(0, 0, 0, 0.3);
+}
+
+/* Link button */
+
+.btn-group > .btn.btn-link {
+    border-color: rgba(0, 0, 0, 0.2);
+}
+
+.btn-group-vertical > .btn.btn-link {
+    border-color: rgba(0, 0, 0, 0.2);
+}
+.btn-group > .btn.btn-link:hover {
+    border-color: rgba(0, 0, 0, 0.2);
+}
+.btn-group-vertical > .btn.btn-link:hover {
+    border-color: rgba(0, 0, 0, 0.2);
+}
+.btn-group > .btn.btn-link:focus {
+    border-color: rgba(0, 0, 0, 0.2);
+}
+.btn-group-vertical > .btn.btn-link:focus {
+    border-color: rgba(0, 0, 0, 0.2);
+}
+.btn-group > .btn.btn-link.active {
+    border-color: rgba(0, 0, 0, 0.2);
+}
+.btn-group-vertical > .btn.btn-link.active {
+    border-color: rgba(0, 0, 0, 0.2);
+}
+.dark-mode .btn-group > .btn.btn-link {
+    border-color: rgba(0, 0, 0, 0.3);
+}
+.dark-mode .btn-group-vertical > .btn.btn-link {
+    border-color: rgba(0, 0, 0, 0.3);
+}
+.dark-mode .btn-group > .btn.btn-link:hover {
+    border-color: rgba(0, 0, 0, 0.3);
+}
+.dark-mode .btn-group-vertical > .btn.btn-link:hover {
+    border-color: rgba(0, 0, 0, 0.3);
+}
+.dark-mode .btn-group > .btn.btn-link:focus {
+    border-color: rgba(0, 0, 0, 0.3);
+}
+.dark-mode .btn-group-vertical > .btn.btn-link:focus {
+    border-color: rgba(0, 0, 0, 0.3);
+}
+.dark-mode .btn-group > .btn.btn-link.active {
+    border-color: rgba(0, 0, 0, 0.3);
+}
+.dark-mode .btn-group-vertical > .btn.btn-link.active {
+    border-color: rgba(0, 0, 0, 0.3);
+}
+
+/* Primary button */
+
+.btn-group > .btn.btn-primary {
+    border-color: #1890ff;
+}
+
+.btn-group-vertical > .btn.btn-primary {
+    border-color: #1890ff;
+}
+.btn-group > .btn.btn-primary:hover {
+    border-color: #45a3fb;
+}
+.btn-group-vertical > .btn.btn-primary:hover {
+    border-color: #45a3fb;
+}
+.btn-group > .btn.btn-primary:focus {
+    border-color: #1890ff;
+}
+.btn-group-vertical > .btn.btn-primary:focus {
+    border-color: #1890ff;
+}
+.btn-group > .btn.btn-primary.active {
+    border-color: #1890ff;
+}
+.btn-group-vertical > .btn.btn-primary.active {
+    border-color: #1890ff;
+}
+.dark-mode .btn-group > .btn.btn-primary {
+    border-color: #1890ff;
+}
+.dark-mode .btn-group-vertical > .btn.btn-primary {
+    border-color: #1890ff;
+}
+.dark-mode .btn-group > .btn.btn-primary:hover {
+    border-color: #45a3fb;
+}
+.dark-mode .btn-group-vertical > .btn.btn-primary:hover {
+    border-color: #45a3fb;
+}
+.dark-mode .btn-group > .btn.btn-primary:focus {
+    border-color: #1890ff;
+}
+.dark-mode .btn-group-vertical > .btn.btn-primary:focus {
+    border-color: #1890ff;
+}
+.dark-mode .btn-group > .btn.btn-primary.active {
+    border-color: #1890ff;
+}
+.dark-mode .btn-group-vertical > .btn.btn-primary.active {
+    border-color: #1890ff;
+}
+
+/* Success button */
+
+.btn-group > .btn.btn-success {
+    border-color: #0be881;
+}
+
+.btn-group-vertical > .btn.btn-success {
+    border-color: #0be881;
+}
+.btn-group > .btn.btn-success:hover {
+    border-color: #81eea8;
+}
+.btn-group-vertical > .btn.btn-success:hover {
+    border-color: #81eea8;
+}
+.btn-group > .btn.btn-success:focus {
+    border-color: #0be881;
+}
+.btn-group-vertical > .btn.btn-success:focus {
+    border-color: #0be881;
+}
+.btn-group > .btn.btn-success.active {
+    border-color: #0be881;
+}
+.btn-group-vertical > .btn.btn-success.active {
+    border-color: #0be881;
+}
+.dark-mode .btn-group > .btn.btn-success {
+    border-color: #0be881;
+}
+.dark-mode .btn-group-vertical > .btn.btn-success {
+    border-color: #0be881;
+}
+.dark-mode .btn-group > .btn.btn-success:hover {
+    border-color: #81eea8;
+}
+.dark-mode .btn-group-vertical > .btn.btn-success:hover {
+    border-color: #81eea8;
+}
+.dark-mode .btn-group > .btn.btn-success:focus {
+    border-color: #0be881;
+}
+.dark-mode .btn-group-vertical > .btn.btn-success:focus {
+    border-color: #0be881;
+}
+.dark-mode .btn-group > .btn.btn-success.active {
+    border-color: #0be881;
+}
+.dark-mode .btn-group-vertical > .btn.btn-success.active {
+    border-color: #0be881;
+}
+
+/* Secondary button */
+
+.btn-group > .btn.btn-secondary {
+    border-color: #ffcf00;
+}
+
+.btn-group-vertical > .btn.btn-secondary {
+    border-color: #ffcf00;
+}
+.btn-group > .btn.btn-secondary:hover {
+    border-color: #ffe04d;
+}
+.btn-group-vertical > .btn.btn-secondary:hover {
+    border-color: #ffe04d;
+}
+.btn-group > .btn.btn-secondary:focus {
+    border-color: #ffcf00;
+}
+.btn-group-vertical > .btn.btn-secondary:focus {
+    border-color: #ffcf00;
+}
+.btn-group > .btn.btn-secondary.active {
+    border-color: #ffcf00;
+}
+.btn-group-vertical > .btn.btn-secondary.active {
+    border-color: #ffcf00;
+}
+.dark-mode .btn-group > .btn.btn-secondary {
+    border-color: #ffcf00;
+}
+.dark-mode .btn-group-vertical > .btn.btn-secondary {
+    border-color: #ffcf00;
+}
+.dark-mode .btn-group > .btn.btn-secondary:hover {
+    border-color: #ffe04d;
+}
+.dark-mode .btn-group-vertical > .btn.btn-secondary:hover {
+    border-color: #ffe04d;
+}
+.dark-mode .btn-group > .btn.btn-secondary:focus {
+    border-color: #ffcf00;
+}
+.dark-mode .btn-group-vertical > .btn.btn-secondary:focus {
+    border-color: #ffcf00;
+}
+.dark-mode .btn-group > .btn.btn-secondary.active {
+    border-color: #ffcf00;
+}
+.dark-mode .btn-group-vertical > .btn.btn-secondary.active {
+    border-color: #ffcf00;
+}
+
+/* Danger button */
+
+.btn-group > .btn.btn-danger {
+    border-color: #ff4d4f;
+}
+
+.btn-group-vertical > .btn.btn-danger {
+    border-color: #ff4d4f;
+}
+.btn-group > .btn.btn-danger:hover {
+    border-color: #ed586c;
+}
+.btn-group-vertical > .btn.btn-danger:hover {
+    border-color: #ed586c;
+}
+.btn-group > .btn.btn-danger:focus {
+    border-color: #ff4d4f;
+}
+.btn-group-vertical > .btn.btn-danger:focus {
+    border-color: #ff4d4f;
+}
+.btn-group > .btn.btn-danger.active {
+    border-color: #ff4d4f;
+}
+.btn-group-vertical > .btn.btn-danger.active {
+    border-color: #ff4d4f;
+}
+.dark-mode .btn-group > .btn.btn-danger {
+    border-color: #ff4d4f;
+}
+.dark-mode .btn-group-vertical > .btn.btn-danger {
+    border-color: #ff4d4f;
+}
+.dark-mode .btn-group > .btn.btn-danger:hover {
+    border-color: #ed586c;
+}
+.dark-mode .btn-group-vertical > .btn.btn-danger:hover {
+    border-color: #ed586c;
+}
+.dark-mode .btn-group > .btn.btn-danger:focus {
+    border-color: #ff4d4f;
+}
+.dark-mode .btn-group-vertical > .btn.btn-danger:focus {
+    border-color: #ff4d4f;
+}
+.dark-mode .btn-group > .btn.btn-danger.active {
+    border-color: #ff4d4f;
+}
+.dark-mode .btn-group-vertical > .btn.btn-danger.active {
+    border-color: #ff4d4f;
+}
+
+
+/*
+-------------------------------------------------------------------------------
+23. Collapse [hm-23]
+-------------------------------------------------------------------------------
+*/
+
+details,
+details * {
+    /* Fixes Chrome bug */
+    box-sizing: border-box;
+}
+
+/* Collapse header */
+
+.collapse-header {
+    position: relative;
+    cursor: pointer;
+    padding: 1.2rem 2rem;
+    font-size: 1.4rem;
+    color: rgba(0, 0, 0, 0.85);
+    background-color: #f7f7f7;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 0.4rem;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+.dark-mode .collapse-header {
+    color: rgba(255, 255, 255, 0.8);
+    background-color: rgba(255, 255, 255, 0.02);
+    border-color: #47494d;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+.collapse-header:focus {
+    color: rgba(0, 0, 0, 0.85);
+    background-color: #f7f7f7;
+    border-color: rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    outline: none;
+}
+.dark-mode .collapse-header:focus {
+    color: rgba(255, 255, 255, 0.8);
+    background-color: rgba(255, 255, 255, 0.02);
+    border-color: #47494d;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    outline: none;
+}
+.collapse-panel[open] .collapse-header {
+    color: rgba(0, 0, 0, 0.85);
+    background-color: #f7f7f7;
+    border-color: rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+.dark-mode .collapse-panel[open] .collapse-header {
+    color: rgba(255, 255, 255, 0.8);
+    background-color: rgba(255, 255, 255, 0.02);
+    border-color: #47494d;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+.collapse-panel[open] .collapse-header:focus {
+    color: rgba(0, 0, 0, 0.85);
+    background-color: #f7f7f7;
+    border-color: rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    outline: none;
+}
+.dark-mode .collapse-panel[open] .collapse-header:focus {
+    color: rgba(255, 255, 255, 0.8);
+    background-color: rgba(255, 255, 255, 0.02);
+    border-color: #47494d;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    outline: none;
+}
+.collapse-panel[open] .collapse-header {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+/* Collapse header arrow set using background image */
+
+.collapse-header {
+    /* Firefox */
+    list-style-type: none;
+}
+.collapse-header::-webkit-details-marker {
+    /* Chrome */
+    display: none;
+}
+.collapse-header::marker {
+    display: none;
+}
+.collapse-header:not(.without-arrow) {
+    padding: 1.2rem 2rem 1.2rem 4.4rem;
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAUCAYAAAC58NwRAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH5AgHFAwNJY24UQAAAJVJREFUKM+lk8ENgzAMRZ9hgS4SiRFgDN+6QifpCD1mDFbIIQuwASNwcaSqKsEW/5RI/1n+jiMAqvoE3sCScy50JGb+2H2/ggar3PQAVlWdesBilV2QWIYJWM1Mrz1pBy8k37QHkt8eryD5F6wHydn4zqCBoO63FAodGmvo4UKrETG3bXWbG/DymgHGWmtJKW3A7PmiB2rUYYave/NSAAAAAElFTkSuQmCC);
+    background-size: 0.6rem;
+    background-repeat: no-repeat;
+    background-position: 2rem center;
+}
+.collapse-panel[open] .collapse-header:not(.without-arrow) {
+    padding: 1.2rem 2rem 1.2rem 4.4rem;
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAYAAABiDJ37AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAI9JREFUeNpiZACCyMjIBCDVD8SOy5cvv8BAAgDqNQBS+4G4EKh3ASPUsPlQ+Q+kGIpkmABUKJEJ6jIYAEnshyok1TAQ6AcZ6Ah1GdGG4jAM7DtGQgrQvU9ILSOxColVw0is7VA2QV8wkhA+DMQECSMJgc5AyDCcBhIwFG9aZSQxrRFM+IwkJGAGYnIRQIABACQuXCKovu2mAAAAAElFTkSuQmCC);
+    background-size: 1rem;
+    background-repeat: no-repeat;
+    background-position: 2rem center;
+}
+
+/* Collapse header focus effect (::after) */
+
+.collapse-header::after {
+    content: "";
+    position: absolute;
+    display: block;
+    top: 0.2rem;
+    left: 0.2rem;
+    width: calc(100% - (2 * 0.2rem));
+    height: calc(100% - (2 * 0.2rem));
+    border-radius: 0.4rem;
+}
+.collapse-header:focus::after {
+    -moz-box-shadow: inset 0 0 0 0.2rem #45a3fb;
+    -webkit-box-shadow: inset 0 0 0 0.2rem #45a3fb;
+    box-shadow: inset 0 0 0 0.2rem #45a3fb;
+}
+.dark-mode .collapse-header:focus::after {
+    -moz-box-shadow: inset 0 0 0 0.2rem #0d518f;
+    -webkit-box-shadow: inset 0 0 0 0.2rem #0d518f;
+    box-shadow: inset 0 0 0 0.2rem #0d518f;
+}
+
+/* Controlling display based on collapse open state */
+
+.collapse-panel[open] .hidden-collapse-open {
+    display: none;
+}
+.collapse-panel:not([open]) .hidden-collapse-closed {
+    display: none;
+}
+
+/* Collapse content */
+
+.collapse-content {
+    padding: 2rem;
+    font-size: 1.4rem;
+    color: rgba(0, 0, 0, 0.85);
+    background-color: transparent;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    border-top: none;
+    border-bottom-left-radius: 0.4rem;
+    border-bottom-right-radius: 0.4rem;
+}
+.dark-mode .collapse-content {
+    color: rgba(255, 255, 255, 0.8);
+    background-color: transparent;
+    border-color: #47494d;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+/* Collapse group */
+
+.collapse-group .collapse-panel:not(:first-child) {
+    margin-top: calc((-1) * 1px);
+}
+.collapse-group .collapse-panel:not(:first-child) .collapse-header {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+.collapse-group .collapse-panel:not([open]):not(:last-child) .collapse-header {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+.collapse-group .collapse-panel[open]:not(:first-child) .collapse-content {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+.collapse-group .collapse-panel[open]:not(:last-child) .collapse-content {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    border-bottom: 0;
+}
+
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+    /* 
+    On IE, collapse panels are styled to be always open. This is because they 
+    are not supporter by the browser.
+    */
+
+    /* Collapse header */
+    
+    .collapse-panel .collapse-header {
+        cursor: auto;
+        color: rgba(0, 0, 0, 0.85);
+        background-color: #f7f7f7;
+        border-color: rgba(0, 0, 0, 0.2);
+        -moz-box-shadow: none;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+    }
+    .dark-mode .collapse-panel .collapse-header {
+        color: rgba(255, 255, 255, 0.8);
+        background-color: rgba(255, 255, 255, 0.02);
+        border-color: #47494d;
+        -moz-box-shadow: none;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+    }
+    .collapse-panel .collapse-header {
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+
+    /* Collapse header arrow set using background image */
+
+    .collapse-panel .collapse-header:not(.without-arrow) {
+        padding: 1.2rem 2rem 1.2rem 4.4rem;
+        background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAYAAABiDJ37AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAI9JREFUeNpiZACCyMjIBCDVD8SOy5cvv8BAAgDqNQBS+4G4EKh3ASPUsPlQ+Q+kGIpkmABUKJEJ6jIYAEnshyok1TAQ6AcZ6Ah1GdGG4jAM7DtGQgrQvU9ILSOxColVw0is7VA2QV8wkhA+DMQECSMJgc5AyDCcBhIwFG9aZSQxrRFM+IwkJGAGYnIRQIABACQuXCKovu2mAAAAAElFTkSuQmCC);
+        background-size: 1rem;
+        background-repeat: no-repeat;
+        background-position: 2rem center;
+    }
+
+    /* Controlling display based on collapse open state */
+
+    .collapse-panel .hidden-collapse-open {
+        display: none;
+    }
+    .collapse-panel:not([open]) .hidden-collapse-closed {
+        display: inline-block;
+    }
+
+    /* Collapse group */
+
+    .collapse-group .collapse-panel:not(:first-child) .collapse-content {
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+    }
+    .collapse-group .collapse-panel:not(:last-child) .collapse-content {
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+        border-bottom: 0;
+    }
+}
+
+
+/*
+-------------------------------------------------------------------------------
+24. Progress [hm-24]
+-------------------------------------------------------------------------------
+*/
+
+.progress {
+    display: -ms-flexbox;
+    display: flex;
+    overflow: hidden;
+    height: 0.8rem;
+    font-size: 1.2rem;
+    line-height: 0;
+    border-radius: 3.2rem;
+    background-color: rgba(0, 0, 0, 0.1);
+}
+.dark-mode .progress {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Progress bar */
+
+.progress-bar {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -ms-flex-pack: center;
+    justify-content: center;
+    overflow: hidden;
+    text-align: center;
+    white-space: nowrap;
+    color: #ffffff;
+    background-color: #1890ff;
+    border-radius: inherit;
+}
+.dark-mode .progress-bar {
+    color: #ffffff;
+    background-color: #1890ff;
+    -webkit-font-smoothing: auto;
+    -moz-osx-font-smoothing: auto;
+}
+.progress-bar:not(:only-child) {
+    border-radius: 0;
+}
+.progress-bar:not(:only-child):last-child {
+    border-top-right-radius: inherit;
+    border-bottom-right-radius: inherit;
+}
+
+/* Progress group */
+
+.progress-group {
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -ms-flex-align: center;
+    align-items: center;
+    width: 100%;
+}
+.progress-group > .progress {
+    position: relative;
+    -ms-flex: 1 1 0%;
+    flex: 1 1 0%;
+    min-width: 0;
+    margin-bottom: 0;
+}
+.progress-group-label {
+    font-size: 1.4rem;
+}
+.progress-group > .progress {
+    margin-left: 0.4rem;
+    margin-right: 0.4rem;
+}
+.progress-group > .progress-group-label {
+    margin-left: 0.4rem;
+    margin-right: 0.4rem;
+}
+.progress-group > .progress:first-child,
+.progress-group > .progress-group-label:first-child {
+    margin-left: 0;
+}
+.progress-group > .progress:last-child,
+.progress-group > .progress-group-label:last-child {
+    margin-right: 0;
+}
+
+/* Progress bar animated */
+
+.progress-bar-animated {
+    position: relative;
+}
+.progress-bar-animated::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: inherit;
+    background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.3));
+    transform: translateX(-100%);
+    animation: progress-bar-shine 2s infinite;
+}
+.dark-mode .progress-bar-animated::before {
+    background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.3));
+}
+.progress-bar-animated.highlight-dark::before {
+    background: linear-gradient(to right, transparent, rgba(0, 0, 0, 0.1));
+}
+.dark-mode .progress-bar-animated.highlight-dark::before {
+    background: linear-gradient(to right, transparent, rgba(0, 0, 0, 0.2));
+}
+@keyframes progress-bar-shine {
+    to {
+        transform: translateX(0);
+        opacity: 0.1;
+    }
+}
+
+
+/*
+-------------------------------------------------------------------------------
+25. Spacing utilities [hm-25]
 
 Notes:
-    - Unlike other frameworks, Halfmoon keeps the default margins and spacing 
+    ~ Unlike other frameworks, Halfmoon keeps the default margins and spacing 
     for most elements. Instead, we encourage people to use the following 
     utility classes for spacing.
-    - All utility classes have the dreaded !important keyword, as long as they 
-    are single responsibility.
 -------------------------------------------------------------------------------
 */
 
@@ -10331,11 +11583,7 @@ Notes:
 
 /*
 -------------------------------------------------------------------------------
-23. Display utilities [hm-23]
-
-Notes:
-    - All utility classes have the dreaded !important keyword, as long as they 
-    are single responsibility.
+26. Display utilities [hm-26]
 -------------------------------------------------------------------------------
 */
 
@@ -10570,27 +11818,24 @@ Notes:
 /* Hidden in light and dark mode */
 
 body:not(.dark-mode) .hidden-lm {
-    visibility: hidden !important;
     display: none !important;
 }
 .dark-mode .hidden-dm {
-    visibility: hidden !important;
     display: none !important;
 }
 
 
 /*
 -------------------------------------------------------------------------------
-24. Sizing utilities [hm-24]
-
-Notes:
-    - All utility classes have the dreaded !important keyword, as long as they 
-    are single responsibility.
+27. Sizing utilities [hm-27]
 -------------------------------------------------------------------------------
 */
 
 /* Width */
 
+.w-25 {
+    width: 2.5rem !important;
+}
 .w-50 {
     width: 5rem !important;
 }
@@ -10646,6 +11891,9 @@ Notes:
     max-width: 100% !important;
 }
 @media (min-width: 577px) {
+    .w-sm-25 {
+        width: 2.5rem !important;
+    }
     .w-sm-50 {
         width: 5rem !important;
     }
@@ -10702,6 +11950,9 @@ Notes:
     }
 }
 @media (min-width: 769px) {
+    .w-md-25 {
+        width: 2.5rem !important;
+    }
     .w-md-50 {
         width: 5rem !important;
     }
@@ -10758,6 +12009,9 @@ Notes:
     }
 }
 @media (min-width: 993px) {
+    .w-lg-25 {
+        width: 2.5rem !important;
+    }
     .w-lg-50 {
         width: 5rem !important;
     }
@@ -10814,6 +12068,9 @@ Notes:
     }
 }
 @media (min-width: 1201px) {
+    .w-xl-25 {
+        width: 2.5rem !important;
+    }
     .w-xl-50 {
         width: 5rem !important;
     }
@@ -10872,6 +12129,9 @@ Notes:
 
 /* Height */
 
+.h-25 {
+    height: 2.5rem !important;
+}
 .h-50 {
     height: 5rem !important;
 }
@@ -10927,6 +12187,9 @@ Notes:
     max-height: 100% !important;
 }
 @media (min-width: 577px) {
+    .h-sm-25 {
+        height: 2.5rem !important;
+    }
     .h-sm-50 {
         height: 5rem !important;
     }
@@ -10983,6 +12246,9 @@ Notes:
     }
 }
 @media (min-width: 769px) {
+    .h-md-25 {
+        height: 2.5rem !important;
+    }
     .h-md-50 {
         height: 5rem !important;
     }
@@ -11039,6 +12305,9 @@ Notes:
     }
 }
 @media (min-width: 993px) {
+    .h-lg-25 {
+        height: 2.5rem !important;
+    }
     .h-lg-50 {
         height: 5rem !important;
     }
@@ -11095,6 +12364,9 @@ Notes:
     }
 }
 @media (min-width: 1201px) {
+    .h-xl-25 {
+        height: 2.5rem !important;
+    }
     .h-xl-50 {
         height: 5rem !important;
     }
@@ -11153,11 +12425,7 @@ Notes:
 
 /*
 -------------------------------------------------------------------------------
-25. Flex utilities [hm-25]
-
-Notes:
-    - All utility classes have the dreaded !important keyword, as long as they 
-    are single responsibility.
+28. Flex utilities [hm-28]
 -------------------------------------------------------------------------------
 */
 
@@ -11884,11 +13152,223 @@ Notes:
 
 /*
 -------------------------------------------------------------------------------
-26. Other utilities [hm-26]
+29. Position utilities [hm-29]
+-------------------------------------------------------------------------------
+*/
 
-Notes:
-    - All utility classes have the dreaded !important keyword, as long as they 
-    are single responsibility.
+.position-static {
+    position: static !important;
+}
+.position-relative {
+    position: relative !important;
+}
+.position-absolute {
+    position: absolute !important;
+}
+.position-fixed {
+    position: fixed !important;
+}
+.position-sticky {
+    position: -webkit-sticky !important;
+    position: sticky !important;
+}
+.top-0 {
+    top: 0 !important;
+}
+.bottom-0 {
+    bottom: 0 !important;
+}
+.left-0 {
+    left: 0 !important;
+}
+.right-0 {
+    right: 0 !important;
+}
+.top-auto {
+    top: auto !important;
+}
+.bottom-auto {
+    bottom: auto !important;
+}
+.left-auto {
+    left: auto !important;
+}
+.right-auto {
+    right: auto !important;
+}
+@media (min-width: 577px) {
+    .position-sm-static {
+        position: static !important;
+    }
+    .position-sm-relative {
+        position: relative !important;
+    }
+    .position-sm-absolute {
+        position: absolute !important;
+    }
+    .position-sm-fixed {
+        position: fixed !important;
+    }
+    .position-sm-sticky {
+        position: -webkit-sticky !important;
+        position: sticky !important;
+    }
+    .top-sm-0 {
+        top: 0 !important;
+    }
+    .bottom-sm-0 {
+        bottom: 0 !important;
+    }
+    .left-sm-0 {
+        left: 0 !important;
+    }
+    .right-sm-0 {
+        right: 0 !important;
+    }
+    .top-sm-auto {
+        top: auto !important;
+    }
+    .bottom-sm-auto {
+        bottom: auto !important;
+    }
+    .left-sm-auto {
+        left: auto !important;
+    }
+    .right-sm-auto {
+        right: auto !important;
+    }
+}
+@media (min-width: 769px) {
+    .position-md-static {
+        position: static !important;
+    }
+    .position-md-relative {
+        position: relative !important;
+    }
+    .position-md-absolute {
+        position: absolute !important;
+    }
+    .position-md-fixed {
+        position: fixed !important;
+    }
+    .position-md-sticky {
+        position: -webkit-sticky !important;
+        position: sticky !important;
+    }
+    .top-md-0 {
+        top: 0 !important;
+    }
+    .bottom-md-0 {
+        bottom: 0 !important;
+    }
+    .left-md-0 {
+        left: 0 !important;
+    }
+    .right-md-0 {
+        right: 0 !important;
+    }
+    .top-md-auto {
+        top: auto !important;
+    }
+    .bottom-md-auto {
+        bottom: auto !important;
+    }
+    .left-md-auto {
+        left: auto !important;
+    }
+    .right-md-auto {
+        right: auto !important;
+    }
+}
+@media (min-width: 993px) {
+    .position-lg-static {
+        position: static !important;
+    }
+    .position-lg-relative {
+        position: relative !important;
+    }
+    .position-lg-absolute {
+        position: absolute !important;
+    }
+    .position-lg-fixed {
+        position: fixed !important;
+    }
+    .position-lg-sticky {
+        position: -webkit-sticky !important;
+        position: sticky !important;
+    }
+    .top-lg-0 {
+        top: 0 !important;
+    }
+    .bottom-lg-0 {
+        bottom: 0 !important;
+    }
+    .left-lg-0 {
+        left: 0 !important;
+    }
+    .right-lg-0 {
+        right: 0 !important;
+    }
+    .top-lg-auto {
+        top: auto !important;
+    }
+    .bottom-lg-auto {
+        bottom: auto !important;
+    }
+    .left-lg-auto {
+        left: auto !important;
+    }
+    .right-lg-auto {
+        right: auto !important;
+    }
+}
+@media (min-width: 1201px) {
+    .position-xl-static {
+        position: static !important;
+    }
+    .position-xl-relative {
+        position: relative !important;
+    }
+    .position-xl-absolute {
+        position: absolute !important;
+    }
+    .position-xl-fixed {
+        position: fixed !important;
+    }
+    .position-xl-sticky {
+        position: -webkit-sticky !important;
+        position: sticky !important;
+    }
+    .top-xl-0 {
+        top: 0 !important;
+    }
+    .bottom-xl-0 {
+        bottom: 0 !important;
+    }
+    .left-xl-0 {
+        left: 0 !important;
+    }
+    .right-xl-0 {
+        right: 0 !important;
+    }
+    .top-xl-auto {
+        top: auto !important;
+    }
+    .bottom-xl-auto {
+        bottom: auto !important;
+    }
+    .left-xl-auto {
+        left: auto !important;
+    }
+    .right-xl-auto {
+        right: auto !important;
+    }
+}
+
+
+/*
+-------------------------------------------------------------------------------
+30. Other utilities [hm-30]
 -------------------------------------------------------------------------------
 */
 
@@ -11939,19 +13419,19 @@ Notes:
     border-right: 1px solid rgba(0, 0, 0, 0.2) !important;
 }
 .dark-mode .border {
-    border-color: rgba(255, 255, 255, 0.2) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
 }
 .dark-mode .border-top {
-    border-color: rgba(255, 255, 255, 0.2) !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.2) !important;
 }
 .dark-mode .border-bottom {
-    border-color: rgba(255, 255, 255, 0.2) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2) !important;
 }
 .dark-mode .border-left {
-    border-color: rgba(255, 255, 255, 0.2) !important;
+    border-left: 1px solid rgba(255, 255, 255, 0.2) !important;
 }
 .dark-mode .border-right {
-    border-color: rgba(255, 255, 255, 0.2) !important;
+    border-right: 1px solid rgba(255, 255, 255, 0.2) !important;
 }
 .border-0 {
     border: none !important;
@@ -12185,11 +13665,23 @@ Notes:
 }
 .text-extra-letter-spacing {
     /* Improves readability in most cases */
-    letter-spacing: 0.3px;
+    letter-spacing: 0.03rem !important;
 }
 .text-extra-letter-spacing * {
     /* Improves readability in most cases */
-    letter-spacing: 0.3px;
+    letter-spacing: 0.03rem !important;
+}
+.text-smoothing-antialiased,
+body:not(.dark-mode) .text-smoothing-antialiased-lm,
+.dark-mode .text-smoothing-antialiased-dm {
+    -webkit-font-smoothing: antialiased !important;
+    -moz-osx-font-smoothing: grayscale !important;
+}
+.text-smoothing-auto,
+body:not(.dark-mode) .text-smoothing-auto-lm,
+.dark-mode .text-smoothing-auto-dm {
+    -webkit-font-smoothing: auto !important;
+    -moz-osx-font-smoothing: auto !important;
 }
 
 /* Font sizes and weights */
@@ -12237,15 +13729,134 @@ Notes:
     font-weight: bolder !important;
 }
 
+/* Background colors */
+
+.bg-white {
+    background-color: #ffffff !important;
+}
+
+body:not(.dark-mode) .bg-white-lm {
+    background-color: #ffffff !important;
+}
+
+.dark-mode .bg-white-dm {
+    background-color: #ffffff !important;
+}
+.bg-light {
+    background-color: #ecf0f1 !important;
+}
+body:not(.dark-mode) .bg-light-lm {
+    background-color: #ecf0f1 !important;
+}
+.dark-mode .bg-light-dm {
+    background-color: #ecf0f1 !important;
+}
+.bg-transparent,
+body:not(.dark-mode) .bg-transparent-lm,
+.dark-mode .bg-transparent-dm {
+    background-color: transparent !important;
+}
+.bg-primary {
+    background-color: #1890ff !important;
+}
+body:not(.dark-mode) .bg-primary-lm {
+    background-color: #1890ff !important;
+}
+.dark-mode .bg-primary-dm {
+    background-color: #1890ff !important;
+}
+.bg-success {
+    background-color: #0be881 !important;
+}
+body:not(.dark-mode) .bg-success-lm {
+    background-color: #0be881 !important;
+}
+.dark-mode .bg-success-dm {
+    background-color: #0be881 !important;
+}
+.bg-secondary {
+    background-color: #ffcf00 !important;
+}
+body:not(.dark-mode) .bg-secondary-lm {
+    background-color: #ffcf00 !important;
+}
+.dark-mode .bg-secondary-dm {
+    background-color: #ffcf00 !important;
+}
+.bg-danger {
+    background-color: #ff4d4f !important;
+}
+body:not(.dark-mode) .bg-danger-lm {
+    background-color: #ff4d4f !important;
+}
+.dark-mode .bg-danger-dm {
+    background-color: #ff4d4f !important;
+}
+.bg-dark-light {
+    background-color: #25282c !important;
+}
+body:not(.dark-mode) .bg-dark-light-lm {
+    background-color: #25282c !important;
+}
+.dark-mode .bg-dark-light-dm {
+    background-color: #25282c !important;
+}
+.bg-dark {
+    background-color: #191c20 !important;
+}
+body:not(.dark-mode) .bg-dark-lm {
+    background-color: #191c20 !important;
+}
+.dark-mode .bg-dark-dm {
+    background-color: #191c20 !important;
+}
+.bg-very-dark {
+    background-color: #111417 !important;
+}
+body:not(.dark-mode) .bg-very-dark-lm {
+    background-color: #111417 !important;
+}
+.dark-mode .bg-very-dark-dm {
+    background-color: #111417 !important;
+}
+
 /* Text colors */
 
+/* Text white */
+
+.text-white,
+body:not(.dark-mode) .text-white-lm,
+.dark-mode .text-white-dm {
+    color: #ffffff !important;
+}
+
+/* Text muted */
+
 .text-muted {
+    color: rgba(0, 0, 0, 0.6) !important;
+}
+
+body:not(.dark-mode) .text-muted-lm {
     color: rgba(0, 0, 0, 0.6) !important;
 }
 .dark-mode .text-muted {
     color: rgba(255, 255, 255, 0.6) !important;
 }
+.dark-mode .text-muted-dm {
+    color: rgba(255, 255, 255, 0.6) !important;
+}
+
+/* Text primary */
+
 .text-primary {
+    color: #1890ff !important;
+}
+
+body:not(.dark-mode) .text-primary-lm {
+    color: #1890ff !important;
+}
+
+.dark-mode .text-primary-dm {
     color: #1890ff !important;
 }
 a.text-primary:hover {
@@ -12254,7 +13865,30 @@ a.text-primary:hover {
 a.text-primary:focus {
     color: #45a3fb !important;
 }
+body:not(.dark-mode) a.text-primary-lm:hover {
+    color: #45a3fb !important;
+}
+body:not(.dark-mode) a.text-primary-lm:focus {
+    color: #45a3fb !important;
+}
+.dark-mode a.text-primary-dm:hover {
+    color: #45a3fb !important;
+}
+.dark-mode a.text-primary-dm:focus {
+    color: #45a3fb !important;
+}
+
+/* Text success */
+
 .text-success {
+    color: #0be881 !important;
+}
+
+body:not(.dark-mode) .text-success-lm {
+    color: #0be881 !important;
+}
+
+.dark-mode .text-success-dm {
     color: #0be881 !important;
 }
 a.text-success:hover {
@@ -12263,16 +13897,62 @@ a.text-success:hover {
 a.text-success:focus {
     color: #81eea8 !important;
 }
+body:not(.dark-mode) a.text-success-lm:hover {
+    color: #81eea8 !important;
+}
+body:not(.dark-mode) a.text-success-lm:focus {
+    color: #81eea8 !important;
+}
+.dark-mode a.text-success-dm:hover {
+    color: #81eea8 !important;
+}
+.dark-mode a.text-success-dm:focus {
+    color: #81eea8 !important;
+}
+
+/* Text secondary */
+
 .text-secondary {
-    color: #ffc312 !important;
+    color: #ffcf00 !important;
+}
+
+body:not(.dark-mode) .text-secondary-lm {
+    color: #ffcf00 !important;
+}
+
+.dark-mode .text-secondary-dm {
+    color: #ffcf00 !important;
 }
 a.text-secondary:hover {
-    color: #fbd35b !important;
+    color: #ffe04d !important;
 }
 a.text-secondary:focus {
-    color: #fbd35b !important;
+    color: #ffe04d !important;
 }
+body:not(.dark-mode) a.text-secondary-lm:hover {
+    color: #ffe04d !important;
+}
+body:not(.dark-mode) a.text-secondary-lm:focus {
+    color: #ffe04d !important;
+}
+.dark-mode a.text-secondary-dm:hover {
+    color: #ffe04d !important;
+}
+.dark-mode a.text-secondary-dm:focus {
+    color: #ffe04d !important;
+}
+
+/* Text danger */
+
 .text-danger {
+    color: #ff4d4f !important;
+}
+
+body:not(.dark-mode) .text-danger-lm {
+    color: #ff4d4f !important;
+}
+
+.dark-mode .text-danger-dm {
     color: #ff4d4f !important;
 }
 a.text-danger:hover {
@@ -12281,10 +13961,30 @@ a.text-danger:hover {
 a.text-danger:focus {
     color: #ed586c !important;
 }
-.text-white {
-    color: #ffffff !important;
+body:not(.dark-mode) a.text-danger-lm:hover {
+    color: #ed586c !important;
 }
+body:not(.dark-mode) a.text-danger-lm:focus {
+    color: #ed586c !important;
+}
+.dark-mode a.text-danger-dm:hover {
+    color: #ed586c !important;
+}
+.dark-mode a.text-danger-dm:focus {
+    color: #ed586c !important;
+}
+
+/* Text light */
+
 .text-light {
+    color: rgba(255, 255, 255, 0.8) !important;
+}
+
+body:not(.dark-mode) .text-light-lm {
+    color: rgba(255, 255, 255, 0.8) !important;
+}
+
+.dark-mode .text-light-dm {
     color: rgba(255, 255, 255, 0.8) !important;
 }
 a.text-light:hover {
@@ -12293,7 +13993,30 @@ a.text-light:hover {
 a.text-light:focus {
     color: rgba(255, 255, 255, 0.65) !important;
 }
+body:not(.dark-mode) a.text-light-lm:hover {
+    color: rgba(255, 255, 255, 0.65) !important;
+}
+body:not(.dark-mode) a.text-light-lm:focus {
+    color: rgba(255, 255, 255, 0.65) !important;
+}
+.dark-mode a.text-light-dm:hover {
+    color: rgba(255, 255, 255, 0.65) !important;
+}
+.dark-mode a.text-light-dm:focus {
+    color: rgba(255, 255, 255, 0.65) !important;
+}
+
+/* Text light */
+
 .text-dark {
+    color: rgba(0, 0, 0, 0.85) !important;
+}
+
+body:not(.dark-mode) .text-dark-lm {
+    color: rgba(0, 0, 0, 0.85) !important;
+}
+
+.dark-mode .text-dark-dm {
     color: rgba(0, 0, 0, 0.85) !important;
 }
 a.text-dark:hover {
@@ -12302,64 +14025,17 @@ a.text-dark:hover {
 a.text-dark:focus {
     color: rgba(0, 0, 0, 0.7) !important;
 }
-.dark-mode .text-primary,
-.dark-mode .text-success,
-.dark-mode .text-secondary,
-.dark-mode .text-danger,
-.dark-mode .text-dark {
-    -webkit-font-smoothing: auto;
-    -moz-osx-font-smoothing: auto;
+body:not(.dark-mode) a.text-dark-lm:hover {
+    color: rgba(0, 0, 0, 0.7) !important;
 }
-
-/* Background colors */
-
-.bg-white {
-    background-color: #ffffff !important;
+body:not(.dark-mode) a.text-dark-lm:focus {
+    color: rgba(0, 0, 0, 0.7) !important;
 }
-.bg-light {
-    background-color: #ecf0f1 !important;
+.dark-mode a.text-dark-dm:hover {
+    color: rgba(0, 0, 0, 0.7) !important;
 }
-.bg-transparent {
-    background-color: transparent !important;
-}
-.bg-primary {
-    background-color: #1890ff !important;
-}
-.bg-success {
-    background-color: #0be881 !important;
-}
-.bg-secondary {
-    background-color: #ffc312 !important;
-}
-.bg-danger {
-    background-color: #ff4d4f !important;
-}
-.bg-dark-light {
-    background-color: #25282c !important;
-}
-.bg-dark {
-    background-color: #191c20 !important;
-}
-.bg-very-dark {
-    background-color: #111417 !important;
-}
-.dark-mode .bg-dark-light-dm {
-    background-color: #25282c !important;
-}
-.dark-mode .bg-dark-dm {
-    background-color: #191c20 !important;
-}
-.dark-mode .bg-very-dark-dm {
-    background-color: #111417 !important;
-}
-.dark-mode .bg-white,
-.dark-mode .bg-light,
-.dark-mode .bg-primary,
-.dark-mode .bg-success,
-.dark-mode .bg-secondary,
-.dark-mode .bg-danger {
-    -webkit-font-smoothing: auto;
-    -moz-osx-font-smoothing: auto;
+.dark-mode a.text-dark-dm:focus {
+    color: rgba(0, 0, 0, 0.7) !important;
 }
 
 /* Overflow utilities */
@@ -12506,4 +14182,209 @@ a.text-dark:focus {
     .overflow-y-xl-scroll {
         overflow-y: scroll !important;
     }
+}
+
+/* Visibility utilities */
+
+.visible {
+    visibility: visible !important;
+}
+.invisible {
+    visibility: hidden !important;
+}
+body:not(.dark-mode) .visible-lm {
+    visibility: visible !important;
+}
+body:not(.dark-mode) .invisible-lm {
+    visibility: hidden !important;
+}
+.dark-mode .visible-dm {
+    visibility: visible !important;
+}
+.dark-mode .invisible-dm {
+    visibility: hidden !important;
+}
+
+/* Vertical align utilities */
+
+.align-baseline {
+    vertical-align: baseline !important;
+}
+.align-top {
+    vertical-align: top !important;
+}
+.align-middle {
+    vertical-align: middle !important;
+}
+.align-bottom {
+    vertical-align: bottom !important;
+}
+.align-text-bottom {
+    vertical-align: text-bottom !important;
+}
+.align-text-top {
+    vertical-align: text-top !important;
+}
+
+/* Z-index utilities */
+
+.z-0 {
+    z-index: 0 !important;
+}
+.z-10 {
+    z-index: 10 !important;
+}
+.z-20 {
+    z-index: 20 !important;
+}
+.z-30 {
+    z-index: 30 !important;
+}
+.z-40 {
+    z-index: 40 !important;
+}
+.z-50 {
+    z-index: 50 !important;
+}
+.z-auto {
+    z-index: auto !important;
+}
+@media (min-width: 577px) {
+    .z-sm-0 {
+        z-index: 0 !important;
+    }
+    .z-sm-10 {
+        z-index: 10 !important;
+    }
+    .z-sm-20 {
+        z-index: 20 !important;
+    }
+    .z-sm-30 {
+        z-index: 30 !important;
+    }
+    .z-sm-40 {
+        z-index: 40 !important;
+    }
+    .z-sm-50 {
+        z-index: 50 !important;
+    }
+    .z-sm-auto {
+        z-index: auto !important;
+    }
+}
+@media (min-width: 769px) {
+    .z-md-0 {
+        z-index: 0 !important;
+    }
+    .z-md-10 {
+        z-index: 10 !important;
+    }
+    .z-md-20 {
+        z-index: 20 !important;
+    }
+    .z-md-30 {
+        z-index: 30 !important;
+    }
+    .z-md-40 {
+        z-index: 40 !important;
+    }
+    .z-md-50 {
+        z-index: 50 !important;
+    }
+    .z-md-auto {
+        z-index: auto !important;
+    }
+}
+@media (min-width: 993px) {
+    .z-lg-0 {
+        z-index: 0 !important;
+    }
+    .z-lg-10 {
+        z-index: 10 !important;
+    }
+    .z-lg-20 {
+        z-index: 20 !important;
+    }
+    .z-lg-30 {
+        z-index: 30 !important;
+    }
+    .z-lg-40 {
+        z-index: 40 !important;
+    }
+    .z-lg-50 {
+        z-index: 50 !important;
+    }
+    .z-lg-auto {
+        z-index: auto !important;
+    }
+}
+@media (min-width: 1201px) {
+    .z-xl-0 {
+        z-index: 0 !important;
+    }
+    .z-xl-10 {
+        z-index: 10 !important;
+    }
+    .z-xl-20 {
+        z-index: 20 !important;
+    }
+    .z-xl-30 {
+        z-index: 30 !important;
+    }
+    .z-xl-40 {
+        z-index: 40 !important;
+    }
+    .z-xl-50 {
+        z-index: 50 !important;
+    }
+    .z-xl-auto {
+        z-index: auto !important;
+    }
+}
+
+/* Box shadow utilities */
+
+.shadow-none {
+    -moz-box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+}
+.shadow-sm {
+    -moz-box-shadow: 0 0.1rem 0.2rem rgba(0, 0, 0, 0.15) !important;
+    -webkit-box-shadow: 0 0.1rem 0.2rem rgba(0, 0, 0, 0.15) !important;
+    box-shadow: 0 0.1rem 0.2rem rgba(0, 0, 0, 0.15) !important;
+}
+.dark-mode .shadow-sm {
+    -moz-box-shadow: 0 0.1rem 0.6rem rgba(0, 0, 0, 0.4) !important;
+    -webkit-box-shadow: 0 0.1rem 0.6rem rgba(0, 0, 0, 0.4) !important;
+    box-shadow: 0 0.1rem 0.6rem rgba(0, 0, 0, 0.4) !important;
+}
+.shadow {
+    -moz-box-shadow: 0 0.2rem 0.4rem rgba(0, 0, 0, 0.15) !important;
+    -webkit-box-shadow: 0 0.2rem 0.4rem rgba(0, 0, 0, 0.15) !important;
+    box-shadow: 0 0.2rem 0.4rem rgba(0, 0, 0, 0.15) !important;
+}
+.dark-mode .shadow {
+    -moz-box-shadow: 0 0.2rem 0.8rem rgba(0, 0, 0, 0.4) !important;
+    -webkit-box-shadow: 0 0.2rem 0.8rem rgba(0, 0, 0, 0.4) !important;
+    box-shadow: 0 0.2rem 0.8rem rgba(0, 0, 0, 0.4) !important;
+}
+.shadow-lg {
+    -moz-box-shadow: 0 0.4rem 0.8rem rgba(0, 0, 0, 0.15) !important;
+    -webkit-box-shadow: 0 0.4rem 0.8rem rgba(0, 0, 0, 0.15) !important;
+    box-shadow: 0 0.4rem 0.8rem rgba(0, 0, 0, 0.15) !important;
+}
+.dark-mode .shadow-lg {
+    -moz-box-shadow: 0 0.4rem 1.2rem rgba(0, 0, 0, 0.4) !important;
+    -webkit-box-shadow: 0 0.4rem 1.2rem rgba(0, 0, 0, 0.4) !important;
+    box-shadow: 0 0.4rem 1.2rem rgba(0, 0, 0, 0.4) !important;
+}
+
+/* Pointer events utilities */
+
+.pointer-events-auto {
+    pointer-events: auto !important;
+}
+.pointer-events-none {
+    pointer-events: none !important;
 }

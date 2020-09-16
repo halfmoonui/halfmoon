@@ -6,19 +6,19 @@ Please read this short document if you want to contribute to Halfmoon.
 
 Before getting to the issues and pull requests, it is important to understand what the framework is trying to do.
 
-Halfmoon's stated goal is really simple - create a customizable frontend framework, with a built-in dark mode, that is brilliant for building dashboards and tools. However, our other goals are more implicit:
+Halfmoon's stated goal is really simple - create a customizable frontend framework, with a built-in dark mode, that is great for building dashboards and tools. However, our other goals are more implicit:
 
 - Everything has to be **super functional and snappy**. Ideally, that means no performance issues and just consistently good execution. 
-- Everything has to **look good** as well, and have a **single consistent style**.
+- Everything has to **look good** as well, and have a **single, consistent style**.
 
-The most important thing here is building a **really good (looking) framework that works very well**, and that should always be the top priority.
+The most important thing here is building a **really good (looking) framework that also works very well**, and that should always be the top priority.
 
 ## Issues
 
 Please keep the following things in mind when raising issues:
 
 - Feature requests are welcome. However, please make sure that the feature you are requesting falls under the scope of the project.
--  **Do not** post personal support questions as issues. For those, use this [tag in Stack Overflow](https://stackoverflow.com/questions/tagged/halfmoon).
+-  **Do not** post personal support questions as issues. For those, use this [tag on Stack Overflow](https://stackoverflow.com/questions/tagged/halfmoon).
 - When raising an issue, please be as thorough as possible. For possible bugs, reproducible code is always a great sign.
 
 ## Pull requests
