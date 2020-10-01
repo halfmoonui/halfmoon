@@ -6386,22 +6386,16 @@ select.form-control[multiple] > option:disabled {
 .dark-mode .custom-switch label:after {
     background-color: rgba(255, 255, 255, 0.15);
     border-color: rgba(255, 255, 255, 0.15);
-    -webkit-transition: .4s;
-    transition: .4s;
 }
 .custom-switch input[type="checkbox"]:checked~label:after {
     top: 0.4rem;
     left: 1.5rem;
     background-color: #ffffff;
     border-color: #ffffff;
-    -webkit-transition: .4s;
-    transition: .4s;
 }
 .dark-mode .custom-switch input[type="checkbox"]:checked~label:after {
     background-color: #ffffff;
     border-color: #ffffff;
-    -webkit-transition: .4s;
-    transition: .4s;
 }
 .custom-switch input[type="checkbox"]:disabled~label {
     opacity: 0.6;
