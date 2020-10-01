@@ -1395,6 +1395,7 @@ CSS variables (CSS custom properties)
 
     --switch-slider-border-width: 0;
     --switch-slider-border-radius: 50%;
+    --switch-slider-transition: .4s;
     --switch-slider-width-height: 1.2rem;
     --switch-slider-top: 0.4rem;
     --switch-slider-left: 0.5rem;
@@ -7480,6 +7481,8 @@ select.form-control[multiple] > option:disabled {
     background-color: var(--lm-switch-slider-bg-color);
     border: var(--switch-slider-border-width) solid var(--lm-switch-slider-border-color);
     border-radius: var(--switch-slider-border-radius);
+    -webkit-transition: var(--switch-slider-transition);
+    transition: var(--switch-slider-transition);
 }
 .dark-mode .custom-switch label:after {
     background-color: var(--dm-switch-slider-bg-color);
