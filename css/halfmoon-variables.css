@@ -1,7 +1,7 @@
 /*
 -------------------------------------------------------------------------------
 Halfmoon CSS (Variables file)
-Version: 1.1.0
+Version: 1.1.1
 https://www.gethalfmoon.com
 Copyright, Halfmoon UI
 Licensed under MIT (https://www.gethalfmoon.com/license)
@@ -948,6 +948,11 @@ CSS variables (CSS custom properties)
     --dm-button-danger-box-shadow-focus: 0 0 0 0.3rem var(--danger-box-shadow-color);
     --dm-button-danger-outline-color-focus: var(--dm-button-outline-color-focus);
 
+    /* Rounded button */
+
+    --button-rounded-border-radius: var(--button-height);
+    --small-button-rounded-border-radius: var(--small-button-height);
+    --large-button-rounded-border-radius: var(--large-button-height);
 
     /*
     ---------------------------------------------------------------------------
@@ -1368,7 +1373,7 @@ CSS variables (CSS custom properties)
     --switch-width: 3.2rem;
     --switch-height: 2rem;
     --switch-line-height: var(--switch-height);
-    --switch-label-padding-left: 4rem;
+    --switch-label-padding-left: calc(var(--switch-width) + 0.8rem);
     --switch-label-blank-padding-left: var(--switch-width);
 
     --lm-switch-bg-color: #ffffff;
@@ -1399,7 +1404,7 @@ CSS variables (CSS custom properties)
     --switch-slider-top: 0.4rem;
     --switch-slider-left: 0.5rem;
     --switch-slider-top-checked: var(--switch-slider-top);
-    --switch-slider-left-checked: 1.5rem;
+    --switch-slider-left-checked: calc(var(--switch-width) - var(--switch-slider-width-height) - var(--switch-slider-left));
 
     --lm-switch-slider-bg-color: rgba(0, 0, 0, 0.2); /* Transparency used in light mode because the background of the switch box is plain white */
     --lm-switch-slider-border-color: var(--lm-switch-slider-bg-color);
@@ -5861,6 +5866,18 @@ Notes:
     padding-right: 0;
 }
 
+/* Rounded button */
+
+.btn-rounded {
+    border-radius: var(--button-rounded-border-radius);
+}
+.btn-rounded.btn-sm {
+    border-radius: var(--small-button-rounded-border-radius);
+}
+.btn-rounded.btn-lg {
+    border-radius: var(--large-button-rounded-border-radius);
+}
+
 
 /*
 -------------------------------------------------------------------------------
@@ -7480,6 +7497,8 @@ select.form-control[multiple] > option:disabled {
     background-color: var(--lm-switch-slider-bg-color);
     border: var(--switch-slider-border-width) solid var(--lm-switch-slider-border-color);
     border-radius: var(--switch-slider-border-radius);
+    -webkit-transition: left .1s;
+    transition: left .1s;
 }
 .dark-mode .custom-switch label:after {
     background-color: var(--dm-switch-slider-bg-color);
@@ -7782,6 +7801,7 @@ select.form-control[multiple] > option:disabled {
     color: var(--lm-input-group-text-text-color);
     background-color: var(--lm-input-group-text-bg-color);
     border: var(--input-group-text-border-width) solid var(--lm-input-group-text-border-color);
+    border-radius: var(--input-group-text-border-radius);
 }
 .dark-mode .input-group-text {
     color: var(--dm-input-group-text-text-color);
@@ -7827,27 +7847,32 @@ select.form-control[multiple] > option:disabled {
     padding-left: 0;
     padding-right: 0;
 }
+.input-group-sm > .input-group-prepend > .btn-rounded,
+.input-group-sm > .input-group-append > .btn-rounded {
+    border-radius: var(--small-button-rounded-border-radius);
+}
+.input-group-lg > .input-group-prepend > .btn-rounded,
+.input-group-lg > .input-group-append > .btn-rounded {
+    border-radius: var(--large-button-rounded-border-radius);
+}
 
 /* Input group borders */
 
-.input-group > .form-control,
-.input-group-prepend > .input-group-text,
-.input-group-append > .input-group-text,
-.input-group-prepend > .btn,
-.input-group-append > .btn {
-    border-radius: 0;
+.input-group > .form-control:not(:first-child),
+.input-group-prepend:not(:first-child) > .input-group-text,
+.input-group-append:not(:first-child) > .input-group-text,
+.input-group-prepend:not(:first-child) > .btn,
+.input-group-append:not(:first-child) > .btn {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
 }
-.input-group > .form-control:first-child,
-.input-group-prepend:first-child > .input-group-text,
-.input-group-prepend:first-child > .btn {
-    border-top-left-radius: var(--input-border-radius);
-    border-bottom-left-radius: var(--input-border-radius);
-}
-.input-group > .form-control:last-child,
-.input-group-append:last-child > .input-group-text,
-.input-group-append:last-child > .btn {
-    border-top-right-radius: var(--input-border-radius);
-    border-bottom-right-radius: var(--input-border-radius);
+.input-group > .form-control:not(:last-child),
+.input-group-prepend:not(:last-child) > .input-group-text,
+.input-group-append:not(:last-child) > .input-group-text,
+.input-group-prepend:not(:last-child) > .btn,
+.input-group-append:not(:last-child) > .btn {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
 }
 .input-group > .form-control:focus,
 .input-group-prepend > .btn:focus,
@@ -9944,6 +9969,12 @@ a.badge-group:hover > .badge.badge-danger {
     width: var(--large-button-height);
     padding-left: 0;
     padding-right: 0;
+}
+.btn-group-sm > .btn-rounded {
+    border-radius: var(--small-button-rounded-border-radius);
+}
+.btn-group-lg > .btn-rounded {
+    border-radius: var(--large-button-rounded-border-radius);
 }
 
 /* Button toolbar */

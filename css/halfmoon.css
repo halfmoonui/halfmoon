@@ -1,7 +1,7 @@
 /*
 -------------------------------------------------------------------------------
 Halfmoon CSS
-Version: 1.1.0
+Version: 1.1.1
 https://www.gethalfmoon.com
 Copyright, Halfmoon UI
 Licensed under MIT (https://www.gethalfmoon.com/license)
@@ -4177,6 +4177,18 @@ Notes:
     padding-right: 0;
 }
 
+/* Rounded button */
+
+.btn-rounded {
+    border-radius: 3.2rem;
+}
+.btn-rounded.btn-sm {
+    border-radius: 2.6rem;
+}
+.btn-rounded.btn-lg {
+    border-radius: 4rem;
+}
+
 
 /*
 -------------------------------------------------------------------------------
@@ -6304,7 +6316,7 @@ select.form-control[multiple] > option:disabled {
 .custom-switch label {
     display: inline-block;
     margin-bottom: 0;
-    padding-left: 4rem;
+    padding-left: calc(3.2rem + 0.8rem);
     cursor: pointer;
     -webkit-user-select: none;
     -moz-user-select: none;
@@ -6380,6 +6392,8 @@ select.form-control[multiple] > option:disabled {
     background-color: rgba(0, 0, 0, 0.2);
     border: 0 solid rgba(0, 0, 0, 0.2);
     border-radius: 50%;
+    -webkit-transition: left .1s;
+    transition: left .1s;
 }
 .dark-mode .custom-switch label:after {
     background-color: rgba(255, 255, 255, 0.15);
@@ -6387,7 +6401,7 @@ select.form-control[multiple] > option:disabled {
 }
 .custom-switch input[type="checkbox"]:checked~label:after {
     top: 0.4rem;
-    left: 1.5rem;
+    left: calc(3.2rem - 1.2rem - 0.5rem);
     background-color: #ffffff;
     border-color: #ffffff;
 }
@@ -6777,6 +6791,7 @@ select.form-control[multiple] > option:disabled {
     color: rgba(0, 0, 0, 0.85);
     background-color: #ecf0f1;
     border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 0.4rem;
 }
 .dark-mode .input-group-text {
     color: rgba(255, 255, 255, 0.8);
@@ -6841,39 +6856,36 @@ select.form-control[multiple] > option:disabled {
     padding-left: 0;
     padding-right: 0;
 }
+.input-group-sm > .input-group-prepend > .btn-rounded {
+    border-radius: 2.6rem;
+}
+.input-group-sm > .input-group-append > .btn-rounded {
+    border-radius: 2.6rem;
+}
+.input-group-lg > .input-group-prepend > .btn-rounded {
+    border-radius: 4rem;
+}
+.input-group-lg > .input-group-append > .btn-rounded {
+    border-radius: 4rem;
+}
 
 /* Input group borders */
 
-.input-group > .form-control,
-.input-group-prepend > .input-group-text,
-.input-group-append > .input-group-text,
-.input-group-prepend > .btn,
-.input-group-append > .btn {
-    border-radius: 0;
+.input-group > .form-control:not(:first-child),
+.input-group-prepend:not(:first-child) > .input-group-text,
+.input-group-append:not(:first-child) > .input-group-text,
+.input-group-prepend:not(:first-child) > .btn,
+.input-group-append:not(:first-child) > .btn {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
 }
-.input-group > .form-control:first-child {
-    border-top-left-radius: 0.4rem;
-    border-bottom-left-radius: 0.4rem;
-}
-.input-group-prepend:first-child > .input-group-text {
-    border-top-left-radius: 0.4rem;
-    border-bottom-left-radius: 0.4rem;
-}
-.input-group-prepend:first-child > .btn {
-    border-top-left-radius: 0.4rem;
-    border-bottom-left-radius: 0.4rem;
-}
-.input-group > .form-control:last-child {
-    border-top-right-radius: 0.4rem;
-    border-bottom-right-radius: 0.4rem;
-}
-.input-group-append:last-child > .input-group-text {
-    border-top-right-radius: 0.4rem;
-    border-bottom-right-radius: 0.4rem;
-}
-.input-group-append:last-child > .btn {
-    border-top-right-radius: 0.4rem;
-    border-bottom-right-radius: 0.4rem;
+.input-group > .form-control:not(:last-child),
+.input-group-prepend:not(:last-child) > .input-group-text,
+.input-group-append:not(:last-child) > .input-group-text,
+.input-group-prepend:not(:last-child) > .btn,
+.input-group-append:not(:last-child) > .btn {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
 }
 .input-group > .form-control:focus,
 .input-group-prepend > .btn:focus,
@@ -9545,6 +9557,12 @@ a.badge-group:hover > .badge.badge-danger {
     width: 4rem;
     padding-left: 0;
     padding-right: 0;
+}
+.btn-group-sm > .btn-rounded {
+    border-radius: 2.6rem;
+}
+.btn-group-lg > .btn-rounded {
+    border-radius: 4rem;
 }
 
 /* Button toolbar */
