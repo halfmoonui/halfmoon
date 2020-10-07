@@ -27,6 +27,10 @@ Please keep the following things in mind when raising issues:
 
 The best way to ask is through email: [hey.halfmoon@gmail.com](mailto:hey.halfmoon@gmail.com). I am always open to proper discussions about the framework, especially when it comes to contributions and pull requests. 
 
+## Documentation website
+
+The repository for the documentation website is not public. Therefore, if you want to raise an issue regarding that, please send me an email: [hey.halfmoon@gmail.com](mailto:hey.halfmoon@gmail.com).
+
 ## License
 
 Any contribution you make will fall under the license being used by the framework: [MIT license](https://www.gethalfmoon.com/license/).
