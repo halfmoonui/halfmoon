@@ -1,95 +1,42 @@
-# [Halfmoon](https://www.gethalfmoon.com)
+# Halfmoon development branch
 
-> Front-end framework with a built-in dark mode and full customizability using CSS variables; great for building dashboards and tools.
+> This is the development branch for the Halfmoon framework, which contains the latest changes and updates. For the last stable release, see the [main branch](https://github.com/halfmoonui/halfmoon/) of the repo.
 
-- **Built-in dark mode**—Halfmoon comes with a built-in, toggleable dark mode, which is one of its most important and defining features.
-- **Fully customizable using CSS variables**—The framework is built entirely using CSS variables (also known as CSS custom properties). There are close to *1,500 CSS variables*, which means that almost everything can be customized by overriding a property, making it very easy to theme Halfmoon to fit your brand. [Learn more about customization](https://www.gethalfmoon.com/docs/customize/).
-- **Great for building dashboards and tools**—The components have a very standard look and feel to them, making them suitable for dashboards and tools. Moreover, a lot of importance is placed on components such as forms, navbars, sidebars, dropdowns, toasts, shortcuts, etc. and there are also *tons of utilities* available.
-- **Optional JS library**—Many of the components found in Halfmoon are built to work without JavaScript. However, the framework still comes with a powerful JavaScript library with no extra dependencies, such as jQuery.
-- **Bootstrap like classes**—The class names should be instantly familiar to anyone who has used Bootstrap.
-- **Cross-browser compatibility**—Fully supports almost all the browsers under the sun, including really old ones like Internet Explorer 11.
+The only files that will be worked on are `halfmoon-variables.css` and `halfmoon.js`. Once they are ready for a new release, the other files will be generated (i.e. minified and variables flattened), and then this branch will be merged with the main one.
 
-To learn more, go to [the documentation](https://www.gethalfmoon.com/docs/introduction/).
+Please note, not everything listed below will be worked on for the **next** major update (`v1.2.0`). Anything left out will be pushed to the update after that one.
 
-## Quickstart
+## New features and components
 
-The quickest way to get started with Halfmoon is by using the CDN to include the following files:
+- [ ] Styled lists (unordered and ordered)
+- [ ] Range slider
+- [ ] Number input
+- [ ] Password show/hide toggle
+- [ ] Form validator
+- [ ] Tabs (also called navs)
+- [ ] List group
+- [ ] High contrast mode (issue https://github.com/halfmoonui/halfmoon/issues/27)
+- [ ] User preferred scale
+- [ ] Date-time picker
+- [ ] Better select and multi-select
+- [ ] Data table
 
-```html
-<!-- Halfmoon CSS -->
-<link href="https://cdn.jsdelivr.net/npm/halfmoon@1.1.1/css/halfmoon-variables.min.css" rel="stylesheet" />
-<!--
-  Or,
-  Use the following (no variables, supports IE11):
-  <link href="https://cdn.jsdelivr.net/npm/halfmoon@1.1.1/css/halfmoon.min.css" rel="stylesheet" />
--->
+## Minor updates and bug fixes
 
-<!-- Halfmoon JS -->
-<script src="https://cdn.jsdelivr.net/npm/halfmoon@1.1.1/js/halfmoon.min.js"></script>
-```
+- [ ] Update the color system to use HSL representations (HSL colors are human friendly, so the new system will make it a breeze to update palletes if necessary)
+- [ ] Update buttons (and inputs) to use padding, instead of fixed height (this should fix browser discrepancies in the appearance of buttons)
+- [ ] Fix the issue that causes the sidebar and overlay to appear for a moment before disappearing during page load on small screens (i.e. mobile phones)
+- [ ] Fix the `position` styles on the `<html>`, `<body>` and other major containers (this should fix some minor scroll issues)
+- [ ] Fix "aggressive" transitions on dropdown menus and tooltips
+- [ ] Improve the design of disabled checkboxes, radio buttons, and switches
+- [ ] Scroll shadow utilities
+- [ ] Transition utilities
 
-**Pleast note**, the JS file should be placed at the end of the `<body>` tag. Otherwise, some things may not work as expected. For example, using the `onclick="..."` event to call one of Halfmoon's built-in methods will not work **unless** the JS file is placed at the end of the `<body>` tag.
+The above list is missing a few other tiny bugs and issues that will be fixed.
 
-## Using npm
+## Updates to the documentation
 
-```
-npm install halfmoon
-```
-
-After installation, the required CSS and JS file can be imported in the following way:
-
-```javascript
-// Include CSS file
-require("halfmoon/css/halfmoon-variables.min.css");
-/*
-  Or,
-  Include the following (no variables, supports IE11):
-  require("halfmoon/css/halfmoon.min.css");
-*/
-
-// Import JS library
-const halfmoon = require("halfmoon");
-```
-
-Please note that manual initialization is required for some components, that is, after the DOM is loaded, the following method needs to be called:
-
-```javascript
-// Call this method after the DOM has been loaded
-halfmoon.onDOMContentLoaded();
-```
-
-This initializes all of the components that require JavaScript, such as dropdowns, custom file inputs, shortcuts, etc. 
-
-In this way, Halfmoon can be used with frameworks that use the virtual DOM, such as React and Vue. For instance, in the case of Vue, the `halfmoon.onDOMContentLoaded()` method would be called inside the `mounted()` hook of your component.
-
-## Using React
-
-If you are using React to call the built-in methods, such as `halfmoon.toggleSidebar()`, please make sure the call is made in a way that binds the correct context. There are two ways to do this:
-
-1.  Using an anonymous method: 
-
-    ```html
-    <button className="btn" type="button" onClick={() => halfmoon.toggleSidebar()}>
-    ```
-
-2.  Using `bind`:
-
-    ```html
-    <button className="btn" type="button" onClick={halfmoon.toggleSidebar.bind(halfmoon)}>
-    ```
-
-You can find more details in the [React documentation](https://reactjs.org/docs/faq-functions.html#why-is-binding-necessary-at-all).
-
-## Starter template generator
-
-You can use the [starter template generator](https://www.gethalfmoon.com/docs/page-building/#starter-template-generator) to generate boilerplates for your project. The generator takes your settings and adds the appropriate classes and defines the required containers and elements.
-
-Once again, we recommend reading [the documentation](https://www.gethalfmoon.com/docs/introduction/), as it contains a lot of examples to help you quickly build websites.
-
-## License
-
-Halfmoon is licensed under the [MIT](https://www.gethalfmoon.com/license/) license.
-
-## Copyright
-
-Copyright 2020, Halfmoon UI
+- [ ] Pages for the new components and features
+- [ ] Accessibility improvements in the examples
+- [ ] Comparison pages with other popular frameworks
+- [ ] Pages for helping users integrate Halfmoon with React, Angular, Vue, and so on (as of right now, the documentation is sparse in this regard)
