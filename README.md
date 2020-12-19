@@ -15,6 +15,7 @@ Please note, not everything listed below will be worked on for the **next** majo
 - [ ] Form validator
 - [ ] Tabs (also called navs)
 - [ ] List group
+- [ ] Spinners
 - [ ] High contrast mode (issue https://github.com/halfmoonui/halfmoon/issues/27)
 - [ ] User preferred scale
 - [ ] Date-time picker
