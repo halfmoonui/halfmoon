@@ -2,16 +2,18 @@
 
 > This is the development branch for the Halfmoon framework, which contains the latest changes and updates. For the last stable release, see the [main branch](https://github.com/halfmoonui/halfmoon/) of the repo.
 
-The only files that will be worked on are `halfmoon-variables.css` and `halfmoon.js`. Once they are ready for a new release, the other files will be generated (i.e. minified and variables flattened), and then this branch will be merged with the main one.
+The only files that will be worked on are `halfmoon-variables.css` and `halfmoon.js`. Once they are ready for a new release, the other files will be generated (i.e. minified and variables flattened), and then this branch will be merged with the main one. Not everything listed below will be worked on for the **next** major update (`v1.2.0`). Anything left out will be pushed to the update after that one.
 
-Please note, not everything listed below will be worked on for the **next** major update (`v1.2.0`). Anything left out will be pushed to the update after that one.
+**Please note**, writing and updating the official documentation website requires time and polish. So for the time being, as new components and features are being added, I will create examples illustrating how they can be used on Codepen. That should hopefully tie everything over until the official release and documentation update. You can find the links to the Codepens below, next to the list items.
+
+**UPDATE 03/02/2020** Range, number input, password show/hide toggles have been added. 
 
 ## New features and components
 
 - [ ] Styled lists (unordered and ordered)
-- [ ] Range slider
-- [ ] Number input
-- [ ] Password show/hide toggle
+- [x] Range - [How to use](https://codepen.io/tahmid-hm-dev/pen/VwmLOxE)
+- [x] Number input - [How to use](https://codepen.io/tahmid-hm-dev/pen/ExNjzQw)
+- [x] Password show/hide toggle - [How to use](https://codepen.io/tahmid-hm-dev/pen/XWNbwEa)
 - [ ] Form validator
 - [ ] Tabs (also called navs)
 - [ ] List group
