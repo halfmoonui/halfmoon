@@ -1,7 +1,7 @@
 /*
 -------------------------------------------------------------------------------
 Halfmoon CSS (Variables file)
-Version: 1.1.1
+Version: 1.2.0
 https://www.gethalfmoon.com
 Copyright, Halfmoon UI
 Licensed under MIT (https://www.gethalfmoon.com/license)
@@ -33,12 +33,15 @@ Table of contents:
     22. Button group -------------------------------------------------- [hm-22]
     23. Collapse ------------------------------------------------------ [hm-23]
     24. Progress ------------------------------------------------------ [hm-24]
-    25. Spacing utilities --------------------------------------------- [hm-25]
-    26. Display utilities --------------------------------------------- [hm-26]
-    27. Sizing utilities ---------------------------------------------- [hm-27]
-    28. Flex utilities ------------------------------------------------ [hm-28]
-    29. Position utilities -------------------------------------------- [hm-29]
-    30. Other utilities ----------------------------------------------- [hm-30]
+    25. Tabs (navs) --------------------------------------------------- [hm-25]
+    26. List group ---------------------------------------------------- [hm-26]
+    27. Spinners (and loaders) ---------------------------------------- [hm-27]
+    28. Spacing utilities --------------------------------------------- [hm-28]
+    29. Display utilities --------------------------------------------- [hm-29]
+    30. Sizing utilities ---------------------------------------------- [hm-30]
+    31. Flex utilities ------------------------------------------------ [hm-31]
+    32. Position utilities -------------------------------------------- [hm-32]
+    33. Other utilities ----------------------------------------------- [hm-33]
 
 Credits:
     Bootstrap and its contributors for class names and inspiration. Moreover, 
@@ -71,27 +74,32 @@ CSS variables (CSS custom properties)
         7.  Page building (containers, content, card, v-spacer) ------ [hmv-07]
         8.  Links ---------------------------------------------------- [hmv-08]
         9.  Buttons -------------------------------------------------- [hmv-09]
-        10. Code ----------------------------------------------------- [hmv-10]
-        11. Tables --------------------------------------------------- [hmv-11]
-        12. Form helpers (form-groups, labels, form-text, etc.) ------ [hmv-12]
-        13. Inputs --------------------------------------------------- [hmv-13]
-        14. Checkbox ------------------------------------------------- [hmv-14]
-        15. Radio ---------------------------------------------------- [hmv-15]
-        16. Switch --------------------------------------------------- [hmv-16]
-        17. Input file ----------------------------------------------- [hmv-17]
-        18. Input group ---------------------------------------------- [hmv-18]
-        19. Dropdown ------------------------------------------------- [hmv-19]
-        20. Modal ---------------------------------------------------- [hmv-20]
-        21. Alerts --------------------------------------------------- [hmv-21]
-        22. Navbar content ------------------------------------------- [hmv-22]
-        23. Sidebar content ------------------------------------------ [hmv-23]
-        24. Pagination ----------------------------------------------- [hmv-24]
-        25. Breadcrumb ----------------------------------------------- [hmv-25]
-        26. Tooltips ------------------------------------------------- [hmv-26]
-        27. Badges --------------------------------------------------- [hmv-27]
-        28. Button group --------------------------------------------- [hmv-28]
-        29. Collapse ------------------------------------------------- [hmv-29]
-        30. Progress ------------------------------------------------- [hmv-30]
+        10. List ----------------------------------------------------- [hmv-10]
+        11. Code ----------------------------------------------------- [hmv-11]
+        12. Tables --------------------------------------------------- [hmv-12]
+        13. Form helpers (form-groups, labels, form-text, etc.) ------ [hmv-13]
+        14. Inputs --------------------------------------------------- [hmv-14]
+        15. Checkbox ------------------------------------------------- [hmv-15]
+        16. Radio ---------------------------------------------------- [hmv-16]
+        17. Switch --------------------------------------------------- [hmv-17]
+        18. Range ---------------------------------------------------- [hmv-18]
+        19. Input file ----------------------------------------------- [hmv-19]
+        20. Input group ---------------------------------------------- [hmv-20]
+        21. Dropdown ------------------------------------------------- [hmv-21]
+        22. Modal ---------------------------------------------------- [hmv-22]
+        23. Alerts --------------------------------------------------- [hmv-23]
+        24. Navbar content ------------------------------------------- [hmv-24]
+        25. Sidebar content ------------------------------------------ [hmv-25]
+        26. Pagination ----------------------------------------------- [hmv-26]
+        27. Breadcrumb ----------------------------------------------- [hmv-27]
+        28. Tooltips ------------------------------------------------- [hmv-28]
+        29. Badges --------------------------------------------------- [hmv-29]
+        30. Button group --------------------------------------------- [hmv-30]
+        31. Collapse ------------------------------------------------- [hmv-31]
+        32. Progress ------------------------------------------------- [hmv-32]
+        33. Tabs (navs) ---------------------------------------------- [hmv-33]
+        34. List group ----------------------------------------------- [hmv-34]
+        35. Spinners (and loaders) ----------------------------------- [hmv-35]
     
     Understanding names of variables:
         ~ Variable names are long, descriptive, and fairly self-explanatory. 
@@ -956,7 +964,15 @@ CSS variables (CSS custom properties)
 
     /*
     ---------------------------------------------------------------------------
-    10. Code [hmv-10]
+    10. List [hmv-10]
+    ---------------------------------------------------------------------------
+    */
+
+    /* TO DO */
+
+    /*
+    ---------------------------------------------------------------------------
+    11. Code [hmv-11]
     ---------------------------------------------------------------------------
     */
 
@@ -995,7 +1011,7 @@ CSS variables (CSS custom properties)
 
     /*
     ---------------------------------------------------------------------------
-    11. Tables [hmv-11]
+    12. Tables [hmv-12]
 
     Notes on border colors:
         ~ Border colors for tables do not make use of RGBA, and instead uses 
@@ -1075,7 +1091,7 @@ CSS variables (CSS custom properties)
 
     /*
     ---------------------------------------------------------------------------
-    12. Form helpers (form-groups, labels, form-text, etc.) [hmv-12]
+    13. Form helpers (form-groups, labels, form-text, etc.) [hmv-13]
     ---------------------------------------------------------------------------
     */
 
@@ -1116,7 +1132,7 @@ CSS variables (CSS custom properties)
 
     /*
     ---------------------------------------------------------------------------
-    13. Inputs [hmv-13]
+    14. Inputs [hmv-14]
 
     Notes:
         ~ Background image variables are not available for inputs, because 
@@ -1255,7 +1271,7 @@ CSS variables (CSS custom properties)
 
     /*
     ---------------------------------------------------------------------------
-    14. Checkbox [hmv-14]
+    15. Checkbox [hmv-15]
 
     Notes:
         ~ Since checkbox, radio, and the switch are so tiny, the border colors 
@@ -1307,7 +1323,7 @@ CSS variables (CSS custom properties)
     
     /*
     ---------------------------------------------------------------------------
-    15. Radio [hmv-15]
+    16. Radio [hmv-16]
 
     Notes:
         ~ Since checkbox, radio, and the switch are so tiny, the border colors 
@@ -1359,7 +1375,7 @@ CSS variables (CSS custom properties)
     
     /*
     ---------------------------------------------------------------------------
-    16. Switch [hmv-16]
+    17. Switch [hmv-17]
 
     Notes:
         ~ Since checkbox, radio, and the switch are so tiny, the border colors 
@@ -1416,10 +1432,92 @@ CSS variables (CSS custom properties)
     --dm-switch-slider-bg-color-checked: #ffffff;
     --dm-switch-slider-border-color-checked: var(--dm-switch-slider-bg-color-checked);
 
+    /*
+    ---------------------------------------------------------------------------
+    18. Range [hmv-18]
+    ---------------------------------------------------------------------------
+    */
+
+    --form-range-height: calc(var(--input-height) - 0.2rem);
+    --form-range-border-radius: var(--base-border-radius);
+
+    --lm-form-range-invalid-box-shadow: 0 0 0 1px var(--danger-color);
+
+    --dm-form-range-invalid-box-shadow: 0 0 0 1px var(--danger-color-dark);
+
+    /* Slider track */
+
+    --form-range-slider-track-height: 0.6rem;
+    --form-range-slider-track-border-width: 0;
+    --form-range-slider-track-border-radius: var(--form-range-slider-track-height);
+
+    --lm-form-range-slider-track-bg-color: rgba(0, 0, 0, 0.1);
+    --lm-form-range-slider-track-border-color: transparent;
+    --lm-form-range-slider-track-box-shadow: none;
+    --lm-form-range-slider-track-bg-color-hover: var(--lm-form-range-slider-track-bg-color);
+    --lm-form-range-slider-track-border-color-hover: var(--lm-form-range-slider-track-border-color);
+    --lm-form-range-slider-track-box-shadow-hover: var(--lm-form-range-slider-track-box-shadow);
+    --lm-form-range-slider-track-bg-color-focus: var(--lm-form-range-slider-track-bg-color);
+    --lm-form-range-slider-track-border-color-focus: var(--lm-form-range-slider-track-border-color);
+    --lm-form-range-slider-track-box-shadow-focus: var(--lm-form-range-slider-track-box-shadow);
+    --lm-form-range-slider-track-bg-color-disabled: var(--lm-form-range-slider-track-bg-color);
+    --lm-form-range-slider-track-border-color-disabled: var(--lm-form-range-slider-track-border-color);
+    --lm-form-range-slider-track-box-shadow-disabled: var(--lm-form-range-slider-track-box-shadow);
+
+    --dm-form-range-slider-track-bg-color: rgba(255, 255, 255, 0.1);
+    --dm-form-range-slider-track-border-color: transparent;
+    --dm-form-range-slider-track-box-shadow: none;
+    --dm-form-range-slider-track-bg-color-hover: var(--dm-form-range-slider-track-bg-color);
+    --dm-form-range-slider-track-border-color-hover: var(--dm-form-range-slider-track-border-color);
+    --dm-form-range-slider-track-box-shadow-hover: var(--dm-form-range-slider-track-box-shadow);
+    --dm-form-range-slider-track-bg-color-focus: var(--dm-form-range-slider-track-bg-color);
+    --dm-form-range-slider-track-border-color-focus: var(--dm-form-range-slider-track-border-color);
+    --dm-form-range-slider-track-box-shadow-focus: var(--dm-form-range-slider-track-box-shadow);
+    --dm-form-range-slider-track-bg-color-disabled: var(--dm-form-range-slider-track-bg-color);
+    --dm-form-range-slider-track-border-color-disabled: var(--dm-form-range-slider-track-border-color);
+    --dm-form-range-slider-track-box-shadow-disabled: var(--dm-form-range-slider-track-box-shadow);
+
+    /* Slider thumb */
+
+    --form-range-slider-thumb-width: 2rem;
+    --form-range-slider-thumb-height: var(--form-range-slider-thumb-width);
+    --form-range-slider-thumb-border-width: 0.2rem;
+    --form-range-slider-thumb-border-radius: 50%;
+
+    --lm-form-range-slider-thumb-bg-color: var(--white-bg-color);
+    --lm-form-range-slider-thumb-border-color: rgba(0, 0, 0, 0.3);
+    --lm-form-range-slider-thumb-box-shadow: none;
+    --lm-form-range-slider-thumb-bg-color-hover: var(--lm-form-range-slider-thumb-bg-color);
+    --lm-form-range-slider-thumb-border-color-hover: rgba(0, 0, 0, 0.4);
+    --lm-form-range-slider-thumb-box-shadow-hover: var(--lm-form-range-slider-thumb-box-shadow);
+    --lm-form-range-slider-thumb-bg-color-focus: var(--lm-form-range-slider-thumb-bg-color);
+    --lm-form-range-slider-thumb-border-color-focus: var(--primary-color);
+    --lm-form-range-slider-thumb-box-shadow-focus: 0 0 0 0.5rem rgba(255, 255, 255, 0.5), 0 0 0 0.5rem var(--primary-box-shadow-color);
+    --lm-form-range-slider-thumb-bg-color-disabled: var(--gray-color);
+    --lm-form-range-slider-thumb-border-color-disabled: var(--lm-form-range-slider-thumb-bg-color-disabled);
+    --lm-form-range-slider-thumb-box-shadow-disabled: none;
+
+    --dm-form-range-slider-thumb-bg-color: var(--gray-color-very-dark);
+    --dm-form-range-slider-thumb-border-color: rgba(255, 255, 255, 0.3);
+    --dm-form-range-slider-thumb-box-shadow: none;
+    --dm-form-range-slider-thumb-bg-color-hover: var(--dm-form-range-slider-thumb-bg-color);
+    --dm-form-range-slider-thumb-border-color-hover: rgba(255, 255, 255, 0.4);
+    --dm-form-range-slider-thumb-box-shadow-hover: var(--dm-form-range-slider-thumb-box-shadow);
+    --dm-form-range-slider-thumb-bg-color-focus: var(--dm-form-range-slider-thumb-bg-color);
+    --dm-form-range-slider-thumb-border-color-focus: var(--primary-color);
+    --dm-form-range-slider-thumb-box-shadow-focus: 0 0 0 0.5rem rgba(0, 0, 0, 0.2), 0 0 0 0.5rem var(--primary-box-shadow-color);
+    --dm-form-range-slider-thumb-bg-color-disabled: var(--gray-color-very-dark);
+    --dm-form-range-slider-thumb-border-color-disabled: var(--dm-form-range-slider-thumb-bg-color-disabled);
+    --dm-form-range-slider-thumb-box-shadow-disabled: none;
+
+    /* Range group */
+
+    --form-range-group-item-margin: 0.4rem;
+    --form-range-group-label-font-size: var(--base-font-size);
 
     /*
     ---------------------------------------------------------------------------
-    17. Input file [hmv-17]
+    19. Input file [hmv-19]
 
     Differences from buttons:
         ~ The border color and box shadow for :focus is used from inputs to  
@@ -1502,7 +1600,7 @@ CSS variables (CSS custom properties)
 
     /*
     ---------------------------------------------------------------------------
-    18. Input group [hmv-18]
+    20. Input group [hmv-20]
     ---------------------------------------------------------------------------
     */
 
@@ -1577,7 +1675,7 @@ CSS variables (CSS custom properties)
 
     /*
     ---------------------------------------------------------------------------
-    19. Dropdown [hmv-19]
+    21. Dropdown [hmv-21]
 
     Notes:
         ~ If you want to use linear-gradients for the dropdown menu 
@@ -1643,7 +1741,7 @@ CSS variables (CSS custom properties)
 
     /*
     ---------------------------------------------------------------------------
-    20. Modal [hmv-20]
+    22. Modal [hmv-22]
     ---------------------------------------------------------------------------
     */
 
@@ -1711,7 +1809,7 @@ CSS variables (CSS custom properties)
 
     /*
     ---------------------------------------------------------------------------
-    21. Alerts [hmv-21]
+    23. Alerts [hmv-23]
     ---------------------------------------------------------------------------
     */
 
@@ -1844,7 +1942,7 @@ CSS variables (CSS custom properties)
 
     /*
     ---------------------------------------------------------------------------
-    22. Navbar content [hmv-22]
+    24. Navbar content [hmv-24]
     ---------------------------------------------------------------------------
     */
 
@@ -1900,7 +1998,7 @@ CSS variables (CSS custom properties)
 
     /*
     ---------------------------------------------------------------------------
-    23. Sidebar content [hmv-23]
+    25. Sidebar content [hmv-25]
     ---------------------------------------------------------------------------
     */
 
@@ -2009,7 +2107,7 @@ CSS variables (CSS custom properties)
 
     /*
     ---------------------------------------------------------------------------
-    24. Pagination [hmv-24]
+    26. Pagination [hmv-26]
 
     Notes:
         ~ By default, pagination items are styled the same as buttons.
@@ -2074,7 +2172,7 @@ CSS variables (CSS custom properties)
 
     /*
     ---------------------------------------------------------------------------
-    25. Breadcrumb [hmv-25]
+    27. Breadcrumb [hmv-27]
     ---------------------------------------------------------------------------
     */
 
@@ -2095,7 +2193,7 @@ CSS variables (CSS custom properties)
 
     /*
     ---------------------------------------------------------------------------
-    26. Tooltips [hmv-26]
+    28. Tooltips [hmv-28]
 
     Notes:
         ~ By default, the inverses of the base colors are used.
@@ -2118,7 +2216,7 @@ CSS variables (CSS custom properties)
 
     /*
     ---------------------------------------------------------------------------
-    27. Badges [hmv-27]
+    29. Badges [hmv-29]
     ---------------------------------------------------------------------------
     */
 
@@ -2224,7 +2322,7 @@ CSS variables (CSS custom properties)
 
     /*
     ---------------------------------------------------------------------------
-    28. Button group [hmv-28]
+    30. Button group [hmv-30]
     ---------------------------------------------------------------------------
     */
 
@@ -2286,7 +2384,7 @@ CSS variables (CSS custom properties)
 
     /*
     ---------------------------------------------------------------------------
-    29. Collapse [hmv-29]
+    31. Collapse [hmv-31]
 
     Notes on transparency:
         ~ Due to border overlap in the collapse-group, either the background 
@@ -2389,7 +2487,7 @@ CSS variables (CSS custom properties)
 
     /*
     ---------------------------------------------------------------------------
-    30. Progress [hmv-30]
+    32. Progress [hmv-32]
     ---------------------------------------------------------------------------
     */
 
@@ -2422,6 +2520,30 @@ CSS variables (CSS custom properties)
 
     --dm-progress-bar-animated-highlight-bg-color: var(--lm-progress-bar-animated-highlight-bg-color);
     --dm-progress-bar-animated-highlight-dark-bg-color: linear-gradient(to right, transparent, rgba(0, 0, 0, 0.2));
+
+    /*
+    ---------------------------------------------------------------------------
+    33. Tabs (navs) [hmv-33]
+    ---------------------------------------------------------------------------
+    */
+
+    /* TO DO */
+
+    /*
+    ---------------------------------------------------------------------------
+    34. List group [hmv-34]
+    ---------------------------------------------------------------------------
+    */
+
+    /* TO DO */
+
+    /*
+    ---------------------------------------------------------------------------
+    35. Spinners (and loaders) [hmv-35]
+    ---------------------------------------------------------------------------
+    */
+
+    /* TO DO */
 }
 
 
@@ -6372,8 +6494,10 @@ legend {
     width: 100%;
 }
 .form-inline > .form-control,
+.form-inline > .form-range,
 .form-inline > .input-group,
 .form-inline .form-group > .form-control,
+.form-inline .form-group > .form-range,
 .form-inline .form-group > .input-group {
     position: relative;
     -ms-flex: 1 1 0%;
@@ -6406,6 +6530,7 @@ legend {
     white-space: nowrap;
 }
 .form-inline > .form-control:not(:last-child),
+.form-inline > .form-range:not(:last-child),
 .form-inline > .input-group:not(:last-child),
 .form-inline > label:not(:last-child),
 .form-inline > .custom-control,
@@ -6414,6 +6539,7 @@ legend {
 .form-inline > .form-text:not(:last-child),
 .form-inline > .invalid-feedback:not(:last-child),
 .form-inline .form-group > .form-control:not(:last-child),
+.form-inline .form-group > .form-range:not(:last-child),
 .form-inline .form-group > .input-group:not(:last-child),
 .form-inline .form-group > label:not(:last-child),
 .form-inline .form-group > .custom-control,
@@ -6440,8 +6566,10 @@ legend {
         width: 100%;
     }
     .form-inline-sm > .form-control,
+    .form-inline-sm > .form-range,
     .form-inline-sm > .input-group,
     .form-inline-sm .form-group > .form-control,
+    .form-inline-sm .form-group > .form-range,
     .form-inline-sm .form-group > .input-group {
         position: relative;
         -ms-flex: 1 1 0%;
@@ -6474,6 +6602,7 @@ legend {
         white-space: nowrap;
     }
     .form-inline-sm > .form-control:not(:last-child),
+    .form-inline-sm > .form-range:not(:last-child),
     .form-inline-sm > .input-group:not(:last-child),
     .form-inline-sm > label:not(:last-child),
     .form-inline-sm > .custom-control,
@@ -6482,6 +6611,7 @@ legend {
     .form-inline-sm > .form-text:not(:last-child),
     .form-inline-sm > .invalid-feedback:not(:last-child),
     .form-inline-sm .form-group > .form-control:not(:last-child),
+    .form-inline-sm .form-group > .form-range:not(:last-child),
     .form-inline-sm .form-group > .input-group:not(:last-child),
     .form-inline-sm .form-group > label:not(:last-child),
     .form-inline-sm .form-group > .custom-control,
@@ -6494,11 +6624,13 @@ legend {
 }
 @media (max-width: 576px) {
     .form-inline-sm > .form-control:not(:last-child),
+    .form-inline-sm > .form-range:not(:last-child),
     .form-inline-sm > .input-group:not(:last-child),
     .form-inline-sm > .custom-control,
     .form-inline-sm > .btn:not(:last-child),
     .form-inline-sm > a.btn:not(:last-child),
     .form-inline-sm .form-group > .form-control:not(:last-child),
+    .form-inline-sm .form-group > .form-range:not(:last-child),
     .form-inline-sm .form-group > .input-group:not(:last-child),
     .form-inline-sm .form-group > .custom-control,
     .form-inline-sm .form-group > .btn:not(:last-child),
@@ -6523,8 +6655,10 @@ legend {
         width: 100%;
     }
     .form-inline-md > .form-control,
+    .form-inline-md > .form-range,
     .form-inline-md > .input-group,
     .form-inline-md .form-group > .form-control,
+    .form-inline-md .form-group > .form-range,
     .form-inline-md .form-group > .input-group {
         position: relative;
         -ms-flex: 1 1 0%;
@@ -6557,6 +6691,7 @@ legend {
         white-space: nowrap;
     }
     .form-inline-md > .form-control:not(:last-child),
+    .form-inline-md > .form-range:not(:last-child),
     .form-inline-md > .input-group:not(:last-child),
     .form-inline-md > label:not(:last-child),
     .form-inline-md > .custom-control,
@@ -6565,6 +6700,7 @@ legend {
     .form-inline-md > .form-text:not(:last-child),
     .form-inline-md > .invalid-feedback:not(:last-child),
     .form-inline-md .form-group > .form-control:not(:last-child),
+    .form-inline-md .form-group > .form-range:not(:last-child),
     .form-inline-md .form-group > .input-group:not(:last-child),
     .form-inline-md .form-group > label:not(:last-child),
     .form-inline-md .form-group > .custom-control,
@@ -6577,11 +6713,13 @@ legend {
 }
 @media (max-width: 768px) {
     .form-inline-md > .form-control:not(:last-child),
+    .form-inline-md > .form-range:not(:last-child),
     .form-inline-md > .input-group:not(:last-child),
     .form-inline-md > .custom-control,
     .form-inline-md > .btn:not(:last-child),
     .form-inline-md > a.btn:not(:last-child),
     .form-inline-md .form-group > .form-control:not(:last-child),
+    .form-inline-md .form-group > .form-range:not(:last-child),
     .form-inline-md .form-group > .input-group:not(:last-child),
     .form-inline-md .form-group > .custom-control,
     .form-inline-md .form-group > .btn:not(:last-child),
@@ -6606,8 +6744,10 @@ legend {
         width: 100%;
     }
     .form-inline-lg > .form-control,
+    .form-inline-lg > .form-range,
     .form-inline-lg > .input-group,
     .form-inline-lg .form-group > .form-control,
+    .form-inline-lg .form-group > .form-range,
     .form-inline-lg .form-group > .input-group {
         position: relative;
         -ms-flex: 1 1 0%;
@@ -6640,6 +6780,7 @@ legend {
         white-space: nowrap;
     }
     .form-inline-lg > .form-control:not(:last-child),
+    .form-inline-lg > .form-range:not(:last-child),
     .form-inline-lg > .input-group:not(:last-child),
     .form-inline-lg > label:not(:last-child),
     .form-inline-lg > .custom-control,
@@ -6648,6 +6789,7 @@ legend {
     .form-inline-lg > .form-text:not(:last-child),
     .form-inline-lg > .invalid-feedback:not(:last-child),
     .form-inline-lg .form-group > .form-control:not(:last-child),
+    .form-inline-lg .form-group > .form-range:not(:last-child),
     .form-inline-lg .form-group > .input-group:not(:last-child),
     .form-inline-lg .form-group > label:not(:last-child),
     .form-inline-lg .form-group > .custom-control,
@@ -6660,11 +6802,13 @@ legend {
 }
 @media (max-width: 992px) {
     .form-inline-lg > .form-control:not(:last-child),
+    .form-inline-lg > .form-range:not(:last-child),
     .form-inline-lg > .input-group:not(:last-child),
     .form-inline-lg > .custom-control,
     .form-inline-lg > .btn:not(:last-child),
     .form-inline-lg > a.btn:not(:last-child),
     .form-inline-lg .form-group > .form-control:not(:last-child),
+    .form-inline-lg .form-group > .form-range:not(:last-child),
     .form-inline-lg .form-group > .input-group:not(:last-child),
     .form-inline-lg .form-group > .custom-control,
     .form-inline-lg .form-group > .btn:not(:last-child),
@@ -6689,8 +6833,10 @@ legend {
         width: 100%;
     }
     .form-inline-xl > .form-control,
+    .form-inline-xl > .form-range,
     .form-inline-xl > .input-group,
     .form-inline-xl .form-group > .form-control,
+    .form-inline-xl .form-group > .form-range,
     .form-inline-xl .form-group > .input-group {
         position: relative;
         -ms-flex: 1 1 0%;
@@ -6723,6 +6869,7 @@ legend {
         white-space: nowrap;
     }
     .form-inline-xl > .form-control:not(:last-child),
+    .form-inline-xl > .form-range:not(:last-child),
     .form-inline-xl > .input-group:not(:last-child),
     .form-inline-xl > label:not(:last-child),
     .form-inline-xl > .custom-control,
@@ -6731,6 +6878,7 @@ legend {
     .form-inline-xl > .form-text:not(:last-child),
     .form-inline-xl > .invalid-feedback:not(:last-child),
     .form-inline-xl .form-group > .form-control:not(:last-child),
+    .form-inline-xl .form-group > .form-range:not(:last-child),
     .form-inline-xl .form-group > .input-group:not(:last-child),
     .form-inline-xl .form-group > label:not(:last-child),
     .form-inline-xl .form-group > .custom-control,
@@ -6743,11 +6891,13 @@ legend {
 }
 @media (max-width: 1200px) {
     .form-inline-xl > .form-control:not(:last-child),
+    .form-inline-xl > .form-range:not(:last-child),
     .form-inline-xl > .input-group:not(:last-child),
     .form-inline-xl > .custom-control,
     .form-inline-xl > .btn:not(:last-child),
     .form-inline-xl > a.btn:not(:last-child),
     .form-inline-xl .form-group > .form-control:not(:last-child),
+    .form-inline-xl .form-group > .form-range:not(:last-child),
     .form-inline-xl .form-group > .input-group:not(:last-child),
     .form-inline-xl .form-group > .custom-control,
     .form-inline-xl .form-group > .btn:not(:last-child),
@@ -7148,6 +7298,26 @@ select.form-control[multiple] > option:disabled {
     color: var(--dm-muted-text-color);
 }
 
+/* Number input resets for Webkit based browsers (Chrome, Safari, etc.) and Firefox */
+
+.form-number::-webkit-outer-spin-button,
+.form-number::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+.form-number {
+    -moz-appearance: textfield;
+}
+
+/* Password input show/hide toggle */
+
+[data-toggle="password"]:not(.target-input-type-text) .hide-password-prompt {
+    display: none;
+}
+[data-toggle="password"].target-input-type-text .show-password-prompt {
+    display: none;
+}
+
 /* Checkbox */
 
 .custom-checkbox {
@@ -7537,6 +7707,521 @@ select.form-control[multiple] > option:disabled {
 .dark-mode .custom-switch input[type="checkbox"]:hover:disabled:checked~label:before {
     background-color: var(--dm-switch-bg-color-checked);
     border-color: var(--dm-switch-border-color-checked);
+}
+
+/* Range */
+
+.form-range {
+    width: 100%;
+    height: var(--form-range-height);
+    padding: 0;
+    background-color: transparent;
+    border-radius: var(--form-range-border-radius);
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    cursor: pointer;
+}
+.form-range:focus {
+    outline: none;
+}
+.form-range::-moz-focus-outer {
+    border: 0;
+}
+.form-range:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+.form-range.is-invalid {
+    -moz-box-shadow: var(--lm-form-range-invalid-box-shadow);
+    -webkit-box-shadow: var(--lm-form-range-invalid-box-shadow);
+    box-shadow: var(--lm-form-range-invalid-box-shadow);
+}
+.dark-mode .form-range.is-invalid {
+    -moz-box-shadow: var(--dm-form-range-invalid-box-shadow);
+    -webkit-box-shadow: var(--dm-form-range-invalid-box-shadow);
+    box-shadow: var(--dm-form-range-invalid-box-shadow);
+}
+
+/* Slider track (for Webkit based browsers, such as Chrome, Safari, etc.) */
+
+.form-range::-webkit-slider-runnable-track {
+    -webkit-appearance: none;
+    appearance: none;
+}
+.form-range::-webkit-slider-runnable-track {
+    width: 100%;
+    height: var(--form-range-slider-track-height);
+    color: transparent;
+    background-color: var(--lm-form-range-slider-track-bg-color);
+    border: var(--form-range-slider-track-border-width) solid var(--lm-form-range-slider-track-border-color);
+    border-radius: var(--form-range-slider-track-border-radius);
+    -moz-box-shadow: var(--lm-form-range-slider-track-box-shadow);
+    -webkit-box-shadow: var(--lm-form-range-slider-track-box-shadow);
+    box-shadow: var(--lm-form-range-slider-track-box-shadow);
+}
+.form-range:hover::-webkit-slider-runnable-track {
+    background-color: var(--lm-form-range-slider-track-bg-color-hover);
+    border-color: var(--lm-form-range-slider-track-border-color-hover);
+    -moz-box-shadow: var(--lm-form-range-slider-track-box-shadow-hover);
+    -webkit-box-shadow: var(--lm-form-range-slider-track-box-shadow-hover);
+    box-shadow: var(--lm-form-range-slider-track-box-shadow-hover);
+}
+.form-range:focus::-webkit-slider-runnable-track {
+    background-color: var(--lm-form-range-slider-track-bg-color-focus);
+    border-color: var(--lm-form-range-slider-track-border-color-focus);
+    -moz-box-shadow: var(--lm-form-range-slider-track-box-shadow-focus);
+    -webkit-box-shadow: var(--lm-form-range-slider-track-box-shadow-focus);
+    box-shadow: var(--lm-form-range-slider-track-box-shadow-focus);
+}
+.dark-mode .form-range::-webkit-slider-runnable-track {
+    background-color: var(--dm-form-range-slider-track-bg-color);
+    border-color: var(--dm-form-range-slider-track-border-color);
+    -moz-box-shadow: var(--dm-form-range-slider-track-box-shadow);
+    -webkit-box-shadow: var(--dm-form-range-slider-track-box-shadow);
+    box-shadow: var(--dm-form-range-slider-track-box-shadow);
+}
+.dark-mode .form-range:hover::-webkit-slider-runnable-track {
+    background-color: var(--dm-form-range-slider-track-bg-color-hover);
+    border-color: var(--dm-form-range-slider-track-border-color-hover);
+    -moz-box-shadow: var(--dm-form-range-slider-track-box-shadow-hover);
+    -webkit-box-shadow: var(--dm-form-range-slider-track-box-shadow-hover);
+    box-shadow: var(--dm-form-range-slider-track-box-shadow-hover);
+}
+.dark-mode .form-range:focus::-webkit-slider-runnable-track {
+    background-color: var(--dm-form-range-slider-track-bg-color-focus);
+    border-color: var(--dm-form-range-slider-track-border-color-focus);
+    -moz-box-shadow: var(--dm-form-range-slider-track-box-shadow-focus);
+    -webkit-box-shadow: var(--dm-form-range-slider-track-box-shadow-focus);
+    box-shadow: var(--dm-form-range-slider-track-box-shadow-focus);
+}
+.form-range:disabled::-webkit-slider-runnable-track,
+.form-range:disabled:hover::-webkit-slider-runnable-track,
+.form-range:disabled:focus::-webkit-slider-runnable-track {
+    background-color: var(--lm-form-range-slider-track-bg-color-disabled);
+    border-color: var(--lm-form-range-slider-track-border-color-disabled);
+    -moz-box-shadow: var(--lm-form-range-slider-track-box-shadow-disabled);
+    -webkit-box-shadow: var(--lm-form-range-slider-track-box-shadow-disabled);
+    box-shadow: var(--lm-form-range-slider-track-box-shadow-disabled);
+}
+.dark-mode .form-range:disabled::-webkit-slider-runnable-track,
+.dark-mode .form-range:disabled:hover::-webkit-slider-runnable-track,
+.dark-mode .form-range:disabled:focus::-webkit-slider-runnable-track {
+    background-color: var(--dm-form-range-slider-track-bg-color-disabled);
+    border-color: var(--dm-form-range-slider-track-border-color-disabled);
+    -moz-box-shadow: var(--dm-form-range-slider-track-box-shadow-disabled);
+    -webkit-box-shadow: var(--dm-form-range-slider-track-box-shadow-disabled);
+    box-shadow: var(--dm-form-range-slider-track-box-shadow-disabled);
+}
+
+/* Slider thumb (for Webkit based browsers, such as Chrome, Safari, etc.) */
+
+.form-range::-webkit-slider-thumb {
+    box-sizing: border-box;
+    -webkit-appearance: none;
+    appearance: none;
+    margin-top: calc((-1) *  ((var(--form-range-slider-thumb-height) - var(--form-range-slider-track-height)) / 2));
+}
+.form-range::-webkit-slider-thumb {
+    width: var(--form-range-slider-thumb-width);
+    height: var(--form-range-slider-thumb-height);
+    color: transparent;
+    background-color: var(--lm-form-range-slider-thumb-bg-color);
+    border: var(--form-range-slider-thumb-border-width) solid var(--lm-form-range-slider-thumb-border-color);
+    border-radius: var(--form-range-slider-thumb-border-radius);
+    -moz-box-shadow: var(--lm-form-range-slider-thumb-box-shadow);
+    -webkit-box-shadow: var(--lm-form-range-slider-thumb-box-shadow);
+    box-shadow: var(--lm-form-range-slider-thumb-box-shadow);
+}
+.form-range:hover::-webkit-slider-thumb {
+    background-color: var(--lm-form-range-slider-thumb-bg-color-hover);
+    border-color: var(--lm-form-range-slider-thumb-border-color-hover);
+    -moz-box-shadow: var(--lm-form-range-slider-thumb-box-shadow-hover);
+    -webkit-box-shadow: var(--lm-form-range-slider-thumb-box-shadow-hover);
+    box-shadow: var(--lm-form-range-slider-thumb-box-shadow-hover);
+}
+.form-range:focus::-webkit-slider-thumb {
+    background-color: var(--lm-form-range-slider-thumb-bg-color-focus);
+    border-color: var(--lm-form-range-slider-thumb-border-color-focus);
+    -moz-box-shadow: var(--lm-form-range-slider-thumb-box-shadow-focus);
+    -webkit-box-shadow: var(--lm-form-range-slider-thumb-box-shadow-focus);
+    box-shadow: var(--lm-form-range-slider-thumb-box-shadow-focus);
+    -webkit-transition: background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+    transition: background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+.dark-mode .form-range::-webkit-slider-thumb {
+    background-color: var(--dm-form-range-slider-thumb-bg-color);
+    border-color: var(--dm-form-range-slider-thumb-border-color);
+    -moz-box-shadow: var(--dm-form-range-slider-thumb-box-shadow);
+    -webkit-box-shadow: var(--dm-form-range-slider-thumb-box-shadow);
+    box-shadow: var(--dm-form-range-slider-thumb-box-shadow);
+}
+.dark-mode .form-range:hover::-webkit-slider-thumb {
+    background-color: var(--dm-form-range-slider-thumb-bg-color-hover);
+    border-color: var(--dm-form-range-slider-thumb-border-color-hover);
+    -moz-box-shadow: var(--dm-form-range-slider-thumb-box-shadow-hover);
+    -webkit-box-shadow: var(--dm-form-range-slider-thumb-box-shadow-hover);
+    box-shadow: var(--dm-form-range-slider-thumb-box-shadow-hover);
+}
+.dark-mode .form-range:focus::-webkit-slider-thumb {
+    background-color: var(--dm-form-range-slider-thumb-bg-color-focus);
+    border-color: var(--dm-form-range-slider-thumb-border-color-focus);
+    -moz-box-shadow: var(--dm-form-range-slider-thumb-box-shadow-focus);
+    -webkit-box-shadow: var(--dm-form-range-slider-thumb-box-shadow-focus);
+    box-shadow: var(--dm-form-range-slider-thumb-box-shadow-focus);
+}
+.form-range:disabled::-webkit-slider-thumb,
+.form-range:disabled:hover::-webkit-slider-thumb,
+.form-range:disabled:focus::-webkit-slider-thumb {
+    background-color: var(--lm-form-range-slider-thumb-bg-color-disabled);
+    border-color: var(--lm-form-range-slider-thumb-border-color-disabled);
+    -moz-box-shadow: var(--lm-form-range-slider-thumb-box-shadow-disabled);
+    -webkit-box-shadow: var(--lm-form-range-slider-thumb-box-shadow-disabled);
+    box-shadow: var(--lm-form-range-slider-thumb-box-shadow-disabled);
+}
+.dark-mode .form-range:disabled::-webkit-slider-thumb,
+.dark-mode .form-range:disabled:hover::-webkit-slider-thumb,
+.dark-mode .form-range:disabled:focus::-webkit-slider-thumb {
+    background-color: var(--dm-form-range-slider-thumb-bg-color-disabled);
+    border-color: var(--dm-form-range-slider-thumb-border-color-disabled);
+    -moz-box-shadow: var(--dm-form-range-slider-thumb-box-shadow-disabled);
+    -webkit-box-shadow: var(--dm-form-range-slider-thumb-box-shadow-disabled);
+    box-shadow: var(--dm-form-range-slider-thumb-box-shadow-disabled);
+}
+
+/* Slider track (for Firefox) */
+
+.form-range::-moz-range-track {
+    -moz-appearance: none;
+    appearance: none;
+}
+.form-range::-moz-range-track {
+    width: 100%;
+    height: var(--form-range-slider-track-height);
+    color: transparent;
+    background-color: var(--lm-form-range-slider-track-bg-color);
+    border: var(--form-range-slider-track-border-width) solid var(--lm-form-range-slider-track-border-color);
+    border-radius: var(--form-range-slider-track-border-radius);
+    -moz-box-shadow: var(--lm-form-range-slider-track-box-shadow);
+    -webkit-box-shadow: var(--lm-form-range-slider-track-box-shadow);
+    box-shadow: var(--lm-form-range-slider-track-box-shadow);
+}
+.form-range:hover::-moz-range-track {
+    background-color: var(--lm-form-range-slider-track-bg-color-hover);
+    border-color: var(--lm-form-range-slider-track-border-color-hover);
+    -moz-box-shadow: var(--lm-form-range-slider-track-box-shadow-hover);
+    -webkit-box-shadow: var(--lm-form-range-slider-track-box-shadow-hover);
+    box-shadow: var(--lm-form-range-slider-track-box-shadow-hover);
+}
+.form-range:focus::-moz-range-track {
+    background-color: var(--lm-form-range-slider-track-bg-color-focus);
+    border-color: var(--lm-form-range-slider-track-border-color-focus);
+    -moz-box-shadow: var(--lm-form-range-slider-track-box-shadow-focus);
+    -webkit-box-shadow: var(--lm-form-range-slider-track-box-shadow-focus);
+    box-shadow: var(--lm-form-range-slider-track-box-shadow-focus);
+}
+.dark-mode .form-range::-moz-range-track {
+    background-color: var(--dm-form-range-slider-track-bg-color);
+    border-color: var(--dm-form-range-slider-track-border-color);
+    -moz-box-shadow: var(--dm-form-range-slider-track-box-shadow);
+    -webkit-box-shadow: var(--dm-form-range-slider-track-box-shadow);
+    box-shadow: var(--dm-form-range-slider-track-box-shadow);
+}
+.dark-mode .form-range:hover::-moz-range-track {
+    background-color: var(--dm-form-range-slider-track-bg-color-hover);
+    border-color: var(--dm-form-range-slider-track-border-color-hover);
+    -moz-box-shadow: var(--dm-form-range-slider-track-box-shadow-hover);
+    -webkit-box-shadow: var(--dm-form-range-slider-track-box-shadow-hover);
+    box-shadow: var(--dm-form-range-slider-track-box-shadow-hover);
+}
+.dark-mode .form-range:focus::-moz-range-track {
+    background-color: var(--dm-form-range-slider-track-bg-color-focus);
+    border-color: var(--dm-form-range-slider-track-border-color-focus);
+    -moz-box-shadow: var(--dm-form-range-slider-track-box-shadow-focus);
+    -webkit-box-shadow: var(--dm-form-range-slider-track-box-shadow-focus);
+    box-shadow: var(--dm-form-range-slider-track-box-shadow-focus);
+}
+.form-range:disabled::-moz-range-track,
+.form-range:disabled:hover::-moz-range-track,
+.form-range:disabled:focus::-moz-range-track {
+    background-color: var(--lm-form-range-slider-track-bg-color-disabled);
+    border-color: var(--lm-form-range-slider-track-border-color-disabled);
+    -moz-box-shadow: var(--lm-form-range-slider-track-box-shadow-disabled);
+    -webkit-box-shadow: var(--lm-form-range-slider-track-box-shadow-disabled);
+    box-shadow: var(--lm-form-range-slider-track-box-shadow-disabled);
+}
+.dark-mode .form-range:disabled::-moz-range-track,
+.dark-mode .form-range:disabled:hover::-moz-range-track,
+.dark-mode .form-range:disabled:focus::-moz-range-track {
+    background-color: var(--dm-form-range-slider-track-bg-color-disabled);
+    border-color: var(--dm-form-range-slider-track-border-color-disabled);
+    -moz-box-shadow: var(--dm-form-range-slider-track-box-shadow-disabled);
+    -webkit-box-shadow: var(--dm-form-range-slider-track-box-shadow-disabled);
+    box-shadow: var(--dm-form-range-slider-track-box-shadow-disabled);
+}
+
+/* Slider thumb (for Firefox) */
+
+.form-range::-moz-range-thumb {
+    box-sizing: border-box;
+    -moz-appearance: none;
+    appearance: none;
+}
+.form-range::-moz-range-thumb {
+    width: var(--form-range-slider-thumb-width);
+    height: var(--form-range-slider-thumb-height);
+    color: transparent;
+    background-color: var(--lm-form-range-slider-thumb-bg-color);
+    border: var(--form-range-slider-thumb-border-width) solid var(--lm-form-range-slider-thumb-border-color);
+    border-radius: var(--form-range-slider-thumb-border-radius);
+    -moz-box-shadow: var(--lm-form-range-slider-thumb-box-shadow);
+    -webkit-box-shadow: var(--lm-form-range-slider-thumb-box-shadow);
+    box-shadow: var(--lm-form-range-slider-thumb-box-shadow);
+}
+.form-range:hover::-moz-range-thumb {
+    background-color: var(--lm-form-range-slider-thumb-bg-color-hover);
+    border-color: var(--lm-form-range-slider-thumb-border-color-hover);
+    -moz-box-shadow: var(--lm-form-range-slider-thumb-box-shadow-hover);
+    -webkit-box-shadow: var(--lm-form-range-slider-thumb-box-shadow-hover);
+    box-shadow: var(--lm-form-range-slider-thumb-box-shadow-hover);
+}
+.form-range:focus::-moz-range-thumb {
+    background-color: var(--lm-form-range-slider-thumb-bg-color-focus);
+    border-color: var(--lm-form-range-slider-thumb-border-color-focus);
+    -moz-box-shadow: var(--lm-form-range-slider-thumb-box-shadow-focus);
+    -webkit-box-shadow: var(--lm-form-range-slider-thumb-box-shadow-focus);
+    box-shadow: var(--lm-form-range-slider-thumb-box-shadow-focus);
+    -webkit-transition: background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+    transition: background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+.dark-mode .form-range::-moz-range-thumb {
+    background-color: var(--dm-form-range-slider-thumb-bg-color);
+    border-color: var(--dm-form-range-slider-thumb-border-color);
+    -moz-box-shadow: var(--dm-form-range-slider-thumb-box-shadow);
+    -webkit-box-shadow: var(--dm-form-range-slider-thumb-box-shadow);
+    box-shadow: var(--dm-form-range-slider-thumb-box-shadow);
+}
+.dark-mode .form-range:hover::-moz-range-thumb {
+    background-color: var(--dm-form-range-slider-thumb-bg-color-hover);
+    border-color: var(--dm-form-range-slider-thumb-border-color-hover);
+    -moz-box-shadow: var(--dm-form-range-slider-thumb-box-shadow-hover);
+    -webkit-box-shadow: var(--dm-form-range-slider-thumb-box-shadow-hover);
+    box-shadow: var(--dm-form-range-slider-thumb-box-shadow-hover);
+}
+.dark-mode .form-range:focus::-moz-range-thumb {
+    background-color: var(--dm-form-range-slider-thumb-bg-color-focus);
+    border-color: var(--dm-form-range-slider-thumb-border-color-focus);
+    -moz-box-shadow: var(--dm-form-range-slider-thumb-box-shadow-focus);
+    -webkit-box-shadow: var(--dm-form-range-slider-thumb-box-shadow-focus);
+    box-shadow: var(--dm-form-range-slider-thumb-box-shadow-focus);
+}
+.form-range:disabled::-moz-range-thumb,
+.form-range:disabled:hover::-moz-range-thumb,
+.form-range:disabled:focus::-moz-range-thumb {
+    background-color: var(--lm-form-range-slider-thumb-bg-color-disabled);
+    border-color: var(--lm-form-range-slider-thumb-border-color-disabled);
+    -moz-box-shadow: var(--lm-form-range-slider-thumb-box-shadow-disabled);
+    -webkit-box-shadow: var(--lm-form-range-slider-thumb-box-shadow-disabled);
+    box-shadow: var(--lm-form-range-slider-thumb-box-shadow-disabled);
+}
+.dark-mode .form-range:disabled::-moz-range-thumb,
+.dark-mode .form-range:disabled:hover::-moz-range-thumb,
+.dark-mode .form-range:disabled:focus::-moz-range-thumb {
+    background-color: var(--dm-form-range-slider-thumb-bg-color-disabled);
+    border-color: var(--dm-form-range-slider-thumb-border-color-disabled);
+    -moz-box-shadow: var(--dm-form-range-slider-thumb-box-shadow-disabled);
+    -webkit-box-shadow: var(--dm-form-range-slider-thumb-box-shadow-disabled);
+    box-shadow: var(--dm-form-range-slider-thumb-box-shadow-disabled);
+}
+
+/* Slider track (for Internet Explorer) */
+
+.form-range::-ms-track {
+    appearance: none;
+}
+.form-range::-ms-track {
+    width: 100%;
+    height: var(--form-range-slider-track-height);
+    color: transparent;
+    background-color: var(--lm-form-range-slider-track-bg-color);
+    border: var(--form-range-slider-track-border-width) solid var(--lm-form-range-slider-track-border-color);
+    border-radius: var(--form-range-slider-track-border-radius);
+    -moz-box-shadow: var(--lm-form-range-slider-track-box-shadow);
+    -webkit-box-shadow: var(--lm-form-range-slider-track-box-shadow);
+    box-shadow: var(--lm-form-range-slider-track-box-shadow);
+}
+.form-range:hover::-ms-track {
+    background-color: var(--lm-form-range-slider-track-bg-color-hover);
+    border-color: var(--lm-form-range-slider-track-border-color-hover);
+    -moz-box-shadow: var(--lm-form-range-slider-track-box-shadow-hover);
+    -webkit-box-shadow: var(--lm-form-range-slider-track-box-shadow-hover);
+    box-shadow: var(--lm-form-range-slider-track-box-shadow-hover);
+}
+.form-range:focus::-ms-track {
+    background-color: var(--lm-form-range-slider-track-bg-color-focus);
+    border-color: var(--lm-form-range-slider-track-border-color-focus);
+    -moz-box-shadow: var(--lm-form-range-slider-track-box-shadow-focus);
+    -webkit-box-shadow: var(--lm-form-range-slider-track-box-shadow-focus);
+    box-shadow: var(--lm-form-range-slider-track-box-shadow-focus);
+}
+.dark-mode .form-range::-ms-track {
+    background-color: var(--dm-form-range-slider-track-bg-color);
+    border-color: var(--dm-form-range-slider-track-border-color);
+    -moz-box-shadow: var(--dm-form-range-slider-track-box-shadow);
+    -webkit-box-shadow: var(--dm-form-range-slider-track-box-shadow);
+    box-shadow: var(--dm-form-range-slider-track-box-shadow);
+}
+.dark-mode .form-range:hover::-ms-track {
+    background-color: var(--dm-form-range-slider-track-bg-color-hover);
+    border-color: var(--dm-form-range-slider-track-border-color-hover);
+    -moz-box-shadow: var(--dm-form-range-slider-track-box-shadow-hover);
+    -webkit-box-shadow: var(--dm-form-range-slider-track-box-shadow-hover);
+    box-shadow: var(--dm-form-range-slider-track-box-shadow-hover);
+}
+.dark-mode .form-range:focus::-ms-track {
+    background-color: var(--dm-form-range-slider-track-bg-color-focus);
+    border-color: var(--dm-form-range-slider-track-border-color-focus);
+    -moz-box-shadow: var(--dm-form-range-slider-track-box-shadow-focus);
+    -webkit-box-shadow: var(--dm-form-range-slider-track-box-shadow-focus);
+    box-shadow: var(--dm-form-range-slider-track-box-shadow-focus);
+}
+.form-range:disabled::-ms-track,
+.form-range:disabled:hover::-ms-track,
+.form-range:disabled:focus::-ms-track {
+    background-color: var(--lm-form-range-slider-track-bg-color-disabled);
+    border-color: var(--lm-form-range-slider-track-border-color-disabled);
+    -moz-box-shadow: var(--lm-form-range-slider-track-box-shadow-disabled);
+    -webkit-box-shadow: var(--lm-form-range-slider-track-box-shadow-disabled);
+    box-shadow: var(--lm-form-range-slider-track-box-shadow-disabled);
+}
+.dark-mode .form-range:disabled::-ms-track,
+.dark-mode .form-range:disabled:hover::-ms-track,
+.dark-mode .form-range:disabled:focus::-ms-track {
+    background-color: var(--dm-form-range-slider-track-bg-color-disabled);
+    border-color: var(--dm-form-range-slider-track-border-color-disabled);
+    -moz-box-shadow: var(--dm-form-range-slider-track-box-shadow-disabled);
+    -webkit-box-shadow: var(--dm-form-range-slider-track-box-shadow-disabled);
+    box-shadow: var(--dm-form-range-slider-track-box-shadow-disabled);
+}
+
+/* Slider track lower and upper fill (for Internet Explorer) */
+
+.form-range::-ms-fill-lower {
+    border-radius: var(--form-range-border-radius);
+    background-color: transparent;
+}
+.form-range::-ms-fill-upper {
+    border-radius: var(--form-range-border-radius);
+    background-color: transparent;
+}
+
+/* Slider thumb (for Internet Explorer) */
+
+.form-range::-ms-thumb {
+    box-sizing: border-box;
+    appearance: none;
+}
+.form-range::-ms-thumb {
+    width: calc(var(--form-range-slider-thumb-width) - 0.4rem); /* This fixes a weird issue in IE, where the thumb appears bigger. */
+    height: calc(var(--form-range-slider-thumb-height) - 0.4rem); /* This fixes a weird issue in IE, where the thumb appears bigger. */
+    color: transparent;
+    background-color: var(--lm-form-range-slider-thumb-bg-color);
+    border: var(--form-range-slider-thumb-border-width) solid var(--lm-form-range-slider-thumb-border-color);
+    border-radius: var(--form-range-slider-thumb-border-radius);
+    -moz-box-shadow: var(--lm-form-range-slider-thumb-box-shadow);
+    -webkit-box-shadow: var(--lm-form-range-slider-thumb-box-shadow);
+    box-shadow: var(--lm-form-range-slider-thumb-box-shadow);
+}
+.form-range:hover::-ms-thumb {
+    background-color: var(--lm-form-range-slider-thumb-bg-color-hover);
+    border-color: var(--lm-form-range-slider-thumb-border-color-hover);
+    -moz-box-shadow: var(--lm-form-range-slider-thumb-box-shadow-hover);
+    -webkit-box-shadow: var(--lm-form-range-slider-thumb-box-shadow-hover);
+    box-shadow: var(--lm-form-range-slider-thumb-box-shadow-hover);
+}
+.form-range:focus::-ms-thumb {
+    background-color: var(--lm-form-range-slider-thumb-bg-color-focus);
+    border-color: var(--lm-form-range-slider-thumb-border-color-focus);
+    -moz-box-shadow: var(--lm-form-range-slider-thumb-box-shadow-focus);
+    -webkit-box-shadow: var(--lm-form-range-slider-thumb-box-shadow-focus);
+    box-shadow: var(--lm-form-range-slider-thumb-box-shadow-focus);
+    -webkit-transition: background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+    transition: background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+.dark-mode .form-range::-ms-thumb {
+    background-color: var(--dm-form-range-slider-thumb-bg-color);
+    border-color: var(--dm-form-range-slider-thumb-border-color);
+    -moz-box-shadow: var(--dm-form-range-slider-thumb-box-shadow);
+    -webkit-box-shadow: var(--dm-form-range-slider-thumb-box-shadow);
+    box-shadow: var(--dm-form-range-slider-thumb-box-shadow);
+}
+.dark-mode .form-range:hover::-ms-thumb {
+    background-color: var(--dm-form-range-slider-thumb-bg-color-hover);
+    border-color: var(--dm-form-range-slider-thumb-border-color-hover);
+    -moz-box-shadow: var(--dm-form-range-slider-thumb-box-shadow-hover);
+    -webkit-box-shadow: var(--dm-form-range-slider-thumb-box-shadow-hover);
+    box-shadow: var(--dm-form-range-slider-thumb-box-shadow-hover);
+}
+.dark-mode .form-range:focus::-ms-thumb {
+    background-color: var(--dm-form-range-slider-thumb-bg-color-focus);
+    border-color: var(--dm-form-range-slider-thumb-border-color-focus);
+    -moz-box-shadow: var(--dm-form-range-slider-thumb-box-shadow-focus);
+    -webkit-box-shadow: var(--dm-form-range-slider-thumb-box-shadow-focus);
+    box-shadow: var(--dm-form-range-slider-thumb-box-shadow-focus);
+}
+.form-range:disabled::-ms-thumb,
+.form-range:disabled:hover::-ms-thumb,
+.form-range:disabled:focus::-ms-thumb {
+    background-color: var(--lm-form-range-slider-thumb-bg-color-disabled);
+    border-color: var(--lm-form-range-slider-thumb-border-color-disabled);
+    -moz-box-shadow: var(--lm-form-range-slider-thumb-box-shadow-disabled);
+    -webkit-box-shadow: var(--lm-form-range-slider-thumb-box-shadow-disabled);
+    box-shadow: var(--lm-form-range-slider-thumb-box-shadow-disabled);
+}
+.dark-mode .form-range:disabled::-ms-thumb,
+.dark-mode .form-range:disabled:hover::-ms-thumb,
+.dark-mode .form-range:disabled:focus::-ms-thumb {
+    background-color: var(--dm-form-range-slider-thumb-bg-color-disabled);
+    border-color: var(--dm-form-range-slider-thumb-border-color-disabled);
+    -moz-box-shadow: var(--dm-form-range-slider-thumb-box-shadow-disabled);
+    -webkit-box-shadow: var(--dm-form-range-slider-thumb-box-shadow-disabled);
+    box-shadow: var(--dm-form-range-slider-thumb-box-shadow-disabled);
+}
+
+/* Range group */
+
+.range-group {
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -ms-flex-align: center;
+    align-items: center;
+    width: 100%;
+}
+.range-group > .form-range {
+    position: relative;
+    -ms-flex: 1 1 0%;
+    flex: 1 1 0%;
+    min-width: 0;
+    margin-bottom: 0;
+}
+.range-group-label {
+    font-size: var(--form-range-group-label-font-size);
+}
+.range-group > .form-range,
+.range-group > .range-group-label {
+    margin-left: var(--form-range-group-item-margin);
+    margin-right: var(--form-range-group-item-margin);
+}
+.range-group > .form-range:first-child,
+.range-group > .range-group-label:first-child {
+    margin-left: 0;
+}
+.range-group > .form-range:last-child,
+.range-group > .range-group-label:last-child {
+    margin-right: 0;
 }
 
 /* Input file */
@@ -10573,7 +11258,34 @@ details * {
 
 /*
 -------------------------------------------------------------------------------
-25. Spacing utilities [hm-25]
+25. Tabs (navs) [hm-25]
+-------------------------------------------------------------------------------
+*/
+
+/* TO DO */
+
+
+/*
+-------------------------------------------------------------------------------
+26. List group [hm-26]
+-------------------------------------------------------------------------------
+*/
+
+/* TO DO */
+
+
+/*
+-------------------------------------------------------------------------------
+27. Spinners (and loaders) [hm-27]
+-------------------------------------------------------------------------------
+*/
+
+/* TO DO */
+
+
+/*
+-------------------------------------------------------------------------------
+28. Spacing utilities [hm-28]
 
 Notes:
     ~ Unlike other frameworks, Halfmoon keeps the default margins and spacing 
@@ -11884,7 +12596,7 @@ Notes:
 
 /*
 -------------------------------------------------------------------------------
-26. Display utilities [hm-26]
+29. Display utilities [hm-29]
 -------------------------------------------------------------------------------
 */
 
@@ -12128,7 +12840,7 @@ body:not(.dark-mode) .hidden-lm {
 
 /*
 -------------------------------------------------------------------------------
-27. Sizing utilities [hm-27]
+30. Sizing utilities [hm-30]
 -------------------------------------------------------------------------------
 */
 
@@ -12726,7 +13438,7 @@ body:not(.dark-mode) .hidden-lm {
 
 /*
 -------------------------------------------------------------------------------
-28. Flex utilities [hm-28]
+31. Flex utilities [hm-31]
 -------------------------------------------------------------------------------
 */
 
@@ -13473,7 +14185,7 @@ body:not(.dark-mode) .hidden-lm {
 
 /*
 -------------------------------------------------------------------------------
-29. Position utilities [hm-29]
+32. Position utilities [hm-32]
 -------------------------------------------------------------------------------
 */
 
@@ -13689,7 +14401,7 @@ body:not(.dark-mode) .hidden-lm {
 
 /*
 -------------------------------------------------------------------------------
-30. Other utilities [hm-30]
+33. Other utilities [hm-33]
 -------------------------------------------------------------------------------
 */
 

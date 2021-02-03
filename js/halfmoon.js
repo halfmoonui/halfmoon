@@ -1,7 +1,7 @@
 /*
 * -----------------------------------------------------------------------------
 * Halfmoon JS
-* Version: 1.1.1
+* Version: 1.2.0
 * https://www.gethalfmoon.com
 * Copyright, Halfmoon UI
 * Licensed under MIT (https://www.gethalfmoon.com/license)
@@ -235,6 +235,30 @@ var halfmoon = {
 
     // Keydown handler that can be overridden by users if needed
     keydownHandler: function(event) {},
+
+    // Function for binding the input value
+    bindInputValue: function(inputElement) {
+        if (inputElement.getAttribute("data-target")) {
+            var targetElementIDs = inputElement.getAttribute("data-target").replace(/\s+/g, "").split(",");
+            var targetElement;
+
+            for (var i = 0; i < targetElementIDs.length; i++) {
+                targetElement = document.getElementById(targetElementIDs[i]);
+                if (targetElement) {
+                    if (targetElement instanceof HTMLInputElement) {
+                        targetElement.value = inputElement.value;
+                    } else {
+                        targetElement.innerText = inputElement.value;
+                    }
+                }
+            }
+        }
+    },
+
+    // For attaching the bind input value function (meant to be called when an event listener is attached)
+    callBindInputValueForAttachment: function(event) {
+        halfmoon.bindInputValue(event.target);
+    },
 }
 
 
@@ -369,6 +393,75 @@ function halfmoonOnDOMContentLoaded() {
                 }
             }
 
+            // Handle clicks on password show/hide toggles
+            if (target.matches("[data-toggle='password']") || target.matches("[data-toggle='password'] *")) {
+                if (target.matches("[data-toggle='password'] *")) {
+                    target = target.closest("[data-toggle='password']");
+                }
+                var targetInput = document.getElementById(target.getAttribute("data-target"));
+                if (targetInput) {
+                    if (targetInput.getAttribute("type") == "password") {
+                        targetInput.type = "text";
+                        target.classList.add("target-input-type-text");
+                    } else {
+                        targetInput.type = "password";
+                        target.classList.remove("target-input-type-text");
+                    }
+                }
+            }
+
+            // Handle clicks on number step up buttons
+            if (target.matches("[data-trigger='number-step-up']") || target.matches("[data-trigger='number-step-up'] *")) {
+                if (target.matches("[data-trigger='number-step-up'] *")) {
+                    target = target.closest("[data-trigger='number-step-up']");
+                }
+                var targetInput = document.getElementById(target.getAttribute("data-target"));
+                if (targetInput) {
+                    if (!document.documentMode) {
+                        // Not IE, because document.documentMode is undefined
+                        // That property is only available in IE
+                        targetInput.stepUp();
+                    }
+                    else {
+                        // In IE, range inputs have the stepUp() and stepDown() functions
+                        // Therefore, the following hack implements those functions for number inputs
+                        var cloneInput = targetInput.cloneNode(false);
+                        cloneInput.setAttribute("type", "range");
+                        try {
+                            cloneInput.stepUp();
+                        }
+                        catch (e) {}
+                        targetInput.value = cloneInput.value;
+                    }
+                }
+            }
+
+            // Handle clicks on number step down buttons
+            if (target.matches("[data-trigger='number-step-down']") || target.matches("[data-trigger='number-step-down'] *")) {
+                if (target.matches("[data-trigger='number-step-down'] *")) {
+                    target = target.closest("[data-trigger='number-step-down']");
+                }
+                var targetInput = document.getElementById(target.getAttribute("data-target"));
+                if (targetInput) {
+                    if (!document.documentMode) {
+                        // Not IE, because document.documentMode is undefined
+                        // That property is only available in IE
+                        targetInput.stepDown();
+                    }
+                    else {
+                        // In IE, range inputs have the stepUp() and stepDown() functions
+                        // Therefore, the following hack implements those functions for number inputs
+                        var cloneInput = targetInput.cloneNode(false);
+                        cloneInput.setAttribute("type", "range");
+                        try {
+                            cloneInput.stepDown();
+                        }
+                        catch (e) {}
+                        targetInput.value = cloneInput.value;
+                    }
+                }
+            }
+
             // Call the click handler method to handle any logic set by the user in their projects to handle clicks
             halfmoon.clickHandler(eventCopy);
         }, 
@@ -497,6 +590,22 @@ function halfmoonOnDOMContentLoaded() {
                     fileNamesContainer.innerHTML = "No file chosen";
                 }
             }
+        );
+    }
+
+    // Setting the initial value on load
+    // Adding the event listeners for binding the value
+    // Only for elements with the attribute
+    // The double event listener is for cross-browser compatibility
+    // Mainly, IE does not register the input event, so change must be used
+    var halfmoonElemsBindValue = document.querySelectorAll("[data-bind-value]");
+    for (var i = 0; i < halfmoonElemsBindValue.length; i++) {
+        halfmoon.bindInputValue(halfmoonElemsBindValue[i]);
+        halfmoonElemsBindValue[i].addEventListener(
+            "input", halfmoon.callBindInputValueForAttachment, false
+        );
+        halfmoonElemsBindValue[i].addEventListener(
+            "change", halfmoon.callBindInputValueForAttachment, false
         );
     }
 
