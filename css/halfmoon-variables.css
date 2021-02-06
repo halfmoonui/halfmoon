@@ -968,7 +968,59 @@ CSS variables (CSS custom properties)
     ---------------------------------------------------------------------------
     */
 
-    /* TO DO */
+    --classless-list-style-position: inside;
+    --classless-list-vertical-margin: 1rem;
+    --classless-list-padding-left: 0;
+    --nested-classless-list-padding-left: 2.4rem;
+    
+    --classless-list-item-margin-bottom: var(--classless-list-vertical-margin);
+
+    /* Unordered list */
+
+    --unordered-list-padding-left: 0;
+
+    --unordered-list-item-padding-left: 2.4rem;
+
+    --unordered-list-item-bullet-width: 0.8rem;
+    --unordered-list-item-bullet-height: var(--unordered-list-item-bullet-width);
+    --unordered-list-item-bullet-top: calc(((var(--base-line-height) * var(--base-font-size)) - var(--unordered-list-item-bullet-height)) / 2); /* Centers bullet vertically with the first line */
+    --unordered-list-item-bullet-left: 0;
+    --unordered-list-item-bullet-border-radius: 50%;
+    --unordered-list-item-bullet-border-width: 0;
+
+    --lm-unordered-list-item-bullet-bg-color: rgba(0, 0, 0, 0.2);
+    --lm-unordered-list-item-bullet-border-color: transparent;
+    --lm-unordered-list-item-bullet-box-shadow: none;
+
+    --dm-unordered-list-item-bullet-bg-color: rgba(255, 255, 255, 0.2);
+    --dm-unordered-list-item-bullet-border-color: transparent;
+    --dm-unordered-list-item-bullet-box-shadow: none;
+
+    /* Ordered list */
+
+    --ordered-list-padding-left: 0;
+
+    --ordered-list-item-padding-left: 4rem;
+
+    --ordered-list-item-numbering-min-width: 2rem;
+    --ordered-list-item-numbering-height: var(--ordered-list-item-numbering-min-width);
+    --ordered-list-item-numbering-top: calc(((var(--base-line-height) * var(--base-font-size)) - var(--ordered-list-item-numbering-height)) / 2); /* Centers numbering vertically with the first line */
+    --ordered-list-item-numbering-left: 0;
+    --ordered-list-item-numbering-border-radius: var(--ordered-list-item-numbering-min-width);
+    --ordered-list-item-numbering-border-width: 0;
+    --ordered-list-item-numbering-font-size: 1.2rem;
+    --ordered-list-item-numbering-line-height: 1;
+    --ordered-list-item-numbering-padding: calc((var(--ordered-list-item-numbering-height) - var(--ordered-list-item-numbering-font-size)) / 2);
+
+    --lm-ordered-list-item-numbering-text-color: var(--lm-base-text-color);
+    --lm-ordered-list-item-numbering-bg-color: rgba(0, 0, 0, 0.15);
+    --lm-ordered-list-item-numbering-border-color: transparent;
+    --lm-ordered-list-item-numbering-box-shadow: none;
+
+    --dm-ordered-list-item-numbering-text-color: var(--dm-base-text-color);
+    --dm-ordered-list-item-numbering-bg-color: rgba(255, 255, 255, 0.15);
+    --dm-ordered-list-item-numbering-border-color: transparent;
+    --dm-ordered-list-item-numbering-box-shadow: none;
 
     /*
     ---------------------------------------------------------------------------
@@ -6007,25 +6059,98 @@ Notes:
 -------------------------------------------------------------------------------
 */
 
-ul {
-    list-style: circle inside;
-}
+ul,
 ol {
-    list-style: decimal inside;
-}
-ol,
-ul {
-    padding-left: 0;
-    margin-top: 0;
+    list-style-position: var(--classless-list-style-position);
+    margin-top: var(--classless-list-vertical-margin);
+    margin-bottom: var(--classless-list-vertical-margin);
+    padding-left: var(--classless-list-padding-left);
 }
 ul ul,
 ul ol,
-ol ol,
-ol ul {
-    margin: 1.5rem 0 1.5rem 3rem;
+ol ul,
+ol ol {
+    padding-left: var(--nested-classless-list-padding-left);
 }
 li {
-    margin-bottom: 1rem;
+    margin-bottom: var(--classless-list-item-margin-bottom);
+}
+li:last-child {
+    margin-bottom: 0;
+}
+
+/* Unordered list */
+
+.unordered-list {
+    list-style: none;
+    padding-left: var(--unordered-list-padding-left);
+}
+.unordered-list > li {
+    position: relative;
+    padding-left: var(--unordered-list-item-padding-left);
+}
+.unordered-list > li::before {
+    content: " ";
+    display: inline-block;
+    position: absolute;
+    width: var(--unordered-list-item-bullet-width);
+    height: var(--unordered-list-item-bullet-height);
+    top: var(--unordered-list-item-bullet-top);
+    left: var(--unordered-list-item-bullet-left);
+    border-radius: var(--unordered-list-item-bullet-border-radius);
+    background-color: var(--lm-unordered-list-item-bullet-bg-color);
+    border: var(--unordered-list-item-bullet-border-width) solid var(--lm-unordered-list-item-bullet-border-color);
+    -moz-box-shadow: var(--lm-unordered-list-item-bullet-box-shadow);
+    -webkit-box-shadow: var(--lm-unordered-list-item-bullet-box-shadow);
+    box-shadow: var(--lm-unordered-list-item-bullet-box-shadow);
+}
+.dark-mode .unordered-list > li::before {
+    background-color: var(--dm-unordered-list-item-bullet-bg-color);
+    border-color: var(--dm-unordered-list-item-bullet-border-color);
+    -moz-box-shadow: var(--dm-unordered-list-item-bullet-box-shadow);
+    -webkit-box-shadow: var(--dm-unordered-list-item-bullet-box-shadow);
+    box-shadow: var(--dm-unordered-list-item-bullet-box-shadow);
+}
+
+/* Ordered list */
+
+.ordered-list {
+    list-style: none;
+    counter-reset: ordered-list-counter;
+    padding-left: var(--ordered-list-padding-left);
+}
+.ordered-list > li {
+    position: relative;
+    padding-left: var(--ordered-list-item-padding-left);
+    counter-increment: ordered-list-counter;
+}
+.ordered-list > li::before {
+    content: counter(ordered-list-counter);
+    display: inline-block;
+    position: absolute;
+    text-align: center;
+    min-width: var(--ordered-list-item-numbering-min-width);
+    height: var(--ordered-list-item-numbering-height);
+    top: var(--ordered-list-item-numbering-top);
+    left: var(--ordered-list-item-numbering-left);
+    border-radius: var(--ordered-list-item-numbering-border-radius);
+    font-size: var(--ordered-list-item-numbering-font-size);
+    line-height: var(--ordered-list-item-numbering-line-height);
+    padding: var(--ordered-list-item-numbering-padding);
+    color: var(--lm-ordered-list-item-numbering-text-color);
+    background-color: var(--lm-ordered-list-item-numbering-bg-color);
+    border: var(--ordered-list-item-numbering-border-width) solid var(--lm-ordered-list-item-numbering-border-color);
+    -moz-box-shadow: var(--lm-ordered-list-item-numbering-box-shadow);
+    -webkit-box-shadow: var(--lm-ordered-list-item-numbering-box-shadow);
+    box-shadow: var(--lm-ordered-list-item-numbering-box-shadow);
+}
+.dark-mode .ordered-list > li::before {
+    color: var(--dm-ordered-list-item-numbering-text-color);
+    background-color: var(--dm-ordered-list-item-numbering-bg-color);
+    border-color: var(--dm-ordered-list-item-numbering-border-color);
+    -moz-box-shadow: var(--dm-ordered-list-item-numbering-box-shadow);
+    -webkit-box-shadow: var(--dm-ordered-list-item-numbering-box-shadow);
+    box-shadow: var(--dm-ordered-list-item-numbering-box-shadow);
 }
 
 
@@ -8825,10 +8950,6 @@ select.form-control[multiple] > option:disabled {
     display: block;
     padding: var(--dropdown-content-padding);
 }
-.dropdown-content > ul,
-.dropdown-content > ol {
-    margin-left: 0;
-}
 
 /* Dropdown divider */
 
@@ -9651,14 +9772,15 @@ select.form-control[multiple] > option:disabled {
 /* Navbar nav */
 
 .navbar-nav {
-    padding-left: 0;
-    margin-bottom: 0;
-    list-style: none;
+    padding-left: 0; /* List reset */
+    margin-top: 0; /* List reset */
+    margin-bottom: 0; /* List reset */
+    list-style: none; /* List reset */
     height: var(--navbar-height);
 }
 .nav-item {
     height: 100%;
-    margin-bottom: 0;
+    margin-bottom: 0; /* List reset */
 }
 .nav-link {
     cursor: pointer; /* Needed if used without the href attribute, for example, as dropdown toggle */
@@ -9781,10 +9903,6 @@ select.form-control[multiple] > option:disabled {
     display: block;
     padding: var(--sidebar-content-padding);
     margin: var(--sidebar-content-margin);
-}
-.sidebar-content > ul,
-.sidebar-content > ol {
-    margin-left: 0;
 }
 
 /* Sidebar divider */
@@ -9961,9 +10079,9 @@ select.form-control[multiple] > option:disabled {
 
 .page-item {
     display: inline-block;
-    list-style: none;
     vertical-align: middle;
-    margin-bottom: 0;
+    list-style: none; /* List reset */
+    margin-bottom: 0; /* List reset */
 }
 .page-item.ellipsis:before {
     content: "\2026";
@@ -10099,8 +10217,8 @@ select.form-control[multiple] > option:disabled {
 }
 .breadcrumb-item {
     display: inline-block;
-    list-style: none;
-    margin-bottom: 0;
+    list-style: none; /* List reset */
+    margin-bottom: 0; /* List reset */
 }
 .breadcrumb-item:before {
     content: var(--breadcrumb-separator-content);
