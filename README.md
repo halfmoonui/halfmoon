@@ -6,11 +6,12 @@ The only files that will be worked on are `halfmoon-variables.css` and `halfmoon
 
 **Please note**, writing and updating the official documentation website requires time and polish. So for the time being, as new components and features are being added, I will create examples illustrating how they can be used on Codepen. That should hopefully tie everything over until the official release and documentation update. You can find the links to the Codepens below, next to the list items.
 
-**UPDATE 3rd February, 2021** [Back from hiatus](https://gist.github.com/halfmoonui/59b464241dfe760449476d9edde6f0b6)! Range, number input, password show/hide toggles have been added. 
+**UPDATE 6th February, 2021** Added styled lists (unordered and ordered)
+**UPDATE 3rd February, 2021** [Back from hiatus](https://gist.github.com/halfmoonui/59b464241dfe760449476d9edde6f0b6)! Range, number input, password show/hide toggles have been added.
 
 ## New features and components
 
-- [ ] Styled lists (unordered and ordered)
+- [x] **Styled lists (unordered and ordered)** - [How to use](https://codepen.io/tahmid-hm-dev/pen/bGBpqVg)
 - [x] **Range** - [How to use](https://codepen.io/tahmid-hm-dev/pen/VwmLOxE)
 - [x] **Number input** - [How to use](https://codepen.io/tahmid-hm-dev/pen/ExNjzQw)
 - [x] **Password show/hide toggle** - [How to use](https://codepen.io/tahmid-hm-dev/pen/XWNbwEa)
