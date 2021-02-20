@@ -6,6 +6,8 @@ The only files that will be worked on are `halfmoon-variables.css` and `halfmoon
 
 **Please note**, writing and updating the official documentation website requires time and polish. So for the time being, as new components and features are being added, I will create examples illustrating how they can be used on Codepen. That should hopefully tie everything over until the official release and documentation update. You can find the links to the Codepens below, next to the list items.
 
+**UPDATE 21st February, 2021** New color system, improved tables, new color utilities for background, text, and borders, new border utilities, clean-up of outdated browser prefix properties, other minor changes and bug fixes
+
 **UPDATE 6th February, 2021** Added styled lists (unordered and ordered)
 
 **UPDATE 3rd February, 2021** [Back from hiatus](https://gist.github.com/halfmoonui/59b464241dfe760449476d9edde6f0b6)! Range, number input, password show/hide toggles have been added.
@@ -26,14 +28,18 @@ The only files that will be worked on are `halfmoon-variables.css` and `halfmoon
 - [ ] Better select and multi-select
 - [ ] Data table
 
-## Minor updates and bug fixes
+## Other updates and bug fixes
 
-- [ ] Update the color system to use HSL representations (HSL colors are human friendly, so the new system will make it a breeze to update palletes if necessary)
+- [x] **Update the color system to use HSL representations (HSL colors are human friendly, so the new system will make it a breeze to update palletes if necessary)**
+- [x] **Improved tables, especially contextual variations** - [How to use](https://codepen.io/tahmid-hm-dev/pen/poNrQRN)
+- [x] **New color utilities for background, text, and border**
+- [x] **New border utilities, mainly border-width utilities, extra options for rounded borders, and border colors (as mentioned above)**
+- [x] **Clean-up of outdated browser prefix properties**
+- [x] **Pseudo-classes now use CSS3 syntax (not CSS2)**
 - [ ] Update buttons (and inputs) to use padding, instead of fixed height (this should fix browser discrepancies in the appearance of buttons)
 - [ ] Fix the issue that causes the sidebar and overlay to appear for a moment before disappearing during page load on small screens (i.e. mobile phones)
 - [ ] Fix the `position` styles on the `<html>`, `<body>` and other major containers (this should fix some minor scroll issues)
 - [ ] Fix "aggressive" transitions on dropdown menus and tooltips
-- [ ] Improve the design of disabled checkboxes, radio buttons, and switches
 - [ ] Scroll shadow utilities
 - [ ] Transition utilities
 
@@ -45,3 +51,7 @@ The above list is missing a few other tiny bugs and issues that will be fixed.
 - [ ] Accessibility improvements in the examples
 - [ ] Comparison pages with other popular frameworks
 - [ ] Pages for helping users integrate Halfmoon with React, Angular, Vue, and so on (as of right now, the documentation is sparse in this regard)
+
+## Dropped changes (not doing)
+
+- [ ] ~~Improve the design of disabled checkboxes, radio buttons, and switches~~ (Tried to change, but the old ones were more readable and usable)
