@@ -1,3 +1,5 @@
+*This is the main branch of the repo, which contains the latest stable release. For the ongoing development, see the [develop branch](https://github.com/halfmoonui/halfmoon/tree/develop).*
+
 # [Halfmoon](https://www.gethalfmoon.com)
 
 > Front-end framework with a built-in dark mode and full customizability using CSS variables; great for building dashboards and tools.
@@ -9,7 +11,7 @@
 - **Bootstrap like classes**—The class names should be instantly familiar to anyone who has used Bootstrap.
 - **Cross-browser compatibility**—Fully supports almost all the browsers under the sun, including really old ones like Internet Explorer 11.
 
-To learn more, go to [the documentation](https://www.gethalfmoon.com/docs/introduction/). This is the main branch of the repo, which contains the latest stable release. For the ongoing development, see the [develop branch](https://github.com/halfmoonui/halfmoon/tree/develop).
+To learn more, go to [the documentation](https://www.gethalfmoon.com/docs/introduction/).
 
 ## Quickstart
 
