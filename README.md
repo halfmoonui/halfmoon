@@ -30,12 +30,13 @@ The only files that will be worked on are `halfmoon-variables.css` and `halfmoon
 
 ## Other updates and bug fixes
 
-- [x] **Update the color system to use HSL representations (HSL colors are human friendly, so the new system will make it a breeze to update palletes if necessary)**
 - [x] **Improved tables, especially contextual variations** - [How to use](https://codepen.io/tahmid-hm-dev/pen/poNrQRN)
+- [x] **Update the color system to use HSL representations (HSL colors are human friendly, so the new system will make it a breeze to update palletes if necessary)**
 - [x] **New color utilities for background, text, and border**
 - [x] **New border utilities, mainly border-width utilities, extra options for rounded borders, and border colors (as mentioned above)**
 - [x] **Clean-up of outdated browser prefix properties**
 - [x] **Pseudo-classes now use CSS3 syntax (not CSS2)**
+- [x] **Border color variables can now have different values for different sides.**
 - [ ] Update buttons (and inputs) to use padding, instead of fixed height (this should fix browser discrepancies in the appearance of buttons)
 - [ ] Fix the issue that causes the sidebar and overlay to appear for a moment before disappearing during page load on small screens (i.e. mobile phones)
 - [ ] Fix the `position` styles on the `<html>`, `<body>` and other major containers (this should fix some minor scroll issues)
@@ -54,4 +55,4 @@ The above list is missing a few other tiny bugs and issues that will be fixed.
 
 ## Dropped changes (not doing)
 
-- [ ] ~~Improve the design of disabled checkboxes, radio buttons, and switches~~ (Tried to change, but the old ones were more readable and usable)
+- ~~Improve the design of disabled checkboxes, radio buttons, and switches~~ (Tried to change, but the old ones were more readable and usable)
