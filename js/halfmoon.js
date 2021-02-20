@@ -1,7 +1,7 @@
 /*
 * -----------------------------------------------------------------------------
 * Halfmoon JS
-* Version: 1.2.0
+* Version: Dev
 * https://www.gethalfmoon.com
 * Copyright, Halfmoon UI
 * Licensed under MIT (https://www.gethalfmoon.com/license)
