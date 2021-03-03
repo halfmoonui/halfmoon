@@ -113,17 +113,47 @@ CSS variables (CSS custom properties)
         ~ Other common states:
             ~ *-hover (:hover)
             ~ *-focus (:focus)
-            ~ *-active (.active)
-            ~ *-active-hover (.active:hover)
             ~ A variable with a given state only applies to the element when 
             the element is in that state.
+
+        ~ Regarding the :focus state:
+            ~ For some elements, only variables for setting the border color 
+            and box shadow are available for the :focus state. This is because 
+            in these cases, they are the only properties that need to be 
+            changed to signify the state.
+            ~ For elements like input boxes and buttons (and elements that 
+            behave like buttons), variables for setting the text color and 
+            backgrounds are also available (along with border color and box 
+            shadow variables). Buttons (and elements that behave like buttons) 
+            also have variables for setting the outline during the :focus 
+            state. This is because input boxes and buttons are very commonly 
+            used, and they may benefit from some extra customization options 
+            (if required).
+
+        ~ Regarding the :focus-visible state:
+            ~ For links (and other elements that are meant to be used as 
+            links, ie, sidebar links, dropdown items, badges, and so on), 
+            variables for setting the box shadow, outline, and (sometimes) 
+            border radius are available. The border radius variables are 
+            mainly used to give the links a rounded ring during the 
+            :focus-visible state.
+            ~ Since the :focus-visible selector is not supported by all 
+            browsers, namely Safari and IE as of March 2021, a polyfill is 
+            included in halfmoon.js. This polyfill relies on the class 
+            .focus-visible, and this is why this class is used alongside the 
+            :focus-visible selector.
+
+        ~ Regarding the :active state:
+            ~ Variables for the :active state are not available. The ones in 
+            the format *-active-* are applied when the element has the .active 
+            class.
         
         ~ Examples:
             ~ --button-padding sets the padding of buttons in both light and 
             dark mode.
             ~ --lm-pagination-item-text-color-hover sets the text color when 
             the pagination item is hovered over (in light mode).
-            ~ --dm-sidebar-link-border-color-active-hover sets the border 
+            ~ --dm-sidebar-link-active-border-color-hover sets the border 
             color when the sidebar link has the class .active, and is hovered 
             over (in dark mode).
             ~ --small-button-height sets the height of small buttons (.btn-sm).
@@ -859,6 +889,14 @@ CSS variables (CSS custom properties)
     --dm-link-text-color: var(--primary-color);
     --dm-link-text-color-hover: var(--primary-color-light);
 
+    --hyperlink-border-radius-focus-visible: var(--base-border-radius);
+
+    --lm-hyperlink-box-shadow-focus-visible: 0 0 0 0.2rem hsla(var(--primary-color-hsl), 0.6);
+    --lm-hyperlink-outline-focus-visible: none;
+
+    --dm-hyperlink-box-shadow-focus-visible: 0 0 0 0.2rem hsla(var(--primary-color-hsl), 0.6);
+    --dm-hyperlink-outline-focus-visible: none;
+
 
     /*
     ---------------------------------------------------------------------------
@@ -871,9 +909,6 @@ CSS variables (CSS custom properties)
     --button-padding: 0 1.5rem;
     --button-border-width: var(--base-border-width);
     --button-border-radius: var(--base-border-radius);
-    --button-outline-width: 1px;
-    --button-outline-type: dotted;
-    --button-outline-offset: 0.2rem;
 
     /* Small button */
 
@@ -906,7 +941,7 @@ CSS variables (CSS custom properties)
     --lm-button-bg-image-focus: var(--lm-button-bg-image);
     --lm-button-border-color-focus: var(--lm-button-border-color);
     --lm-button-box-shadow-focus: 0 0 0 0.2rem hsla(var(--primary-color-hsl), 0.6);
-    --lm-button-outline-color-focus: transparent;
+    --lm-button-outline-focus: none;
 
     --dm-button-text-color: var(--dm-base-text-color);
     --dm-button-bg-color: hsla(var(--white-color-hsl), 0.05);
@@ -923,7 +958,7 @@ CSS variables (CSS custom properties)
     --dm-button-bg-image-focus: var(--dm-button-bg-image);
     --dm-button-border-color-focus: hsla(var(--black-color-hsl), 0.4); /* Made darker to better work with the box shadow */
     --dm-button-box-shadow-focus: 0 0 0 0.2rem hsla(var(--primary-color-hsl), 0.3);
-    --dm-button-outline-color-focus: transparent;
+    --dm-button-outline-focus: none;
 
     /* Alternate dark mode default button */
 
@@ -942,7 +977,7 @@ CSS variables (CSS custom properties)
     --dm-button-alt-bg-image-focus: var(--dm-button-alt-bg-image);
     --dm-button-alt-border-color-focus: inherit;
     --dm-button-alt-box-shadow-focus: var(--dm-button-alt-box-shadow);
-    --dm-button-alt-outline-color-focus: transparent;
+    --dm-button-alt-outline-focus: none;
 
     /* Link button */
 
@@ -961,7 +996,7 @@ CSS variables (CSS custom properties)
     --lm-button-link-bg-image-focus: var(--lm-button-link-bg-image);
     --lm-button-link-border-color-focus: var(--lm-button-link-border-color);
     --lm-button-link-box-shadow-focus: var(--lm-button-box-shadow-focus);
-    --lm-button-link-outline-color-focus: var(--lm-button-outline-color-focus);
+    --lm-button-link-outline-focus: var(--lm-button-outline-focus);
 
     --dm-button-link-text-color: var(--primary-color);
     --dm-button-link-bg-color: transparent;
@@ -978,7 +1013,7 @@ CSS variables (CSS custom properties)
     --dm-button-link-bg-image-focus: var(--dm-button-link-bg-image);
     --dm-button-link-border-color-focus: var(--dm-button-link-border-color);
     --dm-button-link-box-shadow-focus: var(--dm-button-box-shadow-focus);
-    --dm-button-link-outline-color-focus: var(--dm-button-outline-color-focus);
+    --dm-button-link-outline-focus: var(--dm-button-outline-focus);
 
     /* Primary button */
 
@@ -997,7 +1032,7 @@ CSS variables (CSS custom properties)
     --lm-button-primary-bg-image-focus: var(--lm-button-primary-bg-image);
     --lm-button-primary-border-color-focus: var(--lm-button-primary-border-color);
     --lm-button-primary-box-shadow-focus: 0 0 0 0.3rem hsla(var(--primary-color-hsl), 0.3);
-    --lm-button-primary-outline-color-focus: var(--lm-button-outline-color-focus);
+    --lm-button-primary-outline-focus: var(--lm-button-outline-focus);
 
     --dm-button-primary-text-color: var(--text-color-on-primary-color-bg);
     --dm-button-primary-bg-color: var(--primary-color);
@@ -1014,7 +1049,7 @@ CSS variables (CSS custom properties)
     --dm-button-primary-bg-image-focus: var(--dm-button-primary-bg-image);
     --dm-button-primary-border-color-focus: var(--dm-button-primary-border-color);
     --dm-button-primary-box-shadow-focus: 0 0 0 0.1rem hsla(var(--black-color-hsl), 0.1), 0 0 0 0.3rem hsla(var(--primary-color-hsl), 0.3);
-    --dm-button-primary-outline-color-focus: var(--dm-button-outline-color-focus);
+    --dm-button-primary-outline-focus: var(--dm-button-outline-focus);
 
     /* Success button */
 
@@ -1033,7 +1068,7 @@ CSS variables (CSS custom properties)
     --lm-button-success-bg-image-focus: var(--lm-button-success-bg-image);
     --lm-button-success-border-color-focus: var(--lm-button-success-border-color);
     --lm-button-success-box-shadow-focus: 0 0 0 0.3rem hsla(var(--success-color-hsl), 0.3);
-    --lm-button-success-outline-color-focus: var(--lm-button-outline-color-focus);
+    --lm-button-success-outline-focus: var(--lm-button-outline-focus);
 
     --dm-button-success-text-color: var(--text-color-on-success-color-bg);
     --dm-button-success-bg-color: var(--success-color);
@@ -1050,7 +1085,7 @@ CSS variables (CSS custom properties)
     --dm-button-success-bg-image-focus: var(--dm-button-success-bg-image);
     --dm-button-success-border-color-focus: var(--dm-button-success-border-color);
     --dm-button-success-box-shadow-focus: 0 0 0 0.1rem hsla(var(--black-color-hsl), 0.1), 0 0 0 0.3rem hsla(var(--success-color-hsl), 0.3);
-    --dm-button-success-outline-color-focus: var(--dm-button-outline-color-focus);
+    --dm-button-success-outline-focus: var(--dm-button-outline-focus);
 
     /* Secondary button */
 
@@ -1069,7 +1104,7 @@ CSS variables (CSS custom properties)
     --lm-button-secondary-bg-image-focus: var(--lm-button-secondary-bg-image);
     --lm-button-secondary-border-color-focus: var(--lm-button-secondary-border-color);
     --lm-button-secondary-box-shadow-focus: 0 0 0 0.3rem hsla(var(--secondary-color-hsl), 0.3);
-    --lm-button-secondary-outline-color-focus: var(--lm-button-outline-color-focus);
+    --lm-button-secondary-outline-focus: var(--lm-button-outline-focus);
 
     --dm-button-secondary-text-color: var(--text-color-on-secondary-color-bg);
     --dm-button-secondary-bg-color: var(--secondary-color);
@@ -1086,7 +1121,7 @@ CSS variables (CSS custom properties)
     --dm-button-secondary-bg-image-focus: var(--dm-button-secondary-bg-image);
     --dm-button-secondary-border-color-focus: var(--dm-button-secondary-border-color);
     --dm-button-secondary-box-shadow-focus: 0 0 0 0.1rem hsla(var(--black-color-hsl), 0.1), 0 0 0 0.3rem hsla(var(--secondary-color-hsl), 0.3);
-    --dm-button-secondary-outline-color-focus: var(--dm-button-outline-color-focus);
+    --dm-button-secondary-outline-focus: var(--dm-button-outline-focus);
 
     /* Danger button */
 
@@ -1105,7 +1140,7 @@ CSS variables (CSS custom properties)
     --lm-button-danger-bg-image-focus: var(--lm-button-danger-bg-image);
     --lm-button-danger-border-color-focus: var(--lm-button-danger-border-color);
     --lm-button-danger-box-shadow-focus: 0 0 0 0.3rem hsla(var(--danger-color-hsl), 0.3);
-    --lm-button-danger-outline-color-focus: var(--lm-button-outline-color-focus);
+    --lm-button-danger-outline-focus: var(--lm-button-outline-focus);
 
     --dm-button-danger-text-color: var(--text-color-on-danger-color-bg);
     --dm-button-danger-bg-color: var(--danger-color);
@@ -1122,7 +1157,7 @@ CSS variables (CSS custom properties)
     --dm-button-danger-bg-image-focus: var(--dm-button-danger-bg-image);
     --dm-button-danger-border-color-focus: var(--dm-button-danger-border-color);
     --dm-button-danger-box-shadow-focus: 0 0 0 0.1rem hsla(var(--black-color-hsl), 0.1), 0 0 0 0.3rem hsla(var(--danger-color-hsl), 0.3);
-    --dm-button-danger-outline-color-focus: var(--dm-button-outline-color-focus);
+    --dm-button-danger-outline-focus: var(--dm-button-outline-focus);
 
     /* Rounded button */
 
@@ -2026,6 +2061,7 @@ CSS variables (CSS custom properties)
     --dropdown-menu-border-radius: var(--base-border-radius);
     --dropdown-menu-padding: 0.4rem;
     --dropdown-menu-min-width: 16.8rem;
+    --dropdown-menu-scale-before: 0.975; /* For animation, scale after (showing) is 1 */
 
     --lm-dropdown-menu-text-color: var(--lm-base-text-color);
     --lm-dropdown-menu-bg-color: var(--base-white-color);
@@ -2060,11 +2096,15 @@ CSS variables (CSS custom properties)
     --lm-dropdown-item-bg-color: transparent;
     --lm-dropdown-item-text-color-hover: var(--lm-dropdown-item-text-color);
     --lm-dropdown-item-bg-color-hover: hsla(var(--black-color-hsl), 0.025);
+    --lm-dropdown-item-box-shadow-focus-visible: var(--lm-hyperlink-box-shadow-focus-visible);
+    --lm-dropdown-item-outline-focus-visible: var(--lm-hyperlink-outline-focus-visible);
 
     --dm-dropdown-item-text-color: var(--dm-dropdown-menu-text-color);
     --dm-dropdown-item-bg-color: transparent;
     --dm-dropdown-item-text-color-hover: var(--dm-dropdown-item-text-color);
     --dm-dropdown-item-bg-color-hover: hsla(var(--white-color-hsl), 0.025);
+    --dm-dropdown-item-box-shadow-focus-visible: var(--dm-hyperlink-box-shadow-focus-visible);
+    --dm-dropdown-item-outline-focus-visible: var(--dm-hyperlink-outline-focus-visible);
 
     --dropdown-header-font-size: var(--base-font-size);
     --dropdown-header-font-weight: var(--content-title-font-weight);
@@ -2126,22 +2166,42 @@ CSS variables (CSS custom properties)
 
     --modal-close-font-size: 2rem;
     --modal-close-width-height: 4rem;
+    --modal-close-border-width: var(--base-border-width);
     --modal-close-border-radius: 50%;
-    --modal-close-outline-width: 2px;
-    --modal-close-outline-type: solid;
-    --modal-close-outline-offset: var(--button-outline-offset);
 
     --lm-modal-close-text-color: var(--white-color);
     --lm-modal-close-bg-color: hsla(var(--black-color-hsl), 0.7);
-    --lm-modal-close-text-color-hover: var(--white-color);
+    --lm-modal-close-bg-image: none;
+    --lm-modal-close-border-color: transparent;
+    --lm-modal-close-box-shadow: none;
+    --lm-modal-close-text-color-hover: var(--lm-modal-close-text-color);
     --lm-modal-close-bg-color-hover: hsla(var(--black-color-hsl), 0.6);
-    --lm-modal-close-outline-color-focus: hsla(var(--primary-color-hsl), 0.3);
+    --lm-modal-close-bg-image-hover: none;
+    --lm-modal-close-border-color-hover: var(--lm-modal-close-border-color);
+    --lm-modal-close-box-shadow-hover: var(--lm-modal-close-box-shadow);
+    --lm-modal-close-text-color-focus: var(--lm-modal-close-text-color);
+    --lm-modal-close-bg-color-focus: var(--lm-modal-close-bg-color);
+    --lm-modal-close-bg-image-focus: var(--lm-modal-close-bg-image);
+    --lm-modal-close-border-color-focus: var(--lm-modal-close-border-color);
+    --lm-modal-close-box-shadow-focus: 0 0 0 0.2rem hsla(var(--primary-color-hsl), 0.6);
+    --lm-modal-close-outline-focus: none;
 
     --dm-modal-close-text-color: var(--white-color);
     --dm-modal-close-bg-color: hsla(var(--white-color-hsl), 0.1);
-    --dm-modal-close-text-color-hover: var(--white-color);
+    --dm-modal-close-bg-image: none;
+    --dm-modal-close-border-color: transparent;
+    --dm-modal-close-box-shadow: none;
+    --dm-modal-close-text-color-hover: var(--dm-modal-close-text-color);
     --dm-modal-close-bg-color-hover: hsla(var(--white-color-hsl), 0.2);
-    --dm-modal-close-outline-color-focus: hsla(var(--primary-color-hsl), 0.3);
+    --dm-modal-close-bg-image-hover: none;
+    --dm-modal-close-border-color-hover: var(--dm-modal-close-border-color);
+    --dm-modal-close-box-shadow-hover: var(--dm-modal-close-box-shadow);
+    --dm-modal-close-text-color-focus: var(--dm-modal-close-text-color);
+    --dm-modal-close-bg-color-focus: var(--dm-modal-close-bg-color);
+    --dm-modal-close-bg-image-focus: var(--dm-modal-close-bg-image);
+    --dm-modal-close-border-color-focus: hsla(var(--black-color-hsl), 0.4); /* Made darker to better work with the box shadow */
+    --dm-modal-close-box-shadow-focus: 0 0 0 0.2rem hsla(var(--primary-color-hsl), 0.3);
+    --dm-modal-close-outline-focus: none;
 
 
     /*
@@ -2168,16 +2228,47 @@ CSS variables (CSS custom properties)
     --alert-heading-font-weight: var(--content-title-font-weight);
     --alert-heading-margin: 0 0 0.5rem 0;
 
+    /* Alert close */
+
     --alert-close-font-size: 1.6rem;
     --alert-close-padding: 0.4rem 0.6rem;
     --alert-close-line-height: 1;
-    --alert-close-outline-width: 1px;
-    --alert-close-outline-type: solid;
-    --alert-close-outline-offset: 0;
+    --alert-close-border-width: var(--base-border-width);
+    --alert-close-border-radius: var(--alert-border-radius);
 
-    --lm-alert-close-outline-color-focus: currentColor;
+    --lm-alert-close-text-color: inherit;
+    --lm-alert-close-bg-color: transparent;
+    --lm-alert-close-bg-image: none;
+    --lm-alert-close-border-color: transparent;
+    --lm-alert-close-box-shadow: none;
+    --lm-alert-close-text-color-hover: var(--lm-alert-close-text-color);
+    --lm-alert-close-bg-color-hover: var(--lm-alert-close-bg-color);
+    --lm-alert-close-bg-image-hover: var(--lm-alert-close-bg-image);
+    --lm-alert-close-border-color-hover: var(--lm-alert-close-border-color);
+    --lm-alert-close-box-shadow-hover: var(--lm-alert-close-box-shadow);
+    --lm-alert-close-text-color-focus: var(--lm-alert-close-text-color);
+    --lm-alert-close-bg-color-focus: var(--lm-alert-close-bg-color);
+    --lm-alert-close-bg-image-focus: var(--lm-alert-close-bg-image);
+    --lm-alert-close-border-color-focus: currentColor; /* Changed to show focus */
+    --lm-alert-close-box-shadow-focus: var(--lm-alert-close-box-shadow);
+    --lm-alert-close-outline-focus: none;
 
-    --dm-alert-close-outline-color-focus: currentColor;
+    --dm-alert-close-text-color: inherit;
+    --dm-alert-close-bg-color: transparent;
+    --dm-alert-close-bg-image: none;
+    --dm-alert-close-border-color: transparent;
+    --dm-alert-close-box-shadow: none;
+    --dm-alert-close-text-color-hover: var(--dm-alert-close-text-color);
+    --dm-alert-close-bg-color-hover: var(--dm-alert-close-bg-color);
+    --dm-alert-close-bg-image-hover: var(--dm-alert-close-bg-image);
+    --dm-alert-close-border-color-hover: var(--dm-alert-close-border-color);
+    --dm-alert-close-box-shadow-hover: var(--dm-alert-close-box-shadow);
+    --dm-alert-close-text-color-focus: var(--dm-alert-close-text-color);
+    --dm-alert-close-bg-color-focus: var(--dm-alert-close-bg-color);
+    --dm-alert-close-bg-image-focus: var(--dm-alert-close-bg-image);
+    --dm-alert-close-border-color-focus: currentColor; /* Changed to show focus */
+    --dm-alert-close-box-shadow-focus: var(--dm-alert-close-box-shadow);
+    --dm-alert-close-outline-focus: none;
 
     /* Sticky alerts */
 
@@ -2292,37 +2383,50 @@ CSS variables (CSS custom properties)
     --dm-navbar-text-color: var(--dm-base-text-color-light);
 
     --navbar-link-horizontal-padding: var(--navbar-content-horizontal-margin);
+    --navbar-link-border-radius-focus-visible: var(--rounded-2-border-radius);
+    --navbar-link-active-border-radius-focus-visible: var(--rounded-2-border-radius);
 
     --lm-navbar-link-text-color: var(--lm-base-text-color);
     --lm-navbar-link-bg-color: transparent;
     --lm-navbar-link-text-color-hover: var(--primary-color);
     --lm-navbar-link-bg-color-hover: var(--lm-navbar-link-bg-color);
+    --lm-navbar-link-box-shadow-focus-visible: inset var(--lm-hyperlink-box-shadow-focus-visible);
+    --lm-navbar-link-outline-focus-visible: var(--lm-hyperlink-outline-focus-visible);
+    --lm-navbar-link-active-text-color: var(--primary-color);
+    --lm-navbar-link-active-bg-color: var(--lm-navbar-link-bg-color);
+    --lm-navbar-link-active-text-color-hover: var(--primary-color-light);
+    --lm-navbar-link-active-bg-color-hover: var(--lm-navbar-link-bg-color-hover);
+    --lm-navbar-link-active-box-shadow-focus-visible: inset var(--lm-hyperlink-box-shadow-focus-visible);
+    --lm-navbar-link-active-outline-focus-visible: var(--lm-hyperlink-outline-focus-visible);
 
     --dm-navbar-link-text-color: var(--dm-base-text-color);
     --dm-navbar-link-bg-color: transparent;
     --dm-navbar-link-text-color-hover: var(--primary-color);
     --dm-navbar-link-bg-color-hover: var(--dm-navbar-link-bg-color);
-
-    --lm-navbar-link-active-text-color: var(--primary-color);
-    --lm-navbar-link-active-bg-color: var(--lm-navbar-link-bg-color);
-    --lm-navbar-link-active-text-color-hover: var(--primary-color-light);
-    --lm-navbar-link-active-bg-color-hover: var(--lm-navbar-link-bg-color-hover);
-
+    --dm-navbar-link-box-shadow-focus-visible: inset var(--dm-hyperlink-box-shadow-focus-visible);
+    --dm-navbar-link-outline-focus-visible: var(--dm-hyperlink-outline-focus-visible);
     --dm-navbar-link-active-text-color: var(--primary-color);
     --dm-navbar-link-active-bg-color: var(--dm-navbar-link-bg-color);
     --dm-navbar-link-active-text-color-hover: var(--primary-color-light);
     --dm-navbar-link-active-bg-color-hover: var(--dm-navbar-link-bg-color-hover);
+    --dm-navbar-link-active-box-shadow-focus-visible: inset var(--dm-hyperlink-box-shadow-focus-visible);
+    --dm-navbar-link-active-outline-focus-visible: var(--dm-hyperlink-outline-focus-visible);
 
     --navbar-brand-font-size: 2rem;
     --navbar-brand-font-weight: 500;
     --navbar-brand-image-height: 2.2rem;
     --navbar-brand-image-margin-right: 1rem;
+    --navbar-brand-border-radius-focus-visible: var(--hyperlink-border-radius-focus-visible);
 
     --lm-navbar-brand-text-color: var(--lm-base-text-color);
     --lm-navbar-brand-text-color-hover: var(--lm-base-text-color-light);
+    --lm-navbar-brand-box-shadow-focus-visible: var(--lm-hyperlink-box-shadow-focus-visible);
+    --lm-navbar-brand-outline-focus-visible: var(--lm-hyperlink-outline-focus-visible);
 
     --dm-navbar-brand-text-color: var(--dm-base-text-color);
     --dm-navbar-brand-text-color-hover: var(--dm-base-text-color-light);
+    --dm-navbar-brand-box-shadow-focus-visible: var(--dm-hyperlink-box-shadow-focus-visible);
+    --dm-navbar-brand-outline-focus-visible: var(--dm-hyperlink-outline-focus-visible);
 
     --navbar-action-button-width: 3.6rem;
     --navbar-action-button-horizontal-padding: 0;
@@ -2347,11 +2451,13 @@ CSS variables (CSS custom properties)
     --sidebar-content-padding: 0;
     --sidebar-content-margin: var(--sidebar-menu-vertical-margin) var(--sidebar-item-horizontal-spacing);
 
-    --sidebar-link-height: 3rem;
+    --sidebar-link-min-height: 3rem;
     --sidebar-link-padding: var(--sidebar-item-vertical-spacing) var(--sidebar-item-horizontal-spacing);
     --sidebar-link-margin: 0;
     --sidebar-link-border-width: 0;
     --sidebar-link-border-radius: 0;
+    --sidebar-link-border-radius-focus-visible: var(--rounded-2-border-radius);
+    --sidebar-link-active-border-radius-focus-visible: var(--rounded-2-border-radius);
 
     --lm-sidebar-link-text-color: var(--lm-base-text-color-light);
     --lm-sidebar-link-bg-color: transparent;
@@ -2359,12 +2465,16 @@ CSS variables (CSS custom properties)
     --lm-sidebar-link-text-color-hover: var(--lm-base-text-color);
     --lm-sidebar-link-bg-color-hover: transparent;
     --lm-sidebar-link-border-color-hover: transparent;
-    --lm-sidebar-link-text-color-active: var(--primary-color);
-    --lm-sidebar-link-bg-color-active: transparent;
-    --lm-sidebar-link-border-color-active: transparent;
-    --lm-sidebar-link-text-color-active-hover: var(--primary-color-light);
-    --lm-sidebar-link-bg-color-active-hover: transparent;
-    --lm-sidebar-link-border-color-active-hover: transparent;
+    --lm-sidebar-link-box-shadow-focus-visible: inset var(--lm-hyperlink-box-shadow-focus-visible);
+    --lm-sidebar-link-outline-focus-visible: var(--lm-hyperlink-outline-focus-visible);
+    --lm-sidebar-link-active-text-color: var(--primary-color);
+    --lm-sidebar-link-active-bg-color: transparent;
+    --lm-sidebar-link-active-border-color: transparent;
+    --lm-sidebar-link-active-text-color-hover: var(--primary-color-light);
+    --lm-sidebar-link-active-bg-color-hover: transparent;
+    --lm-sidebar-link-active-border-color-hover: transparent;
+    --lm-sidebar-link-active-box-shadow-focus-visible: inset var(--lm-hyperlink-box-shadow-focus-visible);
+    --lm-sidebar-link-active-outline-focus-visible: var(--lm-hyperlink-outline-focus-visible);
 
     --dm-sidebar-link-text-color: var(--dm-base-text-color-light);
     --dm-sidebar-link-bg-color: transparent;
@@ -2372,12 +2482,16 @@ CSS variables (CSS custom properties)
     --dm-sidebar-link-text-color-hover: var(--dm-base-text-color);
     --dm-sidebar-link-bg-color-hover: transparent;
     --dm-sidebar-link-border-color-hover: transparent;
-    --dm-sidebar-link-text-color-active: var(--primary-color);
-    --dm-sidebar-link-bg-color-active: transparent;
-    --dm-sidebar-link-border-color-active: transparent;
-    --dm-sidebar-link-text-color-active-hover: var(--primary-color-light);
-    --dm-sidebar-link-bg-color-active-hover: transparent;
-    --dm-sidebar-link-border-color-active-hover: transparent;
+    --dm-sidebar-link-box-shadow-focus-visible: inset var(--dm-hyperlink-box-shadow-focus-visible);
+    --dm-sidebar-link-outline-focus-visible: var(--dm-hyperlink-outline-focus-visible);
+    --dm-sidebar-link-active-text-color: var(--primary-color);
+    --dm-sidebar-link-active-bg-color: transparent;
+    --dm-sidebar-link-active-border-color: transparent;
+    --dm-sidebar-link-active-text-color-hover: var(--primary-color-light);
+    --dm-sidebar-link-active-bg-color-hover: transparent;
+    --dm-sidebar-link-active-border-color-hover: transparent;
+    --dm-sidebar-link-active-box-shadow-focus-visible: inset var(--dm-hyperlink-box-shadow-focus-visible);
+    --dm-sidebar-link-active-outline-focus-visible: var(--dm-hyperlink-outline-focus-visible);
 
     --sidebar-divider-height: 1px;
     --sidebar-divider-padding: 0;
@@ -2408,12 +2522,12 @@ CSS variables (CSS custom properties)
     --lm-sidebar-icon-text-color-hover: var(--lm-base-text-color);
     --lm-sidebar-icon-bg-color-hover: var(--lm-sidebar-icon-bg-color);
     --lm-sidebar-icon-border-color-hover: var(--lm-sidebar-icon-border-color);
-    --lm-sidebar-icon-text-color-active: var(--lm-sidebar-icon-text-color);
-    --lm-sidebar-icon-bg-color-active: var(--lm-sidebar-icon-bg-color);
-    --lm-sidebar-icon-border-color-active: var(--lm-sidebar-icon-border-color);
-    --lm-sidebar-icon-text-color-active-hover: var(--lm-sidebar-icon-text-color-hover);
-    --lm-sidebar-icon-bg-color-active-hover: var(--lm-sidebar-icon-bg-color-hover);
-    --lm-sidebar-icon-border-color-active-hover: var(--lm-sidebar-icon-border-color-hover);
+    --lm-sidebar-icon-active-text-color: var(--lm-sidebar-icon-text-color);
+    --lm-sidebar-icon-active-bg-color: var(--lm-sidebar-icon-bg-color);
+    --lm-sidebar-icon-active-border-color: var(--lm-sidebar-icon-border-color);
+    --lm-sidebar-icon-active-text-color-hover: var(--lm-sidebar-icon-text-color-hover);
+    --lm-sidebar-icon-active-bg-color-hover: var(--lm-sidebar-icon-bg-color-hover);
+    --lm-sidebar-icon-active-border-color-hover: var(--lm-sidebar-icon-border-color-hover);
 
     --dm-sidebar-icon-text-color: var(--dm-base-text-color-light);
     --dm-sidebar-icon-bg-color: hsla(var(--white-color-hsl), 0.05);
@@ -2421,12 +2535,12 @@ CSS variables (CSS custom properties)
     --dm-sidebar-icon-text-color-hover: var(--dm-base-text-color);
     --dm-sidebar-icon-bg-color-hover: var(--dm-sidebar-icon-bg-color);
     --dm-sidebar-icon-border-color-hover: var(--dm-sidebar-icon-border-color);
-    --dm-sidebar-icon-text-color-active: var(--dm-sidebar-icon-text-color);
-    --dm-sidebar-icon-bg-color-active: var(--dm-sidebar-icon-bg-color);
-    --dm-sidebar-icon-border-color-active: var(--dm-sidebar-icon-border-color);
-    --dm-sidebar-icon-text-color-active-hover: var(--dm-sidebar-icon-text-color-hover);
-    --dm-sidebar-icon-bg-color-active-hover: var(--dm-sidebar-icon-bg-color-hover);
-    --dm-sidebar-icon-border-color-active-hover: var(--dm-sidebar-icon-border-color-hover);
+    --dm-sidebar-icon-active-text-color: var(--dm-sidebar-icon-text-color);
+    --dm-sidebar-icon-active-bg-color: var(--dm-sidebar-icon-bg-color);
+    --dm-sidebar-icon-active-border-color: var(--dm-sidebar-icon-border-color);
+    --dm-sidebar-icon-active-text-color-hover: var(--dm-sidebar-icon-text-color-hover);
+    --dm-sidebar-icon-active-bg-color-hover: var(--dm-sidebar-icon-bg-color-hover);
+    --dm-sidebar-icon-active-border-color-hover: var(--dm-sidebar-icon-border-color-hover);
 
     --sidebar-brand-padding: 0;
     --sidebar-brand-margin: var(--sidebar-item-vertical-spacing) var(--sidebar-item-horizontal-spacing);
@@ -2434,12 +2548,17 @@ CSS variables (CSS custom properties)
     --sidebar-brand-font-weight: var(--navbar-brand-font-weight);
     --sidebar-brand-image-height: var(--navbar-brand-image-height);
     --sidebar-brand-image-margin-right: var(--navbar-brand-image-margin-right);
+    --sidebar-brand-border-radius-focus-visible: var(--hyperlink-border-radius-focus-visible);
 
     --lm-sidebar-brand-text-color: var(--lm-base-text-color);
     --lm-sidebar-brand-text-color-hover: var(--lm-base-text-color-light);
+    --lm-sidebar-brand-box-shadow-focus-visible: var(--lm-hyperlink-box-shadow-focus-visible);
+    --lm-sidebar-brand-outline-focus-visible: var(--lm-hyperlink-outline-focus-visible);
 
     --dm-sidebar-brand-text-color: var(--dm-base-text-color);
     --dm-sidebar-brand-text-color-hover: var(--dm-base-text-color-light);
+    --dm-sidebar-brand-box-shadow-focus-visible: var(--dm-hyperlink-box-shadow-focus-visible);
+    --dm-sidebar-brand-outline-focus-visible: var(--dm-hyperlink-outline-focus-visible);
 
 
     /*
@@ -2486,11 +2605,17 @@ CSS variables (CSS custom properties)
     --lm-pagination-item-bg-image-hover: var(--lm-button-bg-image-hover);
     --lm-pagination-item-border-color-hover: var(--lm-button-border-color-hover);
     --lm-pagination-item-box-shadow-hover: var(--lm-button-box-shadow-hover);
-    --lm-pagination-item-text-color-active: var(--lm-button-primary-text-color);
-    --lm-pagination-item-bg-color-active: var(--lm-button-primary-bg-color);
-    --lm-pagination-item-bg-image-active: var(--lm-button-primary-bg-image);
-    --lm-pagination-item-border-color-active: var(--lm-button-primary-border-color);
-    --lm-pagination-item-box-shadow-active: var(--lm-button-primary-box-shadow);
+    --lm-pagination-item-text-color-focus: var(--lm-button-text-color-focus);
+    --lm-pagination-item-bg-color-focus: var(--lm-button-bg-color-focus);
+    --lm-pagination-item-bg-image-focus: var(--lm-button-bg-image-focus);
+    --lm-pagination-item-border-color-focus: var(--lm-button-border-color-focus);
+    --lm-pagination-item-box-shadow-focus: var(--lm-button-box-shadow-focus);
+    --lm-pagination-item-outline-focus: var(--lm-button-outline-focus);
+    --lm-pagination-item-active-text-color: var(--lm-button-primary-text-color);
+    --lm-pagination-item-active-bg-color: var(--lm-button-primary-bg-color);
+    --lm-pagination-item-active-bg-image: var(--lm-button-primary-bg-image);
+    --lm-pagination-item-active-border-color: var(--lm-button-primary-border-color);
+    --lm-pagination-item-active-box-shadow: var(--lm-button-primary-box-shadow);
 
     --dm-pagination-item-text-color: var(--dm-button-text-color);
     --dm-pagination-item-bg-color: var(--dm-button-bg-color);
@@ -2502,11 +2627,17 @@ CSS variables (CSS custom properties)
     --dm-pagination-item-bg-image-hover: var(--dm-button-bg-image-hover);
     --dm-pagination-item-border-color-hover: var(--dm-button-border-color-hover);
     --dm-pagination-item-box-shadow-hover: var(--dm-button-box-shadow-hover);
-    --dm-pagination-item-text-color-active: var(--dm-button-primary-text-color);
-    --dm-pagination-item-bg-color-active: var(--dm-button-primary-bg-color);
-    --dm-pagination-item-bg-image-active: var(--dm-button-primary-bg-image);
-    --dm-pagination-item-border-color-active: var(--dm-button-primary-border-color);
-    --dm-pagination-item-box-shadow-active: var(--dm-button-primary-box-shadow);
+    --dm-pagination-item-text-color-focus: var(--dm-button-text-color-focus);
+    --dm-pagination-item-bg-color-focus: var(--dm-button-bg-color-focus);
+    --dm-pagination-item-bg-image-focus: var(--dm-button-bg-image-focus);
+    --dm-pagination-item-border-color-focus: var(--dm-button-border-color-focus);
+    --dm-pagination-item-box-shadow-focus: var(--dm-button-box-shadow-focus);
+    --dm-pagination-item-outline-focus: var(--dm-button-outline-focus);
+    --dm-pagination-item-active-text-color: var(--dm-button-primary-text-color);
+    --dm-pagination-item-active-bg-color: var(--dm-button-primary-bg-color);
+    --dm-pagination-item-active-bg-image: var(--dm-button-primary-bg-image);
+    --dm-pagination-item-active-border-color: var(--dm-button-primary-border-color);
+    --dm-pagination-item-active-box-shadow: var(--dm-button-primary-box-shadow);
 
 
     /*
@@ -2526,6 +2657,14 @@ CSS variables (CSS custom properties)
     --dm-breadcrumb-bg-color: transparent;
     --dm-breadcrumb-border-color: transparent;
 
+    --breadcrumb-link-border-radius-focus-visible: var(--hyperlink-border-radius-focus-visible);
+
+    --lm-breadcrumb-link-box-shadow-focus-visible: var(--lm-hyperlink-box-shadow-focus-visible);
+    --lm-breadcrumb-link-outline-focus-visible: var(--lm-hyperlink-outline-focus-visible);
+
+    --dm-breadcrumb-link-box-shadow-focus-visible: var(--dm-hyperlink-box-shadow-focus-visible);
+    --dm-breadcrumb-link-outline-focus-visible: var(--dm-hyperlink-outline-focus-visible);
+
     --breadcrumb-separator-content: "\002F";
     --breadcrumb-separator-margin-left: 1rem;
     --breadcrumb-separator-margin-right: 1.5rem;
@@ -2536,27 +2675,41 @@ CSS variables (CSS custom properties)
     28. Tooltips [hmv-28]
 
     Notes:
-        ~ By default, the inverses of the base colors are used.
+        ~ Pseudo-borders (created using box-shadow) are used to get rid of the 
+        single pixel rendering issue that is present in most browsers.
     ---------------------------------------------------------------------------
     */
 
-    --tooltip-arrow-width: 1rem;
-    --tooltip-arrow-height: var(--tooltip-arrow-width);
     --tooltip-font-size: 1.2rem;
     --tooltip-line-height: var(--base-line-height);
-    --tooltip-padding: 0.5rem 1rem;
-    --tooltip-width: 10rem;
+    --tooltip-padding: 0.2rem 1rem;
+    --tooltip-min-width: 10rem;
+    --tooltip-max-width: 16rem;
+    --tooltip-width: max-content;
+    --tooltip-border-width: var(--base-border-width);
+    --tooltip-border-radius: var(--base-border-radius);
+    --tooltip-offset-negative: -0.6rem;
 
-    --lm-tooltip-text-color: var(--dm-base-text-color);
-    --lm-tooltip-bg-color: var(--dark-color);
+    --lm-tooltip-text-color: var(--lm-base-text-color);
+    --lm-tooltip-bg-color: var(--base-white-color);
+    --lm-tooltip-bg-image: none;
+    --lm-tooltip-border-color: transparent;
+    --lm-tooltip-box-shadow: 0 0 0 var(--tooltip-border-width) var(--gray-color-dim), var(--lm-shadow); /* Pseudo-border where transparency is avoided because there may be overlap */
 
-    --dm-tooltip-text-color: var(--lm-base-text-color);
-    --dm-tooltip-bg-color: var(--base-white-color);
+    --dm-tooltip-text-color: var(--dm-base-text-color);
+    --dm-tooltip-bg-color: var(--dark-color);
+    --dm-tooltip-bg-image: none;
+    --dm-tooltip-border-color: hsla(var(--white-color-hsl), 0.05);
+    --dm-tooltip-box-shadow: 0 0 0 var(--tooltip-border-width) var(--dark-color-dim), var(--dm-shadow); /* Pseudo-border where transparency is avoided because there may be overlap */
 
 
     /*
     ---------------------------------------------------------------------------
     29. Badges [hmv-29]
+
+    Notes:
+        ~ The box shadow and outline variables for the :focus-visible state 
+        (for link badges) are extended from button variables.
     ---------------------------------------------------------------------------
     */
 
@@ -2575,89 +2728,129 @@ CSS variables (CSS custom properties)
     --dm-badge-bg-color: transparent;
     --dm-badge-border-color: hsla(var(--white-color-hsl), 0.2);
 
-    /* Primary, success, secondary, danger badges. */
+    /* Contextual variations */
 
-    /* Light mode */
+    /* Primary */
 
     --lm-badge-primary-text-color: var(--text-color-on-primary-color-bg);
     --lm-badge-primary-bg-color: var(--primary-color);
     --lm-badge-primary-border-color: var(--primary-color);
 
-    --lm-badge-success-text-color: var(--text-color-on-success-color-bg);
-    --lm-badge-success-bg-color: var(--success-color);
-    --lm-badge-success-border-color: var(--success-color);
-
-    --lm-badge-secondary-text-color: var(--text-color-on-secondary-color-bg);
-    --lm-badge-secondary-bg-color: var(--secondary-color);
-    --lm-badge-secondary-border-color: var(--secondary-color);
-
-    --lm-badge-danger-text-color: var(--text-color-on-danger-color-bg);
-    --lm-badge-danger-bg-color: var(--danger-color);
-    --lm-badge-danger-border-color: var(--danger-color);
-
-    /* Dark mode */
-
     --dm-badge-primary-text-color: var(--text-color-on-primary-color-bg);
     --dm-badge-primary-bg-color: var(--primary-color);
     --dm-badge-primary-border-color: var(--primary-color);
+
+    /* Success */
+
+    --lm-badge-success-text-color: var(--text-color-on-success-color-bg);
+    --lm-badge-success-bg-color: var(--success-color);
+    --lm-badge-success-border-color: var(--success-color);
 
     --dm-badge-success-text-color: var(--text-color-on-success-color-bg);
     --dm-badge-success-bg-color: var(--success-color);
     --dm-badge-success-border-color: var(--success-color);
 
+    /* Secondary */
+
+    --lm-badge-secondary-text-color: var(--text-color-on-secondary-color-bg);
+    --lm-badge-secondary-bg-color: var(--secondary-color);
+    --lm-badge-secondary-border-color: var(--secondary-color);
+
     --dm-badge-secondary-text-color: var(--text-color-on-secondary-color-bg);
     --dm-badge-secondary-bg-color: var(--secondary-color);
     --dm-badge-secondary-border-color: var(--secondary-color);
+
+    /* Danger */
+
+    --lm-badge-danger-text-color: var(--text-color-on-danger-color-bg);
+    --lm-badge-danger-bg-color: var(--danger-color);
+    --lm-badge-danger-border-color: var(--danger-color);
 
     --dm-badge-danger-text-color: var(--text-color-on-danger-color-bg);
     --dm-badge-danger-bg-color: var(--danger-color);
     --dm-badge-danger-border-color: var(--danger-color);
 
-    /* Link badges (only hover effects) */
+    /* Link badges */
 
-    /* Light mode */
+    /* Default */
 
     --lm-link-badge-text-color-hover: var(--lm-badge-text-color);
     --lm-link-badge-bg-color-hover: var(--gray-color-very-light);
     --lm-link-badge-border-color-hover: var(--lm-badge-border-color);
-
-    --lm-link-badge-primary-text-color-hover: var(--lm-badge-primary-text-color);
-    --lm-link-badge-primary-bg-color-hover: var(--primary-color-light);
-    --lm-link-badge-primary-border-color-hover: var(--primary-color-light);
-
-    --lm-link-badge-success-text-color-hover: var(--lm-badge-success-text-color);
-    --lm-link-badge-success-bg-color-hover: var(--success-color-light);
-    --lm-link-badge-success-border-color-hover: var(--success-color-light);
-
-    --lm-link-badge-secondary-text-color-hover: var(--lm-badge-secondary-text-color);
-    --lm-link-badge-secondary-bg-color-hover: var(--secondary-color-light);
-    --lm-link-badge-secondary-border-color-hover: var(--secondary-color-light);
-
-    --lm-link-badge-danger-text-color-hover: var(--lm-badge-danger-text-color);
-    --lm-link-badge-danger-bg-color-hover: var(--danger-color-light);
-    --lm-link-badge-danger-border-color-hover: var(--danger-color-light);
-
-    /* Dark mode */
+    --lm-link-badge-box-shadow-focus-visible: var(--lm-button-box-shadow-focus);
+    --lm-link-badge-outline-focus-visible: var(--lm-button-outline-focus);
 
     --dm-link-badge-text-color-hover: var(--dm-badge-text-color);
     --dm-link-badge-bg-color-hover: hsla(var(--white-color-hsl), 0.025);
     --dm-link-badge-border-color-hover: var(--dm-badge-border-color);
+    --dm-link-badge-box-shadow-focus-visible: var(--dm-button-box-shadow-focus);
+    --dm-link-badge-outline-focus-visible: var(--dm-button-outline-focus);
+
+    /* Primary */
+
+    --lm-link-badge-primary-text-color-hover: var(--lm-badge-primary-text-color);
+    --lm-link-badge-primary-bg-color-hover: var(--primary-color-light);
+    --lm-link-badge-primary-border-color-hover: var(--primary-color-light);
+    --lm-link-badge-primary-box-shadow-focus-visible: var(--lm-button-primary-box-shadow-focus);
+    --lm-link-badge-primary-outline-focus-visible: var(--lm-button-primary-outline-focus);
 
     --dm-link-badge-primary-text-color-hover: var(--dm-badge-primary-text-color);
     --dm-link-badge-primary-bg-color-hover: var(--primary-color-light);
     --dm-link-badge-primary-border-color-hover: var(--primary-color-light);
+    --dm-link-badge-primary-box-shadow-focus-visible: var(--dm-button-primary-box-shadow-focus);
+    --dm-link-badge-primary-outline-focus-visible: var(--dm-button-primary-outline-focus);
+
+    /* Success */
+
+    --lm-link-badge-success-text-color-hover: var(--lm-badge-success-text-color);
+    --lm-link-badge-success-bg-color-hover: var(--success-color-light);
+    --lm-link-badge-success-border-color-hover: var(--success-color-light);
+    --lm-link-badge-success-box-shadow-focus-visible: var(--lm-button-success-box-shadow-focus);
+    --lm-link-badge-success-outline-focus-visible: var(--lm-button-success-outline-focus);
 
     --dm-link-badge-success-text-color-hover: var(--dm-badge-success-text-color);
     --dm-link-badge-success-bg-color-hover: var(--success-color-light);
     --dm-link-badge-success-border-color-hover: var(--success-color-light);
+    --dm-link-badge-success-box-shadow-focus-visible: var(--dm-button-success-box-shadow-focus);
+    --dm-link-badge-success-outline-focus-visible: var(--dm-button-success-outline-focus);
+
+    /* Secondary */
+
+    --lm-link-badge-secondary-text-color-hover: var(--lm-badge-secondary-text-color);
+    --lm-link-badge-secondary-bg-color-hover: var(--secondary-color-light);
+    --lm-link-badge-secondary-border-color-hover: var(--secondary-color-light);
+    --lm-link-badge-secondary-box-shadow-focus-visible: var(--lm-button-secondary-box-shadow-focus);
+    --lm-link-badge-secondary-outline-focus-visible: var(--lm-button-secondary-outline-focus);
 
     --dm-link-badge-secondary-text-color-hover: var(--dm-badge-secondary-text-color);
     --dm-link-badge-secondary-bg-color-hover: var(--secondary-color-light);
     --dm-link-badge-secondary-border-color-hover: var(--secondary-color-light);
+    --dm-link-badge-secondary-box-shadow-focus-visible: var(--dm-button-secondary-box-shadow-focus);
+    --dm-link-badge-secondary-outline-focus-visible: var(--dm-button-secondary-outline-focus);
+
+    /* Danger */
+
+    --lm-link-badge-danger-text-color-hover: var(--lm-badge-danger-text-color);
+    --lm-link-badge-danger-bg-color-hover: var(--danger-color-light);
+    --lm-link-badge-danger-border-color-hover: var(--danger-color-light);
+    --lm-link-badge-danger-box-shadow-focus-visible: var(--lm-button-danger-box-shadow-focus);
+    --lm-link-badge-danger-outline-focus-visible: var(--lm-button-danger-outline-focus);
 
     --dm-link-badge-danger-text-color-hover: var(--dm-badge-danger-text-color);
     --dm-link-badge-danger-bg-color-hover: var(--danger-color-light);
     --dm-link-badge-danger-border-color-hover: var(--danger-color-light);
+    --dm-link-badge-danger-box-shadow-focus-visible: var(--dm-button-danger-box-shadow-focus);
+    --dm-link-badge-danger-outline-focus-visible: var(--dm-button-danger-outline-focus);
+
+    /* Link badge group (only for the :focus-visible state) */
+
+    --link-badge-group-border-radius-focus-visible: var(--badge-border-radius);
+
+    --lm-link-badge-group-box-shadow-focus-visible: 0 0 0 0.1rem var(--base-white-color), 0 0 0 0.3rem hsla(var(--primary-color-hsl), 0.6);
+    --lm-link-badge-group-outline-focus-visible: none;
+
+    --dm-link-badge-group-box-shadow-focus-visible: 0 0 0 0.1rem var(--dark-color), 0 0 0 0.3rem hsla(var(--primary-color-hsl), 0.3);
+    --dm-link-badge-group-outline-focus-visible: none;
 
 
     /*
@@ -3668,7 +3861,8 @@ body {
 /* Hidden sidebar */
 
 .page-wrapper.with-sidebar[data-sidebar-hidden] > .sidebar {
-    left: -100%;
+    visibility: hidden;
+    left: calc((-1) * var(--sidebar-width));
 }
 .page-wrapper.with-sidebar[data-sidebar-hidden] > .content-wrapper {
     width: 100%;
@@ -3765,7 +3959,7 @@ body {
 /* With transitions (for sidebar toggles) */
 
 .page-wrapper.with-transitions.with-sidebar > .sidebar {
-    transition: left .4s cubic-bezier(.25, .8, .25, 1);
+    transition: visibility .4s, left .4s cubic-bezier(.25, .8, .25, 1);
 }
 .page-wrapper.with-transitions.with-sidebar .content-wrapper,
 .page-wrapper.with-transitions.with-sidebar[data-sidebar-type~="full-height"] > .navbar:not(.navbar-fixed-bottom),
@@ -5069,6 +5263,24 @@ a:hover {
     -webkit-font-smoothing: auto;
     -moz-osx-font-smoothing: auto;
 }
+.hyperlink:focus-visible {
+    border-radius: var(--hyperlink-border-radius-focus-visible);
+    box-shadow: var(--lm-hyperlink-box-shadow-focus-visible);
+    outline: var(--lm-hyperlink-outline-focus-visible);
+}
+.hyperlink.focus-visible {
+    border-radius: var(--hyperlink-border-radius-focus-visible);
+    box-shadow: var(--lm-hyperlink-box-shadow-focus-visible);
+    outline: var(--lm-hyperlink-outline-focus-visible);
+}
+.dark-mode .hyperlink:focus-visible {
+    box-shadow: var(--dm-hyperlink-box-shadow-focus-visible);
+    outline: var(--dm-hyperlink-outline-focus-visible);
+}
+.dark-mode .hyperlink.focus-visible {
+    box-shadow: var(--dm-hyperlink-box-shadow-focus-visible);
+    outline: var(--dm-hyperlink-outline-focus-visible);
+}
 
 /* Underlined hyperlink */
 
@@ -5079,6 +5291,25 @@ a:hover {
     -webkit-font-smoothing: auto;
     -moz-osx-font-smoothing: auto;
 }
+.hyperlink-underline:focus-visible {
+    border-radius: var(--hyperlink-border-radius-focus-visible);
+    box-shadow: var(--lm-hyperlink-box-shadow-focus-visible);
+    outline: var(--lm-hyperlink-outline-focus-visible);
+}
+.hyperlink-underline.focus-visible {
+    border-radius: var(--hyperlink-border-radius-focus-visible);
+    box-shadow: var(--lm-hyperlink-box-shadow-focus-visible);
+    outline: var(--lm-hyperlink-outline-focus-visible);
+}
+.dark-mode .hyperlink-underline:focus-visible {
+    box-shadow: var(--dm-hyperlink-box-shadow-focus-visible);
+    outline: var(--dm-hyperlink-outline-focus-visible);
+}
+.dark-mode .hyperlink-underline.focus-visible {
+    box-shadow: var(--dm-hyperlink-box-shadow-focus-visible);
+    outline: var(--dm-hyperlink-outline-focus-visible);
+}
+
 
 /*
 -------------------------------------------------------------------------------
@@ -5126,8 +5357,7 @@ Notes:
     background-image: var(--lm-button-bg-image-focus);
     border-color: var(--lm-button-border-color-focus);
     box-shadow: var(--lm-button-box-shadow-focus);
-    outline: var(--button-outline-width) var(--button-outline-type) var(--lm-button-outline-color-focus);
-    outline-offset: var(--button-outline-offset);
+    outline: var(--lm-button-outline-focus);
 }
 .btn:focus:hover,
 .btn.active:hover {
@@ -5160,7 +5390,7 @@ Notes:
     background-image: var(--dm-button-bg-image-focus);
     border-color: var(--dm-button-border-color-focus);
     box-shadow: var(--dm-button-box-shadow-focus);
-    outline-color: var(--dm-button-outline-color-focus);
+    outline: var(--dm-button-outline-focus);
 }
 .dark-mode .btn:focus:hover,
 .dark-mode .btn.active:hover {
@@ -5223,7 +5453,7 @@ Notes:
     background-image: var(--dm-button-alt-bg-image-focus);
     border-color: var(--dm-button-alt-border-color-focus);
     box-shadow: var(--dm-button-alt-box-shadow-focus);
-    outline-color: var(--dm-button-alt-outline-color-focus);
+    outline: var(--dm-button-alt-outline-focus);
 }
 .dark-mode .btn.alt-dm:focus:hover,
 .dark-mode .btn.alt-dm.active:hover {
@@ -5295,7 +5525,7 @@ Notes:
     background-image: var(--lm-button-link-bg-image-focus);
     border-color: var(--lm-button-link-border-color-focus);
     box-shadow: var(--lm-button-link-box-shadow-focus);
-    outline-color: var(--lm-button-link-outline-color-focus);
+    outline: var(--lm-button-link-outline-focus);
 }
 .btn.btn-link:focus:hover,
 .btn.btn-link.active:hover {
@@ -5330,7 +5560,7 @@ Notes:
     background-image: var(--dm-button-link-bg-image-focus);
     border-color: var(--dm-button-link-border-color-focus);
     box-shadow: var(--dm-button-link-box-shadow-focus);
-    outline-color: var(--dm-button-link-outline-color-focus);
+    outline: var(--dm-button-link-outline-focus);
 }
 .dark-mode .btn.btn-link:focus:hover,
 .dark-mode .btn.btn-link.active:hover {
@@ -5388,7 +5618,7 @@ Notes:
     background-image: var(--lm-button-primary-bg-image-focus);
     border-color: var(--lm-button-primary-border-color-focus);
     box-shadow: var(--lm-button-primary-box-shadow-focus);
-    outline-color: var(--lm-button-primary-outline-color-focus);
+    outline: var(--lm-button-primary-outline-focus);
 }
 .btn.btn-primary:focus:hover,
 .btn.btn-primary.active:hover {
@@ -5423,7 +5653,7 @@ Notes:
     background-image: var(--dm-button-primary-bg-image-focus);
     border-color: var(--dm-button-primary-border-color-focus);
     box-shadow: var(--dm-button-primary-box-shadow-focus);
-    outline-color: var(--dm-button-primary-outline-color-focus);
+    outline: var(--dm-button-primary-outline-focus);
 }
 .dark-mode .btn.btn-primary:focus:hover,
 .dark-mode .btn.btn-primary.active:hover {
@@ -5481,7 +5711,7 @@ Notes:
     background-image: var(--lm-button-success-bg-image-focus);
     border-color: var(--lm-button-success-border-color-focus);
     box-shadow: var(--lm-button-success-box-shadow-focus);
-    outline-color: var(--lm-button-success-outline-color-focus);
+    outline: var(--lm-button-success-outline-focus);
 }
 .btn.btn-success:focus:hover,
 .btn.btn-success.active:hover {
@@ -5516,7 +5746,7 @@ Notes:
     background-image: var(--dm-button-success-bg-image-focus);
     border-color: var(--dm-button-success-border-color-focus);
     box-shadow: var(--dm-button-success-box-shadow-focus);
-    outline-color: var(--dm-button-success-outline-color-focus);
+    outline: var(--dm-button-success-outline-focus);
 }
 .dark-mode .btn.btn-success:focus:hover,
 .dark-mode .btn.btn-success.active:hover {
@@ -5574,7 +5804,7 @@ Notes:
     background-image: var(--lm-button-secondary-bg-image-focus);
     border-color: var(--lm-button-secondary-border-color-focus);
     box-shadow: var(--lm-button-secondary-box-shadow-focus);
-    outline-color: var(--lm-button-secondary-outline-color-focus);
+    outline: var(--lm-button-secondary-outline-focus);
 }
 .btn.btn-secondary:focus:hover,
 .btn.btn-secondary.active:hover {
@@ -5609,7 +5839,7 @@ Notes:
     background-image: var(--dm-button-secondary-bg-image-focus);
     border-color: var(--dm-button-secondary-border-color-focus);
     box-shadow: var(--dm-button-secondary-box-shadow-focus);
-    outline-color: var(--dm-button-secondary-outline-color-focus);
+    outline: var(--dm-button-secondary-outline-focus);
 }
 .dark-mode .btn.btn-secondary:focus:hover,
 .dark-mode .btn.btn-secondary.active:hover {
@@ -5667,7 +5897,7 @@ Notes:
     background-image: var(--lm-button-danger-bg-image-focus);
     border-color: var(--lm-button-danger-border-color-focus);
     box-shadow: var(--lm-button-danger-box-shadow-focus);
-    outline-color: var(--lm-button-danger-outline-color-focus);
+    outline: var(--lm-button-danger-outline-focus);
 }
 .btn.btn-danger:focus:hover,
 .btn.btn-danger.active:hover {
@@ -5702,7 +5932,7 @@ Notes:
     background-image: var(--dm-button-danger-bg-image-focus);
     border-color: var(--dm-button-danger-border-color-focus);
     box-shadow: var(--dm-button-danger-box-shadow-focus);
-    outline-color: var(--dm-button-danger-outline-color-focus);
+    outline: var(--dm-button-danger-outline-focus);
 }
 .dark-mode .btn.btn-danger:focus:hover,
 .dark-mode .btn.btn-danger.active:hover {
@@ -8562,6 +8792,7 @@ select.form-control[multiple] > option:disabled {
 .dropdown-menu {
     position: absolute;
     visibility: hidden;
+    opacity: 0;
     z-index: 10;
     text-align: left;
     width: auto;
@@ -8583,18 +8814,38 @@ select.form-control[multiple] > option:disabled {
     box-shadow: var(--dm-dropdown-menu-box-shadow);
 }
 
-/* Arrows (::before for border, ::after for background) */
+/* Showing the dropdown menu (excluding positioning) */
 
-.dropdown.with-arrow.show .dropdown-menu::before,
-.dropdown.with-arrow.show .dropdown-menu::after,
-.dropdown.with-arrow.toggle-on-hover:hover .dropdown-menu::before,
-.dropdown.with-arrow.toggle-on-hover:hover .dropdown-menu::after {
+.dropdown.show .dropdown-menu,
+.dropdown.toggle-on-hover:hover .dropdown-menu {
+    visibility: visible;
+    opacity: 1;
+    transition: transform 0.1s, opacity 0.075s;
+}
+
+/* Dropdown arrow (::before for border, ::after for background) */
+
+.dropdown.with-arrow .dropdown-menu::before,
+.dropdown.with-arrow .dropdown-menu::after {
     content: " ";
     width: 0;
     height: 0;
     display: inline-block;
     position: absolute;
+    visibility: hidden;
+    opacity: 0;
     z-index: 10;
+}
+
+/* Showing the dropdown arrow (::before for border, ::after for background) */
+
+.dropdown.with-arrow.show .dropdown-menu::before,
+.dropdown.with-arrow.show .dropdown-menu::after,
+.dropdown.with-arrow.toggle-on-hover:hover .dropdown-menu::before,
+.dropdown.with-arrow.toggle-on-hover:hover .dropdown-menu::after {
+    visibility: visible;
+    opacity: 1;
+    transition: opacity 0.075s;
 }
 
 /* Dropdown content */
@@ -8629,6 +8880,14 @@ select.form-control[multiple] > option:disabled {
     color: var(--lm-dropdown-item-text-color-hover);
     background-color: var(--lm-dropdown-item-bg-color-hover);
 }
+.dropdown-item:focus-visible {
+    box-shadow: var(--lm-dropdown-item-box-shadow-focus-visible);
+    outline: var(--lm-dropdown-item-outline-focus-visible);
+}
+.dropdown-item.focus-visible {
+    box-shadow: var(--lm-dropdown-item-box-shadow-focus-visible);
+    outline: var(--lm-dropdown-item-outline-focus-visible);
+}
 .dark-mode .dropdown-item {
     color: var(--dm-dropdown-item-text-color);
     background-color: var(--dm-dropdown-item-bg-color);
@@ -8636,6 +8895,14 @@ select.form-control[multiple] > option:disabled {
 .dark-mode .dropdown-item:hover {
     color: var(--dm-dropdown-item-text-color-hover);
     background-color: var(--dm-dropdown-item-bg-color-hover);
+}
+.dark-mode .dropdown-item:focus-visible {
+    box-shadow: var(--dm-dropdown-item-box-shadow-focus-visible);
+    outline: var(--dm-dropdown-item-outline-focus-visible);
+}
+.dark-mode .dropdown-item.focus-visible {
+    box-shadow: var(--dm-dropdown-item-box-shadow-focus-visible);
+    outline: var(--dm-dropdown-item-outline-focus-visible);
 }
 
 /* Dropdown header */
@@ -8653,309 +8920,303 @@ select.form-control[multiple] > option:disabled {
 
 /* Normal dropdown */
 
-.dropdown:not(.dropup):not(.dropright):not(.dropleft) .dropdown-menu {
-    bottom: 50%;
-    transform: translateY(50%);
-}
-.dropdown:not(.dropup):not(.dropright):not(.dropleft) .dropdown-menu:not(.dropdown-menu-center):not(.dropdown-menu-right) {
-    left: 0;
-}
-.dropdown:not(.dropup):not(.dropright):not(.dropleft) .dropdown-menu.dropdown-menu-center {
-    left: 50%;
-    transform: translate(-50%, 50%);
-}
-.dropdown:not(.dropup):not(.dropright):not(.dropleft) .dropdown-menu.dropdown-menu-right {
-    right: 0;
-}
-.dropdown:not(.dropup):not(.dropright):not(.dropleft).show .dropdown-menu,
-.dropdown:not(.dropup):not(.dropright):not(.dropleft).toggle-on-hover:hover .dropdown-menu {
+.dropdown .dropdown-menu {
+    top: unset;
+    right: unset;
     bottom: 0;
-    transform: translateY(100%);
-    visibility: visible;
-    transition: bottom 0.1s, transform 0.1s, visibility 0.1s;
+    left: 0;
+    transform: translateY(100%) scale(var(--dropdown-menu-scale-before));
 }
-.dropdown:not(.dropup):not(.dropright):not(.dropleft).show .dropdown-menu.dropdown-menu-center,
-.dropdown:not(.dropup):not(.dropright):not(.dropleft).toggle-on-hover:hover .dropdown-menu.dropdown-menu-center {
-    transform: translate(-50%, 100%);
+.dropdown.show .dropdown-menu,
+.dropdown.toggle-on-hover:hover .dropdown-menu {
+    transform: translateY(100%) scale(1);
+}
+.dropdown .dropdown-menu-center {
+    top: unset;
+    right: unset;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 100%) scale(var(--dropdown-menu-scale-before));
+}
+.dropdown.show .dropdown-menu-center,
+.dropdown.toggle-on-hover:hover .dropdown-menu-center {
+    transform: translate(-50%, 100%) scale(1);
+}
+.dropdown .dropdown-menu-right {
+    top: unset;
+    right: 0;
+    bottom: 0;
+    left: unset;
+    transform: translateY(100%) scale(var(--dropdown-menu-scale-before));
+}
+.dropdown.show .dropdown-menu-right,
+.dropdown.toggle-on-hover:hover .dropdown-menu-right {
+    transform: translateY(100%) scale(1);
 }
 
-/* Normal dropdown arrows (::before for border, ::after for background) */
+/* Dropup */
 
-.dropdown:not(.dropup):not(.dropright):not(.dropleft).with-arrow.toggle-on-hover:hover .dropdown-menu,
-.dropdown:not(.dropup):not(.dropright):not(.dropleft).with-arrow.show .dropdown-menu {
+.dropup .dropdown-menu {
+    top: 0;
+    right: unset;
+    bottom: unset;
+    left: 0;
+    transform: translateY(-100%) scale(var(--dropdown-menu-scale-before));
+}
+.dropup.show .dropdown-menu,
+.dropup.toggle-on-hover:hover .dropdown-menu {
+    transform: translateY(-100%) scale(1);
+}
+.dropup .dropdown-menu-center {
+    top: 0;
+    right: unset;
+    bottom: unset;
+    left: 50%;
+    transform: translate(-50%, -100%) scale(var(--dropdown-menu-scale-before));
+}
+.dropup.show .dropdown-menu-center,
+.dropup.toggle-on-hover:hover .dropdown-menu-center {
+    transform: translate(-50%, -100%) scale(1);
+}
+.dropup .dropdown-menu-right {
+    top: 0;
+    right: 0;
+    bottom: unset;
+    left: unset;
+    transform: translateY(-100%) scale(var(--dropdown-menu-scale-before));
+}
+.dropup.show .dropdown-menu-right,
+.dropup.toggle-on-hover:hover .dropdown-menu-right {
+    transform: translateY(-100%) scale(1);
+}
+
+/* Dropright */
+
+.dropright .dropdown-menu {
+    top: 0;
+    right: 0;
+    bottom: unset;
+    left: unset;
+    transform: translateX(100%) scale(var(--dropdown-menu-scale-before));
+}
+.dropright.show .dropdown-menu,
+.dropright.toggle-on-hover:hover .dropdown-menu {
+    transform: translateX(100%) scale(1);
+}
+.dropright .dropdown-menu-center {
+    top: 50%;
+    right: 0;
+    bottom: unset;
+    left: unset;
+    transform: translate(100%, -50%) scale(var(--dropdown-menu-scale-before));
+}
+.dropright.show .dropdown-menu-center,
+.dropright.toggle-on-hover:hover .dropdown-menu-center {
+    transform: translate(100%, -50%) scale(1);
+}
+.dropright .dropdown-menu-up {
+    top: unset;
+    right: 0;
+    bottom: 0;
+    left: unset;
+    transform: translateX(100%) scale(var(--dropdown-menu-scale-before));
+}
+.dropright.show .dropdown-menu-up,
+.dropright.toggle-on-hover:hover .dropdown-menu-up {
+    transform: translateX(100%) scale(1);
+}
+
+/* Dropleft */
+
+.dropleft .dropdown-menu {
+    top: 0;
+    right: unset;
+    bottom: unset;
+    left: 0;
+    transform: translateX(-100%) scale(var(--dropdown-menu-scale-before));
+}
+.dropleft.show .dropdown-menu,
+.dropleft.toggle-on-hover:hover .dropdown-menu {
+    transform: translateX(-100%) scale(1);
+}
+.dropleft .dropdown-menu-center {
+    top: 50%;
+    right: unset;
+    bottom: unset;
+    left: 0;
+    transform: translate(-100%, -50%) scale(var(--dropdown-menu-scale-before));
+}
+.dropleft.show .dropdown-menu-center,
+.dropleft.toggle-on-hover:hover .dropdown-menu-center {
+    transform: translate(-100%, -50%) scale(1);
+}
+.dropleft .dropdown-menu-up {
+    top: unset;
+    right: unset;
+    bottom: 0;
+    left: 0;
+    transform: translateX(-100%) scale(var(--dropdown-menu-scale-before));
+}
+.dropleft.show .dropdown-menu-up,
+.dropleft.toggle-on-hover:hover .dropdown-menu-up {
+    transform: translateX(-100%) scale(1);
+}
+
+/* Dropdowns with arrow */
+
+/* Normal dropdown arrow (::before for border, ::after for background) */
+
+.dropdown:not(.dropup):not(.dropright):not(.dropleft).with-arrow .dropdown-menu {
     bottom: var(--dropdown-arrow-size-negative);
 }
-.dropdown:not(.dropup):not(.dropright):not(.dropleft).with-arrow.toggle-on-hover:hover .dropdown-menu::before,
-.dropdown:not(.dropup):not(.dropright):not(.dropleft).with-arrow.toggle-on-hover:hover .dropdown-menu::after,
-.dropdown:not(.dropup):not(.dropright):not(.dropleft).with-arrow.show .dropdown-menu::before,
-.dropdown:not(.dropup):not(.dropright):not(.dropleft).with-arrow.show .dropdown-menu::after {
+.dropdown:not(.dropup):not(.dropright):not(.dropleft).with-arrow .dropdown-menu::before,
+.dropdown:not(.dropup):not(.dropright):not(.dropleft).with-arrow .dropdown-menu::after {
     border-left: var(--dropdown-arrow-size) solid transparent;
     border-right: var(--dropdown-arrow-size) solid transparent;
     border-bottom: var(--dropdown-arrow-size) solid var(--lm-dropdown-menu-border-color);
     top: var(--dropdown-arrow-size-negative);
 }
-.dark-mode .dropdown:not(.dropup):not(.dropright):not(.dropleft).with-arrow.toggle-on-hover:hover .dropdown-menu::before,
-.dark-mode .dropdown:not(.dropup):not(.dropright):not(.dropleft).with-arrow.toggle-on-hover:hover .dropdown-menu::after,
-.dark-mode .dropdown:not(.dropup):not(.dropright):not(.dropleft).with-arrow.show .dropdown-menu::before,
-.dark-mode .dropdown:not(.dropup):not(.dropright):not(.dropleft).with-arrow.show .dropdown-menu::after {
+.dark-mode .dropdown:not(.dropup):not(.dropright):not(.dropleft).with-arrow .dropdown-menu::before,
+.dark-mode .dropdown:not(.dropup):not(.dropright):not(.dropleft).with-arrow .dropdown-menu::after {
     border-bottom-color: var(--dm-dropdown-menu-border-color);
 }
-.dropdown:not(.dropup):not(.dropright):not(.dropleft).with-arrow.toggle-on-hover:hover .dropdown-menu::after,
-.dropdown:not(.dropup):not(.dropright):not(.dropleft).with-arrow.show .dropdown-menu::after {
+.dropdown:not(.dropup):not(.dropright):not(.dropleft).with-arrow .dropdown-menu::after {
     border-bottom-color: var(--lm-dropdown-menu-bg-color);
     top: var(--dropdown-arrow-inner-spacing);
 }
-.dark-mode .dropdown:not(.dropup):not(.dropright):not(.dropleft).with-arrow.toggle-on-hover:hover .dropdown-menu::after,
-.dark-mode .dropdown:not(.dropup):not(.dropright):not(.dropleft).with-arrow.show .dropdown-menu::after {
+.dark-mode .dropdown:not(.dropup):not(.dropright):not(.dropleft).with-arrow .dropdown-menu::after {
     border-bottom-color: var(--dm-dropdown-menu-bg-color);
 }
-.dropdown:not(.dropup):not(.dropright):not(.dropleft).with-arrow.toggle-on-hover:hover .dropdown-menu:not(.dropdown-menu-center):not(.dropdown-menu-right)::before,
-.dropdown:not(.dropup):not(.dropright):not(.dropleft).with-arrow.toggle-on-hover:hover .dropdown-menu:not(.dropdown-menu-center):not(.dropdown-menu-right)::after,
-.dropdown:not(.dropup):not(.dropright):not(.dropleft).with-arrow.show .dropdown-menu:not(.dropdown-menu-center):not(.dropdown-menu-right)::before,
-.dropdown:not(.dropup):not(.dropright):not(.dropleft).with-arrow.show .dropdown-menu:not(.dropdown-menu-center):not(.dropdown-menu-right)::after {
+.dropdown:not(.dropup):not(.dropright):not(.dropleft).with-arrow .dropdown-menu::before,
+.dropdown:not(.dropup):not(.dropright):not(.dropleft).with-arrow .dropdown-menu::after {
     left: var(--dropdown-arrow-horizontal-spacing);
+    right: unset;
 }
-.dropdown:not(.dropup):not(.dropright):not(.dropleft).with-arrow.toggle-on-hover:hover .dropdown-menu.dropdown-menu-center::before,
-.dropdown:not(.dropup):not(.dropright):not(.dropleft).with-arrow.toggle-on-hover:hover .dropdown-menu.dropdown-menu-center::after,
-.dropdown:not(.dropup):not(.dropright):not(.dropleft).with-arrow.show .dropdown-menu.dropdown-menu-center::before,
-.dropdown:not(.dropup):not(.dropright):not(.dropleft).with-arrow.show .dropdown-menu.dropdown-menu-center::after {
+.dropdown:not(.dropup):not(.dropright):not(.dropleft).with-arrow .dropdown-menu-center::before,
+.dropdown:not(.dropup):not(.dropright):not(.dropleft).with-arrow .dropdown-menu-center::after {
     left: calc(50% - var(--dropdown-arrow-size));
+    right: unset;
 }
-.dropdown:not(.dropup):not(.dropright):not(.dropleft).with-arrow.toggle-on-hover:hover .dropdown-menu.dropdown-menu-right::before,
-.dropdown:not(.dropup):not(.dropright):not(.dropleft).with-arrow.toggle-on-hover:hover .dropdown-menu.dropdown-menu-right::after,
-.dropdown:not(.dropup):not(.dropright):not(.dropleft).with-arrow.show .dropdown-menu.dropdown-menu-right::before,
-.dropdown:not(.dropup):not(.dropright):not(.dropleft).with-arrow.show .dropdown-menu.dropdown-menu-right::after {
+.dropdown:not(.dropup):not(.dropright):not(.dropleft).with-arrow .dropdown-menu-right::before,
+.dropdown:not(.dropup):not(.dropright):not(.dropleft).with-arrow .dropdown-menu-right::after {
+    left: unset;
     right: var(--dropdown-arrow-horizontal-spacing);
 }
 
-/* Dropup */
+/* Dropup arrow (::before for border, ::after for background) */
 
-.dropdown.dropup .dropdown-menu {
-    top: 50%;
-    transform: translateY(-50%);
-}
-.dropdown.dropup .dropdown-menu:not(.dropdown-menu-center):not(.dropdown-menu-right) {
-    left: 0;
-}
-.dropdown.dropup .dropdown-menu.dropdown-menu-center {
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-.dropdown.dropup .dropdown-menu.dropdown-menu-right {
-    right: 0;
-}
-.dropdown.dropup.show .dropdown-menu,
-.dropdown.dropup.toggle-on-hover:hover .dropdown-menu {
-    top: 0;
-    transform: translateY(-100%);
-    visibility: visible;
-    transition: top 0.1s, transform 0.1s, visibility 0.1s;
-}
-.dropdown.dropup.show .dropdown-menu.dropdown-menu-center,
-.dropdown.dropup.toggle-on-hover:hover .dropdown-menu.dropdown-menu-center {
-    transform: translate(-50%, -100%);
-}
-
-/* Dropup arrows (::before for border, ::after for background) */
-
-.dropdown.dropup.with-arrow.toggle-on-hover:hover .dropdown-menu,
-.dropdown.dropup.with-arrow.show .dropdown-menu {
+.dropup.with-arrow .dropdown-menu {
     top: var(--dropdown-arrow-size-negative);
 }
-.dropdown.dropup.with-arrow.toggle-on-hover:hover .dropdown-menu::before,
-.dropdown.dropup.with-arrow.toggle-on-hover:hover .dropdown-menu::after,
-.dropdown.dropup.with-arrow.show .dropdown-menu::before,
-.dropdown.dropup.with-arrow.show .dropdown-menu::after {
+.dropup.with-arrow .dropdown-menu::before,
+.dropup.with-arrow .dropdown-menu::after {
     border-left: var(--dropdown-arrow-size) solid transparent;
     border-right: var(--dropdown-arrow-size) solid transparent;
     border-top: var(--dropdown-arrow-size) solid var(--lm-dropdown-menu-border-color);
     bottom: var(--dropdown-arrow-size-negative);
 }
-.dark-mode .dropdown.dropup.with-arrow.toggle-on-hover:hover .dropdown-menu::before,
-.dark-mode .dropdown.dropup.with-arrow.toggle-on-hover:hover .dropdown-menu::after,
-.dark-mode .dropdown.dropup.with-arrow.show .dropdown-menu::before,
-.dark-mode .dropdown.dropup.with-arrow.show .dropdown-menu::after {
+.dark-mode .dropup.with-arrow .dropdown-menu::before,
+.dark-mode .dropup.with-arrow .dropdown-menu::after {
     border-top-color: var(--dm-dropdown-menu-border-color);
 }
-.dropdown.dropup.with-arrow.toggle-on-hover:hover .dropdown-menu::after,
-.dropdown.dropup.with-arrow.show .dropdown-menu::after {
+.dropup.with-arrow .dropdown-menu::after {
     border-top-color: var(--lm-dropdown-menu-bg-color);
     bottom: var(--dropdown-arrow-inner-spacing);
 }
-.dark-mode .dropdown.dropup.with-arrow.toggle-on-hover:hover .dropdown-menu::after,
-.dark-mode .dropdown.dropup.with-arrow.show .dropdown-menu::after {
+.dark-mode .dropup.with-arrow .dropdown-menu::after {
     border-top-color: var(--dm-dropdown-menu-bg-color);
 }
-.dropdown.dropup.with-arrow.toggle-on-hover:hover .dropdown-menu:not(.dropdown-menu-center):not(.dropdown-menu-right)::before,
-.dropdown.dropup.with-arrow.toggle-on-hover:hover .dropdown-menu:not(.dropdown-menu-center):not(.dropdown-menu-right)::after,
-.dropdown.dropup.with-arrow.show .dropdown-menu:not(.dropdown-menu-center):not(.dropdown-menu-right)::before,
-.dropdown.dropup.with-arrow.show .dropdown-menu:not(.dropdown-menu-center):not(.dropdown-menu-right)::after {
+.dropup.with-arrow .dropdown-menu::before,
+.dropup.with-arrow .dropdown-menu::after {
     left: var(--dropdown-arrow-horizontal-spacing);
+    right: unset;
 }
-.dropdown.dropup.with-arrow.toggle-on-hover:hover .dropdown-menu.dropdown-menu-center::before,
-.dropdown.dropup.with-arrow.toggle-on-hover:hover .dropdown-menu.dropdown-menu-center::after,
-.dropdown.dropup.with-arrow.show .dropdown-menu.dropdown-menu-center::before,
-.dropdown.dropup.with-arrow.show .dropdown-menu.dropdown-menu-center::after {
+.dropup.with-arrow .dropdown-menu-center::before,
+.dropup.with-arrow .dropdown-menu-center::after {
     left: calc(50% - var(--dropdown-arrow-size));
+    right: unset;
 }
-.dropdown.dropup.with-arrow.toggle-on-hover:hover .dropdown-menu.dropdown-menu-right::before,
-.dropdown.dropup.with-arrow.toggle-on-hover:hover .dropdown-menu.dropdown-menu-right::after,
-.dropdown.dropup.with-arrow.show .dropdown-menu.dropdown-menu-right::before,
-.dropdown.dropup.with-arrow.show .dropdown-menu.dropdown-menu-right::after {
+.dropup.with-arrow .dropdown-menu-right::before,
+.dropup.with-arrow .dropdown-menu-right::after {
+    left: unset;
     right: var(--dropdown-arrow-horizontal-spacing);
 }
 
-/* Dropright */
+/* Dropright arrow (::before for border, ::after for background) */
 
-.dropdown.dropright .dropdown-menu {
-    right: 50%;
-    transform: translateX(50%);
-}
-.dropdown.dropright .dropdown-menu:not(.dropdown-menu-center):not(.dropdown-menu-up) {
-    top: 0;
-}
-.dropdown.dropright .dropdown-menu.dropdown-menu-center {
-    top: 50%;
-    transform: translate(50%, -50%);
-}
-.dropdown.dropright .dropdown-menu.dropdown-menu-up {
-    bottom: 0;
-}
-.dropdown.dropright.show .dropdown-menu,
-.dropdown.dropright.toggle-on-hover:hover .dropdown-menu {
-    right: 0;
-    transform: translateX(100%);
-    visibility: visible;
-    transition: right 0.1s, transform 0.1s, visibility 0.1s;
-}
-.dropdown.dropright.show .dropdown-menu.dropdown-menu-center,
-.dropdown.dropright.toggle-on-hover:hover .dropdown-menu.dropdown-menu-center {
-    transform: translate(100%, -50%);
-}
-
-/* Dropright arrows (::before for border, ::after for background) */
-
-.dropdown.dropright.with-arrow.toggle-on-hover:hover .dropdown-menu,
-.dropdown.dropright.with-arrow.show .dropdown-menu {
+.dropright.with-arrow .dropdown-menu {
     right: var(--dropdown-arrow-size-negative);
 }
-.dropdown.dropright.with-arrow.toggle-on-hover:hover .dropdown-menu::before,
-.dropdown.dropright.with-arrow.toggle-on-hover:hover .dropdown-menu::after,
-.dropdown.dropright.with-arrow.show .dropdown-menu::before,
-.dropdown.dropright.with-arrow.show .dropdown-menu::after {
+.dropright.with-arrow .dropdown-menu::before,
+.dropright.with-arrow .dropdown-menu::after {
     border-top: var(--dropdown-arrow-size) solid transparent;
     border-bottom: var(--dropdown-arrow-size) solid transparent;
     border-right: var(--dropdown-arrow-size) solid var(--lm-dropdown-menu-border-color);
     left: var(--dropdown-arrow-size-negative);
 }
-.dark-mode .dropdown.dropright.with-arrow.toggle-on-hover:hover .dropdown-menu::before,
-.dark-mode .dropdown.dropright.with-arrow.toggle-on-hover:hover .dropdown-menu::after,
-.dark-mode .dropdown.dropright.with-arrow.show .dropdown-menu::before,
-.dark-mode .dropdown.dropright.with-arrow.show .dropdown-menu::after {
+.dark-mode .dropright.with-arrow .dropdown-menu::before,
+.dark-mode .dropright.with-arrow .dropdown-menu::after {
     border-right-color: var(--dm-dropdown-menu-border-color);
 }
-.dropdown.dropright.with-arrow.toggle-on-hover:hover .dropdown-menu::after,
-.dropdown.dropright.with-arrow.show .dropdown-menu::after {
+.dropright.with-arrow .dropdown-menu::after {
     border-right-color: var(--lm-dropdown-menu-bg-color);
     left: var(--dropdown-arrow-inner-spacing);
 }
-.dark-mode .dropdown.dropright.with-arrow.toggle-on-hover:hover .dropdown-menu::after,
-.dark-mode .dropdown.dropright.with-arrow.show .dropdown-menu::after {
+.dark-mode .dropright.with-arrow .dropdown-menu::after {
     border-right-color: var(--dm-dropdown-menu-bg-color);
 }
-.dropdown.dropright.with-arrow.toggle-on-hover:hover .dropdown-menu:not(.dropdown-menu-center):not(.dropdown-menu-up)::before,
-.dropdown.dropright.with-arrow.toggle-on-hover:hover .dropdown-menu:not(.dropdown-menu-center):not(.dropdown-menu-up)::after,
-.dropdown.dropright.with-arrow.show .dropdown-menu:not(.dropdown-menu-center):not(.dropdown-menu-up)::before,
-.dropdown.dropright.with-arrow.show .dropdown-menu:not(.dropdown-menu-center):not(.dropdown-menu-up)::after {
+.dropright.with-arrow .dropdown-menu::before,
+.dropright.with-arrow .dropdown-menu::after {
     top: var(--dropdown-arrow-horizontal-spacing);
+    bottom: unset;
 }
-.dropdown.dropright.with-arrow.toggle-on-hover:hover .dropdown-menu.dropdown-menu-center::before,
-.dropdown.dropright.with-arrow.toggle-on-hover:hover .dropdown-menu.dropdown-menu-center::after,
-.dropdown.dropright.with-arrow.show .dropdown-menu.dropdown-menu-center::before,
-.dropdown.dropright.with-arrow.show .dropdown-menu.dropdown-menu-center::after {
+.dropright.with-arrow .dropdown-menu-center::before,
+.dropright.with-arrow .dropdown-menu-center::after {
     top: calc(50% - var(--dropdown-arrow-size));
+    bottom: unset;
 }
-.dropdown.dropright.with-arrow.toggle-on-hover:hover .dropdown-menu.dropdown-menu-up::before,
-.dropdown.dropright.with-arrow.toggle-on-hover:hover .dropdown-menu.dropdown-menu-up::after,
-.dropdown.dropright.with-arrow.show .dropdown-menu.dropdown-menu-up::before,
-.dropdown.dropright.with-arrow.show .dropdown-menu.dropdown-menu-up::after {
+.dropright.with-arrow .dropdown-menu-up::before,
+.dropright.with-arrow .dropdown-menu-up::after {
+    top: unset;
     bottom: var(--dropdown-arrow-horizontal-spacing);
 }
 
-/* Dropleft */
+/* Dropleft arrow (::before for border, ::after for background) */
 
-.dropdown.dropleft .dropdown-menu {
-    left: 50%;
-    transform: translateX(-50%);
-}
-.dropdown.dropleft .dropdown-menu:not(.dropdown-menu-center):not(.dropdown-menu-up) {
-    top: 0;
-}
-.dropdown.dropleft .dropdown-menu.dropdown-menu-center {
-    top: 50%;
-    transform: translate(-50%, -50%);
-}
-.dropdown.dropleft .dropdown-menu.dropdown-menu-up {
-    bottom: 0;
-}
-.dropdown.dropleft.show .dropdown-menu,
-.dropdown.dropleft.toggle-on-hover:hover .dropdown-menu {
-    left: 0;
-    transform: translateX(-100%);
-    visibility: visible;
-    transition: left 0.1s, transform 0.1s, visibility 0.1s;
-}
-.dropdown.dropleft.show .dropdown-menu.dropdown-menu-center,
-.dropdown.dropleft.toggle-on-hover:hover .dropdown-menu.dropdown-menu-center {
-    transform: translate(-100%, -50%);
-}
-
-/* Dropleft arrows (::before for border, ::after for background) */
-
-.dropdown.dropleft.with-arrow.toggle-on-hover:hover .dropdown-menu,
-.dropdown.dropleft.with-arrow.show .dropdown-menu {
+.dropleft.with-arrow .dropdown-menu {
     left: var(--dropdown-arrow-size-negative);
 }
-.dropdown.dropleft.with-arrow.toggle-on-hover:hover .dropdown-menu::before,
-.dropdown.dropleft.with-arrow.toggle-on-hover:hover .dropdown-menu::after,
-.dropdown.dropleft.with-arrow.show .dropdown-menu::before,
-.dropdown.dropleft.with-arrow.show .dropdown-menu::after {
+.dropleft.with-arrow .dropdown-menu::before,
+.dropleft.with-arrow .dropdown-menu::after {
     border-top: var(--dropdown-arrow-size) solid transparent;
     border-bottom: var(--dropdown-arrow-size) solid transparent;
     border-left: var(--dropdown-arrow-size) solid var(--lm-dropdown-menu-border-color);
     right: var(--dropdown-arrow-size-negative);
 }
-.dark-mode .dropdown.dropleft.with-arrow.toggle-on-hover:hover .dropdown-menu::before,
-.dark-mode .dropdown.dropleft.with-arrow.toggle-on-hover:hover .dropdown-menu::after,
-.dark-mode .dropdown.dropleft.with-arrow.show .dropdown-menu::before,
-.dark-mode .dropdown.dropleft.with-arrow.show .dropdown-menu::after {
+.dark-mode .dropleft.with-arrow .dropdown-menu::before,
+.dark-mode .dropleft.with-arrow .dropdown-menu::after {
     border-left-color: var(--dm-dropdown-menu-border-color);
 }
-.dropdown.dropleft.with-arrow.toggle-on-hover:hover .dropdown-menu::after,
-.dropdown.dropleft.with-arrow.show .dropdown-menu::after {
+.dropleft.with-arrow .dropdown-menu::after {
     border-left-color: var(--lm-dropdown-menu-bg-color);
     right: var(--dropdown-arrow-inner-spacing);
 }
-.dark-mode .dropdown.dropleft.with-arrow.toggle-on-hover:hover .dropdown-menu::after,
-.dark-mode .dropdown.dropleft.with-arrow.show .dropdown-menu::after {
+.dark-mode .dropleft.with-arrow .dropdown-menu::after {
     border-left-color: var(--dm-dropdown-menu-bg-color);
 }
-.dropdown.dropleft.with-arrow.toggle-on-hover:hover .dropdown-menu:not(.dropdown-menu-center):not(.dropdown-menu-up)::before,
-.dropdown.dropleft.with-arrow.toggle-on-hover:hover .dropdown-menu:not(.dropdown-menu-center):not(.dropdown-menu-up)::after,
-.dropdown.dropleft.with-arrow.show .dropdown-menu:not(.dropdown-menu-center):not(.dropdown-menu-up)::before,
-.dropdown.dropleft.with-arrow.show .dropdown-menu:not(.dropdown-menu-center):not(.dropdown-menu-up)::after {
+.dropleft.with-arrow .dropdown-menu::before,
+.dropleft.with-arrow .dropdown-menu::after {
     top: var(--dropdown-arrow-horizontal-spacing);
+    bottom: unset;
 }
-.dropdown.dropleft.with-arrow.toggle-on-hover:hover .dropdown-menu.dropdown-menu-center::before,
-.dropdown.dropleft.with-arrow.toggle-on-hover:hover .dropdown-menu.dropdown-menu-center::after,
-.dropdown.dropleft.with-arrow.show .dropdown-menu.dropdown-menu-center::before,
-.dropdown.dropleft.with-arrow.show .dropdown-menu.dropdown-menu-center::after {
+.dropleft.with-arrow .dropdown-menu-center::before,
+.dropleft.with-arrow .dropdown-menu-center::after {
     top: calc(50% - var(--dropdown-arrow-size));
+    bottom: unset;
 }
-.dropdown.dropleft.with-arrow.toggle-on-hover:hover .dropdown-menu.dropdown-menu-up::before,
-.dropdown.dropleft.with-arrow.toggle-on-hover:hover .dropdown-menu.dropdown-menu-up::after,
-.dropdown.dropleft.with-arrow.show .dropdown-menu.dropdown-menu-up::before,
-.dropdown.dropleft.with-arrow.show .dropdown-menu.dropdown-menu-up::after {
+.dropleft.with-arrow .dropdown-menu-up::before,
+.dropleft.with-arrow .dropdown-menu-up::after {
+    top: unset;
     bottom: var(--dropdown-arrow-horizontal-spacing);
 }
 
@@ -9058,6 +9319,9 @@ select.form-control[multiple] > option:disabled {
         padding: var(--modal-full-content-padding-xs);
     }
 }
+
+/* Modal close */
+
 .modal-content .close {
     display: flex;
     align-items: center;
@@ -9068,35 +9332,73 @@ select.form-control[multiple] > option:disabled {
     left: 1rem;
     z-index: 10;
     padding: 0;
-    transition: all .4s cubic-bezier(.25, .8, .25, 1);
+    transition: top .4s cubic-bezier(.25, .8, .25, 1);
     font-size: var(--modal-close-font-size);
     width: var(--modal-close-width-height);
     height: var(--modal-close-width-height);
     color: var(--lm-modal-close-text-color);
     background-color: var(--lm-modal-close-bg-color);
+    background-image: var(--lm-modal-close-bg-image);
+    border: var(--modal-close-border-width) solid;
+    border-color: var(--lm-modal-close-border-color);
     border-radius: var(--modal-close-border-radius);
-    border-color: transparent;
+    box-shadow: var(--lm-modal-close-box-shadow);
 }
 .modal-content .close:hover {
     text-decoration: none; /* Link reset */
     color: var(--lm-modal-close-text-color-hover);
     background-color: var(--lm-modal-close-bg-color-hover);
+    background-image: var(--lm-modal-close-bg-image-hover);
+    border-color: var(--lm-modal-close-border-color-hover);
+    box-shadow: var(--lm-modal-close-box-shadow-hover);
+}
+.modal-content .close:focus {
+    color: var(--lm-modal-close-text-color-focus);
+    background-color: var(--lm-modal-close-bg-color-focus);
+    background-image: var(--lm-modal-close-bg-image-focus);
+    border-color: var(--lm-modal-close-border-color-focus);
+    box-shadow: var(--lm-modal-close-box-shadow-focus);
+    outline: var(--lm-modal-close-outline-focus);
+}
+.modal-content .close:focus:hover {
+    /*
+    Only text color and background properties are overridden, while the border 
+    color, box shadow, and the outline of the focus selector is kept.
+    */
+    color: var(--lm-modal-close-text-color-hover);
+    background-color: var(--lm-modal-close-bg-color-hover);
+    background-image: var(--lm-modal-close-bg-image-hover);
 }
 .dark-mode .modal-content .close {
     color: var(--dm-modal-close-text-color);
     background-color: var(--dm-modal-close-bg-color);
+    background-image: var(--dm-modal-close-bg-image);
+    border-color: var(--dm-modal-close-border-color);
+    box-shadow: var(--dm-modal-close-box-shadow);
 }
 .dark-mode .modal-content .close:hover {
     color: var(--dm-modal-close-text-color-hover);
     background-color: var(--dm-modal-close-bg-color-hover);
-}
-.modal-content .close:focus {
-    transition: none;
-    outline: var(--modal-close-outline-width) var(--modal-close-outline-type) var(--lm-modal-close-outline-color-focus);
-    outline-offset: var(--modal-close-outline-offset);
+    background-image: var(--dm-modal-close-bg-image-hover);
+    border-color: var(--dm-modal-close-border-color-hover);
+    box-shadow: var(--dm-modal-close-box-shadow-hover);
 }
 .dark-mode .modal-content .close:focus {
-    outline-color: var(--dm-modal-close-outline-color-focus);
+    color: var(--dm-modal-close-text-color-focus);
+    background-color: var(--dm-modal-close-bg-color-focus);
+    background-image: var(--dm-modal-close-bg-image-focus);
+    border-color: var(--dm-modal-close-border-color-focus);
+    box-shadow: var(--dm-modal-close-box-shadow-focus);
+    outline: var(--dm-modal-close-outline-focus);
+}
+.dark-mode .modal-content .close:focus:hover {
+    /*
+    Only text color and background properties are overridden, while the border 
+    color, box shadow, and the outline of the focus selector is kept.
+    */
+    color: var(--dm-modal-close-text-color-hover);
+    background-color: var(--dm-modal-close-bg-color-hover);
+    background-image: var(--dm-modal-close-bg-image-hover);
 }
 
 /* Showing modals */
@@ -9143,6 +9445,12 @@ select.form-control[multiple] > option:disabled {
     background-image: var(--dm-alert-bg-image);
     border-color: var(--dm-alert-border-color);
 }
+.alert.dispose {
+    display: none;
+}
+
+/* Alert heading */
+
 .alert-heading,
 .dark-mode .alert-heading {
     color: inherit;
@@ -9150,6 +9458,9 @@ select.form-control[multiple] > option:disabled {
     font-weight: var(--alert-heading-font-weight);
     margin: var(--alert-heading-margin);
 }
+
+/* Alert link */
+
 .alert-link,
 .dark-mode .alert-link {
     cursor: pointer;
@@ -9161,36 +9472,90 @@ select.form-control[multiple] > option:disabled {
     color: inherit;
     opacity: 0.75;
 }
-.alert-link:focus,
-.dark-mode .alert-link:focus {
+.alert-link:focus-visible,
+.dark-mode .alert-link:focus-visible {
     outline: 1px solid currentColor;
     outline-offset: 1px;
 }
-.alert-link:active,
-.dark-mode .alert-link:active {
-    outline: none;
+.alert-link.focus-visible,
+.dark-mode .alert-link.focus-visible {
+    outline: 1px solid currentColor;
+    outline-offset: 1px;
 }
+
+/* Alert close */
+
 .alert .close {
     position: absolute;
     top: 0;
     right: 0;
     cursor: pointer;
-    color: inherit;
     padding: var(--alert-close-padding);
     line-height: var(--alert-close-line-height);
     font-size: var(--alert-close-font-size);
-    background-color: transparent;
-    border-color: transparent;
+    color: var(--lm-alert-close-text-color);
+    background-color: var(--lm-alert-close-bg-color);
+    background-image: var(--lm-alert-close-bg-image);
+    border: var(--alert-close-border-width) solid;
+    border-color: var(--lm-alert-close-border-color);
+    border-radius: var(--alert-close-border-radius);
+    box-shadow: var(--lm-alert-close-box-shadow);
+}
+.alert .close:hover {
+    text-decoration: none; /* Link reset */
+    color: var(--lm-alert-close-text-color-hover);
+    background-color: var(--lm-alert-close-bg-color-hover);
+    background-image: var(--lm-alert-close-bg-image-hover);
+    border-color: var(--lm-alert-close-border-color-hover);
+    box-shadow: var(--lm-alert-close-box-shadow-hover);
 }
 .alert .close:focus {
-    outline: var(--alert-close-outline-width) var(--alert-close-outline-type) var(--lm-alert-close-outline-color-focus);
-    outline-offset: var(--alert-close-outline-offset);
+    color: var(--lm-alert-close-text-color-focus);
+    background-color: var(--lm-alert-close-bg-color-focus);
+    background-image: var(--lm-alert-close-bg-image-focus);
+    border-color: var(--lm-alert-close-border-color-focus);
+    box-shadow: var(--lm-alert-close-box-shadow-focus);
+    outline: var(--lm-alert-close-outline-focus);
+}
+.alert .close:focus:hover {
+    /*
+    Only text color and background properties are overridden, while the border 
+    color, box shadow, and the outline of the focus selector is kept.
+    */
+    color: var(--lm-alert-close-text-color-hover);
+    background-color: var(--lm-alert-close-bg-color-hover);
+    background-image: var(--lm-alert-close-bg-image-hover);
+}
+.dark-mode .alert .close {
+    color: var(--dm-alert-close-text-color);
+    background-color: var(--dm-alert-close-bg-color);
+    background-image: var(--dm-alert-close-bg-image);
+    border-color: var(--dm-alert-close-border-color);
+    box-shadow: var(--dm-alert-close-box-shadow);
+}
+.dark-mode .alert .close:hover {
+    color: var(--dm-alert-close-text-color-hover);
+    background-color: var(--dm-alert-close-bg-color-hover);
+    background-image: var(--dm-alert-close-bg-image-hover);
+    border-color: var(--dm-alert-close-border-color-hover);
+    box-shadow: var(--dm-alert-close-box-shadow-hover);
 }
 .dark-mode .alert .close:focus {
-    outline-color: var(--dm-alert-close-outline-color-focus);
+    color: var(--dm-alert-close-text-color-focus);
+    background-color: var(--dm-alert-close-bg-color-focus);
+    background-image: var(--dm-alert-close-bg-image-focus);
+    border-color: var(--dm-alert-close-border-color-focus);
+    box-shadow: var(--dm-alert-close-box-shadow-focus);
+    outline: var(--dm-alert-close-outline-focus);
 }
-.alert.dispose {
-    display: none;
+.dark-mode .alert .close:focus:hover {
+    /*
+    Only text color and background properties are overridden, while the border 
+    color, box shadow, and the outline of the focus selector is kept.
+    */
+    color: var(--dm-alert-close-text-color-hover);
+    background-color: var(--dm-alert-close-bg-color-hover);
+    background-image: var(--dm-alert-close-bg-image-hover);
 }
 
 /* Sticky alerts */
@@ -9420,6 +9785,15 @@ select.form-control[multiple] > option:disabled {
     height: 100%;
     margin-bottom: 0; /* List reset */
 }
+.navbar-nav:first-child > .nav-item:first-child > .nav-link {
+    padding-left: 0;
+}
+.navbar-nav:last-child > .nav-item:last-child > .nav-link {
+    padding-right: 0;
+}
+
+/* Navbar link */
+
 .nav-link {
     cursor: pointer; /* Needed if used without the href attribute, for example, as dropdown toggle */
     display: inline-block;
@@ -9432,23 +9806,58 @@ select.form-control[multiple] > option:disabled {
     color: var(--lm-navbar-link-text-color);
     background-color: var(--lm-navbar-link-bg-color);
 }
-.dark-mode .nav-link {
-    color: var(--dm-navbar-link-text-color);
-    background-color: var(--dm-navbar-link-bg-color);
-}
 .nav-link:hover {
     color: var(--lm-navbar-link-text-color-hover);
     background-color: var(--lm-navbar-link-bg-color-hover);
     text-decoration: none; /* Link reset */
 }
+.nav-link:focus-visible {
+    border-radius: var(--navbar-link-border-radius-focus-visible);
+    box-shadow: var(--lm-navbar-link-box-shadow-focus-visible);
+    outline: var(--lm-navbar-link-outline-focus-visible);
+}
+.nav-link.focus-visible {
+    border-radius: var(--navbar-link-border-radius-focus-visible);
+    box-shadow: var(--lm-navbar-link-box-shadow-focus-visible);
+    outline: var(--lm-navbar-link-outline-focus-visible);
+}
+.dark-mode .nav-link {
+    color: var(--dm-navbar-link-text-color);
+    background-color: var(--dm-navbar-link-bg-color);
+}
 .dark-mode .nav-link:hover {
     color: var(--dm-navbar-link-text-color-hover);
     background-color: var(--dm-navbar-link-bg-color-hover);
+}
+.dark-mode .nav-link:focus-visible {
+    box-shadow: var(--dm-navbar-link-box-shadow-focus-visible);
+    outline: var(--dm-navbar-link-outline-focus-visible);
+}
+.dark-mode .nav-link.focus-visible {
+    box-shadow: var(--dm-navbar-link-box-shadow-focus-visible);
+    outline: var(--dm-navbar-link-outline-focus-visible);
 }
 .nav-item.active > .nav-link,
 .nav-item.show > .nav-link {
     color: var(--lm-navbar-link-active-text-color);
     background-color: var(--lm-navbar-link-active-bg-color);
+}
+.nav-item.active > .nav-link:hover,
+.nav-item.show > .nav-link:hover {
+    color: var(--lm-navbar-link-active-text-color-hover);
+    background-color: var(--lm-navbar-link-active-bg-color-hover);
+}
+.nav-item.active > .nav-link:focus-visible,
+.nav-item.show > .nav-link:focus-visible {
+    border-radius: var(--navbar-link-active-border-radius-focus-visible);
+    box-shadow: var(--lm-navbar-link-active-box-shadow-focus-visible);
+    outline: var(--lm-navbar-link-active-outline-focus-visible);
+}
+.nav-item.active > .nav-link.focus-visible,
+.nav-item.show > .nav-link.focus-visible {
+    border-radius: var(--navbar-link-active-border-radius-focus-visible);
+    box-shadow: var(--lm-navbar-link-active-box-shadow-focus-visible);
+    outline: var(--lm-navbar-link-active-outline-focus-visible);
 }
 .dark-mode .nav-item.active > .nav-link,
 .dark-mode .nav-item.show > .nav-link {
@@ -9457,21 +9866,20 @@ select.form-control[multiple] > option:disabled {
     -webkit-font-smoothing: auto;
     -moz-osx-font-smoothing: auto;
 }
-.nav-item.active > .nav-link:hover,
-.nav-item.show > .nav-link:hover {
-    color: var(--lm-navbar-link-active-text-color-hover);
-    background-color: var(--lm-navbar-link-active-bg-color-hover);
-}
 .dark-mode .nav-item.active > .nav-link:hover,
 .dark-mode .nav-item.show > .nav-link:hover {
     color: var(--dm-navbar-link-active-text-color-hover);
     background-color: var(--dm-navbar-link-active-bg-color-hover);
 }
-.navbar-nav:first-child > .nav-item:first-child > .nav-link {
-    padding-left: 0;
+.dark-mode .nav-item.active > .nav-link:focus-visible,
+.dark-mode .nav-item.show > .nav-link:focus-visible {
+    box-shadow: var(--dm-navbar-link-active-box-shadow-focus-visible);
+    outline: var(--dm-navbar-link-active-outline-focus-visible);
 }
-.navbar-nav:last-child > .nav-item:last-child > .nav-link {
-    padding-right: 0;
+.dark-mode .nav-item.active > .nav-link.focus-visible,
+.dark-mode .nav-item.show > .nav-link.focus-visible {
+    box-shadow: var(--dm-navbar-link-active-box-shadow-focus-visible);
+    outline: var(--dm-navbar-link-active-outline-focus-visible);
 }
 
 /* Navbar brand */
@@ -9481,15 +9889,33 @@ select.form-control[multiple] > option:disabled {
     font-weight: var(--navbar-brand-font-weight);
     color: var(--lm-navbar-brand-text-color);
 }
-.dark-mode .navbar-brand {
-    color: var(--dm-navbar-brand-text-color);
-}
 .navbar-brand:hover {
     color: var(--lm-navbar-brand-text-color-hover);
     text-decoration: none; /* Link reset */
 }
+.navbar-brand:focus-visible {
+    border-radius: var(--navbar-brand-border-radius-focus-visible);
+    box-shadow: var(--lm-navbar-brand-box-shadow-focus-visible);
+    outline: var(--lm-navbar-brand-outline-focus-visible);
+}
+.navbar-brand.focus-visible {
+    border-radius: var(--navbar-brand-border-radius-focus-visible);
+    box-shadow: var(--lm-navbar-brand-box-shadow-focus-visible);
+    outline: var(--lm-navbar-brand-outline-focus-visible);
+}
+.dark-mode .navbar-brand {
+    color: var(--dm-navbar-brand-text-color);
+}
 .dark-mode .navbar-brand:hover {
     color: var(--dm-navbar-brand-text-color-hover);
+}
+.dark-mode .navbar-brand:focus-visible {
+    box-shadow: var(--dm-navbar-brand-box-shadow-focus-visible);
+    outline: var(--dm-navbar-brand-outline-focus-visible);
+}
+.dark-mode .navbar-brand.focus-visible {
+    box-shadow: var(--dm-navbar-brand-box-shadow-focus-visible);
+    outline: var(--dm-navbar-brand-outline-focus-visible);
 }
 .navbar-brand img {
     height: var(--navbar-brand-image-height);
@@ -9561,7 +9987,7 @@ select.form-control[multiple] > option:disabled {
     display: block;
     padding: var(--sidebar-link-padding);
     margin: var(--sidebar-link-margin);
-    min-height: var(--sidebar-link-height);
+    min-height: var(--sidebar-link-min-height);
     height: auto;
     color: var(--lm-sidebar-link-text-color);
     background-color: var(--lm-sidebar-link-bg-color);
@@ -9575,6 +10001,16 @@ select.form-control[multiple] > option:disabled {
     background-color: var(--lm-sidebar-link-bg-color-hover);
     border-color: var(--lm-sidebar-link-border-color-hover);
 }
+.sidebar-link:focus-visible {
+    border-radius: var(--sidebar-link-border-radius-focus-visible);
+    box-shadow: var(--lm-sidebar-link-box-shadow-focus-visible);
+    outline: var(--lm-sidebar-link-outline-focus-visible);
+}
+.sidebar-link.focus-visible {
+    border-radius: var(--sidebar-link-border-radius-focus-visible);
+    box-shadow: var(--lm-sidebar-link-box-shadow-focus-visible);
+    outline: var(--lm-sidebar-link-outline-focus-visible);
+}
 .dark-mode .sidebar-link {
     color: var(--dm-sidebar-link-text-color);
     background-color: var(--dm-sidebar-link-bg-color);
@@ -9585,27 +10021,53 @@ select.form-control[multiple] > option:disabled {
     background-color: var(--dm-sidebar-link-bg-color-hover);
     border-color: var(--dm-sidebar-link-border-color-hover);
 }
+.dark-mode .sidebar-link:focus-visible {
+    box-shadow: var(--dm-sidebar-link-box-shadow-focus-visible);
+    outline: var(--dm-sidebar-link-outline-focus-visible);
+}
+.dark-mode .sidebar-link.focus-visible {
+    box-shadow: var(--dm-sidebar-link-box-shadow-focus-visible);
+    outline: var(--dm-sidebar-link-outline-focus-visible);
+}
 .sidebar-link.active {
-    color: var(--lm-sidebar-link-text-color-active);
-    background-color: var(--lm-sidebar-link-bg-color-active);
-    border-color: var(--lm-sidebar-link-border-color-active);
+    color: var(--lm-sidebar-link-active-text-color);
+    background-color: var(--lm-sidebar-link-active-bg-color);
+    border-color: var(--lm-sidebar-link-active-border-color);
 }
 .sidebar-link.active:hover {
-    color: var(--lm-sidebar-link-text-color-active-hover);
-    background-color: var(--lm-sidebar-link-bg-color-active-hover);
-    border-color: var(--lm-sidebar-link-border-color-active-hover);
+    color: var(--lm-sidebar-link-active-text-color-hover);
+    background-color: var(--lm-sidebar-link-active-bg-color-hover);
+    border-color: var(--lm-sidebar-link-active-border-color-hover);
+}
+.sidebar-link.active:focus-visible {
+    border-radius: var(--sidebar-link-active-border-radius-focus-visible);
+    box-shadow: var(--lm-sidebar-link-active-box-shadow-focus-visible);
+    outline: var(--lm-sidebar-link-active-outline-focus-visible);
+}
+.sidebar-link.active.focus-visible {
+    border-radius: var(--sidebar-link-active-border-radius-focus-visible);
+    box-shadow: var(--lm-sidebar-link-active-box-shadow-focus-visible);
+    outline: var(--lm-sidebar-link-active-outline-focus-visible);
 }
 .dark-mode .sidebar-link.active {
-    color: var(--dm-sidebar-link-text-color-active);
-    background-color: var(--dm-sidebar-link-bg-color-active);
-    border-color: var(--dm-sidebar-link-border-color-active);
+    color: var(--dm-sidebar-link-active-text-color);
+    background-color: var(--dm-sidebar-link-active-bg-color);
+    border-color: var(--dm-sidebar-link-active-border-color);
     -webkit-font-smoothing: auto;
     -moz-osx-font-smoothing: auto;
 }
 .dark-mode .sidebar-link.active:hover {
-    color: var(--dm-sidebar-link-text-color-active-hover);
-    background-color: var(--dm-sidebar-link-bg-color-active-hover);
-    border-color: var(--dm-sidebar-link-border-color-active-hover);
+    color: var(--dm-sidebar-link-active-text-color-hover);
+    background-color: var(--dm-sidebar-link-active-bg-color-hover);
+    border-color: var(--dm-sidebar-link-active-border-color-hover);
+}
+.dark-mode .sidebar-link.active:focus-visible {
+    box-shadow: var(--dm-sidebar-link-active-box-shadow-focus-visible);
+    outline: var(--dm-sidebar-link-active-outline-focus-visible);
+}
+.dark-mode .sidebar-link.active.focus-visible {
+    box-shadow: var(--dm-sidebar-link-active-box-shadow-focus-visible);
+    outline: var(--dm-sidebar-link-active-outline-focus-visible);
 }
 
 /* Sidebar title */
@@ -9657,24 +10119,24 @@ select.form-control[multiple] > option:disabled {
     border-color: var(--dm-sidebar-icon-border-color-hover);
 }
 .sidebar-link-with-icon.active .sidebar-icon {
-    color: var(--lm-sidebar-icon-text-color-active);
-    background-color: var(--lm-sidebar-icon-bg-color-active);
-    border-color: var(--lm-sidebar-icon-border-color-active);
+    color: var(--lm-sidebar-icon-active-text-color);
+    background-color: var(--lm-sidebar-icon-active-bg-color);
+    border-color: var(--lm-sidebar-icon-active-border-color);
 }
 .sidebar-link-with-icon.active:hover .sidebar-icon {
-    color: var(--lm-sidebar-icon-text-color-active-hover);
-    background-color: var(--lm-sidebar-icon-bg-color-active-hover);
-    border-color: var(--lm-sidebar-icon-border-color-active-hover);
+    color: var(--lm-sidebar-icon-active-text-color-hover);
+    background-color: var(--lm-sidebar-icon-active-bg-color-hover);
+    border-color: var(--lm-sidebar-icon-active-border-color-hover);
 }
 .dark-mode .sidebar-link-with-icon.active .sidebar-icon {
-    color: var(--dm-sidebar-icon-text-color-active);
-    background-color: var(--dm-sidebar-icon-bg-color-active);
-    border-color: var(--dm-sidebar-icon-border-color-active);
+    color: var(--dm-sidebar-icon-active-text-color);
+    background-color: var(--dm-sidebar-icon-active-bg-color);
+    border-color: var(--dm-sidebar-icon-active-border-color);
 }
 .dark-mode .sidebar-link-with-icon.active:hover .sidebar-icon {
-    color: var(--dm-sidebar-icon-text-color-active-hover);
-    background-color: var(--dm-sidebar-icon-bg-color-active-hover);
-    border-color: var(--dm-sidebar-icon-border-color-active-hover);
+    color: var(--dm-sidebar-icon-active-text-color-hover);
+    background-color: var(--dm-sidebar-icon-active-bg-color-hover);
+    border-color: var(--dm-sidebar-icon-active-border-color-hover);
 }
 
 /* Sidebar brand */
@@ -9688,15 +10150,33 @@ select.form-control[multiple] > option:disabled {
     font-weight: var(--sidebar-brand-font-weight);
     color: var(--lm-sidebar-brand-text-color);
 }
-.dark-mode .sidebar-brand {
-    color: var(--dm-sidebar-brand-text-color);
-}
 .sidebar-brand:hover {
     color: var(--lm-sidebar-brand-text-color-hover);
     text-decoration: none; /* Link reset */
 }
+.sidebar-brand:focus-visible {
+    border-radius: var(--sidebar-brand-border-radius-focus-visible);
+    box-shadow: var(--lm-sidebar-brand-box-shadow-focus-visible);
+    outline: var(--lm-sidebar-brand-outline-focus-visible);
+}
+.sidebar-brand.focus-visible {
+    border-radius: var(--sidebar-brand-border-radius-focus-visible);
+    box-shadow: var(--lm-sidebar-brand-box-shadow-focus-visible);
+    outline: var(--lm-sidebar-brand-outline-focus-visible);
+}
+.dark-mode .sidebar-brand {
+    color: var(--dm-sidebar-brand-text-color);
+}
 .dark-mode .sidebar-brand:hover {
     color: var(--dm-sidebar-brand-text-color-hover);
+}
+.dark-mode .sidebar-brand:focus-visible {
+    box-shadow: var(--dm-sidebar-brand-box-shadow-focus-visible);
+    outline: var(--dm-sidebar-brand-outline-focus-visible);
+}
+.dark-mode .sidebar-brand.focus-visible {
+    box-shadow: var(--dm-sidebar-brand-box-shadow-focus-visible);
+    outline: var(--dm-sidebar-brand-outline-focus-visible);
 }
 .sidebar-brand img {
     height: var(--sidebar-brand-image-height);
@@ -9739,8 +10219,8 @@ select.form-control[multiple] > option:disabled {
     color: var(--lm-pagination-item-text-color);
     background-color: var(--lm-pagination-item-bg-color);
     background-image: var(--lm-pagination-item-bg-image);
-	border: var(--pagination-item-border-width) solid;
-	border-color: var(--lm-pagination-item-border-color);
+    border: var(--pagination-item-border-width) solid;
+    border-color: var(--lm-pagination-item-border-color);
     border-radius: var(--pagination-item-border-radius);
 }
 .dark-mode .page-item.ellipsis,
@@ -9764,6 +10244,23 @@ select.form-control[multiple] > option:disabled {
     border-color: var(--lm-pagination-item-border-color-hover);
     box-shadow: var(--lm-pagination-item-box-shadow-hover);
 }
+.page-link:focus {
+    color: var(--lm-pagination-item-text-color-focus);
+    background-color: var(--lm-pagination-item-bg-color-focus);
+    background-image: var(--lm-pagination-item-bg-image-focus);
+    border-color: var(--lm-pagination-item-border-color-focus);
+    box-shadow: var(--lm-pagination-item-box-shadow-focus);
+    outline: var(--lm-pagination-item-outline-focus);
+}
+.page-link:focus:hover {
+    /*
+    Only text color and background properties are overridden, while the border 
+    color, box shadow, and the outline of the focus selector is kept.
+    */
+    color: var(--lm-pagination-item-text-color-hover);
+    background-color: var(--lm-pagination-item-bg-color-hover);
+    background-image: var(--lm-pagination-item-bg-image-hover);
+}
 .dark-mode .page-link:hover {
     color: var(--dm-pagination-item-text-color-hover);
     background-color: var(--dm-pagination-item-bg-color-hover);
@@ -9771,23 +10268,46 @@ select.form-control[multiple] > option:disabled {
     border-color: var(--dm-pagination-item-border-color-hover);
     box-shadow: var(--dm-pagination-item-box-shadow-hover);
 }
+.dark-mode .page-link:focus {
+    color: var(--dm-pagination-item-text-color-focus);
+    background-color: var(--dm-pagination-item-bg-color-focus);
+    background-image: var(--dm-pagination-item-bg-image-focus);
+    border-color: var(--dm-pagination-item-border-color-focus);
+    box-shadow: var(--dm-pagination-item-box-shadow-focus);
+    outline: var(--dm-pagination-item-outline-focus);
+}
+.dark-mode .page-link:focus:hover {
+    /*
+    Only text color and background properties are overridden, while the border 
+    color, box shadow, and the outline of the focus selector is kept.
+    */
+    color: var(--dm-pagination-item-text-color-hover);
+    background-color: var(--dm-pagination-item-bg-color-hover);
+    background-image: var(--dm-pagination-item-bg-image-hover);
+}
+
+/* Active pagination */
+
 .page-item.active .page-link {
-    color: var(--lm-pagination-item-text-color-active);
-    background-color: var(--lm-pagination-item-bg-color-active);
-    background-image: var(--lm-pagination-item-bg-image-active);
-    border-color: var(--lm-pagination-item-border-color-active);
-    box-shadow: var(--lm-pagination-item-box-shadow-active);
+    color: var(--lm-pagination-item-active-text-color);
+    background-color: var(--lm-pagination-item-active-bg-color);
+    background-image: var(--lm-pagination-item-active-bg-image);
+    border-color: var(--lm-pagination-item-active-border-color);
+    box-shadow: var(--lm-pagination-item-active-box-shadow);
     pointer-events: none;
 }
 .dark-mode .page-item.active .page-link {
-    color: var(--dm-pagination-item-text-color-active);
-    background-color: var(--dm-pagination-item-bg-color-active);
-    background-image: var(--dm-pagination-item-bg-image-active);
-    border-color: var(--dm-pagination-item-border-color-active);
-    box-shadow: var(--dm-pagination-item-box-shadow-active);
+    color: var(--dm-pagination-item-active-text-color);
+    background-color: var(--dm-pagination-item-active-bg-color);
+    background-image: var(--dm-pagination-item-active-bg-image);
+    border-color: var(--dm-pagination-item-active-border-color);
+    box-shadow: var(--dm-pagination-item-active-box-shadow);
     -webkit-font-smoothing: auto;
     -moz-osx-font-smoothing: auto;
 }
+
+/* Rounded pagination */
+
 .pagination-rounded .page-item.ellipsis,
 .pagination-rounded .page-link {
     border-radius: 50%;
@@ -9825,6 +10345,7 @@ select.form-control[multiple] > option:disabled {
     box-shadow: none;
     pointer-events: none;
 }
+
 
 /*
 -------------------------------------------------------------------------------
@@ -9878,6 +10399,24 @@ select.form-control[multiple] > option:disabled {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
+.breadcrumb-item a:focus-visible {
+    border-radius: var(--breadcrumb-link-border-radius-focus-visible);
+    box-shadow: var(--lm-breadcrumb-link-box-shadow-focus-visible);
+    outline: var(--lm-breadcrumb-link-outline-focus-visible);
+}
+.breadcrumb-item a.focus-visible {
+    border-radius: var(--breadcrumb-link-border-radius-focus-visible);
+    box-shadow: var(--lm-breadcrumb-link-box-shadow-focus-visible);
+    outline: var(--lm-breadcrumb-link-outline-focus-visible);
+}
+.dark-mode .breadcrumb-item a:focus-visible {
+    box-shadow: var(--dm-breadcrumb-link-box-shadow-focus-visible);
+    outline: var(--dm-breadcrumb-link-outline-focus-visible);
+}
+.dark-mode .breadcrumb-item a.focus-visible {
+    box-shadow: var(--dm-breadcrumb-link-box-shadow-focus-visible);
+    outline: var(--dm-breadcrumb-link-outline-focus-visible);
+}
 
 
 /*
@@ -9890,230 +10429,180 @@ select.form-control[multiple] > option:disabled {
     position: relative;
 }
 
-/* Tooltip arrow */
+/* Tooltip content */
 
 [data-toggle="tooltip"]::before {
-    content: " ";
-    width: var(--tooltip-arrow-width);
-    height: var(--tooltip-arrow-height);
-    background-color: var(--lm-tooltip-bg-color);
+    content: attr(data-title);
+    white-space: normal;
+    text-align: center;
     position: absolute;
     visibility: hidden;
     opacity: 0;
     z-index: 90;
-}
-.dark-mode [data-toggle="tooltip"]::before {
-    background-color: var(--dm-tooltip-bg-color);
-}
-
-/* Tooltip content */
-
-[data-toggle="tooltip"]::after {
-    content: attr(data-title);
-    white-space: normal;
+    display: inline-block;
+    min-width: var(--tooltip-min-width);
+    max-width: var(--tooltip-max-width);
     width: var(--tooltip-width);
     font-size: var(--tooltip-font-size);
     line-height: var(--tooltip-line-height);
     padding: var(--tooltip-padding);
     color: var(--lm-tooltip-text-color);
     background-color: var(--lm-tooltip-bg-color);
-    border-radius: var(--base-border-radius);
-    text-align: center;
-    position: absolute;
-    visibility: hidden;
-    z-index: 90;
+    background-image: var(--lm-tooltip-bg-image);
+    border: var(--tooltip-border-width) solid;
+    border-color: var(--lm-tooltip-border-color);
+    border-radius: var(--tooltip-border-radius);
+    box-shadow: var(--lm-tooltip-box-shadow);
 }
-.dark-mode [data-toggle="tooltip"]::after {
+.dark-mode [data-toggle="tooltip"]::before {
     color: var(--dm-tooltip-text-color);
     background-color: var(--dm-tooltip-bg-color);
+    background-image: var(--dm-tooltip-bg-image);
+    border-color: var(--dm-tooltip-border-color);
+    box-shadow: var(--dm-tooltip-box-shadow);
 }
 
-/* Tooltip top */
+/* Showing the tooltip (excluding positioning) */
 
-[data-toggle="tooltip"]:not([data-placement])::before,
-[data-toggle="tooltip"][data-placement="top"]::before {
-    left: 50%;
-    top: -0.5rem;
-    transform: translate(-50%, -100%) rotate(45deg);
-}
-[data-toggle="tooltip"]:not([data-placement])::after,
-[data-toggle="tooltip"][data-placement="top"]::after {
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-}
-
-/* Tooltip bottom */
-
-[data-toggle="tooltip"][data-placement="bottom"]::before {
-    left: 50%;
-    bottom: -0.5rem;
-    transform: translate(-50%, 100%) rotate(45deg);
-}
-[data-toggle="tooltip"][data-placement="bottom"]::after {
-    left: 50%;
-    bottom: 50%;
-    transform: translate(-50%, 50%);
-}
-
-/* Tooltip left */
-
-[data-toggle="tooltip"][data-placement="left"]::before {
-    left: -0.5rem;
-    transform: translate(-100%, 100%) rotate(45deg);
-}
-[data-toggle="tooltip"][data-placement="left"]::after {
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-}
-
-/* Tooltip right */
-
-[data-toggle="tooltip"][data-placement="right"]::before {
-    right: -0.5rem;
-    transform: translate(100%, 100%) rotate(45deg);
-}
-[data-toggle="tooltip"][data-placement="right"]::after {
-    right: 50%;
-    top: 50%;
-    transform: translate(50%, -50%);
-}
-
-/* Show tooltips (on all screens) */
-
-/* Arrow */
-
-[data-toggle="tooltip"]:not([data-target-breakpoint]):hover::before,
-[data-toggle="tooltip"]:not([data-target-breakpoint]):focus::before {
+[data-toggle="tooltip"]:hover::before,
+[data-toggle="tooltip"]:focus::before {
     visibility: visible;
     opacity: 1;
-    transition: opacity 0.5s;
+    transition: opacity 0.2s;
 }
 
-/* Content */
+/* Tooltips for screens where width > 768px */
 
-[data-toggle="tooltip"]:not([data-target-breakpoint]):hover::after,
-[data-toggle="tooltip"]:not([data-target-breakpoint]):focus::after {
-    visibility: visible;
-    transition: all 0.1s, color 0s, background-color 0s;
+[data-toggle="tooltip"][data-target-breakpoint="md"]:hover::before,
+[data-toggle="tooltip"][data-target-breakpoint="md"]:focus::before {
+    visibility: hidden;
 }
-
-/* Placement */
-
-[data-toggle="tooltip"]:not([data-target-breakpoint]):not([data-placement]):hover::after,
-[data-toggle="tooltip"]:not([data-target-breakpoint])[data-placement="top"]:hover::after,
-[data-toggle="tooltip"]:not([data-target-breakpoint]):not([data-placement]):focus::after,
-[data-toggle="tooltip"]:not([data-target-breakpoint])[data-placement="top"]:focus::after {
-    top: -1rem;
-    transform: translate(-50%, -100%);
-}
-[data-toggle="tooltip"]:not([data-target-breakpoint])[data-placement="bottom"]:hover::after,
-[data-toggle="tooltip"]:not([data-target-breakpoint])[data-placement="bottom"]:focus::after {
-    bottom: -1rem;
-    transform: translate(-50%, 100%);
-}
-[data-toggle="tooltip"]:not([data-target-breakpoint])[data-placement="left"]:hover::after,
-[data-toggle="tooltip"]:not([data-target-breakpoint])[data-placement="left"]:focus::after {
-    left: -1rem;
-    transform: translate(-100%, -50%);
-}
-[data-toggle="tooltip"]:not([data-target-breakpoint])[data-placement="right"]:hover::after,
-[data-toggle="tooltip"]:not([data-target-breakpoint])[data-placement="right"]:focus::after {
-    right: -1rem;
-    transform: translate(100%, -50%);
-}
-
-/* Show tooltips (only on screens with widths > 768px) */
-
 @media (min-width: 769px) {
-    /* Arrow */
-
     [data-toggle="tooltip"][data-target-breakpoint="md"]:hover::before,
     [data-toggle="tooltip"][data-target-breakpoint="md"]:focus::before {
         visibility: visible;
-        opacity: 1;
-        transition: opacity 0.5s;
-    }
-
-    /* Content */
-
-    [data-toggle="tooltip"][data-target-breakpoint="md"]:hover::after,
-    [data-toggle="tooltip"][data-target-breakpoint="md"]:focus::after {
-        visibility: visible;
-        transition: all 0.1s, color 0s, background-color 0s;
-    }
-
-    /* Placement */
-
-    [data-toggle="tooltip"][data-target-breakpoint="md"]:not([data-placement]):hover::after,
-    [data-toggle="tooltip"][data-target-breakpoint="md"][data-placement="top"]:hover::after,
-    [data-toggle="tooltip"][data-target-breakpoint="md"]:not([data-placement]):focus::after,
-    [data-toggle="tooltip"][data-target-breakpoint="md"][data-placement="top"]:focus::after {
-        top: -1rem;
-        transform: translate(-50%, -100%);
-    }
-    [data-toggle="tooltip"][data-target-breakpoint="md"][data-placement="bottom"]:hover::after,
-    [data-toggle="tooltip"][data-target-breakpoint="md"][data-placement="bottom"]:focus::after {
-        bottom: -1rem;
-        transform: translate(-50%, 100%);
-    }
-    [data-toggle="tooltip"][data-target-breakpoint="md"][data-placement="left"]:hover::after,
-    [data-toggle="tooltip"][data-target-breakpoint="md"][data-placement="left"]:focus::after {
-        left: -1rem;
-        transform: translate(-100%, -50%);
-    }
-    [data-toggle="tooltip"][data-target-breakpoint="md"][data-placement="right"]:hover::after,
-    [data-toggle="tooltip"][data-target-breakpoint="md"][data-placement="right"]:focus::after {
-        right: -1rem;
-        transform: translate(100%, -50%);
     }
 }
 
-/* Show tooltips (only on screens with widths > 992px) */
+/* Tooltips for screens where width > 992px */
 
+[data-toggle="tooltip"][data-target-breakpoint="lg"]:hover::before,
+[data-toggle="tooltip"][data-target-breakpoint="lg"]:focus::before {
+    visibility: hidden;
+}
 @media (min-width: 993px) {
-    /* Arrow */
-
     [data-toggle="tooltip"][data-target-breakpoint="lg"]:hover::before,
     [data-toggle="tooltip"][data-target-breakpoint="lg"]:focus::before {
         visibility: visible;
-        opacity: 1;
-        transition: opacity 0.5s;
     }
+}
 
-    /* Content */
+/* Normal tooltip (top) */
 
-    [data-toggle="tooltip"][data-target-breakpoint="lg"]:hover::after,
-    [data-toggle="tooltip"][data-target-breakpoint="lg"]:focus::after {
-        visibility: visible;
-        transition: all 0.1s, color 0s, background-color 0s;
-    }
+[data-toggle="tooltip"]::before {
+    margin: var(--tooltip-offset-negative) 0 0 0;
+}
+[data-toggle="tooltip"]::before {
+    top: 0;
+    right: unset;
+    bottom: unset;
+    left: 50%;
+    transform: translate(-50%, -100%);
+}
+[data-toggle="tooltip"][data-placement="top-left"]::before {
+    top: 0;
+    right: unset;
+    bottom: unset;
+    left: 0;
+    transform: translateY(-100%);
+}
+[data-toggle="tooltip"][data-placement="top-right"]::before {
+    top: 0;
+    right: 0;
+    bottom: unset;
+    left: unset;
+    transform: translateY(-100%);
+}
 
-    /* Placement */
+/* Bottom tooltip */
 
-    [data-toggle="tooltip"][data-target-breakpoint="lg"]:not([data-placement]):hover::after,
-    [data-toggle="tooltip"][data-target-breakpoint="lg"][data-placement="top"]:hover::after,
-    [data-toggle="tooltip"][data-target-breakpoint="lg"]:not([data-placement]):focus::after,
-    [data-toggle="tooltip"][data-target-breakpoint="lg"][data-placement="top"]:focus::after {
-        top: -1rem;
-        transform: translate(-50%, -100%);
-    }
-    [data-toggle="tooltip"][data-target-breakpoint="lg"][data-placement="bottom"]:hover::after,
-    [data-toggle="tooltip"][data-target-breakpoint="lg"][data-placement="bottom"]:focus::after {
-        bottom: -1rem;
-        transform: translate(-50%, 100%);
-    }
-    [data-toggle="tooltip"][data-target-breakpoint="lg"][data-placement="left"]:hover::after,
-    [data-toggle="tooltip"][data-target-breakpoint="lg"][data-placement="left"]:focus::after {
-        left: -1rem;
-        transform: translate(-100%, -50%);
-    }
-    [data-toggle="tooltip"][data-target-breakpoint="lg"][data-placement="right"]:hover::after,
-    [data-toggle="tooltip"][data-target-breakpoint="lg"][data-placement="right"]:focus::after {
-        right: -1rem;
-        transform: translate(100%, -50%);
-    }
+[data-toggle="tooltip"][data-placement^="bottom"]::before {
+    margin: 0 0 var(--tooltip-offset-negative) 0;
+}
+[data-toggle="tooltip"][data-placement="bottom"]::before {
+    top: unset;
+    right: unset;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 100%);
+}
+[data-toggle="tooltip"][data-placement="bottom-left"]::before {
+    top: unset;
+    right: unset;
+    bottom: 0;
+    left: 0;
+    transform: translateY(100%);
+}
+[data-toggle="tooltip"][data-placement="bottom-right"]::before {
+    top: unset;
+    right: 0;
+    bottom: 0;
+    left: unset;
+    transform: translateY(100%);
+}
+
+/* Right tooltip */
+
+[data-toggle="tooltip"][data-placement^="right"]::before {
+    margin: 0 var(--tooltip-offset-negative) 0 0;
+}
+[data-toggle="tooltip"][data-placement="right"]::before {
+    top: 50%;
+    right: 0;
+    bottom: unset;
+    left: unset;
+    transform: translate(100%, -50%);
+}
+[data-toggle="tooltip"][data-placement="right-top"]::before {
+    top: 0;
+    right: 0;
+    bottom: unset;
+    left: unset;
+    transform: translateX(100%);
+}
+[data-toggle="tooltip"][data-placement="right-bottom"]::before {
+    top: unset;
+    right: 0;
+    bottom: 0;
+    left: unset;
+    transform: translateX(100%);
+}
+
+/* Left tooltip */
+
+[data-toggle="tooltip"][data-placement^="left"]::before {
+    margin: 0 0 0 var(--tooltip-offset-negative);
+}
+[data-toggle="tooltip"][data-placement="left"]::before {
+    top: 50%;
+    right: unset;
+    bottom: unset;
+    left: 0;
+    transform: translate(-100%, -50%);
+}
+[data-toggle="tooltip"][data-placement="left-top"]::before {
+    top: 0;
+    right: unset;
+    bottom: unset;
+    left: 0;
+    transform: translateX(-100%);
+}
+[data-toggle="tooltip"][data-placement="left-bottom"]::before {
+    top: unset;
+    right: unset;
+    bottom: 0;
+    left: 0;
+    transform: translateX(-100%);
 }
 
 
@@ -10144,39 +10633,29 @@ select.form-control[multiple] > option:disabled {
     border-radius: var(--badge-pill-border-radius);
 }
 
-/* Primary, success, secondary, danger badges. */
+/* Contextual variations */
 
-/* Light mode */
+/* Primary */
 
 .badge.badge-primary {
     color: var(--lm-badge-primary-text-color);
     background-color: var(--lm-badge-primary-bg-color);
     border-color: var(--lm-badge-primary-border-color);
 }
-.badge.badge-success {
-    color: var(--lm-badge-success-text-color);
-    background-color: var(--lm-badge-success-bg-color);
-    border-color: var(--lm-badge-success-border-color);
-}
-.badge.badge-secondary {
-    color: var(--lm-badge-secondary-text-color);
-    background-color: var(--lm-badge-secondary-bg-color);
-    border-color: var(--lm-badge-secondary-border-color);
-}
-.badge.badge-danger {
-    color: var(--lm-badge-danger-text-color);
-    background-color: var(--lm-badge-danger-bg-color);
-    border-color: var(--lm-badge-danger-border-color);
-}
-
-/* Dark mode */
-
 .dark-mode .badge.badge-primary {
     color: var(--dm-badge-primary-text-color);
     background-color: var(--dm-badge-primary-bg-color);
     border-color: var(--dm-badge-primary-border-color);
     -webkit-font-smoothing: auto;
     -moz-osx-font-smoothing: auto;
+}
+
+/* Success */
+
+.badge.badge-success {
+    color: var(--lm-badge-success-text-color);
+    background-color: var(--lm-badge-success-bg-color);
+    border-color: var(--lm-badge-success-border-color);
 }
 .dark-mode .badge.badge-success {
     color: var(--dm-badge-success-text-color);
@@ -10185,12 +10664,28 @@ select.form-control[multiple] > option:disabled {
     -webkit-font-smoothing: auto;
     -moz-osx-font-smoothing: auto;
 }
+
+/* Secondary */
+
+.badge.badge-secondary {
+    color: var(--lm-badge-secondary-text-color);
+    background-color: var(--lm-badge-secondary-bg-color);
+    border-color: var(--lm-badge-secondary-border-color);
+}
 .dark-mode .badge.badge-secondary {
     color: var(--dm-badge-secondary-text-color);
     background-color: var(--dm-badge-secondary-bg-color);
     border-color: var(--dm-badge-secondary-border-color);
     -webkit-font-smoothing: auto;
     -moz-osx-font-smoothing: auto;
+}
+
+/* Danger */
+
+.badge.badge-danger {
+    color: var(--lm-badge-danger-text-color);
+    background-color: var(--lm-badge-danger-bg-color);
+    border-color: var(--lm-badge-danger-border-color);
 }
 .dark-mode .badge.badge-danger {
     color: var(--dm-badge-danger-text-color);
@@ -10206,18 +10701,21 @@ select.form-control[multiple] > option:disabled {
     display: inline-flex;
 }
 .badge-group > .badge:not(:first-child) {
+    margin-left: calc((-1) * var(--badge-border-width));
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
 }
 .badge-group > .badge:not(:last-child) {
-    border-right: none;
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
+}
+.badge-group > .badge:focus {
+    z-index: 1;
 }
 
 /* Link badges */
 
-/* Light mode */
+/* Default */
 
 a.badge:hover,
 a.badge-group:hover {
@@ -10229,38 +10727,44 @@ a.badge-group:hover > .badge {
     background-color: var(--lm-link-badge-bg-color-hover);
     border-color: var(--lm-link-badge-border-color-hover);
 }
+a.badge:focus-visible {
+    box-shadow: var(--lm-link-badge-box-shadow-focus-visible);
+    outline: var(--lm-link-badge-outline-focus-visible);
+}
+a.badge.focus-visible {
+    box-shadow: var(--lm-link-badge-box-shadow-focus-visible);
+    outline: var(--lm-link-badge-outline-focus-visible);
+}
+.dark-mode a.badge:hover,
+.dark-mode a.badge-group:hover > .badge {
+    color: var(--dm-link-badge-text-color-hover);
+    background-color: var(--dm-link-badge-bg-color-hover);
+    border-color: var(--dm-link-badge-border-color-hover);
+}
+.dark-mode a.badge:focus-visible {
+    box-shadow: var(--dm-link-badge-box-shadow-focus-visible);
+    outline: var(--dm-link-badge-outline-focus-visible);
+}
+.dark-mode a.badge.focus-visible {
+    box-shadow: var(--dm-link-badge-box-shadow-focus-visible);
+    outline: var(--dm-link-badge-outline-focus-visible);
+}
+
+/* Primary */
+
 a.badge.badge-primary:hover,
 a.badge-group:hover > .badge.badge-primary {
     color: var(--lm-link-badge-primary-text-color-hover);
     background-color: var(--lm-link-badge-primary-bg-color-hover);
     border-color: var(--lm-link-badge-primary-border-color-hover);
 }
-a.badge.badge-success:hover,
-a.badge-group:hover > .badge.badge-success {
-    color: var(--lm-link-badge-success-text-color-hover);
-    background-color: var(--lm-link-badge-success-bg-color-hover);
-    border-color: var(--lm-link-badge-success-border-color-hover);
+a.badge.badge-primary:focus-visible {
+    box-shadow: var(--lm-link-badge-primary-box-shadow-focus-visible);
+    outline: var(--lm-link-badge-primary-outline-focus-visible);
 }
-a.badge.badge-secondary:hover,
-a.badge-group:hover > .badge.badge-secondary {
-    color: var(--lm-link-badge-secondary-text-color-hover);
-    background-color: var(--lm-link-badge-secondary-bg-color-hover);
-    border-color: var(--lm-link-badge-secondary-border-color-hover);
-}
-a.badge.badge-danger:hover,
-a.badge-group:hover > .badge.badge-danger {
-    color: var(--lm-link-badge-danger-text-color-hover);
-    background-color: var(--lm-link-badge-danger-bg-color-hover);
-    border-color: var(--lm-link-badge-danger-border-color-hover);
-}
-
-/* Dark mode */
-
-.dark-mode a.badge:hover,
-.dark-mode a.badge-group:hover > .badge {
-    color: var(--dm-link-badge-text-color-hover);
-    background-color: var(--dm-link-badge-bg-color-hover);
-    border-color: var(--dm-link-badge-border-color-hover);
+a.badge.badge-primary.focus-visible {
+    box-shadow: var(--lm-link-badge-primary-box-shadow-focus-visible);
+    outline: var(--lm-link-badge-primary-outline-focus-visible);
 }
 .dark-mode a.badge.badge-primary:hover,
 .dark-mode a.badge-group:hover > .badge.badge-primary {
@@ -10268,11 +10772,61 @@ a.badge-group:hover > .badge.badge-danger {
     background-color: var(--dm-link-badge-primary-bg-color-hover);
     border-color: var(--dm-link-badge-primary-border-color-hover);
 }
+.dark-mode a.badge.badge-primary:focus-visible {
+    box-shadow: var(--dm-link-badge-primary-box-shadow-focus-visible);
+    outline: var(--dm-link-badge-primary-outline-focus-visible);
+}
+.dark-mode a.badge.badge-primary.focus-visible {
+    box-shadow: var(--dm-link-badge-primary-box-shadow-focus-visible);
+    outline: var(--dm-link-badge-primary-outline-focus-visible);
+}
+
+/* Success */
+
+a.badge.badge-success:hover,
+a.badge-group:hover > .badge.badge-success {
+    color: var(--lm-link-badge-success-text-color-hover);
+    background-color: var(--lm-link-badge-success-bg-color-hover);
+    border-color: var(--lm-link-badge-success-border-color-hover);
+}
+a.badge.badge-success:focus-visible {
+    box-shadow: var(--lm-link-badge-success-box-shadow-focus-visible);
+    outline: var(--lm-link-badge-success-outline-focus-visible);
+}
+a.badge.badge-success.focus-visible {
+    box-shadow: var(--lm-link-badge-success-box-shadow-focus-visible);
+    outline: var(--lm-link-badge-success-outline-focus-visible);
+}
 .dark-mode a.badge.badge-success:hover,
 .dark-mode a.badge-group:hover > .badge.badge-success {
     color: var(--dm-link-badge-success-text-color-hover);
     background-color: var(--dm-link-badge-success-bg-color-hover);
     border-color: var(--dm-link-badge-success-border-color-hover);
+}
+.dark-mode a.badge.badge-success:focus-visible {
+    box-shadow: var(--dm-link-badge-success-box-shadow-focus-visible);
+    outline: var(--dm-link-badge-success-outline-focus-visible);
+}
+.dark-mode a.badge.badge-success.focus-visible {
+    box-shadow: var(--dm-link-badge-success-box-shadow-focus-visible);
+    outline: var(--dm-link-badge-success-outline-focus-visible);
+}
+
+/* Secondary */
+
+a.badge.badge-secondary:hover,
+a.badge-group:hover > .badge.badge-secondary {
+    color: var(--lm-link-badge-secondary-text-color-hover);
+    background-color: var(--lm-link-badge-secondary-bg-color-hover);
+    border-color: var(--lm-link-badge-secondary-border-color-hover);
+}
+a.badge.badge-secondary:focus-visible {
+    box-shadow: var(--lm-link-badge-secondary-box-shadow-focus-visible);
+    outline: var(--lm-link-badge-secondary-outline-focus-visible);
+}
+a.badge.badge-secondary.focus-visible {
+    box-shadow: var(--lm-link-badge-secondary-box-shadow-focus-visible);
+    outline: var(--lm-link-badge-secondary-outline-focus-visible);
 }
 .dark-mode a.badge.badge-secondary:hover,
 .dark-mode a.badge-group:hover > .badge.badge-secondary {
@@ -10280,11 +10834,65 @@ a.badge-group:hover > .badge.badge-danger {
     background-color: var(--dm-link-badge-secondary-bg-color-hover);
     border-color: var(--dm-link-badge-secondary-border-color-hover);
 }
+.dark-mode a.badge.badge-secondary:focus-visible {
+    box-shadow: var(--dm-link-badge-secondary-box-shadow-focus-visible);
+    outline: var(--dm-link-badge-secondary-outline-focus-visible);
+}
+.dark-mode a.badge.badge-secondary.focus-visible {
+    box-shadow: var(--dm-link-badge-secondary-box-shadow-focus-visible);
+    outline: var(--dm-link-badge-secondary-outline-focus-visible);
+}
+
+/* Danger */
+
+a.badge.badge-danger:hover,
+a.badge-group:hover > .badge.badge-danger {
+    color: var(--lm-link-badge-danger-text-color-hover);
+    background-color: var(--lm-link-badge-danger-bg-color-hover);
+    border-color: var(--lm-link-badge-danger-border-color-hover);
+}
+a.badge.badge-danger:focus-visible {
+    box-shadow: var(--lm-link-badge-danger-box-shadow-focus-visible);
+    outline: var(--lm-link-badge-danger-outline-focus-visible);
+}
+a.badge.badge-danger.focus-visible {
+    box-shadow: var(--lm-link-badge-danger-box-shadow-focus-visible);
+    outline: var(--lm-link-badge-danger-outline-focus-visible);
+}
 .dark-mode a.badge.badge-danger:hover,
 .dark-mode a.badge-group:hover > .badge.badge-danger {
     color: var(--dm-link-badge-danger-text-color-hover);
     background-color: var(--dm-link-badge-danger-bg-color-hover);
     border-color: var(--dm-link-badge-danger-border-color-hover);
+}
+.dark-mode a.badge.badge-danger:focus-visible {
+    box-shadow: var(--dm-link-badge-danger-box-shadow-focus-visible);
+    outline: var(--dm-link-badge-danger-outline-focus-visible);
+}
+.dark-mode a.badge.badge-danger.focus-visible {
+    box-shadow: var(--dm-link-badge-danger-box-shadow-focus-visible);
+    outline: var(--dm-link-badge-danger-outline-focus-visible);
+}
+
+/* Link badge group (only for the :focus-visible state) */
+
+a.badge-group:focus-visible {
+    border-radius: var(--link-badge-group-border-radius-focus-visible);
+    box-shadow: var(--lm-link-badge-group-box-shadow-focus-visible);
+    outline: var(--lm-link-badge-group-outline-focus-visible);
+}
+a.badge-group.focus-visible {
+    border-radius: var(--link-badge-group-border-radius-focus-visible);
+    box-shadow: var(--lm-link-badge-group-box-shadow-focus-visible);
+    outline: var(--lm-link-badge-group-outline-focus-visible);
+}
+.dark-mode a.badge-group:focus-visible {
+    box-shadow: var(--dm-link-badge-group-box-shadow-focus-visible);
+    outline: var(--dm-link-badge-group-outline-focus-visible);
+}
+.dark-mode a.badge-group.focus-visible {
+    box-shadow: var(--dm-link-badge-group-box-shadow-focus-visible);
+    outline: var(--dm-link-badge-group-outline-focus-visible);
 }
 
 
@@ -14727,6 +15335,9 @@ body:not(.dark-mode) .text-danger-dim-lm,
     color: var(--danger-color-dim) !important;
 }
 
+
+/* Link utilities */
+
 /* Link reset (to be used on links with .text-* classes) */
 
 .link-reset {
@@ -14737,12 +15348,32 @@ body:not(.dark-mode) .text-danger-dim-lm,
     color: inherit !important;
     opacity: 0.75;
 }
-.link-reset:focus {
+.link-reset:focus-visible {
     outline: 1px solid currentColor;
     outline-offset: 1px;
 }
-.link-reset:active {
-    outline: none;
+.link-reset.focus-visible {
+    outline: 1px solid currentColor;
+    outline-offset: 1px;
+}
+
+/* Ring for the :focus-visible state */
+
+.ring-focus-visible:focus-visible {
+    box-shadow: var(--lm-hyperlink-box-shadow-focus-visible) !important;
+    outline: var(--lm-hyperlink-outline-focus-visible) !important;
+}
+.ring-focus-visible.focus-visible {
+    box-shadow: var(--lm-hyperlink-box-shadow-focus-visible) !important;
+    outline: var(--lm-hyperlink-outline-focus-visible) !important;
+}
+.dark-mode .ring-focus-visible:focus-visible {
+    box-shadow: var(--dm-hyperlink-box-shadow-focus-visible) !important;
+    outline: var(--dm-hyperlink-outline-focus-visible) !important;
+}
+.dark-mode .ring-focus-visible.focus-visible {
+    box-shadow: var(--dm-hyperlink-box-shadow-focus-visible) !important;
+    outline: var(--dm-hyperlink-outline-focus-visible) !important;
 }
 
 
@@ -15086,4 +15717,101 @@ body:not(.dark-mode) .invisible-lm {
 }
 .pointer-events-none {
     pointer-events: none !important;
+}
+
+
+/* Transition utilities */
+
+.transition-none {
+    transition-property: none !important;
+}
+.transition-all {
+    transition-property: all !important;
+    transition-timing-function: ease-in-out !important;
+    transition-duration: 150ms !important;
+}
+.transition {
+    transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform !important;
+    transition-timing-function: ease-in-out !important;
+    transition-duration: 150ms !important;
+}
+.transition-colors {
+    transition-property: background-color, border-color, color, fill, stroke !important;
+    transition-timing-function: ease-in-out !important;
+    transition-duration: 150ms !important;
+}
+.transition-opacity {
+    transition-property: opacity !important;
+    transition-timing-function: ease-in-out !important;
+    transition-duration: 150ms !important;
+}
+.transition-shadow {
+    transition-property: box-shadow !important;
+    transition-timing-function: ease-in-out !important;
+    transition-duration: 150ms !important;
+}
+.transition-transform {
+    transition-property: transform !important;
+    transition-timing-function: ease-in-out !important;
+    transition-duration: 150ms !important;
+}
+.ease-linear {
+    transition-timing-function: linear !important;
+}
+.ease-in {
+    transition-timing-function: ease-in !important;
+}
+.ease-out {
+    transition-timing-function: ease-out !important;
+}
+.ease-in-out {
+    transition-timing-function: ease-in-out !important;
+}
+.duration-75 {
+    transition-duration: 75ms !important;
+}
+.duration-100 {
+    transition-duration: 100ms !important;
+}
+.duration-150 {
+    transition-duration: 150ms !important;
+}
+.duration-200 {
+    transition-duration: 200ms !important;
+}
+.duration-300 {
+    transition-duration: 300ms !important;
+}
+.duration-500 {
+    transition-duration: 500ms !important;
+}
+.duration-700 {
+    transition-duration: 700ms !important;
+}
+.duration-1000 {
+    transition-duration: 1000ms !important;
+}
+.delay-75 {
+    transition-delay: 75ms !important;
+}
+.delay-100 {
+    transition-delay: 100ms !important;
+}
+.delay-150 {
+    transition-delay: 150ms !important;
+}
+.delay-200 {
+    transition-delay: 200ms !important;
+}
+.delay-300 {
+    transition-delay: 300ms !important;
+}
+.delay-500 {
+    transition-delay: 500ms !important;
+}
+.delay-700 {
+    transition-delay: 700ms !important;
+}
+.delay-1000 {
+    transition-delay: 1000ms !important;
 }
