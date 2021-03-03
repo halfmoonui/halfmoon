@@ -6,9 +6,11 @@ The only files that will be worked on are `halfmoon-variables.css` and `halfmoon
 
 **Please note**, writing and updating the official documentation website requires time and polish. So for the time being, as new components and features are being added, I will create examples illustrating how they can be used on Codepen. That should hopefully tie everything over until the official release and documentation update. You can find the links to the Codepens below, next to the list items.
 
-**UPDATE 21st February, 2021** New color system, improved tables, new color utilities for background, text, and borders, new border utilities, clean-up of outdated browser prefix properties, other minor changes and bug fixes
+**UPDATE 3rd March, 2021** Dropdown transitions updated along with code clean up, tooltips design and transitions updated along with code clean up, transition utilities added, focus visible state now supported for all types of links, sidebar animation improved, and other small changes.
 
-**UPDATE 6th February, 2021** Added styled lists (unordered and ordered)
+**UPDATE 21st February, 2021** New color system, improved tables, new color utilities for background, text, and borders, new border utilities, clean-up of outdated browser prefix properties, other minor changes and bug fixes.
+
+**UPDATE 6th February, 2021** Added styled lists (unordered and ordered).
 
 **UPDATE 3rd February, 2021** [Back from hiatus](https://gist.github.com/halfmoonui/59b464241dfe760449476d9edde6f0b6)! Range, number input, password show/hide toggles have been added.
 
@@ -37,12 +39,13 @@ The only files that will be worked on are `halfmoon-variables.css` and `halfmoon
 - [x] *Clean-up of outdated browser prefix properties*
 - [x] *Pseudo-classes now use CSS3 syntax (not CSS2)*
 - [x] *Border color variables can now have different values for different sides*
+- [x] *Fix "aggressive" transitions on dropdown menus and tooltips*
+- [x] *Transition utilities*
+- [x] *Focus visible state now supported for all types of links*
 - [ ] Update buttons (and inputs) to use padding, instead of fixed height (this should fix browser discrepancies in the appearance of buttons)
 - [ ] Fix the issue that causes the sidebar and overlay to appear for a moment before disappearing during page load on small screens (i.e. mobile phones)
 - [ ] Fix the `position` styles on the `<html>`, `<body>` and other major containers (this should fix some minor scroll issues)
-- [ ] Fix "aggressive" transitions on dropdown menus and tooltips
 - [ ] Scroll shadow utilities
-- [ ] Transition utilities
 
 The above list is missing a few other tiny bugs and issues that will be fixed.
 
