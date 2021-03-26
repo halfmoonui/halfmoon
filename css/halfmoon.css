@@ -882,6 +882,7 @@ body {
 /* Hidden sidebar */
 
 .page-wrapper.with-sidebar[data-sidebar-hidden] > .sidebar {
+    visibility: hidden;
     left: -100%;
 }
 .page-wrapper.with-sidebar[data-sidebar-hidden] > .content-wrapper {
@@ -991,14 +992,16 @@ body {
 /* With transitions (for sidebar toggles) */
 
 .page-wrapper.with-transitions.with-sidebar > .sidebar {
-    -webkit-transition: left .4s cubic-bezier(.25, .8, .25, 1);
-    transition: left .4s cubic-bezier(.25, .8, .25, 1);
+    -webkit-transition: visibility .4s, left .4s cubic-bezier(.25, .8, .25, 1);
+    transition: visibility .4s, left .4s cubic-bezier(.25, .8, .25, 1);
+    will-change: visibility, left;
 }
 .page-wrapper.with-transitions.with-sidebar .content-wrapper,
 .page-wrapper.with-transitions.with-sidebar[data-sidebar-type~="full-height"] > .navbar:not(.navbar-fixed-bottom),
 .page-wrapper.with-transitions.with-sidebar[data-sidebar-type~="full-height"] > .navbar.navbar-fixed-bottom {
     -webkit-transition: width .4s cubic-bezier(.25, .8, .25, 1), left .4s cubic-bezier(.25, .8, .25, 1);
     transition: width .4s cubic-bezier(.25, .8, .25, 1), left .4s cubic-bezier(.25, .8, .25, 1);
+    will-change: width, left;
 }
 
 /* Janky scroll fix (for Safari) */
@@ -5753,7 +5756,8 @@ textarea.form-control-lg {
     box-shadow: none;
 }
 
-.form-control.is-invalid {
+.form-control.is-invalid,
+.form-control:invalid {
     color: rgba(0, 0, 0, 0.85);
     background-color: #ffffff;
     border-color: #ff4d4f;
@@ -5769,7 +5773,8 @@ textarea.form-control-lg {
     -webkit-box-shadow: none;
     box-shadow: none;
 }
-.form-control.is-invalid:hover {
+.form-control.is-invalid:hover,
+.form-control:invalid:hover {
     color: rgba(0, 0, 0, 0.85);
     background-color: #ffffff;
     border-color: #ff4d4f;
@@ -5786,7 +5791,8 @@ textarea.form-control-lg {
     box-shadow: 0 0 0 0.2rem rgba(245, 34, 45, 0.6);
     outline: none;
 }
-.form-control.is-invalid:focus {
+.form-control.is-invalid:focus,
+.form-control:invalid:focus {
     color: rgba(0, 0, 0, 0.85);
     background-color: #ffffff;
     border-color: #f8d0d9;
@@ -5806,15 +5812,18 @@ textarea.form-control-lg {
 .form-group.is-invalid .form-control::placeholder {
     color: rgba(0, 0, 0, 0.35);
 }
-.form-control.is-invalid::-webkit-input-placeholder {
+.form-control.is-invalid::-webkit-input-placeholder,
+.form-control:invalid::-webkit-input-placeholder {
     /* Edge */
     color: rgba(0, 0, 0, 0.35);
 }
-.form-control.is-invalid:-ms-input-placeholder {
+.form-control.is-invalid:-ms-input-placeholder,
+.form-control:invalid:-ms-input-placeholder {
     /* Internet Explorer 10-11 */
     color: rgba(0, 0, 0, 0.35);
 }
-.form-control.is-invalid::placeholder {
+.form-control.is-invalid::placeholder,
+.form-control:invalid::placeholder {
     color: rgba(0, 0, 0, 0.35);
 }
 .dark-mode .form-group.is-invalid .form-control {
@@ -5825,7 +5834,8 @@ textarea.form-control-lg {
     -webkit-box-shadow: none;
     box-shadow: none;
 }
-.dark-mode .form-control.is-invalid {
+.dark-mode .form-control.is-invalid,
+.dark-mode .form-control:invalid {
     color: rgba(255, 255, 255, 0.8);
     background-color: rgba(255, 255, 255, 0.05);
     border-color: #ff4d4f;
@@ -5841,7 +5851,8 @@ textarea.form-control-lg {
     -webkit-box-shadow: none;
     box-shadow: none;
 }
-.dark-mode .form-control.is-invalid:hover {
+.dark-mode .form-control.is-invalid:hover,
+.dark-mode .form-control:invalid:hover {
     color: rgba(255, 255, 255, 0.8);
     background-color: rgba(255, 255, 255, 0.05);
     border-color: #ff4d4f;
@@ -5858,7 +5869,8 @@ textarea.form-control-lg {
     box-shadow: 0 0 0 0.2rem rgba(245, 34, 45, 0.3);
     outline: none;
 }
-.dark-mode .form-control.is-invalid:focus {
+.dark-mode .form-control.is-invalid:focus,
+.dark-mode .form-control:invalid:focus {
     color: rgba(255, 255, 255, 0.8);
     background-color: rgba(255, 255, 255, 0.05);
     border-color: #ff4d4f;
@@ -5878,15 +5890,18 @@ textarea.form-control-lg {
 .dark-mode .form-group.is-invalid .form-control::placeholder {
     color: rgba(255, 255, 255, 0.2);
 }
-.dark-mode .form-control.is-invalid::-webkit-input-placeholder {
+.dark-mode .form-control.is-invalid::-webkit-input-placeholder,
+.dark-mode .form-control:invalid::-webkit-input-placeholder {
     /* Edge */
     color: rgba(255, 255, 255, 0.2);
 }
-.dark-mode .form-control.is-invalid:-ms-input-placeholder {
+.dark-mode .form-control.is-invalid:-ms-input-placeholder,
+.dark-mode .form-control:invalid:-ms-input-placeholder {
     /* Internet Explorer 10-11 */
     color: rgba(255, 255, 255, 0.2);
 }
-.dark-mode .form-control.is-invalid::placeholder {
+.dark-mode .form-control.is-invalid::placeholder,
+.dark-mode .form-control:invalid::placeholder {
     color: rgba(255, 255, 255, 0.2);
 }
 .dark-mode .form-group.is-invalid .form-control.alt-dm {
@@ -6022,7 +6037,8 @@ select.form-control[multiple] > option:disabled {
 /* Checkbox */
 
 .custom-checkbox {
-    display: block;
+    display: flex;
+    flex-direction: column;
     position: relative;
     line-height: 1.8rem;
 }
@@ -6035,6 +6051,7 @@ select.form-control[multiple] > option:disabled {
 }
 .custom-checkbox label {
     display: inline-block;
+    position: relative;
     margin-bottom: 0;
     padding-left: 2.5rem;
     cursor: pointer;
@@ -6058,21 +6075,21 @@ select.form-control[multiple] > option:disabled {
     border: 1px solid rgba(0, 0, 0, 0.3);
     border-radius: 0.4rem;
 }
-.custom-checkbox input[type="checkbox"]:hover~label:before {
+.custom-checkbox input[type="checkbox"]:hover+label:before {
     background-color: #ffffff;
     border-color: rgba(0, 0, 0, 0.4);
 }
-.custom-checkbox input[type="checkbox"]:focus~label:before {
+.custom-checkbox input[type="checkbox"]:focus+label:before {
     border-color: rgba(0, 0, 0, 0.2);
     -moz-box-shadow: 0 0 0 0.2rem rgba(24, 144, 255, 0.6);
     -webkit-box-shadow: 0 0 0 0.2rem rgba(24, 144, 255, 0.6);
     box-shadow: 0 0 0 0.2rem rgba(24, 144, 255, 0.6);
 }
-.custom-checkbox input[type="checkbox"]:checked~label:before {
+.custom-checkbox input[type="checkbox"]:checked+label:before {
     background-color: #1890ff;
     border-color: #1890ff;
 }
-.custom-checkbox input[type="checkbox"]:checked:focus~label:before {
+.custom-checkbox input[type="checkbox"]:checked:focus+label:before {
     border-color: #1890ff;
     -moz-box-shadow: 0 0 0 0.3rem rgba(24, 144, 255, 0.3);
     -webkit-box-shadow: 0 0 0 0.3rem rgba(24, 144, 255, 0.3);
@@ -6082,21 +6099,21 @@ select.form-control[multiple] > option:disabled {
     background-color: transparent;
     border-color: rgba(255, 255, 255, 0.15);
 }
-.dark-mode .custom-checkbox input[type="checkbox"]:hover~label:before {
+.dark-mode .custom-checkbox input[type="checkbox"]:hover+label:before {
     background-color: transparent;
     border-color: rgba(255, 255, 255, 0.3);
 }
-.dark-mode .custom-checkbox input[type="checkbox"]:focus~label:before {
+.dark-mode .custom-checkbox input[type="checkbox"]:focus+label:before {
     border-color: rgba(0, 0, 0, 0.4);
     -moz-box-shadow: 0 0 0 0.2rem rgba(24, 144, 255, 0.3);
     -webkit-box-shadow: 0 0 0 0.2rem rgba(24, 144, 255, 0.3);
     box-shadow: 0 0 0 0.2rem rgba(24, 144, 255, 0.3);
 }
-.dark-mode .custom-checkbox input[type="checkbox"]:checked~label:before {
+.dark-mode .custom-checkbox input[type="checkbox"]:checked+label:before {
     background-color: #1890ff;
     border-color: #1890ff;
 }
-.dark-mode .custom-checkbox input[type="checkbox"]:checked:focus~label:before {
+.dark-mode .custom-checkbox input[type="checkbox"]:checked:focus+label:before {
     border-color: #1890ff;
     -moz-box-shadow: 0 0 0 0.3rem rgba(24, 144, 255, 0.3);
     -webkit-box-shadow: 0 0 0 0.3rem rgba(24, 144, 255, 0.3);
@@ -6119,42 +6136,42 @@ select.form-control[multiple] > option:disabled {
 .dark-mode .custom-checkbox label:after {
     border-color: #ffffff;
 }
-.custom-checkbox input[type="checkbox"]:checked~label:after {
+.custom-checkbox input[type="checkbox"]:checked+label:after {
     display: block;
 }
-.custom-checkbox input[type="checkbox"]:disabled~label {
+.custom-checkbox input[type="checkbox"]:disabled+label {
     opacity: 0.6;
     cursor: not-allowed;
 }
-.custom-checkbox input[type="checkbox"]:disabled~label:before {
+.custom-checkbox input[type="checkbox"]:disabled+label:before {
     background-color: #ffffff;
     border-color: rgba(0, 0, 0, 0.3);
 }
-.custom-checkbox input[type="checkbox"]:hover:disabled~label:before {
+.custom-checkbox input[type="checkbox"]:hover:disabled+label:before {
     background-color: #ffffff;
     border-color: rgba(0, 0, 0, 0.3);
 }
-.custom-checkbox input[type="checkbox"]:disabled:checked~label:before {
+.custom-checkbox input[type="checkbox"]:disabled:checked+label:before {
     background-color: #1890ff;
     border-color: #1890ff;
 }
-.custom-checkbox input[type="checkbox"]:hover:disabled:checked~label:before {
+.custom-checkbox input[type="checkbox"]:hover:disabled:checked+label:before {
     background-color: #1890ff;
     border-color: #1890ff;
 }
-.dark-mode .custom-checkbox input[type="checkbox"]:disabled~label:before {
+.dark-mode .custom-checkbox input[type="checkbox"]:disabled+label:before {
     background-color: transparent;
     border-color: rgba(255, 255, 255, 0.15);
 }
-.dark-mode .custom-checkbox input[type="checkbox"]:hover:disabled~label:before {
+.dark-mode .custom-checkbox input[type="checkbox"]:hover:disabled+label:before {
     background-color: transparent;
     border-color: rgba(255, 255, 255, 0.15);
 }
-.dark-mode .custom-checkbox input[type="checkbox"]:disabled:checked~label:before {
+.dark-mode .custom-checkbox input[type="checkbox"]:disabled:checked+label:before {
     background-color: #1890ff;
     border-color: #1890ff;
 }
-.dark-mode .custom-checkbox input[type="checkbox"]:hover:disabled:checked~label:before {
+.dark-mode .custom-checkbox input[type="checkbox"]:hover:disabled:checked+label:before {
     background-color: #1890ff;
     border-color: #1890ff;
 }
@@ -6162,7 +6179,8 @@ select.form-control[multiple] > option:disabled {
 /* Radio */
 
 .custom-radio {
-    display: block;
+    display: flex;
+    flex-direction: column;
     position: relative;
     line-height: 1.6rem;
 }
@@ -6178,6 +6196,7 @@ select.form-control[multiple] > option:disabled {
 }
 .custom-radio label {
     display: inline-block;
+    position: relative;
     margin-bottom: 0;
     padding-left: 2.5rem;
     cursor: pointer;
@@ -6201,21 +6220,21 @@ select.form-control[multiple] > option:disabled {
     border: 1px solid rgba(0, 0, 0, 0.3);
     border-radius: 50%;
 }
-.custom-radio input[type="radio"]:hover~label:before {
+.custom-radio input[type="radio"]:hover+label:before {
     background-color: #ffffff;
     border-color: rgba(0, 0, 0, 0.4);
 }
-.custom-radio input[type="radio"]:focus~label:before {
+.custom-radio input[type="radio"]:focus+label:before {
     border-color: rgba(0, 0, 0, 0.2);
     -moz-box-shadow: 0 0 0 0.2rem rgba(24, 144, 255, 0.6);
     -webkit-box-shadow: 0 0 0 0.2rem rgba(24, 144, 255, 0.6);
     box-shadow: 0 0 0 0.2rem rgba(24, 144, 255, 0.6);
 }
-.custom-radio input[type="radio"]:checked~label:before {
+.custom-radio input[type="radio"]:checked+label:before {
     background-color: #1890ff;
     border-color: #1890ff;
 }
-.custom-radio input[type="radio"]:checked:focus~label:before {
+.custom-radio input[type="radio"]:checked:focus+label:before {
     border-color: #1890ff;
     -moz-box-shadow: 0 0 0 0.3rem rgba(24, 144, 255, 0.3);
     -webkit-box-shadow: 0 0 0 0.3rem rgba(24, 144, 255, 0.3);
@@ -6225,21 +6244,21 @@ select.form-control[multiple] > option:disabled {
     background-color: transparent;
     border-color: rgba(255, 255, 255, 0.15);
 }
-.dark-mode .custom-radio input[type="radio"]:hover~label:before {
+.dark-mode .custom-radio input[type="radio"]:hover+label:before {
     background-color: transparent;
     border-color: rgba(255, 255, 255, 0.3);
 }
-.dark-mode .custom-radio input[type="radio"]:focus~label:before {
+.dark-mode .custom-radio input[type="radio"]:focus+label:before {
     border-color: rgba(0, 0, 0, 0.4);
     -moz-box-shadow: 0 0 0 0.2rem rgba(24, 144, 255, 0.3);
     -webkit-box-shadow: 0 0 0 0.2rem rgba(24, 144, 255, 0.3);
     box-shadow: 0 0 0 0.2rem rgba(24, 144, 255, 0.3);
 }
-.dark-mode .custom-radio input[type="radio"]:checked~label:before {
+.dark-mode .custom-radio input[type="radio"]:checked+label:before {
     background-color: #1890ff;
     border-color: #1890ff;
 }
-.dark-mode .custom-radio input[type="radio"]:checked:focus~label:before {
+.dark-mode .custom-radio input[type="radio"]:checked:focus+label:before {
     border-color: #1890ff;
     -moz-box-shadow: 0 0 0 0.3rem rgba(24, 144, 255, 0.3);
     -webkit-box-shadow: 0 0 0 0.3rem rgba(24, 144, 255, 0.3);
@@ -6259,42 +6278,42 @@ select.form-control[multiple] > option:disabled {
 .dark-mode .custom-radio label:after {
     border-color: #ffffff;
 }
-.custom-radio input[type="radio"]:checked~label:after {
+.custom-radio input[type="radio"]:checked+label:after {
     display: block;
 }
-.custom-radio input[type="radio"]:disabled~label {
+.custom-radio input[type="radio"]:disabled+label {
     opacity: 0.6;
     cursor: not-allowed;
 }
-.custom-radio input[type="radio"]:disabled~label:before {
+.custom-radio input[type="radio"]:disabled+label:before {
     background-color: #ffffff;
     border-color: rgba(0, 0, 0, 0.3);
 }
-.custom-radio input[type="radio"]:hover:disabled~label:before {
+.custom-radio input[type="radio"]:hover:disabled+label:before {
     background-color: #ffffff;
     border-color: rgba(0, 0, 0, 0.3);
 }
-.custom-radio input[type="radio"]:disabled:checked~label:before {
+.custom-radio input[type="radio"]:disabled:checked+label:before {
     background-color: #1890ff;
     border-color: #1890ff;
 }
-.custom-radio input[type="radio"]:hover:disabled:checked~label:before {
+.custom-radio input[type="radio"]:hover:disabled:checked+label:before {
     background-color: #1890ff;
     border-color: #1890ff;
 }
-.dark-mode .custom-radio input[type="radio"]:disabled~label:before {
+.dark-mode .custom-radio input[type="radio"]:disabled+label:before {
     background-color: transparent;
     border-color: rgba(255, 255, 255, 0.15);
 }
-.dark-mode .custom-radio input[type="radio"]:hover:disabled~label:before {
+.dark-mode .custom-radio input[type="radio"]:hover:disabled+label:before {
     background-color: transparent;
     border-color: rgba(255, 255, 255, 0.15);
 }
-.dark-mode .custom-radio input[type="radio"]:disabled:checked~label:before {
+.dark-mode .custom-radio input[type="radio"]:disabled:checked+label:before {
     background-color: #1890ff;
     border-color: #1890ff;
 }
-.dark-mode .custom-radio input[type="radio"]:hover:disabled:checked~label:before {
+.dark-mode .custom-radio input[type="radio"]:hover:disabled:checked+label:before {
     background-color: #1890ff;
     border-color: #1890ff;
 }
@@ -6302,7 +6321,8 @@ select.form-control[multiple] > option:disabled {
 /* Switch */
 
 .custom-switch {
-    display: block;
+    display: flex;
+    flex-direction: column;
     position: relative;
     line-height: 2rem;
 }
@@ -6315,6 +6335,7 @@ select.form-control[multiple] > option:disabled {
 }
 .custom-switch label {
     display: inline-block;
+    position: relative;
     margin-bottom: 0;
     padding-left: calc(3.2rem + 0.8rem);
     cursor: pointer;
@@ -6338,21 +6359,21 @@ select.form-control[multiple] > option:disabled {
     border: 1px solid rgba(0, 0, 0, 0.3);
     border-radius: 2rem;
 }
-.custom-switch input[type="checkbox"]:hover~label:before {
+.custom-switch input[type="checkbox"]:hover+label:before {
     background-color: #ffffff;
     border-color: rgba(0, 0, 0, 0.4);
 }
-.custom-switch input[type="checkbox"]:focus~label:before {
+.custom-switch input[type="checkbox"]:focus+label:before {
     border-color: rgba(0, 0, 0, 0.2);
     -moz-box-shadow: 0 0 0 0.2rem rgba(24, 144, 255, 0.6);
     -webkit-box-shadow: 0 0 0 0.2rem rgba(24, 144, 255, 0.6);
     box-shadow: 0 0 0 0.2rem rgba(24, 144, 255, 0.6);
 }
-.custom-switch input[type="checkbox"]:checked~label:before {
+.custom-switch input[type="checkbox"]:checked+label:before {
     background-color: #1890ff;
     border-color: #1890ff;
 }
-.custom-switch input[type="checkbox"]:checked:focus~label:before {
+.custom-switch input[type="checkbox"]:checked:focus+label:before {
     border-color: #1890ff;
     -moz-box-shadow: 0 0 0 0.3rem rgba(24, 144, 255, 0.3);
     -webkit-box-shadow: 0 0 0 0.3rem rgba(24, 144, 255, 0.3);
@@ -6362,21 +6383,21 @@ select.form-control[multiple] > option:disabled {
     background-color: transparent;
     border-color: rgba(255, 255, 255, 0.15);
 }
-.dark-mode .custom-switch input[type="checkbox"]:hover~label:before {
+.dark-mode .custom-switch input[type="checkbox"]:hover+label:before {
     background-color: transparent;
     border-color: rgba(255, 255, 255, 0.3);
 }
-.dark-mode .custom-switch input[type="checkbox"]:focus~label:before {
+.dark-mode .custom-switch input[type="checkbox"]:focus+label:before {
     border-color: rgba(0, 0, 0, 0.4);
     -moz-box-shadow: 0 0 0 0.2rem rgba(24, 144, 255, 0.3);
     -webkit-box-shadow: 0 0 0 0.2rem rgba(24, 144, 255, 0.3);
     box-shadow: 0 0 0 0.2rem rgba(24, 144, 255, 0.3);
 }
-.dark-mode .custom-switch input[type="checkbox"]:checked~label:before {
+.dark-mode .custom-switch input[type="checkbox"]:checked+label:before {
     background-color: #1890ff;
     border-color: #1890ff;
 }
-.dark-mode .custom-switch input[type="checkbox"]:checked:focus~label:before {
+.dark-mode .custom-switch input[type="checkbox"]:checked:focus+label:before {
     border-color: #1890ff;
     -moz-box-shadow: 0 0 0 0.3rem rgba(24, 144, 255, 0.3);
     -webkit-box-shadow: 0 0 0 0.3rem rgba(24, 144, 255, 0.3);
@@ -6399,49 +6420,49 @@ select.form-control[multiple] > option:disabled {
     background-color: rgba(255, 255, 255, 0.15);
     border-color: rgba(255, 255, 255, 0.15);
 }
-.custom-switch input[type="checkbox"]:checked~label:after {
+.custom-switch input[type="checkbox"]:checked+label:after {
     top: 0.4rem;
     left: calc(3.2rem - 1.2rem - 0.5rem);
     background-color: #ffffff;
     border-color: #ffffff;
 }
-.dark-mode .custom-switch input[type="checkbox"]:checked~label:after {
+.dark-mode .custom-switch input[type="checkbox"]:checked+label:after {
     background-color: #ffffff;
     border-color: #ffffff;
 }
-.custom-switch input[type="checkbox"]:disabled~label {
+.custom-switch input[type="checkbox"]:disabled+label {
     opacity: 0.6;
     cursor: not-allowed;
 }
-.custom-switch input[type="checkbox"]:disabled~label:before {
+.custom-switch input[type="checkbox"]:disabled+label:before {
     background-color: #ffffff;
     border-color: rgba(0, 0, 0, 0.3);
 }
-.custom-switch input[type="checkbox"]:hover:disabled~label:before {
+.custom-switch input[type="checkbox"]:hover:disabled+label:before {
     background-color: #ffffff;
     border-color: rgba(0, 0, 0, 0.3);
 }
-.custom-switch input[type="checkbox"]:disabled:checked~label:before {
+.custom-switch input[type="checkbox"]:disabled:checked+label:before {
     background-color: #1890ff;
     border-color: #1890ff;
 }
-.custom-switch input[type="checkbox"]:hover:disabled:checked~label:before {
+.custom-switch input[type="checkbox"]:hover:disabled:checked+label:before {
     background-color: #1890ff;
     border-color: #1890ff;
 }
-.dark-mode .custom-switch input[type="checkbox"]:disabled~label:before {
+.dark-mode .custom-switch input[type="checkbox"]:disabled+label:before {
     background-color: transparent;
     border-color: rgba(255, 255, 255, 0.15);
 }
-.dark-mode .custom-switch input[type="checkbox"]:hover:disabled~label:before {
+.dark-mode .custom-switch input[type="checkbox"]:hover:disabled+label:before {
     background-color: transparent;
     border-color: rgba(255, 255, 255, 0.15);
 }
-.dark-mode .custom-switch input[type="checkbox"]:disabled:checked~label:before {
+.dark-mode .custom-switch input[type="checkbox"]:disabled:checked+label:before {
     background-color: #1890ff;
     border-color: #1890ff;
 }
-.dark-mode .custom-switch input[type="checkbox"]:hover:disabled:checked~label:before {
+.dark-mode .custom-switch input[type="checkbox"]:hover:disabled:checked+label:before {
     background-color: #1890ff;
     border-color: #1890ff;
 }
@@ -6599,7 +6620,8 @@ select.form-control[multiple] > option:disabled {
     box-shadow: 0 0.2rem 0 rgba(0, 0, 0, 0.05);
 }
 
-.custom-file input[type="file"].is-invalid~label {
+.custom-file input[type="file"].is-invalid~label,
+.custom-file input[type="file"]:invalid~label {
     color: rgba(0, 0, 0, 0.7);
     background-color: #ffffff;
     background-image: none;
@@ -6617,7 +6639,8 @@ select.form-control[multiple] > option:disabled {
     -webkit-box-shadow: 0 0.2rem 0 rgba(0, 0, 0, 0.05);
     box-shadow: 0 0.2rem 0 rgba(0, 0, 0, 0.05);
 }
-.custom-file input[type="file"].is-invalid~label:hover {
+.custom-file input[type="file"].is-invalid~label:hover,
+.custom-file input[type="file"]:invalid~label:hover {
     color: rgba(0, 0, 0, 0.7);
     background-color: #f7f7f7;
     background-image: none;
@@ -6635,7 +6658,8 @@ select.form-control[multiple] > option:disabled {
     -webkit-box-shadow: 0 0 0 0.2rem rgba(245, 34, 45, 0.6);
     box-shadow: 0 0 0 0.2rem rgba(245, 34, 45, 0.6);
 }
-.custom-file input[type="file"].is-invalid:focus~label {
+.custom-file input[type="file"].is-invalid:focus~label,
+.custom-file input[type="file"]:invalid:focus~label {
     color: rgba(0, 0, 0, 0.7);
     background-color: #ffffff;
     background-image: none;
@@ -6653,7 +6677,8 @@ select.form-control[multiple] > option:disabled {
     background-color: #f7f7f7;
     background-image: none;
 }
-.custom-file input[type="file"].is-invalid:focus:hover~label {
+.custom-file input[type="file"].is-invalid:focus:hover~label,
+.custom-file input[type="file"]:invalid:focus:hover~label {
     /*
     Only text color and background properties are overridden, while the border 
     color, box shadow, and the outline of the focus selector is kept.
@@ -6671,7 +6696,8 @@ select.form-control[multiple] > option:disabled {
     -webkit-box-shadow: 0 0.2rem 0 rgba(0, 0, 0, 0.1);
     box-shadow: 0 0.2rem 0 rgba(0, 0, 0, 0.1);
 }
-.dark-mode .custom-file input[type="file"].is-invalid~label {
+.dark-mode .custom-file input[type="file"].is-invalid~label,
+.dark-mode .custom-file input[type="file"]:invalid~label {
     color: rgba(255, 255, 255, 0.8);
     background-color: rgba(255, 255, 255, 0.05);
     background-image: none;
@@ -6689,7 +6715,8 @@ select.form-control[multiple] > option:disabled {
     -webkit-box-shadow: 0 0.2rem 0 rgba(0, 0, 0, 0.1);
     box-shadow: 0 0.2rem 0 rgba(0, 0, 0, 0.1);
 }
-.dark-mode .custom-file input[type="file"].is-invalid~label:hover {
+.dark-mode .custom-file input[type="file"].is-invalid~label:hover,
+.dark-mode .custom-file input[type="file"]:invalid~label:hover {
     color: rgba(255, 255, 255, 0.8);
     background-color: rgba(255, 255, 255, 0.1);
     background-image: none;
@@ -6707,7 +6734,8 @@ select.form-control[multiple] > option:disabled {
     -webkit-box-shadow: 0 0 0 0.2rem rgba(245, 34, 45, 0.3);
     box-shadow: 0 0 0 0.2rem rgba(245, 34, 45, 0.3);
 }
-.dark-mode .custom-file input[type="file"].is-invalid:focus~label {
+.dark-mode .custom-file input[type="file"].is-invalid:focus~label,
+.dark-mode .custom-file input[type="file"]:invalid:focus~label {
     color: rgba(255, 255, 255, 0.8);
     background-color: rgba(255, 255, 255, 0.05);
     background-image: none;
@@ -6725,7 +6753,8 @@ select.form-control[multiple] > option:disabled {
     background-color: rgba(255, 255, 255, 0.1);
     background-image: none;
 }
-.dark-mode .custom-file input[type="file"].is-invalid:focus:hover~label {
+.dark-mode .custom-file input[type="file"].is-invalid:focus:hover~label,
+.dark-mode .custom-file input[type="file"]:invalid:focus:hover~label {
     /* 
     Only text color and background properties are overridden, while the border 
     color, box shadow, and the outline of the focus selector is kept.
