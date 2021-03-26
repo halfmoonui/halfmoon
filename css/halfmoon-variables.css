@@ -3959,7 +3959,7 @@ body {
 /* With transitions (for sidebar toggles) */
 
 .page-wrapper.with-transitions.with-sidebar > .sidebar {
-    transition: left .4s cubic-bezier(.25, .8, .25, 1);
+    transition: visibility .4s, left .4s cubic-bezier(.25, .8, .25, 1);
     will-change: visibility, left;
 }
 .page-wrapper.with-transitions.with-sidebar .content-wrapper,
