@@ -7239,21 +7239,24 @@ textarea.form-control-lg {
 /* Inputs invalid (with errors) */
 
 .form-group.is-invalid .form-control,
-.form-control.is-invalid {
+.form-control.is-invalid,
+.form-control:invalid {
     color: var(--lm-input-invalid-text-color);
     background-color: var(--lm-input-invalid-bg-color);
     border-color: var(--lm-input-invalid-border-color);
     box-shadow: var(--lm-input-invalid-box-shadow);
 }
 .form-group.is-invalid .form-control:hover,
-.form-control.is-invalid:hover {
+.form-control.is-invalid:hover,
+.form-control:invalid:hover {
     color: var(--lm-input-invalid-text-color-hover);
     background-color: var(--lm-input-invalid-bg-color-hover);
     border-color: var(--lm-input-invalid-border-color-hover);
     box-shadow: var(--lm-input-invalid-box-shadow-hover);
 }
 .form-group.is-invalid .form-control:focus,
-.form-control.is-invalid:focus {
+.form-control.is-invalid:focus,
+.form-control:invalid:focus {
     color: var(--lm-input-invalid-text-color-focus);
     background-color: var(--lm-input-invalid-bg-color-focus);
     border-color: var(--lm-input-invalid-border-color-focus);
@@ -7271,33 +7274,39 @@ textarea.form-control-lg {
 .form-group.is-invalid .form-control::placeholder {
     color: var(--lm-input-invalid-placeholder-text-color);
 }
-.form-control.is-invalid::-webkit-input-placeholder {
+.form-control.is-invalid::-webkit-input-placeholder,
+.form-control:invalid::-webkit-input-placeholder {
     /* Edge */
     color: var(--lm-input-invalid-placeholder-text-color);
 }
-.form-control.is-invalid:-ms-input-placeholder {
+.form-control.is-invalid:-ms-input-placeholder,
+.form-control:invalid:-ms-input-placeholder {
     /* Internet Explorer 10-11 */
     color: var(--lm-input-invalid-placeholder-text-color);
 }
-.form-control.is-invalid::placeholder {
+.form-control.is-invalid::placeholder,
+.form-control:invalid::placeholder {
     color: var(--lm-input-invalid-placeholder-text-color);
 }
 .dark-mode .form-group.is-invalid .form-control,
-.dark-mode .form-control.is-invalid {
+.dark-mode .form-control.is-invalid,
+.dark-mode .form-control:invalid {
     color: var(--dm-input-invalid-text-color);
     background-color: var(--dm-input-invalid-bg-color);
     border-color: var(--dm-input-invalid-border-color);
     box-shadow: var(--dm-input-invalid-box-shadow);
 }
 .dark-mode .form-group.is-invalid .form-control:hover,
-.dark-mode .form-control.is-invalid:hover {
+.dark-mode .form-control.is-invalid:hover,
+.dark-mode .form-control:invalid:hover {
     color: var(--dm-input-invalid-text-color-hover);
     background-color: var(--dm-input-invalid-bg-color-hover);
     border-color: var(--dm-input-invalid-border-color-hover);
     box-shadow: var(--dm-input-invalid-box-shadow-hover);
 }
 .dark-mode .form-group.is-invalid .form-control:focus,
-.dark-mode .form-control.is-invalid:focus {
+.dark-mode .form-control.is-invalid:focus,
+.dark-mode .form-control:invalid:focus {
     color: var(--dm-input-invalid-text-color-focus);
     background-color: var(--dm-input-invalid-bg-color-focus);
     border-color: var(--dm-input-invalid-border-color-focus);
@@ -7315,15 +7324,18 @@ textarea.form-control-lg {
 .dark-mode .form-group.is-invalid .form-control::placeholder {
     color: var(--dm-input-invalid-placeholder-text-color);
 }
-.dark-mode .form-control.is-invalid::-webkit-input-placeholder {
+.dark-mode .form-control.is-invalid::-webkit-input-placeholder,
+.dark-mode .form-control:invalid::-webkit-input-placeholder {
     /* Edge */
     color: var(--dm-input-invalid-placeholder-text-color);
 }
-.dark-mode .form-control.is-invalid:-ms-input-placeholder {
+.dark-mode .form-control.is-invalid:-ms-input-placeholder,
+.dark-mode .form-control:invalid:-ms-input-placeholder {
     /* Internet Explorer 10-11 */
     color: var(--dm-input-invalid-placeholder-text-color);
 }
-.dark-mode .form-control.is-invalid::placeholder {
+.dark-mode .form-control.is-invalid::placeholder,
+.dark-mode .form-control:invalid::placeholder {
     color: var(--dm-input-invalid-placeholder-text-color);
 }
 .dark-mode .form-group.is-invalid .form-control.alt-dm,
@@ -8385,7 +8397,8 @@ select.form-control[multiple] > option:disabled {
 /* Invalid input file */
 
 .form-group.is-invalid .custom-file label,
-.custom-file input[type="file"].is-invalid~label {
+.custom-file input[type="file"].is-invalid~label,
+.custom-file input[type="file"]:invalid~label {
     color: var(--lm-input-file-button-invalid-text-color);
     background-color: var(--lm-input-file-button-invalid-bg-color);
     background-image: var(--lm-input-file-button-invalid-bg-image);
@@ -8393,7 +8406,8 @@ select.form-control[multiple] > option:disabled {
     box-shadow: var(--lm-input-file-button-invalid-box-shadow);
 }
 .form-group.is-invalid .custom-file label:hover,
-.custom-file input[type="file"].is-invalid~label:hover {
+.custom-file input[type="file"].is-invalid~label:hover,
+.custom-file input[type="file"]:invalid~label:hover {
     color: var(--lm-input-file-button-invalid-text-color-hover);
     background-color: var(--lm-input-file-button-invalid-bg-color-hover);
     background-image: var(--lm-input-file-button-invalid-bg-image-hover);
@@ -8401,7 +8415,8 @@ select.form-control[multiple] > option:disabled {
     box-shadow: var(--lm-input-file-button-invalid-box-shadow-hover);
 }
 .form-group.is-invalid .custom-file input[type="file"]:focus~label,
-.custom-file input[type="file"].is-invalid:focus~label {
+.custom-file input[type="file"].is-invalid:focus~label,
+.custom-file input[type="file"]:invalid:focus~label {
     color: var(--lm-input-file-button-invalid-text-color-focus);
     background-color: var(--lm-input-file-button-invalid-bg-color-focus);
     background-image: var(--lm-input-file-button-invalid-bg-image-focus);
@@ -8409,7 +8424,8 @@ select.form-control[multiple] > option:disabled {
     box-shadow: var(--lm-input-file-button-invalid-box-shadow-focus);
 }
 .form-group.is-invalid .custom-file input[type="file"]:focus:hover~label,
-.custom-file input[type="file"].is-invalid:focus:hover~label {
+.custom-file input[type="file"].is-invalid:focus:hover~label,
+.custom-file input[type="file"]:invalid:focus:hover~label {
     /*
     Only text color and background properties are overridden, while the border 
     color, box shadow, and the outline of the focus selector is kept.
@@ -8419,7 +8435,8 @@ select.form-control[multiple] > option:disabled {
     background-image: var(--lm-input-file-button-invalid-bg-image-hover);
 }
 .dark-mode .form-group.is-invalid .custom-file label,
-.dark-mode .custom-file input[type="file"].is-invalid~label {
+.dark-mode .custom-file input[type="file"].is-invalid~label,
+.dark-mode .custom-file input[type="file"]:invalid~label {
     color: var(--dm-input-file-button-invalid-text-color);
     background-color: var(--dm-input-file-button-invalid-bg-color);
     background-image: var(--dm-input-file-button-invalid-bg-image);
@@ -8427,7 +8444,8 @@ select.form-control[multiple] > option:disabled {
     box-shadow: var(--dm-input-file-button-invalid-box-shadow);
 }
 .dark-mode .form-group.is-invalid .custom-file label:hover,
-.dark-mode .custom-file input[type="file"].is-invalid~label:hover {
+.dark-mode .custom-file input[type="file"].is-invalid~label:hover,
+.dark-mode .custom-file input[type="file"]:invalid~label:hover {
     color: var(--dm-input-file-button-invalid-text-color-hover);
     background-color: var(--dm-input-file-button-invalid-bg-color-hover);
     background-image: var(--dm-input-file-button-invalid-bg-image-hover);
@@ -8435,7 +8453,8 @@ select.form-control[multiple] > option:disabled {
     box-shadow: var(--dm-input-file-button-invalid-box-shadow-hover);
 }
 .dark-mode .form-group.is-invalid .custom-file input[type="file"]:focus~label,
-.dark-mode .custom-file input[type="file"].is-invalid:focus~label {
+.dark-mode .custom-file input[type="file"].is-invalid:focus~label,
+.dark-mode .custom-file input[type="file"]:invalid:focus~label {
     color: var(--dm-input-file-button-invalid-text-color-focus);
     background-color: var(--dm-input-file-button-invalid-bg-color-focus);
     background-image: var(--dm-input-file-button-invalid-bg-image-focus);
@@ -8443,7 +8462,8 @@ select.form-control[multiple] > option:disabled {
     box-shadow: var(--dm-input-file-button-invalid-box-shadow-focus);
 }
 .dark-mode .form-group.is-invalid .custom-file input[type="file"]:focus:hover~label,
-.dark-mode .custom-file input[type="file"].is-invalid:focus:hover~label {
+.dark-mode .custom-file input[type="file"].is-invalid:focus:hover~label,
+.dark-mode .custom-file input[type="file"]:invalid:focus:hover~label {
     /* 
     Only text color and background properties are overridden, while the border 
     color, box shadow, and the outline of the focus selector is kept.

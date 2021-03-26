@@ -5753,7 +5753,8 @@ textarea.form-control-lg {
     box-shadow: none;
 }
 
-.form-control.is-invalid {
+.form-control.is-invalid,
+.form-control:invalid {
     color: rgba(0, 0, 0, 0.85);
     background-color: #ffffff;
     border-color: #ff4d4f;
@@ -5769,7 +5770,8 @@ textarea.form-control-lg {
     -webkit-box-shadow: none;
     box-shadow: none;
 }
-.form-control.is-invalid:hover {
+.form-control.is-invalid:hover,
+.form-control:invalid:hover {
     color: rgba(0, 0, 0, 0.85);
     background-color: #ffffff;
     border-color: #ff4d4f;
@@ -5786,7 +5788,8 @@ textarea.form-control-lg {
     box-shadow: 0 0 0 0.2rem rgba(245, 34, 45, 0.6);
     outline: none;
 }
-.form-control.is-invalid:focus {
+.form-control.is-invalid:focus,
+.form-control:invalid:focus {
     color: rgba(0, 0, 0, 0.85);
     background-color: #ffffff;
     border-color: #f8d0d9;
@@ -5806,15 +5809,18 @@ textarea.form-control-lg {
 .form-group.is-invalid .form-control::placeholder {
     color: rgba(0, 0, 0, 0.35);
 }
-.form-control.is-invalid::-webkit-input-placeholder {
+.form-control.is-invalid::-webkit-input-placeholder,
+.form-control:invalid::-webkit-input-placeholder {
     /* Edge */
     color: rgba(0, 0, 0, 0.35);
 }
-.form-control.is-invalid:-ms-input-placeholder {
+.form-control.is-invalid:-ms-input-placeholder,
+.form-control:invalid:-ms-input-placeholder {
     /* Internet Explorer 10-11 */
     color: rgba(0, 0, 0, 0.35);
 }
-.form-control.is-invalid::placeholder {
+.form-control.is-invalid::placeholder,
+.form-control:invalid::placeholder {
     color: rgba(0, 0, 0, 0.35);
 }
 .dark-mode .form-group.is-invalid .form-control {
@@ -5825,7 +5831,8 @@ textarea.form-control-lg {
     -webkit-box-shadow: none;
     box-shadow: none;
 }
-.dark-mode .form-control.is-invalid {
+.dark-mode .form-control.is-invalid,
+.dark-mode .form-control:invalid {
     color: rgba(255, 255, 255, 0.8);
     background-color: rgba(255, 255, 255, 0.05);
     border-color: #ff4d4f;
@@ -5841,7 +5848,8 @@ textarea.form-control-lg {
     -webkit-box-shadow: none;
     box-shadow: none;
 }
-.dark-mode .form-control.is-invalid:hover {
+.dark-mode .form-control.is-invalid:hover,
+.dark-mode .form-control:invalid:hover {
     color: rgba(255, 255, 255, 0.8);
     background-color: rgba(255, 255, 255, 0.05);
     border-color: #ff4d4f;
@@ -5858,7 +5866,8 @@ textarea.form-control-lg {
     box-shadow: 0 0 0 0.2rem rgba(245, 34, 45, 0.3);
     outline: none;
 }
-.dark-mode .form-control.is-invalid:focus {
+.dark-mode .form-control.is-invalid:focus,
+.dark-mode .form-control:invalid:focus {
     color: rgba(255, 255, 255, 0.8);
     background-color: rgba(255, 255, 255, 0.05);
     border-color: #ff4d4f;
@@ -5878,15 +5887,18 @@ textarea.form-control-lg {
 .dark-mode .form-group.is-invalid .form-control::placeholder {
     color: rgba(255, 255, 255, 0.2);
 }
-.dark-mode .form-control.is-invalid::-webkit-input-placeholder {
+.dark-mode .form-control.is-invalid::-webkit-input-placeholder,
+.dark-mode .form-control:invalid::-webkit-input-placeholder {
     /* Edge */
     color: rgba(255, 255, 255, 0.2);
 }
-.dark-mode .form-control.is-invalid:-ms-input-placeholder {
+.dark-mode .form-control.is-invalid:-ms-input-placeholder,
+.dark-mode .form-control:invalid:-ms-input-placeholder {
     /* Internet Explorer 10-11 */
     color: rgba(255, 255, 255, 0.2);
 }
-.dark-mode .form-control.is-invalid::placeholder {
+.dark-mode .form-control.is-invalid::placeholder,
+.dark-mode .form-control:invalid::placeholder {
     color: rgba(255, 255, 255, 0.2);
 }
 .dark-mode .form-group.is-invalid .form-control.alt-dm {
@@ -6605,7 +6617,8 @@ select.form-control[multiple] > option:disabled {
     box-shadow: 0 0.2rem 0 rgba(0, 0, 0, 0.05);
 }
 
-.custom-file input[type="file"].is-invalid~label {
+.custom-file input[type="file"].is-invalid~label,
+.custom-file input[type="file"]:invalid~label {
     color: rgba(0, 0, 0, 0.7);
     background-color: #ffffff;
     background-image: none;
@@ -6623,7 +6636,8 @@ select.form-control[multiple] > option:disabled {
     -webkit-box-shadow: 0 0.2rem 0 rgba(0, 0, 0, 0.05);
     box-shadow: 0 0.2rem 0 rgba(0, 0, 0, 0.05);
 }
-.custom-file input[type="file"].is-invalid~label:hover {
+.custom-file input[type="file"].is-invalid~label:hover,
+.custom-file input[type="file"]:invalid~label:hover {
     color: rgba(0, 0, 0, 0.7);
     background-color: #f7f7f7;
     background-image: none;
@@ -6641,7 +6655,8 @@ select.form-control[multiple] > option:disabled {
     -webkit-box-shadow: 0 0 0 0.2rem rgba(245, 34, 45, 0.6);
     box-shadow: 0 0 0 0.2rem rgba(245, 34, 45, 0.6);
 }
-.custom-file input[type="file"].is-invalid:focus~label {
+.custom-file input[type="file"].is-invalid:focus~label,
+.custom-file input[type="file"]:invalid:focus~label {
     color: rgba(0, 0, 0, 0.7);
     background-color: #ffffff;
     background-image: none;
@@ -6659,7 +6674,8 @@ select.form-control[multiple] > option:disabled {
     background-color: #f7f7f7;
     background-image: none;
 }
-.custom-file input[type="file"].is-invalid:focus:hover~label {
+.custom-file input[type="file"].is-invalid:focus:hover~label,
+.custom-file input[type="file"]:invalid:focus:hover~label {
     /*
     Only text color and background properties are overridden, while the border 
     color, box shadow, and the outline of the focus selector is kept.
@@ -6677,7 +6693,8 @@ select.form-control[multiple] > option:disabled {
     -webkit-box-shadow: 0 0.2rem 0 rgba(0, 0, 0, 0.1);
     box-shadow: 0 0.2rem 0 rgba(0, 0, 0, 0.1);
 }
-.dark-mode .custom-file input[type="file"].is-invalid~label {
+.dark-mode .custom-file input[type="file"].is-invalid~label,
+.dark-mode .custom-file input[type="file"]:invalid~label {
     color: rgba(255, 255, 255, 0.8);
     background-color: rgba(255, 255, 255, 0.05);
     background-image: none;
@@ -6695,7 +6712,8 @@ select.form-control[multiple] > option:disabled {
     -webkit-box-shadow: 0 0.2rem 0 rgba(0, 0, 0, 0.1);
     box-shadow: 0 0.2rem 0 rgba(0, 0, 0, 0.1);
 }
-.dark-mode .custom-file input[type="file"].is-invalid~label:hover {
+.dark-mode .custom-file input[type="file"].is-invalid~label:hover,
+.dark-mode .custom-file input[type="file"]:invalid~label:hover {
     color: rgba(255, 255, 255, 0.8);
     background-color: rgba(255, 255, 255, 0.1);
     background-image: none;
@@ -6713,7 +6731,8 @@ select.form-control[multiple] > option:disabled {
     -webkit-box-shadow: 0 0 0 0.2rem rgba(245, 34, 45, 0.3);
     box-shadow: 0 0 0 0.2rem rgba(245, 34, 45, 0.3);
 }
-.dark-mode .custom-file input[type="file"].is-invalid:focus~label {
+.dark-mode .custom-file input[type="file"].is-invalid:focus~label,
+.dark-mode .custom-file input[type="file"]:invalid:focus~label {
     color: rgba(255, 255, 255, 0.8);
     background-color: rgba(255, 255, 255, 0.05);
     background-image: none;
@@ -6731,7 +6750,8 @@ select.form-control[multiple] > option:disabled {
     background-color: rgba(255, 255, 255, 0.1);
     background-image: none;
 }
-.dark-mode .custom-file input[type="file"].is-invalid:focus:hover~label {
+.dark-mode .custom-file input[type="file"].is-invalid:focus:hover~label,
+.dark-mode .custom-file input[type="file"]:invalid:focus:hover~label {
     /* 
     Only text color and background properties are overridden, while the border 
     color, box shadow, and the outline of the focus selector is kept.
