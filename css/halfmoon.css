@@ -993,12 +993,14 @@ body {
 .page-wrapper.with-transitions.with-sidebar > .sidebar {
     -webkit-transition: left .4s cubic-bezier(.25, .8, .25, 1);
     transition: left .4s cubic-bezier(.25, .8, .25, 1);
+    will-change: left;
 }
 .page-wrapper.with-transitions.with-sidebar .content-wrapper,
 .page-wrapper.with-transitions.with-sidebar[data-sidebar-type~="full-height"] > .navbar:not(.navbar-fixed-bottom),
 .page-wrapper.with-transitions.with-sidebar[data-sidebar-type~="full-height"] > .navbar.navbar-fixed-bottom {
     -webkit-transition: width .4s cubic-bezier(.25, .8, .25, 1), left .4s cubic-bezier(.25, .8, .25, 1);
     transition: width .4s cubic-bezier(.25, .8, .25, 1), left .4s cubic-bezier(.25, .8, .25, 1);
+    will-change: width, left;
 }
 
 /* Janky scroll fix (for Safari) */
