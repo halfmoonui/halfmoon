@@ -1,0 +1,8 @@
+.button-container {
+  display: block;
+  width: fit-content;
+  margin: 5px auto;
+  > * + * {
+    margin-left: 1rem;
+  }
+}

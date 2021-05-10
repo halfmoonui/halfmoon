@@ -39,6 +39,126 @@
           }
         }
       }
+    },
+    "ng-halfmoon-app": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "projects/ng-halfmoon-app",
+      "sourceRoot": "projects/ng-halfmoon-app/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/ng-halfmoon-app",
+            "index": "projects/ng-halfmoon-app/src/index.html",
+            "main": "projects/ng-halfmoon-app/src/main.ts",
+            "polyfills": "projects/ng-halfmoon-app/src/polyfills.ts",
+            "tsConfig": "projects/ng-halfmoon-app/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "projects/ng-halfmoon-app/src/favicon.ico",
+              "projects/ng-halfmoon-app/src/assets"
+            ],
+            "styles": [
+              "../../css/halfmoon.min.css",
+              "node_modules/@fortawesome/fontawesome-free/css/fontawesome.min.css",
+              "projects/ng-halfmoon-app/src/styles.css"
+            ],
+            "scripts": [
+              "node_modules/@fortawesome/fontawesome-free/js/brands.min.js",
+              "node_modules/@fortawesome/fontawesome-free/js/solid.min.js",
+              "node_modules/@fortawesome/fontawesome-free/js/fontawesome.min.js",
+              "../../js/halfmoon.min.js",
+              "projects/ng-halfmoon-app/src/scripts.js"
+            ]
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/ng-halfmoon-app/src/environments/environment.ts",
+                  "with": "projects/ng-halfmoon-app/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "ng-halfmoon-app:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "ng-halfmoon-app:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "ng-halfmoon-app:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ng-halfmoon-app/src/test.ts",
+            "polyfills": "projects/ng-halfmoon-app/src/polyfills.ts",
+            "tsConfig": "projects/ng-halfmoon-app/tsconfig.spec.json",
+            "karmaConfig": "projects/ng-halfmoon-app/karma.conf.js",
+            "assets": [
+              "projects/ng-halfmoon-app/src/favicon.ico",
+              "projects/ng-halfmoon-app/src/assets"
+            ],
+            "styles": [
+              "projects/ng-halfmoon-app/src/styles.css"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "projects/ng-halfmoon-app/**/*.ts",
+              "projects/ng-halfmoon-app/**/*.html"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/ng-halfmoon-app/e2e/protractor.conf.js",
+            "devServerTarget": "ng-halfmoon-app:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "ng-halfmoon-app:serve:production"
+            }
+          }
+        }
+      }
     }
   },
   "defaultProject": "ng-halfmoon",

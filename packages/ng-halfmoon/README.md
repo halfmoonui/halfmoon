@@ -1,27 +1,23 @@
 # NgHalfmoon
+This is the workspace for the angular-libary
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.11.
-
-## Development server
-
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Start developing
+After checking out or forking the repo you can simply run the following command inside the ng-halfmoon folder to start developing
+```bash
+npm install
+```
 
 ## Build
+To check if everything is working correctly you can build the library with the following command
+```bash
+npm run build:ng-halfmoon
+```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+## Add a sample in the app
+You can add a sample via the test-application `ng-halfmoon-app`
 
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## Test via the app
+To see the result you can run the app via:
+```bash
+npm run start
+```
