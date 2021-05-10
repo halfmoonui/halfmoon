@@ -5,7 +5,9 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "build:ng-halfmoon": "ng build ng-halfmoon --prod",
     "test": "ng test",
+    "test:ng-halfmoon": "ng test ng-halfmoon",
     "lint": "ng lint"
   },
   "private": true,

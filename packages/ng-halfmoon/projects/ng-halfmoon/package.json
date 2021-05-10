@@ -1,6 +1,31 @@
 {
   "name": "ng-halfmoon",
   "version": "0.0.1",
+  "description": "Front-end framework with a built-in dark mode and full customizability using CSS variables; great for building dashboards and tools",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/halfmoonui/halfmoon.git"
+  },
+  "keywords": [
+    "halfmoon",
+    "angular",
+    "ng-halfmoon",
+    "css",
+    "javascript",
+    "dark-theme",
+    "dark-mode",
+    "dashboard",
+    "web-framework",
+    "css-framework",
+    "css-variables",
+    "css-custom-properties"
+  ],
+  "author": "Halfmoon UI",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/halfmoonui/halfmoon/issues"
+  },
+  "homepage": "https://github.com/halfmoonui/halfmoon#readme",
   "peerDependencies": {
     "@angular/common": "^11.2.13",
     "@angular/core": "^11.2.13"
