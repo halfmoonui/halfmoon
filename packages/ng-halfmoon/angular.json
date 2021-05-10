@@ -3,5 +3,46 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-  }
+    "ng-halfmoon": {
+      "projectType": "library",
+      "root": "projects/ng-halfmoon",
+      "sourceRoot": "projects/ng-halfmoon/src",
+      "prefix": "hm",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "projects/ng-halfmoon/tsconfig.lib.json",
+            "project": "projects/ng-halfmoon/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/ng-halfmoon/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ng-halfmoon/src/test.ts",
+            "tsConfig": "projects/ng-halfmoon/tsconfig.spec.json",
+            "karmaConfig": "projects/ng-halfmoon/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ng-halfmoon/tsconfig.lib.json",
+              "projects/ng-halfmoon/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "ng-halfmoon"
 }
