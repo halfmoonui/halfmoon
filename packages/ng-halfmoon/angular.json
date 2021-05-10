@@ -30,19 +30,19 @@
           }
         },
         "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
+          "builder": "@angular-eslint/builder:lint",
           "options": {
-            "tsConfig": [
-              "projects/ng-halfmoon/tsconfig.lib.json",
-              "projects/ng-halfmoon/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
+            "lintFilePatterns": [
+              "projects/ng-halfmoon/**/*.ts",
+              "projects/ng-halfmoon/**/*.html"
             ]
           }
         }
       }
     }
   },
-  "defaultProject": "ng-halfmoon"
+  "defaultProject": "ng-halfmoon",
+  "cli": {
+    "defaultCollection": "@angular-eslint/schematics"
+  }
 }
