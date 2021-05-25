@@ -1663,6 +1663,17 @@ CSS variables (CSS custom properties)
 
     --dm-checkbox-checkmark-color: var(--text-color-on-primary-color-bg);
     --dm-checkbox-checkmark-box-shadow: none;
+    
+    --checkbox-indeterminate-left: 0.4rem;
+    --checkbox-indeterminate-top: 0;
+    --checkbox-indeterminate-width: 1rem;
+    --checkbox-indeterminate-height: 1rem;
+    --checkbox-indeterminate-border-width: 0 0 0.2rem 0;
+    --checkbox-indeterminate-transform: none;
+    
+    --lm-checkbox-indeterminate-color: var(--lm-base-text-color);
+
+    --dm-checkbox-indeterminate-color: var(--dm-base-text-color);
 
     
     /*
@@ -7577,6 +7588,21 @@ select.form-control[multiple] > option:disabled {
     background-color: var(--dm-checkbox-bg-color-checked);
     border-color: var(--dm-checkbox-border-color-checked);
     box-shadow: var(--dm-checkbox-box-shadow-checked);
+}
+.custom-checkbox input[type="checkbox"]:indeterminate~label::after {
+    content: "";
+    position: absolute;
+    display: block;
+    left: var(--checkbox-indeterminate-left);
+    top: var(--checkbox-indeterminate-top);
+    width: var(--checkbox-indeterminate-width);
+    height: var(--checkbox-indeterminate-height);
+    border: solid var(--lm-checkbox-indeterminate-color);
+    border-width: var(--checkbox-indeterminate-border-width);
+    transform: var(--checkbox-indeterminate-transform);
+}  
+.dark-mode .custom-checkbox input[type="checkbox"]:indeterminate~label::after {
+    border-color: solid var(--dm-checkbox-indeterminate-color);
 }
 
 /* Radio */
