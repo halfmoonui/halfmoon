@@ -37,205 +37,225 @@ if (!Element.prototype.closest) {
 /* Halfmoon JS core */
 
 var halfmoon = {
-    // Getting the required elements
-    // Re-initialized once the DOM is loaded (to avoid issues with virtual DOM)
-    pageWrapper: document.getElementsByClassName("page-wrapper")[0],
-    stickyAlerts: document.getElementsByClassName("sticky-alerts")[0],
+	// Getting the required elements
+	// Re-initialized once the DOM is loaded (to avoid issues with virtual DOM)
+	pageWrapper: document.getElementsByClassName('page-wrapper')[0],
+	stickyAlerts: document.getElementsByClassName('sticky-alerts')[0],
 
-    darkModeOn: false, // Also re-initialized once the DOM is loaded (see below)
+	darkModeOn: false, // Also re-initialized once the DOM is loaded (see below)
 
-    // Create cookie
-    createCookie: function(name, value, days) {
-        var expires;
-        if (days) {
-            var date = new Date();
-            date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
-            expires = "; expires=" + date.toGMTString();
-        }
-        else {
-            expires = "";
-        }
-        document.cookie = name + "=" + value + expires + "; path=/";
-    },
+	// Create cookie
+	createCookie: function (name, value, days) {
+		var expires;
+		if (days) {
+			var date = new Date();
+			date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
+			expires = '; expires=' + date.toGMTString();
+		} else {
+			expires = '';
+		}
+		document.cookie = name + '=' + value + expires + '; path=/';
+	},
 
-    // Read cookie
-    readCookie: function(name) {
-        var nameEQ = name + "=";
-        var ca = document.cookie.split(";");
-        for(var i=0; i < ca.length; i++) {
-            var c = ca[i];
-            while (c.charAt(0) === " ") {
-                c = c.substring(1, c.length);
-            }
-            if (c.indexOf(nameEQ) === 0) {
-                return c.substring(nameEQ.length,c.length);
-            }
-        }
-        return null;
-    },
+	// Read cookie
+	readCookie: function (name) {
+		var nameEQ = name + '=';
+		var ca = document.cookie.split(';');
+		for (var i = 0; i < ca.length; i++) {
+			var c = ca[i];
+			while (c.charAt(0) === ' ') {
+				c = c.substring(1, c.length);
+			}
+			if (c.indexOf(nameEQ) === 0) {
+				return c.substring(nameEQ.length, c.length);
+			}
+		}
+		return null;
+	},
 
-    // Erase cookie
-    eraseCookie: function(name) {
-        this.createCookie(name, "", -1);
-    },
+	// Erase cookie
+	eraseCookie: function (name) {
+		this.createCookie(name, '', -1);
+	},
 
-    // Toggle light/dark mode 
-    toggleDarkMode: function() {
-        if (document.body.classList.contains("dark-mode")) {
-            document.body.classList.remove("dark-mode");
-            this.darkModeOn = false;
-            this.createCookie("halfmoon_preferredMode", "light-mode", 365);
-        } else {
-            document.body.classList.add("dark-mode");
-            this.darkModeOn = true;
-            this.createCookie("halfmoon_preferredMode", "dark-mode", 365);
-        }
-    },
+	// Toggle light/dark mode
+	toggleDarkMode: function () {
+		if (document.body.classList.contains('dark-mode')) {
+			document.body.classList.remove('dark-mode');
+			this.darkModeOn = false;
+			this.createCookie('halfmoon_preferredMode', 'light-mode', 365);
+		} else {
+			document.body.classList.add('dark-mode');
+			this.darkModeOn = true;
+			this.createCookie('halfmoon_preferredMode', 'dark-mode', 365);
+		}
+	},
+	setColorMode: function (mode) {
+		if (mode == 'dark') {
+			document.body.classList.add('dark-mode');
+		} else if (mode == 'light') {
+			document.body.classList.remove('dark-mode');
+		} else {
+			console.err('must be "light" or "dark"');
+		}
+	},
+	// Get preferred mode
+	getPreferredMode: function () {
+		if (this.readCookie('halfmoon_preferredMode')) {
+			return this.readCookie('halfmoon_preferredMode');
+		} else {
+			return 'not-set';
+		}
+	},
 
-    // Get preferred mode
-    getPreferredMode: function() {
-        if (this.readCookie("halfmoon_preferredMode")) {
-            return this.readCookie("halfmoon_preferredMode");
-        } else {
-            return "not-set";
-        }
-    },
+	// Toggles sidebar
+	toggleSidebar: function () {
+		if (this.pageWrapper) {
+			if (this.pageWrapper.getAttribute('data-sidebar-hidden')) {
+				this.pageWrapper.removeAttribute('data-sidebar-hidden');
+			} else {
+				this.pageWrapper.setAttribute('data-sidebar-hidden', 'hidden');
+			}
+		}
+	},
 
-    // Toggles sidebar
-    toggleSidebar: function() {
-        if (this.pageWrapper) {
-            if (this.pageWrapper.getAttribute("data-sidebar-hidden")) {
-                this.pageWrapper.removeAttribute("data-sidebar-hidden");
-            } else {
-                this.pageWrapper.setAttribute("data-sidebar-hidden", "hidden");
-            }
-        }
-    },
+	// Deactivate all the dropdown toggles when another one is active
+	deactivateAllDropdownToggles: function () {
+		var activeDropdownToggles = document.querySelectorAll(
+			"[data-toggle='dropdown'].active"
+		);
+		for (var i = 0; i < activeDropdownToggles.length; i++) {
+			activeDropdownToggles[i].classList.remove('active');
+			activeDropdownToggles[i]
+				.closest('.dropdown')
+				.classList.remove('show');
+		}
+	},
 
-    // Deactivate all the dropdown toggles when another one is active
-    deactivateAllDropdownToggles: function() {
-        var activeDropdownToggles = document.querySelectorAll("[data-toggle='dropdown'].active");
-        for (var i = 0; i < activeDropdownToggles.length; i++) {
-            activeDropdownToggles[i].classList.remove("active");
-            activeDropdownToggles[i].closest(".dropdown").classList.remove("show");
-        }
-    },
+	// Toggle modal (using Javascript)
+	toggleModal: function (modalId) {
+		var modal = document.getElementById(modalId);
 
-    // Toggle modal (using Javascript)
-    toggleModal: function(modalId) {
-        var modal = document.getElementById(modalId);
+		if (modal) {
+			modal.classList.toggle('show');
+		}
+	},
 
-        if (modal) {
-            modal.classList.toggle("show");
-        }
-    },
+	/* Code block for handling sticky alerts */
 
-    /* Code block for handling sticky alerts */
+	// Make an ID for an element
+	makeId: function (length) {
+		var result = '';
+		var characters =
+			'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+		var charactersLength = characters.length;
+		for (var i = 0; i < length; i++) {
+			result += characters.charAt(
+				Math.floor(Math.random() * charactersLength)
+			);
+		}
+		return result;
+	},
 
-    // Make an ID for an element
-    makeId: function(length) {
-        var result = "";
-        var characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-        var charactersLength = characters.length;
-        for ( var i = 0; i < length; i++ ) {
-            result += characters.charAt(Math.floor(Math.random() * charactersLength));
-        }
-        return result;
-    },
+	// Toast an alert (show, fade, dispose)
+	toastAlert: function (alertId, timeShown) {
+		var alertElement = document.getElementById(alertId);
 
-    // Toast an alert (show, fade, dispose)
-    toastAlert: function(alertId, timeShown) {
-        var alertElement = document.getElementById(alertId);
+		// Setting the default timeShown
+		if (timeShown === undefined) {
+			timeShown = 5000;
+		}
 
-        // Setting the default timeShown
-        if (timeShown === undefined) {
-            timeShown = 5000;
-        }
+		// Alert is only toasted if it does not have the .show class
+		if (!alertElement.classList.contains('show')) {
+			// Add .alert-block class if it does not exist
+			if (!alertElement.classList.contains('alert-block')) {
+				alertElement.classList.add('alert-block');
+			}
 
-        // Alert is only toasted if it does not have the .show class
-        if (!alertElement.classList.contains("show")) {
-            // Add .alert-block class if it does not exist
-            if (!alertElement.classList.contains("alert-block")) {
-                alertElement.classList.add("alert-block");
-            }
+			// Show the alert
+			// The 0.25 seconds delay is for the animation
+			setTimeout(function () {
+				alertElement.classList.add('show');
+			}, 250);
 
-            // Show the alert
-            // The 0.25 seconds delay is for the animation
-            setTimeout(function() {
-                alertElement.classList.add("show");
-            }, 250);
+			// Wait some time (timeShown + 250) and fade out the alert
+			var timeToFade = timeShown + 250;
+			setTimeout(function () {
+				alertElement.classList.add('fade');
+			}, timeToFade);
 
-            // Wait some time (timeShown + 250) and fade out the alert
-            var timeToFade = timeShown + 250;
-            setTimeout(function() {
-                alertElement.classList.add("fade");
-            }, timeToFade);
+			// Wait some more time (timeToFade + 500) and dispose the alert (by removing the .alert-block class)
+			// Again, the extra delay is for the animation
+			// Remove the .show and .fade classes (so the alert can be toasted again)
+			var timeToDestroy = timeToFade + 500;
+			setTimeout(function () {
+				alertElement.classList.remove('alert-block');
+				alertElement.classList.remove('show');
+				alertElement.classList.remove('fade');
+			}, timeToDestroy);
+		}
+	},
 
-            // Wait some more time (timeToFade + 500) and dispose the alert (by removing the .alert-block class)
-            // Again, the extra delay is for the animation
-            // Remove the .show and .fade classes (so the alert can be toasted again)
-            var timeToDestroy = timeToFade + 500;
-            setTimeout(function() {
-                alertElement.classList.remove("alert-block");
-                alertElement.classList.remove("show");
-                alertElement.classList.remove("fade");
-            }, timeToDestroy);
-        }
-    },
+	// Create a sticky alert, display it, and then remove it
+	initStickyAlert: function (param) {
+		// Setting the variables from the param
+		var content = 'content' in param ? param.content : '';
+		var title = 'title' in param ? param.title : '';
+		var alertType = 'alertType' in param ? param.alertType : '';
+		var fillType = 'fillType' in param ? param.fillType : '';
+		var hasDismissButton =
+			'hasDismissButton' in param ? param.hasDismissButton : true;
+		var timeShown = 'timeShown' in param ? param.timeShown : 5000;
 
-    // Create a sticky alert, display it, and then remove it
-    initStickyAlert: function(param) {
-        // Setting the variables from the param
-        var content = ("content" in param) ? param.content: "";
-        var title = ("title" in param) ? param.title: "";
-        var alertType = ("alertType" in param) ? param.alertType: "";
-        var fillType = ("fillType" in param) ? param.fillType: "";
-        var hasDismissButton = ("hasDismissButton" in param) ? param.hasDismissButton: true;
-        var timeShown = ("timeShown" in param) ? param.timeShown: 5000;
+		// Create the alert element
+		var alertElement = document.createElement('div');
 
-        // Create the alert element
-        var alertElement = document.createElement("div");
+		// Set ID to the alert element
+		alertElement.setAttribute('id', this.makeId(6));
 
-        // Set ID to the alert element
-        alertElement.setAttribute("id", this.makeId(6));
+		// Add the title
+		if (title) {
+			content = "<h4 class='alert-heading'>" + title + '</h4>' + content;
+		}
 
-        // Add the title
-        if (title) {
-            content = "<h4 class='alert-heading'>" + title + "</h4>" + content;
-        }
+		// Add the classes to the alert element
+		alertElement.classList.add('alert');
+		if (alertType) {
+			alertElement.classList.add(alertType);
+		}
+		if (fillType) {
+			alertElement.classList.add(fillType);
+		}
 
-        // Add the classes to the alert element
-        alertElement.classList.add("alert");
-        if (alertType) {
-            alertElement.classList.add(alertType);
-        }
-        if (fillType) {
-            alertElement.classList.add(fillType);
-        }
+		// Add the close button to the content (if required)
+		if (hasDismissButton) {
+			content =
+				"<button class='close' data-dismiss='alert' type='button' aria-label='Close'><span aria-hidden='true'>&times;</span></button>" +
+				content;
+		}
 
-        // Add the close button to the content (if required)
-        if (hasDismissButton) {
-            content = "<button class='close' data-dismiss='alert' type='button' aria-label='Close'><span aria-hidden='true'>&times;</span></button>" + content;
-        }
+		// Add the content to the alert element
+		alertElement.innerHTML = content;
 
-        // Add the content to the alert element
-        alertElement.innerHTML = content;
+		// Append the alert element to the sticky alerts
+		this.stickyAlerts.insertBefore(
+			alertElement,
+			this.stickyAlerts.childNodes[0]
+		);
 
-        // Append the alert element to the sticky alerts
-        this.stickyAlerts.insertBefore(alertElement, this.stickyAlerts.childNodes[0]);
+		// Toast the alert
+		this.toastAlert(alertElement.getAttribute('id'), timeShown);
+	},
 
-        // Toast the alert
-        this.toastAlert(alertElement.getAttribute("id"), timeShown);
-    },
+	/* End code block for handling sticky alerts */
 
-    /* End code block for handling sticky alerts */
+	// Click handler that can be overridden by users if needed
+	clickHandler: function (event) {},
 
-    // Click handler that can be overridden by users if needed
-    clickHandler: function(event) {},
-
-    // Keydown handler that can be overridden by users if needed
-    keydownHandler: function(event) {},
-}
+	// Keydown handler that can be overridden by users if needed
+	keydownHandler: function (event) {},
+};
 
 
 /* Things done once the DOM is loaded */

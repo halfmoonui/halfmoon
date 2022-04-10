@@ -91,7 +91,15 @@ var halfmoon = {
             this.createCookie("halfmoon_preferredMode", "dark-mode", 365);
         }
     },
-
+    setColorMode: function(mode){
+        if(mode == "dark"){
+            document.body.classList.add('dark-mode');
+        } else if (mode == "light"){
+            document.body.classList.remove("dark-mode");
+        } else {
+            console.err("must be \"light\" or \"dark\"")
+        }
+    },
     // Get preferred mode
     getPreferredMode: function() {
         if (this.readCookie("halfmoon_preferredMode")) {
