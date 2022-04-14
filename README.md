@@ -1,4 +1,4 @@
-*This is the main branch of the repo, which contains the latest stable release. For the ongoing development, see the [develop branch](https://github.com/halfmoonui/halfmoon/tree/develop).*
+
 
 # [Halfmoon](https://www.gethalfmoon.com)
 
