@@ -1,36 +1,44 @@
-*This is the main branch of the repo, which contains the latest stable release. For the ongoing development, see the [develop branch](https://github.com/halfmoonui/halfmoon/tree/develop).*
+# [Halfmoon v2](https://www.gethalfmoon.com)
 
-# [Halfmoon](https://www.gethalfmoon.com)
+![Halfmoon cover image](https://res.cloudinary.com/halfmoon-ui/image/upload/v1691920748/open-graph/og-image_hiacw3.png)
 
-> Front-end framework with a built-in dark mode and full customizability using CSS variables; great for building dashboards and tools.
+> Drop-in Bootstrap replacement, fully customizable with CSS variables.
 
-- **Built-in dark mode**—Halfmoon comes with a built-in, toggleable dark mode, which is one of its most important and defining features.
-- **Fully customizable using CSS variables**—The framework is built entirely using CSS variables (also known as CSS custom properties). There are close to *1,500 CSS variables*, which means that almost everything can be customized by overriding a property, making it very easy to theme Halfmoon to fit your brand. [Learn more about customization](https://www.gethalfmoon.com/docs/customize/).
-- **Great for building dashboards and tools**—The components have a very standard look and feel to them, making them suitable for dashboards and tools. Moreover, a lot of importance is placed on components such as forms, navbars, sidebars, dropdowns, toasts, shortcuts, etc. and there are also *tons of utilities* available.
-- **Optional JS library**—Many of the components found in Halfmoon are built to work without JavaScript. However, the framework still comes with a powerful JavaScript library with no extra dependencies, such as jQuery.
-- **Bootstrap like classes**—The class names should be instantly familiar to anyone who has used Bootstrap.
-- **Cross-browser compatibility**—Fully supports almost all the browsers under the sun, including really old ones like Internet Explorer 11.
+Halfmoon is an open-source, MIT-licensed, responsive CSS framework. Its defining feature is that it is a drop-in replacement for Bootstrap. Other features include a built-in dark mode, full customizability with CSS variables, standardized design, sidebar component, etc.
 
-To learn more, go to [the documentation](https://www.gethalfmoon.com/docs/introduction/).
+To learn more, please read [the documentation](https://www.gethalfmoon.com/docs/introduction/).
 
-## Quickstart
+## JavaScript
 
-The quickest way to get started with Halfmoon is by using the CDN to include the following files:
+We implement no JavaScript on our own, therefore, there is no  `halfmoon.js`  (or anything similar). Instead we rely entirely on  `bootstrap.bundle.js`, which you can  [download from Bootstrap's website](https://getbootstrap.com/docs/5.3/getting-started/download/). This means that you can replace  `bootstrap.css`  with  `halfmoon.css`  on your website, and everything should work exactly as expected.
+
+This also means that you can use any of the Bootstrap component libraries for popular JS frameworks such as React, Vue, Angular, Svelte, etc.
+
+## Starter template
+
+Here's a starter template to help you quickly get started with Halfmoon.
 
 ```html
-<!-- Halfmoon CSS -->
-<link href="https://cdn.jsdelivr.net/npm/halfmoon@1.1.1/css/halfmoon-variables.min.css" rel="stylesheet" />
-<!--
-  Or,
-  Use the following (no variables, supports IE11):
-  <link href="https://cdn.jsdelivr.net/npm/halfmoon@1.1.1/css/halfmoon.min.css" rel="stylesheet" />
--->
-
-<!-- Halfmoon JS -->
-<script src="https://cdn.jsdelivr.net/npm/halfmoon@1.1.1/js/halfmoon.min.js"></script>
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+ 
+    <title>Starter template - Halfmoon</title>
+ 
+    <!-- Halfmoon CSS -->
+    <link href="path/to/halfmoon.min.css" rel="stylesheet">
+  </head>
+  <body>
+    <h1>Hello, world!</h1>
+ 
+    <!-- Bootstrap JS bundle with Popper -->
+    <script src="path/to/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
 ```
-
-**Pleast note**, the JS file should be placed at the end of the `<body>` tag. Otherwise, some things may not work as expected. For example, using the `onclick="..."` event to call one of Halfmoon's built-in methods will not work **unless** the JS file is placed at the end of the `<body>` tag.
 
 ## Using npm
 
@@ -38,60 +46,17 @@ The quickest way to get started with Halfmoon is by using the CDN to include the
 npm install halfmoon
 ```
 
-After installation, the required CSS and JS file can be imported in the following way:
+Once the package has been installed, you can simply import the CSS file:
 
 ```javascript
-// Include CSS file
-require("halfmoon/css/halfmoon-variables.min.css");
-/*
-  Or,
-  Include the following (no variables, supports IE11):
-  require("halfmoon/css/halfmoon.min.css");
-*/
-
-// Import JS library
-const halfmoon = require("halfmoon");
+// Import Halfmoon CSS
+import "halfmoon/css/halfmoon.min.css";
 ```
-
-Please note that manual initialization is required for some components, that is, after the DOM is loaded, the following method needs to be called:
-
-```javascript
-// Call this method after the DOM has been loaded
-halfmoon.onDOMContentLoaded();
-```
-
-This initializes all of the components that require JavaScript, such as dropdowns, custom file inputs, shortcuts, etc. 
-
-In this way, Halfmoon can be used with frameworks that use the virtual DOM, such as React and Vue. For instance, in the case of Vue, the `halfmoon.onDOMContentLoaded()` method would be called inside the `mounted()` hook of your component.
-
-## Using React
-
-If you are using React to call the built-in methods, such as `halfmoon.toggleSidebar()`, please make sure the call is made in a way that binds the correct context. There are two ways to do this:
-
-1.  Using an anonymous method: 
-
-    ```html
-    <button className="btn" type="button" onClick={() => halfmoon.toggleSidebar()}>
-    ```
-
-2.  Using `bind`:
-
-    ```html
-    <button className="btn" type="button" onClick={halfmoon.toggleSidebar.bind(halfmoon)}>
-    ```
-
-You can find more details in the [React documentation](https://reactjs.org/docs/faq-functions.html#why-is-binding-necessary-at-all).
-
-## Starter template generator
-
-You can use the [starter template generator](https://www.gethalfmoon.com/docs/page-building/#starter-template-generator) to generate boilerplates for your project. The generator takes your settings and adds the appropriate classes and defines the required containers and elements.
-
-Once again, we recommend reading [the documentation](https://www.gethalfmoon.com/docs/introduction/), as it contains a lot of examples to help you quickly build websites.
 
 ## License
 
-Halfmoon is licensed under the [MIT](https://www.gethalfmoon.com/license/) license.
+Halfmoon is [licensed under MIT](https://www.gethalfmoon.com/license/).
 
 ## Copyright
 
-Copyright 2020, Halfmoon UI
+© Copyright 2023, Tahmid Khan
