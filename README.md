@@ -2,9 +2,9 @@
 
 ![Halfmoon cover image](https://res.cloudinary.com/halfmoon-ui/image/upload/v1691920748/open-graph/og-image_hiacw3.png)
 
-> Drop-in Bootstrap replacement, fully customizable with CSS variables.
+> Highly customizable, drop-in Bootstrap replacement.
 
-Halfmoon is an open-source, MIT-licensed, responsive CSS framework. Its defining feature is that it is a drop-in replacement for Bootstrap. Other features include a built-in dark mode, full customizability with CSS variables, standardized design, sidebar component, etc.
+Halfmoon is a highly customizable, drop-in Bootstrap replacement. It comes with three built-in core themes, with dark mode support for all themes and components. Build beautiful and responsive websites and applications.
 
 To learn more, please read [the documentation](https://www.gethalfmoon.com/docs/introduction/).
 
