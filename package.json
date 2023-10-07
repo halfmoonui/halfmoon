@@ -1,11 +1,11 @@
 {
   "name": "halfmoon",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Drop-in Bootstrap replacement, fully customizable with CSS variables.",
   "main": "css/halfmoon.min.css",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "rtlcss css/halfmoon.css css/halfmoon.rtl.css && csso css/halfmoon.css --output css/halfmoon.min.css --source-map file && csso css/halfmoon.rtl.css --output css/halfmoon.rtl.min.css --source-map file"
+    "build": "rtlcss css/halfmoon.css css/halfmoon.rtl.css && csso css/halfmoon.css --output css/halfmoon.min.css --source-map file && csso css/halfmoon.rtl.css --output css/halfmoon.rtl.min.css --source-map file && cat css/cores/halfmoon.modern.css css/cores/halfmoon.elegant.css > css/cores/halfmoon.cores.css"
   },
   "repository": {
     "type": "git",

@@ -1,0 +1,232 @@
+
+/*!
+ * ----------------------------------------------------------------------------
+ * Halfmoon CSS - Elegant theme
+ * Copyright (c) 2023, Tahmid Khan | MIT License | https://www.gethalfmoon.com
+ * ----------------------------------------------------------------------------
+ * The above notice must be included in its entirety when this file is used.
+ */
+
+/* Color palette */
+
+[data-bs-core=elegant] {
+	/* Light gray */
+
+	--bs-lightgray-hue: var(--bs-stone-hue);
+	--bs-lightgray-saturation: var(--bs-stone-saturation);
+
+	/* Dark gray */
+
+	--bs-darkgray-hue: var(--bs-stone-hue);
+	--bs-darkgray-saturation: var(--bs-stone-saturation);
+
+	/* Primary */
+
+	--bs-primary-hue: var(--bs-sable-hue);
+	--bs-primary-saturation: var(--bs-sable-saturation);
+	--bs-primary-100-hsl: var(--bs-sable-100-hsl);
+	--bs-primary-200-hsl: var(--bs-sable-200-hsl);
+	--bs-primary-300-hsl: var(--bs-sable-300-hsl);
+	--bs-primary-400-hsl: var(--bs-sable-400-hsl);
+	--bs-primary-500-hsl: var(--bs-sable-500-hsl);
+	--bs-primary-600-hsl: var(--bs-sable-600-hsl);
+	--bs-primary-700-hsl: var(--bs-sable-700-hsl);
+	--bs-primary-800-hsl: var(--bs-sable-800-hsl);
+	--bs-primary-900-hsl: var(--bs-sable-900-hsl);
+	--bs-primary-100: var(--bs-sable-100);
+	--bs-primary-200: var(--bs-sable-200);
+	--bs-primary-300: var(--bs-sable-300);
+	--bs-primary-400: var(--bs-sable-400);
+	--bs-primary-500: var(--bs-sable-500);
+	--bs-primary-600: var(--bs-sable-600);
+	--bs-primary-700: var(--bs-sable-700);
+	--bs-primary-800: var(--bs-sable-800);
+	--bs-primary-900: var(--bs-sable-900);
+	--bs-primary-hsl: var(--bs-sable-hsl);
+	--bs-primary: var(--bs-sable);
+	--bs-primary-foreground-hsl: var(--bs-sable-foreground-hsl);
+	--bs-primary-foreground: var(--bs-sable-foreground);
+	--bs-primary-text-emphasis-hsl: var(--bs-sable-text-emphasis-hsl);
+	--bs-primary-text-emphasis: var(--bs-sable-text-emphasis);
+	--bs-primary-hover-bg: var(--bs-sable-hover-bg);
+	--bs-primary-active-bg: var(--bs-sable-active-bg);
+	--bs-primary-bg-subtle: var(--bs-sable-bg-subtle);
+	--bs-primary-border-subtle: var(--bs-sable-border-subtle);
+	--bs-primary-checkbox-svg: var(--bs-sable-checkbox-svg);
+	--bs-primary-dash-svg: var(--bs-sable-dash-svg);
+	--bs-primary-radio-svg: var(--bs-sable-radio-svg);
+	--bs-primary-switch-svg: var(--bs-sable-switch-svg);
+
+	/* Info */
+
+	--bs-info-hue: var(--bs-sienna-hue);
+	--bs-info-saturation: var(--bs-sienna-saturation);
+	--bs-info-100-hsl: var(--bs-sienna-100-hsl);
+	--bs-info-200-hsl: var(--bs-sienna-200-hsl);
+	--bs-info-300-hsl: var(--bs-sienna-300-hsl);
+	--bs-info-400-hsl: var(--bs-sienna-400-hsl);
+	--bs-info-500-hsl: var(--bs-sienna-500-hsl);
+	--bs-info-600-hsl: var(--bs-sienna-600-hsl);
+	--bs-info-700-hsl: var(--bs-sienna-700-hsl);
+	--bs-info-800-hsl: var(--bs-sienna-800-hsl);
+	--bs-info-900-hsl: var(--bs-sienna-900-hsl);
+	--bs-info-100: var(--bs-sienna-100);
+	--bs-info-200: var(--bs-sienna-200);
+	--bs-info-300: var(--bs-sienna-300);
+	--bs-info-400: var(--bs-sienna-400);
+	--bs-info-500: var(--bs-sienna-500);
+	--bs-info-600: var(--bs-sienna-600);
+	--bs-info-700: var(--bs-sienna-700);
+	--bs-info-800: var(--bs-sienna-800);
+	--bs-info-900: var(--bs-sienna-900);
+	--bs-info-hsl: var(--bs-sienna-hsl);
+	--bs-info: var(--bs-sienna);
+	--bs-info-foreground-hsl: var(--bs-sienna-foreground-hsl);
+	--bs-info-foreground: var(--bs-sienna-foreground);
+	--bs-info-text-emphasis-hsl: var(--bs-sienna-text-emphasis-hsl);
+	--bs-info-text-emphasis: var(--bs-sienna-text-emphasis);
+	--bs-info-hover-bg: var(--bs-sienna-hover-bg);
+	--bs-info-active-bg: var(--bs-sienna-active-bg);
+	--bs-info-bg-subtle: var(--bs-sienna-bg-subtle);
+	--bs-info-border-subtle: var(--bs-sienna-border-subtle);
+	--bs-info-checkbox-svg: var(--bs-sienna-checkbox-svg);
+	--bs-info-dash-svg: var(--bs-sienna-dash-svg);
+	--bs-info-radio-svg: var(--bs-sienna-radio-svg);
+	--bs-info-switch-svg: var(--bs-sienna-switch-svg);
+}
+
+[data-bs-core=elegant][data-bs-theme=dark] {
+	/* Primary */
+
+	--bs-primary-hue: var(--bs-lightgray-hue);
+	--bs-primary-saturation: var(--bs-lightgray-saturation);
+	--bs-primary-100-hsl: var(--bs-lightgray-100-hsl);
+	--bs-primary-200-hsl: var(--bs-lightgray-200-hsl);
+	--bs-primary-300-hsl: var(--bs-lightgray-300-hsl);
+	--bs-primary-400-hsl: var(--bs-lightgray-400-hsl);
+	--bs-primary-500-hsl: var(--bs-lightgray-500-hsl);
+	--bs-primary-600-hsl: var(--bs-lightgray-600-hsl);
+	--bs-primary-700-hsl: var(--bs-lightgray-700-hsl);
+	--bs-primary-800-hsl: var(--bs-lightgray-800-hsl);
+	--bs-primary-900-hsl: var(--bs-lightgray-900-hsl);
+	--bs-primary-100: var(--bs-lightgray-100);
+	--bs-primary-200: var(--bs-lightgray-200);
+	--bs-primary-300: var(--bs-lightgray-300);
+	--bs-primary-400: var(--bs-lightgray-400);
+	--bs-primary-500: var(--bs-lightgray-500);
+	--bs-primary-600: var(--bs-lightgray-600);
+	--bs-primary-700: var(--bs-lightgray-700);
+	--bs-primary-800: var(--bs-lightgray-800);
+	--bs-primary-900: var(--bs-lightgray-900);
+	--bs-primary-hsl: var(--bs-lightgray-hsl);
+	--bs-primary: var(--bs-lightgray);
+	--bs-primary-foreground-hsl: var(--bs-lightgray-foreground-hsl);
+	--bs-primary-foreground: var(--bs-lightgray-foreground);
+	--bs-primary-text-emphasis-hsl: var(--bs-lightgray-text-emphasis-hsl);
+	--bs-primary-text-emphasis: var(--bs-lightgray-text-emphasis);
+	--bs-primary-hover-bg: var(--bs-lightgray-hover-bg);
+	--bs-primary-active-bg: var(--bs-lightgray-active-bg);
+	--bs-primary-bg-subtle: var(--bs-lightgray-bg-subtle);
+	--bs-primary-border-subtle: var(--bs-lightgray-border-subtle);
+	--bs-primary-checkbox-svg: var(--bs-lightgray-checkbox-svg);
+	--bs-primary-dash-svg: var(--bs-lightgray-dash-svg);
+	--bs-primary-radio-svg: var(--bs-lightgray-radio-svg);
+	--bs-primary-switch-svg: var(--bs-lightgray-switch-svg);
+
+	/* Info */
+
+	--bs-info-text-emphasis-hsl: var(--bs-sienna-text-emphasis-hsl);
+	--bs-info-text-emphasis: var(--bs-sienna-text-emphasis);
+	--bs-info-bg-subtle: var(--bs-sienna-bg-subtle);
+	--bs-info-border-subtle: var(--bs-sienna-border-subtle);
+}
+
+/* Variables */
+
+[data-bs-core=elegant] {
+	/* Font family */
+
+	--bs-body-font-family: var(--bs-font-serif);
+
+	/* Link */
+
+	--bs-link-color-hsl: var(--bs-primary-text-emphasis-hsl);
+	--bs-link-hover-color-hsl: var(--bs-primary-hsl);
+
+	/* Content (used as needed in cards, panels, menus, etc.) */
+
+	--bs-content-bg-hsl: var(--bs-body-bg-hsl);
+	--bs-content-border-color: var(--bs-border-color);
+
+	/* Form */
+
+	--bs-form-focus-border-color: var(--bs-info-border-subtle);
+	--bs-form-focus-shadow-hsl: var(--bs-info-hsl);
+	--bs-form-check-focus-border-color: var(--bs-info-border-subtle);
+}
+
+[data-bs-core=elegant]:not([data-bs-theme=dark]) {
+	/* Color */
+
+	--bs-body-color-hsl: var(--bs-color-hue), var(--bs-color-saturation), 5%;
+	--bs-secondary-color-hsl: var(--bs-color-hue), var(--bs-color-saturation), 30%;
+	--bs-tertiary-color-hsl: var(--bs-color-hue), var(--bs-color-saturation), 55%;
+
+	/* Background */
+
+	--bs-body-bg-hsl: var(--bs-info-hue), var(--bs-info-saturation), 97.5%;
+	--bs-secondary-bg-hsl: var(--bs-info-hue), var(--bs-info-saturation), 95%;
+	--bs-tertiary-bg-hsl: var(--bs-info-hue), var(--bs-info-saturation), 92.5%;
+
+	/* Border */
+
+	--bs-border-color: var(--bs-lightgray-900);
+
+	/* Action (used as needed in buttons, inputs, menu items, page links, etc.) */
+
+	--bs-action-color: hsl(var(--bs-color-hue), var(--bs-color-saturation), 10%);
+	--bs-action-bg: hsl(var(--bs-info-hue), var(--bs-info-saturation), 99%);
+	--bs-action-border-color: var(--bs-border-color);
+	--bs-action-hover-bg: hsl(var(--bs-info-hue), var(--bs-info-saturation), 94%);
+	--bs-action-active-bg: hsl(var(--bs-info-hue), var(--bs-info-saturation), 89%);
+	--bs-action-disabled-bg: hsl(var(--bs-info-hue), var(--bs-info-saturation), 89%);
+}
+
+[data-bs-core=elegant][data-bs-theme=dark] {
+	/* Color */
+
+	--bs-body-color-hsl: var(--bs-color-hue), var(--bs-color-saturation), 90%;
+	--bs-secondary-color-hsl: var(--bs-color-hue), var(--bs-color-saturation), 65%;
+	--bs-tertiary-color-hsl: var(--bs-color-hue), var(--bs-color-saturation), 40%;
+
+	/* Action (used as needed in buttons, inputs, menu items, page links, etc.) */
+
+	--bs-action-color: hsl(var(--bs-color-hue), var(--bs-color-saturation), 85%);
+	--bs-action-border-color: var(--bs-border-color);
+
+	/* Contextual buttons */
+
+	--bs-ctx-btn-border-color: transparent;
+	--bs-ctx-btn-bg-clip: border-box;
+
+	/* Action bar (used as needed in range, progress, etc.) */
+
+	--bs-actionbar-border-color: hsla(var(--bs-white-hsl), 0.075);
+	--bs-progresstrack-border-width: 0;
+	--bs-progresstrack-box-shadow: inset 0 0 0 var(--bs-border-width) var(--bs-actionbar-border-color);
+	--bs-progresstrack-bg-clip: border-box;
+}
+
+/* Sidebar */
+
+[data-bs-core=elegant] .sidebar {
+	--bs-sidebar-bg: var(--bs-secondary-bg);
+	--bs-sidebar-border-width: 0;
+}
+
+[data-bs-core=elegant] .sidebar-nav .nav-link.active,
+[data-bs-core=elegant] .sidebar-nav .nav-link.show {
+	padding-left: 0.75rem;
+	background-color: hsla(var(--bs-emphasis-color-hsl), 0.05);
+	border-left: var(--bs-border-width-2) solid var(--bs-info);
+}
