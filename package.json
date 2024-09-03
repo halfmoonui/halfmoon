@@ -1,6 +1,6 @@
 {
   "name": "halfmoon",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "Drop-in Bootstrap replacement, fully customizable with CSS variables.",
   "main": "css/halfmoon.min.css",
   "scripts": {
@@ -31,6 +31,6 @@
   "homepage": "https://www.gethalfmoon.com",
   "dependencies": {
     "csso-cli": "^4.0.2",
-    "rtlcss": "^4.1.0"
+    "rtlcss": "^4.3.0"
   }
 }
